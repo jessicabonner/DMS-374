@@ -34,28 +34,28 @@ $Availability= implode(',', $_POST['Availability_list']);
 
 
 /*
-$sql = "INSERT INTO application (FName, MName, LName, EID, Address, City, State, Zip, Phone, Email, employment, 
-Classification, Degree_Type, Major, Major_2, Worked_at_dms, Volunteered_at_seton, Car, Semester_commitment, EssayQ1, 
-EssayQ2, EssayQ3, EssayQ4, EssayQ5, Availability) VALUES ('$FName', '$MName', '$LName', '$EID', '$Address', '$City', 
-'$State', '$Zip', '$Phone', '$Email', '$employment', '$classification', '$Degree_Type', '$Major', '$Major_2', '$Worked_at_dms', 
+$sql = "INSERT INTO application (FName, MName, LName, EID, Address, City, State, Zip, Phone, Email, employment,
+Classification, Degree_Type, Major, Major_2, Worked_at_dms, Volunteered_at_seton, Car, Semester_commitment, EssayQ1,
+EssayQ2, EssayQ3, EssayQ4, EssayQ5, Availability) VALUES ('$FName', '$MName', '$LName', '$EID', '$Address', '$City',
+'$State', '$Zip', '$Phone', '$Email', '$employment', '$classification', '$Degree_Type', '$Major', '$Major_2', '$Worked_at_dms',
 '$Volunteered_at_seton', '$Car', '$Semester_commitment', '$EssayQ1', '$EssayQ2', '$EssayQ3', '$EssayQ4', '$EssayQ5', '$Availability')";
 
-$result= mysqli_query($dbc, $sql) or die(mysqli_error($dbc)); 
+$result= mysqli_query($dbc, $sql) or die(mysqli_error($dbc));
 */
 
-if ($sql=$mysqli -> prepare("INSERT INTO application (FName, MName, LName, EID, Address, City, State, Zip, Phone, Email, employment, 
-Classification, Degree_Type, Major, Major_2, Worked_at_dms, Volunteered_at_seton, Car, Semester_commitment, EssayQ1, 
+if ($sql=$mysqli -> prepare("INSERT INTO application (FName, MName, LName, EID, Address, City, State, Zip, Phone, Email, employment,
+Classification, Degree_Type, Major, Major_2, Worked_at_dms, Volunteered_at_seton, Car, Semester_commitment, EssayQ1,
 EssayQ2, EssayQ3, EssayQ4, EssayQ5, Availability) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")){
-	
-	$sql->bind_param("sssssssssssssssssssssssss",$FName, $MName, $LName, $EID, $Address, $City, 
-$State, $Zip, $Phone, $Email, $employment, $classification, $Degree_Type, $Major, $Major_2, $Worked_at_dms, 
+
+	$sql->bind_param("sssssssssssssssssssssssss",$FName, $MName, $LName, $EID, $Address, $City,
+$State, $Zip, $Phone, $Email, $employment, $classification, $Degree_Type, $Major, $Major_2, $Worked_at_dms,
 $Volunteered_at_seton, $Car, $Semester_commitment, $EssayQ1, $EssayQ2, $EssayQ3, $EssayQ4, $EssayQ5, $Availability);
 
 	$sql-> execute();
-	
+
 	$sql->close();
 }
 
-echo '<h1 style= "text-align: center">Thanks for applying!</h1>';
+echo '<h1 style= "text-align:center;color:#BF5700">Your application has been received! Thanks for applying!</h1>';
 
 ?>
