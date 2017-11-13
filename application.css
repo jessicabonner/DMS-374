@@ -1,0 +1,16 @@
+input[type="text"] {
+  display: block;
+  margin-bottom: 25px;
+  width:200px;
+  border: 2px solid black;
+}
+
+textarea[class=written] {
+  display: block;
+  margin-bottom: 25px;
+  max-width:800px;
+  overflow: auto;
+  position: relative;
+  max-height:200px;
+  border: 2px solid black;
+}
