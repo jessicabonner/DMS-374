@@ -3,12 +3,14 @@
 <html>
 <head>
 	<link href='application.css' type='text/css' rel='stylesheet'>
+	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 
 
 <title>
 	Dell Medical School - Apply
 </title>
+
 
 
 <meta charset="UTF-8">
@@ -74,9 +76,9 @@ id="mySidebar"><br>
 
 <div class="w3-container" id="application" style="margin-top:10px">
 
-
+<body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
-	<form action = "DMS_connect2.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
+	<form name="apply_form" action = "DMS_connect2.php" method= "post" onsubmit="confirm('Are you sure you want to submit?');">
 
 		<table>
 
@@ -459,8 +461,10 @@ id="mySidebar"><br>
 		
 			<tr>What is your availability for the upcoming semester?</tr>
 
+			
+			
 			<tr>
-				<td><br></td>
+				<td><input type="checkbox" name="availability_list[]" value="NA" required>Unknown</td>
 			</tr>
 
 			<!--create column names-->
@@ -477,47 +481,46 @@ id="mySidebar"><br>
 			<!--input checkboxes and row names-->
 			<tr>
 				<td>8am-10am</td>
-				<td><input type="checkbox" name="availability_list[]" value="M8" id="M8"></td>
-				<td><input type="checkbox" name="availability_list[]" value="T8" id="T8"></td>
-				<td><input type="checkbox" name="availability_list[]" value="W8" id="W8"></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH8" id="TH8"></td>
-				<td><input type="checkbox" name="availability_list[]" value="F8" id="F8"></td>
+				<td><input type="checkbox" name="availability_list[]" value="M8" id="M8" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T8" id="T8" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W8" id="W8" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH8" id="TH8" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F8" id="F8" required></td>
 			</tr>
 		
 			<tr>
 				<td>10am-12pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M10" id="M10"></td>
-				<td><input type="checkbox" name="availability_list[]" value="T10" id="T10"></td>
-				<td><input type="checkbox" name="availability_list[]" value="W10" id="W10"></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH10" id="TH10"></td>
-				<td><input type="checkbox" name="availability_list[]" value="F10" id="F10"></td>
+				<td><input type="checkbox" name="availability_list[]" value="M10" id="M10" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T10" id="T10" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W10" id="W10" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH10" id="TH10" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F10" id="F10" required></td>
 			</tr>
 	
 			<tr>
 				<td>12pm-2:30pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M12" id="M12"></td>
-				<td><input type="checkbox" name="availability_list[]" value="T12" id="T12"></td>
-				<td><input type="checkbox" name="availability_list[]" value="W12" id="W12"></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH12" id="TH12"></td>
-				<td><input type="checkbox" name="availability_list[]" value="F12" id="F12"></td>
+				<td><input type="checkbox" name="availability_list[]" value="M12" id="M12" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T12" id="T12" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W12" id="W12" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH12" id="TH12" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F12" id="F12" required></td>
 			</tr>
 		
 			<tr>	
 				<td>2:30pm-5pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M230" id="M230"></td>
-				<td><input type="checkbox" name="availability_list[]" value="T230" id="T230"></td>
-				<td><input type="checkbox" name="availability_list[]" value="W230" id="W230"></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH230" id="TH230"></td>
-				<td><input type="checkbox" name="availability_list[]" value="F230" id="F230"></td>
+				<td><input type="checkbox" name="availability_list[]" value="M230" id="M230" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T230" id="T230"required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W230" id="W230"required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH230" id="TH230" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F230" id="F230" required></td>
 			</tr>
 
 			<tr>
 				<td><br></td>
 			</tr>
 		
-			<tr>
-				<td><input type="checkbox" name="availability_list[]" value="NA">Unknown</td>
-			</tr>
+			
+			
 
 		</table>
 
@@ -529,11 +532,38 @@ id="mySidebar"><br>
 
 
 		<!--submit button. Will post info.-->
-		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit Application" /> </td>
+		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit Application"/> </td>
 
 
 	</form>
+	
+	
+	<!--JQuery used to ensure at least one checkbox is checked off for availability-->
+	<!--finction will remove required tags from checkboxes as long as at least one box is checked off-->
+	<script>
+		$(function(){
 
+			var requiredCheckboxes = $(':checkbox[required]');
+
+			requiredCheckboxes.change(function(){
+
+				if(requiredCheckboxes.is(':checked')) {
+					requiredCheckboxes.removeAttr('required');
+				}
+
+				else {
+					requiredCheckboxes.attr('required', 'required');
+				}
+			});
+
+		});
+	</script>
+</body>
 </div>
 
 </html>
+
+
+
+
+
