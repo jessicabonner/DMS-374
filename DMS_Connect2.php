@@ -35,31 +35,24 @@ $availability= implode(',', $_POST['availability_list']);
 
 
 
-//create sql code to insert record into application table
-$sql = "INSERT INTO application (first_name, middle_name, last_name, EID, address, city, state, zip_code, phone, email, employment,
+//prepare SQL statement to prevent SQL injection
+$stmt = $dbc-> prepare('INSERT INTO application (first_name, middle_name, last_name, EID, address, city, state, zip_code, phone, email, employment,
 classification, degree_type, major, major_2, worked_at_dms, volunteered_at_seton, car, semester_commitment, essay_q1,
-essay_q2, essay_q3, essay_q4, essay_q5, availability) VALUES ('$first_name', '$middle_name', '$last_name', '$EID', '$address', '$city',
-'$state', '$zip_code', '$phone', '$email', '$employment', '$classification', '$degree_type', '$major', '$major_2', '$worked_at_dms',
-'$volunteered_at_seton', '$car', '$semester_commitment', '$essay_q1', '$essay_q2', '$essay_q3', '$essay_q4', '$essay_q5', '$availability')";
-
-//commit sql code
-$result= mysqli_query($dbc, $sql) or die(mysqli_error($dbc));
+essay_q2, essay_q3, essay_q4, essay_q5, availability) VALUES (:first_name, :middle_name, :last_name, :EID, :address, :city, :state, :zip_code, :phone, 
+:email, :employment, :classification, :degree_type, :major, :major_2, :worked_at_dms, :volunteered_at_seton, :car, :semester_commitment, :essay_q1,
+:essay_q2, :essay_q3, :essay_q4, :essay_q5, :availability)');
 
 
-/*
-if ($sql=$mysqli -> prepare("INSERT INTO application (first_name, middle_name, last_name, EID, address, city, state, zip_code, phone, email, employment,
-classification, degree_type, major, major_2, worked_at_dms, volunteered_at_seton, car, semester_commitment, essay_q1,
-essay_q2, essay_q3, essay_q4, essay_q5, availability) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)")){
+//bind variables to prepared statement and execute
+$stmt->execute(array('first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'EID' => $EID,'address' => $address,'city' => $city,
+'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'classification' => $classification,
+'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2,'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
+'car'=>$car,'semester_commitment' => $semester_commitment,'essay_q1' => $essay_q1,'essay_q2' => $essay_q2,'essay_q3' => $essay_q3,'essay_q4' => $essay_q4,
+'essay_q5' => $essay_q5,'availability' => $availability ));
 
-	$sql->bind_param("sssssssssssssssssssssssss",$first_name, $middle_name, $last_name, $EID, $address, $city,
-	$state, $zip_code, $phone, $email, $employment, $classification, $degree_type, $major, $major_2, $worked_at_dms,
-	$volunteered_at_seton, $car, $semester_commitment, $essay_q1, $essay_q2, $essay_q3, $essay_q4, $essay_q5, $availability);
+	
 
-	$sql-> execute();
 
-	$sql->close();
-}
-*/
 
 
 echo '<h1 style= "text-align:center;color:#BF5700">Your application has been received! Thanks for applying!</h1>';
