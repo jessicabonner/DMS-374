@@ -3,7 +3,8 @@
 <html>
 <head>
 	<link href='application.css' type='text/css' rel='stylesheet'>
-	<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+	<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 
 
@@ -539,8 +540,10 @@ id="mySidebar"><br>
 	
 	
 	<!--JQuery used to ensure at least one checkbox is checked off for availability-->
-	<!--finction will remove required tags from checkboxes as long as at least one box is checked off-->
+	
 	<script>
+	
+		//function will remove required tags from checkboxes as long as at least one box is checked off
 		$(function(){
 
 			var requiredCheckboxes = $(':checkbox[required]');
@@ -556,6 +559,20 @@ id="mySidebar"><br>
 				}
 			});
 
+		});
+		
+		
+		//function to limit the amount of characters in textarea 
+		$("textarea").keyup(function(){
+			
+			 var words = this.value.match(/\S+/g).length;
+
+			if (words > 500) {
+			// Split the string on first 200 words and rejoin on spaces
+			var trimmed = $(this).val().split(/\s+/, 500).join(" ");
+			// Add a space at the end to make sure more typing creates new words
+			$(this).val(trimmed + " ");
+			}
 		});
 	</script>
 </body>
