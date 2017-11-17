@@ -78,7 +78,7 @@ id="mySidebar"><br>
 
 <body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
-	<form name="apply_form" action = "DMS_connect2.php" method= "post" onsubmit="confirm('Are you sure you want to submit?');">
+	<form name="apply_form" action = "DMS_connect2.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
 
 		<table>
 
@@ -215,7 +215,7 @@ id="mySidebar"><br>
 				<td>Email Address</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="email" size="20" maxlength="30" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/></td>
+				<td><input type="text" placeholder="ex: John@utexas.edu" name="email" size="20" maxlength="30" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/></td>
 			</tr>
 
 
@@ -378,7 +378,7 @@ id="mySidebar"><br>
 				<td>What are your career goal(s) and your plan to achieve them? (500 word limit)</td>
 			</tr>
 			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q1" rows="10" 
+				<td><input type="text" placeholder="Please enter your response here" name="essay_q1" rows="10" 
 				cols="800" required pattern="(\w+\W+){0,499}\w+\W*"></textarea></td>
 			</tr>
 
@@ -395,7 +395,7 @@ id="mySidebar"><br>
 			</tr>
 			<tr>
 				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q2" rows="10" 
-				cols="800" required pattern="(\w+\W+){0,499}\w+\W*"></textarea></td>
+				cols="800" required pattern="(\w*\W*){0,500}"></textarea></td>
 			</tr>
 
 		
@@ -411,7 +411,7 @@ id="mySidebar"><br>
 			</tr>
 			<tr>
 				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q3" 
-				rows="10" cols="800" required pattern="(\w+\W+){0,499}\w+\W*"></textarea></td>
+				rows="10" cols="800" required pattern="^(?:\w+\W+){0,500}(?:\w+)$"></textarea></td>
 			</tr>
 
 
@@ -443,7 +443,7 @@ id="mySidebar"><br>
 			</tr>
 			<tr>
 				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q5" 
-				rows="10" cols="800" required pattern="(\w+\W+){0,499}\w+\W*"></textarea></td>
+				rows="10" cols="800" required pattern="^(?:\b\w+\b[\s\r\n]*){1,250}$"></textarea></td>
 			</tr>
 	
 		</table>
