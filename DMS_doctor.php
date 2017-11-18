@@ -5,7 +5,7 @@ require 'DMS_db.php';
 $sql = 'SELECT ApplicationID, first_name, last_name, EID, email, classification, major, accepted_by_DMS
 		FROM application';
 		
-$query = mysqli_query($dbc, $sql);
+$query = mysqli_query($dbc, $sql); //what's the error
 
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($dbc));
