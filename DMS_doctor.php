@@ -5,7 +5,9 @@ require 'DMS_db.php';
 $sql = 'SELECT ApplicationID, first_name, last_name, EID, email, classification, major, accepted_by_DMS
 		FROM application';
 		
-$query = mysqli_query($dbc, $sql); //what's the error
+//$query = mysqli_query($dbc, $sql); //what's the error
+
+$query= $dbc->query($sql);;
 
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($dbc));
@@ -115,7 +117,9 @@ if (!$query) {
 		
 		<tbody>
 		<?php
-		while ($row = mysqli_fetch_array($query))
+		//while ($row = mysqli_fetch_array($query))
+			
+		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 			echo '<tr>
 					<td>'.$row['ApplicationID'].'</td>
