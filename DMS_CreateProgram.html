@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href='application.css' type='text/css' rel='stylesheet'>
+	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+</head>
+
+
+<body>
+	<!--this form will post to DMS_connect in order to submit data to DB-->
+	<form name="apply_form" action = "DMS_CreateProgram.php" method= "post" onsubmit="return confirm('Are you sure you want to submit? This action cannot be undone');">
+
+		<table>
+
+			<!--text box for name of program-->
+			<!--This will become the name of the program's application table?-->
+			<tr>
+				<td><p>Name of Program</p></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="name_of_program" size="20" required/></td>
+			</tr>
+			
+			<!--text box for students first name!-->
+			<tr>
+				<td>Doctor EID</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="doctor_EID" size="20" maxlength="10" required/></td>
+			</tr>
+			
+			<!--text box for students first name!-->
+			
+		
+		<!--break-->
+		<tr>
+			<td><br></td>
+		</tr>
+
+
+		<!--submit button. Will post info.-->
+		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" name="submit"/> </td>
+		
+		
+		
+	
+	
+
+	
+	</body>
+</html>
+
