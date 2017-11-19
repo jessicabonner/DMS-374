@@ -9,7 +9,7 @@
 		$number_unique_questions=$_POST['number_unique_questions'];
 		
 		$array_unique_questions=$_POST['list_unique_questions'];
-		$list_unique_questions= implode(',', $_POST['list_unique_questions']);
+		$list_unique_questions= implode('(#!BREAK!#)', $_POST['list_unique_questions']);
 		
 		$term=$_POST['term'];
 		$year=$_POST['year'];
@@ -28,7 +28,7 @@
 		
 		
 		
-		
+		$application_id=$dbc->lastInsertId();
 		
 		//Below is making the table for the specific program
 		$sql_table_fields="";
@@ -46,7 +46,7 @@
 		$name_of_program = $x[$column_name];
 		
 		
-		$name_of_table= $program_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
+		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
 		
 		try {
 			
