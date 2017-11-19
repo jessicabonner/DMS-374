@@ -33,7 +33,7 @@
 				<td>
 					<select name="program_id" required>
 						<?php foreach($programs as $program): ?>
-						<option value="<?= $program['program_id']; ?>"><?= $program['name_of_program']; ?></option>
+							<option value="<?= $program['program_id']; ?>"><?= $program['name_of_program']; ?></option>
 						<?php endforeach; ?>
 					</select>
 				</td>

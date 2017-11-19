@@ -30,27 +30,38 @@
 	$stmt->execute();
 	
 	$y = $stmt->fetch();
+	$name_of_program=$y['name_of_program'];
+	
+	
+	//exact copy from DMS_create program_connect.php
+	$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
 	
 
 	
 	$sql_fields="";
 	$sql_values="";
-	$sql_array="";
+	$sql_array=array();
+	
+	//addes each answer to the sql code to be inserted into the database table
 	foreach((array) $array_unique_questions as $key=>$value)
 	{
-		$question_.$key=$_POST['question_'.$key];
+		${'question_'.$key}=$_POST['question_'.$key];
 		//echo $question;
 		if ($sql_fields=="")
 		{
 			$sql_fields=$sql_fields.'question_'.$key;
-			$sql_values=$sql_values.':question_'.$key;
-			$sql_array=$sql_array."'question_".$key."' =>".'$question_'.$key;
+			//$sql_values=$sql_values.':question_'.$key;
+			$sql_values='?';
+			//$sql_array[]="'question_".$key."' =>".${'question_'.$key};
+			$sql_array[]=${'question_'.$key};
 		}
 		else
 		{
 			$sql_fields=$sql_fields.',question_'.$key;
-			$sql_values=$sql_values.',:question_'.$key;
-			$sql_array=$sql_array.",'question_".$key."' =>".'$question_'.$key;
+			//$sql_values=$sql_values.',:question_'.$key;
+			$sql_values=$sql_values.',?';
+			//$sql_array[]=",'question_".$key."' =>".${'question_'.$key};
+			$sql_array[]=${'question_'.$key};
 		}
 	}
 	
@@ -60,9 +71,9 @@
 //$first_name=$_POST['first_name'];
 
 //prepare SQL statement to prevent SQL injection
-$stmt = $dbc-> prepare("INSERT INTO application ($sql_fields)VALUES ($sql_values)");
+$stmt = $dbc-> prepare("INSERT INTO $name_of_table ($sql_fields)VALUES ($sql_values)");
 
-$stmt->execute(array($sql_array));
+$stmt->execute($sql_array);
 
 
 ?>

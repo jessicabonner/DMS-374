@@ -7,10 +7,23 @@
 </head>
 
 <?php
+	require 'DMS_db.php';	
 		
-	$application_id="13";
+	$application_id=$_POST['application_id'];
+	
+	$sql="SELECT program_id FROM applications WHERE application_id=$application_id";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$application = $stmt->fetch();
+	
+	$sql="SELECT name_of_program FROM programs WHERE program_id=$application[program_id]";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+						
+	$program = $stmt->fetch();
+	echo $program['name_of_program'];
 
-	require 'DMS_db.php';
+	
 				
 	$sql="SELECT number_unique_questions, list_unique_questions FROM applications WHERE application_id='".$application_id."'";
 	$stmt=$dbc->prepare($sql);
