@@ -75,5 +75,7 @@ $stmt = $dbc-> prepare("INSERT INTO $name_of_table ($sql_fields)VALUES ($sql_val
 
 $stmt->execute($sql_array);
 
+echo "Thanks for applying! :)";
+
 
 ?>

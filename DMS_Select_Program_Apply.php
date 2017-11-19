@@ -44,6 +44,8 @@
 						echo "<tr><td><input type='radio' name='application_id' value=$application[application_id] required>$name_of_program<br></td></tr>";
 					}
 				?>
+				
+				
 			
 			
 			
