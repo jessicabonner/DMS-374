@@ -35,7 +35,7 @@
 <!--APPLICATION ID HARD CODED RIGHT NOW CHANGE LATER!!!-->
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "DMS_Dynamic_Application_connect.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
-		<input type="hidden" value="13" name="application_id" />
+		<input type="hidden" name="application_id" value="<?php echo $application_id?>"/>
 		<table>
 			<?php
 				foreach($array_unique_questions as $key=>$value)
