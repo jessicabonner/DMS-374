@@ -8,7 +8,7 @@
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$applications= $stmt->fetchAll();
-	
+
 	$user_id=$_GET['user_id'];
 
 ?>
