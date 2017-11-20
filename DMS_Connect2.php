@@ -49,7 +49,7 @@ $stmt->execute(array('user_id' => $user_id, 'first_name' => $first_name, 'middle
 'car'=>$car,'semester_commitment' => $semester_commitment,'availability' => $availability ));
 
 	
-//comment
+
 
 
 
