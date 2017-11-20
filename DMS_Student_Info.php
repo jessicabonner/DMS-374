@@ -53,7 +53,7 @@
       <div class="row">
         <div class="column small-12">
            <div class="p2-logo">
-             <a href="/" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
+             <a href="http://dellmed.utexas.edu" onclick="w3_close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
           </div>
         </div>
       </div>
@@ -392,6 +392,8 @@
 			<tr>
 				<td>Have you previously worked at Dell Medical School?</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="radio" name="worked_at_dms" value="1" required>Yes<br></td>
 			</tr>
