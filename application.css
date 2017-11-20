@@ -14,3 +14,11 @@ textarea[class=written] {
   max-height:200px;
   border: 2px solid black;
 }
+
+input[type="submit"] {
+  background-color: #bf5700;
+}
+
+table{
+  margin-right: 10px
+}
