@@ -4,10 +4,12 @@
 	//$user_id=$_GET['user_id'];
 	require 'DMS_db.php';
 
-	$sql="SELECT program_id, application_id FROM applications";
+	$sql="SELECT program_id, application_id, application_closed FROM applications";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$applications= $stmt->fetchAll();
+	
+	$user_id=$_GET['user_id'];
 
 ?>
 
@@ -168,6 +170,8 @@
 
 					foreach($applications as $application)
 					{
+						if ($application['application_closed']==0)
+						{
 						$sql="SELECT name_of_program FROM programs WHERE program_id=$application[program_id]";
 						$stmt=$dbc->prepare($sql);
 						$stmt->execute();
@@ -176,6 +180,7 @@
 						$name_of_program = $program['name_of_program'];
 
 						echo "<tr><td><input type='radio' name='application_id' value=$application[application_id] required>$name_of_program<br></td></tr>";
+						}
 					}
 				?>
 

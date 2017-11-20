@@ -188,6 +188,7 @@
 <body>
 
 
+
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "DMS_Dynamic_Application_connect.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
 		<input type="hidden" name="application_id" value="<?php echo $application_id?>"/>

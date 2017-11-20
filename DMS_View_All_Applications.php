@@ -195,6 +195,7 @@ if (!$query) {
 		{
 				$id = $row['application_id'];
 				
+				
 				if ($row['application_closed']==0)
 				{
 					$application_closed="Yes";
