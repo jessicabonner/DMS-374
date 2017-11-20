@@ -41,7 +41,8 @@ id="mySidebar"><br>
 	</div>
 	
     <div class="w3-bar-block">
-		<a href="DMS_Select_Program_Apply.php" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Apply</a>
+		<!--no link to apply so they can't bypass the student info part-->
+		<a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Apply</a>
 		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Dashboard</a>
 	</div>
 </nav>
@@ -312,10 +313,10 @@ id="mySidebar"><br>
 				<td>Have you previously worked at Dell Medical School?</td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="worked_at_dms" value="TRUE" required>Yes<br></td>
+				<td><input type="radio" name="worked_at_dms" value="1" required>Yes<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="worked_at_dms" value="FALSE">No<br></td>
+				<td><input type="radio" name="worked_at_dms" value="0">No<br></td>
 			</tr>
 
 		
@@ -330,10 +331,10 @@ id="mySidebar"><br>
 				<td>Have you previously volunteered at Seton Hospital?</td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="volunteered_at_seton" value="TRUE" required>Yes<br></td>
+				<td><input type="radio" name="volunteered_at_seton" value="1" required>Yes<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="volunteered_at_seton" value="FLASE">No<br></td>
+				<td><input type="radio" name="volunteered_at_seton" value="0">No<br></td>
 			</tr>
 		
 			<!--break-->
@@ -347,10 +348,10 @@ id="mySidebar"><br>
 				<td>Do you own a car?</td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="car" value="TRUE" required>Yes<br></td>
+				<td><input type="radio" name="car" value="1" required>Yes<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="car" value="FALSE">No<br></td>
+				<td><input type="radio" name="car" value="0">No<br></td>
 			</tr>
 
 		
