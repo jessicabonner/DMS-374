@@ -122,9 +122,25 @@
       </div> <!-- container-nav-phase2 -->
 
     </div> <!-- nav-wrapper -->
+		<!-- !PAGE CONTENT! -->
+		<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
-		<br>
-		<br>
+		  <!-- Header -->
+		<div class="w3-container" style="margin-top:40px" id="showcase">
+			<h1 class="w3-jumbo">
+				<b>Create a New Application</b>
+			</h1>
+
+
+			<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+			<br>
+			<b>Please enter the name of the program and its associated doctor </b>
+			<br>
+			<br>
+		</div>
+
+
+		<div class="w3-container" id="application" style="margin-top:10px">
 
 <body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
@@ -145,8 +161,11 @@
 
 			<tr>
 
-				<td>Please select which program this application is for</td>
+
+				<td>Please associate a new application with a program and enter any unique questions</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 
 			<tr>
 				<td>
@@ -167,6 +186,8 @@
 
 				<td>Please enter the year and semester that this application is for</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 
 
 			<tr>
@@ -197,6 +218,8 @@
 			<tr>
 				<td>Please enter the number of custom questions that you wish to create</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="text" name="number_unique_questions" id="number_unique_questions" size="20" maxlength="2" pattern="^[0-9]+$" required/></td>
 

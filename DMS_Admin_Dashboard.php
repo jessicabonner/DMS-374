@@ -124,17 +124,17 @@
     </div> <!-- nav-wrapper -->
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:40px;margin-right:300px">
+<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
   <!-- Header -->
-<div class="w3-container" style="margin-top:20px" id="showcase">
+<div class="w3-container" style="margin-top:40px" id="showcase">
 	<h1 class="w3-jumbo">
 		<b>Welcome to the Admin Dashboard</b>
 	</h1>
 
 
 
-	<hr style="width:945px;border:5px solid #BF5700" class="w3-round">
+	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 </div>
 
 
