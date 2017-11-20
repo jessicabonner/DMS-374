@@ -1,76 +1,143 @@
-<!--Form to allow students to apply to dell med school internship programs-->
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en" dir="ltr">
 <head>
-	<link href='application.css' type='text/css' rel='stylesheet'>
-	<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
+	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+<meta name="msapplication-TileColor" content="#bf5700" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-72x72.png" />
+<meta name="description" content="Dell Medical School at The University of Texas at Austin is the first med school in decades to be built from the ground up at a Tier 1 research university." />
+<meta name="robots" content="follow, index" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://dellmed.utexas.edu" />
+<link rel="shortlink" href="https://dellmed.utexas.edu" />
+  <title>Dell Medical School | The University of Texas at Austin</title>
+  <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+<style type="text/css" media="all">
+/*--><![CDATA[/*><!--*/
+#main-nav li a{font-family:open_sans;}
+.UT-page{margin-top:50px;}
 
-
-<title>
-	Dell Medical School 
-</title>
-
-
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-
-
-<style>
-	body,h1,h2,h3,h4,h5 {font-family: "Open Sans", serif}	
-	body {font-size:16px;}
-	.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-	.w3-half img:hover{opacity:1}
+/*]]>*/
 </style>
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
+  <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
+</head>
 
+<body class="html front not-logged-in no-sidebars page-node"  >
+  <div id="skip-link">
+    <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+      <header class="UT-header theme1">
 
-  <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding" style="background-color:#BF5700;z-index:3;width:350px;font-weight:bold;" 
-id="mySidebar"><br>
-	
-	<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-	
-	
-	<div class="w3-container">
-		<!--<h3 class="w3-padding-64"><b>Dell Medical</br>School</b></h3>-->
-		<img src="DMS_logo2.jpg" alt="Dell Medical School" height="75px"/>
-	</div>
-	
-    <div class="w3-bar-block">
-		<!--no link to apply so they can't bypass the student info part-->
-		<a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Apply</a>
-		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Dashboard</a>
-	</div>
-</nav>
+    <div class="container container-logo-p2">
+      <div class="row">
+        <div class="column small-12">
+           <div class="p2-logo">
+             <a href="/" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
+    </div> <!-- container-logo -->
 
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <div class="nav-wrapper" role="navigation">
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding" style="background-color:#BF5700">
-  <a href="javascript:void(0)" class="w3-button w3-margin-right" style="background-color:#BF5700" onclick="w3_open()">☰</a>
-  <span style="background-color:#BF5700">Dell Medical School</span>
-</header>
+      <div class="container container-topnav">
+        <div class="row">
+          <div class="column small-12">
+            <div class="topnav">
+              <div class="hide-for-large-up">
+                <ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
+<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
+<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
+<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
+</ul>              </div>
+              <div class="parent-banner-links">
+                <h2 class="UT-secondary-logo">
+                  <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+                </h2>
+                              </div>
 
+              <div class="hide-for-large-up">
+                <div class="parent-links" id="parents">
+                  <a href="http://www.utexas.edu">The University of Texas at Austin</a>
+                                  </div>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+                                  <a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
+                              </div>
+                      <br>
+                    <br>
+                  <br>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container-topnav -->
+
+      <div class="container container-nav container-nav-phase2">
+        <div class="row">
+          <div class="column small-12">
+            <nav>
+              <ul class="nav" id="main-nav" role="menu">
+            <li class="nav-item" role="menuitem">
+        <a href="DMS_Admin_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+        <a href="DMS_CreateProgram.html" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+        <a href="DMS_CreateApplication.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+            </div>
+          </div>
+              </li>
+                  </ul>
+            </nav>
+          </div>
+        </div>
+      </div> <!-- container-nav-phase2 -->
+
+    </div> <!-- nav-wrapper -->
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:390px;margin-right:40px">
+<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
   <!-- Header -->
-<div class="w3-container" style="margin-top:80px" id="showcase">
+<div class="w3-container" style="margin-top:40px" id="showcase">
 	<h1 class="w3-jumbo">
-		<b>Profile information</b>
+		<b>Profile Information</b>
 	</h1>
-	
-	
+
+
 	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
-	
+	<br>
 	<b>Before you apply, please enter your basic profile information. </b>
+	<br>
+	<br>
 </div>
 
 
@@ -86,6 +153,8 @@ id="mySidebar"><br>
 		<table>
 
 			<!--text box for students first name!-->
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td>First Name</td>
 			</tr>
@@ -93,7 +162,7 @@ id="mySidebar"><br>
 				<td><input type="text" name="first_name" size="20" maxlength="30" required/></td>
 			</tr>
 
-		
+
 			<!--text box for students middle name-->
 			<tr>
 				<td>Middle Name (if applicable)</td>
@@ -193,7 +262,7 @@ id="mySidebar"><br>
 					<option value="WI">Wisconsin</option>
 					<option value="WY">Wyoming</option>
 				</select></td>
-		
+
 			</tr>
 
 			<tr>
@@ -231,6 +300,9 @@ id="mySidebar"><br>
 			<tr>
 				<td>Are you:</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			</tr>
 			<tr>
 				<td><input type="radio" name="employment" value="UT" required>Currently employed at UT<br></td>
 			</tr>
@@ -252,6 +324,8 @@ id="mySidebar"><br>
 			<tr>
 				<td>What is your classification?</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="radio" name="classification" value="1st year" required>1st year undergrad<br></td>
 			</tr>
@@ -274,35 +348,41 @@ id="mySidebar"><br>
 				<td><input type="radio" name="classification" value="Other">Other<br></td>
 			</tr>
 
-		
+
 			<!--break-->
 			<tr>
 				<td><br></td>
 			</tr>
 
-		
+
 			<!--text box for degree type-->
 			<tr>
 				<td>What is your degree type? (E.g. BS, MS)</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="text" name="degree_type" size="20" maxlength="10" required/></td>
 			</tr>
 
-		
+
 			<!--text box for major-->
 			<tr>
 				<td>What is your major?</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="text" name="major" size="20" maxlength="30" required/></td>
 			</tr>
 
-		
+
 			<!--text box for 2nd major-->
 			<tr>
 				<td>What is your 2nd major? (if applicable)</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="text" name="major_2" size="20" maxlength="30"/></td>
 			</tr>
@@ -319,7 +399,7 @@ id="mySidebar"><br>
 				<td><input type="radio" name="worked_at_dms" value="0">No<br></td>
 			</tr>
 
-		
+
 			<!--break-->
 			<tr>
 				<td><br></td>
@@ -330,13 +410,15 @@ id="mySidebar"><br>
 			<tr>
 				<td>Have you previously volunteered at Seton Hospital?</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="radio" name="volunteered_at_seton" value="1" required>Yes<br></td>
 			</tr>
 			<tr>
 				<td><input type="radio" name="volunteered_at_seton" value="0">No<br></td>
 			</tr>
-		
+
 			<!--break-->
 			<tr>
 				<td><br></td>
@@ -347,6 +429,8 @@ id="mySidebar"><br>
 			<tr>
 				<td>Do you own a car?</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="radio" name="car" value="1" required>Yes<br></td>
 			</tr>
@@ -354,66 +438,68 @@ id="mySidebar"><br>
 				<td><input type="radio" name="car" value="0">No<br></td>
 			</tr>
 
-		
+
 			<!--break-->
 			<tr>
 				<td><br></td>
 			</tr>
 
-		
+
 			<!--text box for how many semesters they plan to commit-->
 			<tr>
 				<td>How many semesters do you expect to commit to this role?</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="text" placeholder="ex: 3" name="semester_commitment" size="20" maxlength="2" required/ pattern="^[0-9]*$"></td>
 			</tr>
 
-		
+
 			<!--break-->
 			<tr>
 				<td><br></td>
 			</tr>
 
-	
+
 	<!--Commented out all textarea questions
 			<tr>
 				<td>What are your career goal(s) and your plan to achieve them? (500 word limit)</td>
 			</tr>
 			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q1" rows="10" 
+				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q1" rows="10"
 				cols="800" required></textarea></td>
 			</tr>
 
 
-			
+
 			<tr>
 				<td><br></td>
 			</tr>
 
 
-			
+
 			<tr>
 				<td>Why do you want to work at Dell Medical School, and how can we help you further your goals? (500 word limit)</td>
 			</tr>
 			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q2" rows="10" 
+				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q2" rows="10"
 				cols="800" required></textarea></td>
 			</tr>
 
-		
-			
+
+
 			<tr>
 				<td><br></td>
 			</tr>
 
-		
-			
+
+
 			<tr>
 				<td>How would you create value to the program you are applying for? (500 word limit)</td>
 			</tr>
 			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q3" 
+				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q3"
 				rows="10" cols="800" required></textarea></td>
 			</tr>
 
@@ -422,49 +508,51 @@ id="mySidebar"><br>
 				<td><br></td>
 			</tr>
 
-		
+
 			<tr>
 				<td>Describe your personality. (500 word limit)</td>
 			</tr>
 			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q4" 
+				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q4"
 				rows="10" cols="800" required></textarea></td>
 			</tr>
 
-		
-			
+
+
 			<tr>
 				<td><br></td>
 			</tr>
 
-		
-		
+
+
 			<tr>
 				<td>If you don't get this position, how else will you fill your time? (500 word limit)</td>
 			</tr>
 			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q5" 
+				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q5"
 				rows="10" cols="800" required></textarea></td>
 			</tr>
 	-->
-	
+
 		</table>
 
-	
+
 		<!--break-->
 		<tr>
 			<td><br></td>
 		</tr>
 
-	
+
 		<!--Checkboxes for availibility for next semester-->
 		<table>
-		
-		
-			<tr>What is your availability for the upcoming semester?</tr>
 
-			
-			
+
+			<tr>What is your availability for the upcoming semester?</tr>
+			<tr class="blankrow">
+				<td><br></td>
+
+
+
 			<tr>
 				<td><input type="checkbox" name="availability_list[]" value="NA" required>Unknown</td>
 			</tr>
@@ -478,8 +566,10 @@ id="mySidebar"><br>
 				<td>Thursday</td>
 				<td>Friday</td>
 			</tr>
+			<tr class="blankrow">
+				<td><br></td>
 
-		
+
 			<!--input checkboxes and row names-->
 			<tr>
 				<td>8am-9am</td>
@@ -489,7 +579,7 @@ id="mySidebar"><br>
 				<td><input type="checkbox" name="availability_list[]" value="TH8" id="TH8" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F8" id="F8" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>9am-10am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M9" id="M9" required></td>
@@ -498,7 +588,7 @@ id="mySidebar"><br>
 				<td><input type="checkbox" name="availability_list[]" value="TH9" id="TH9" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F9" id="F9" required></td>
 			</tr>
-		
+
 			<tr>
 				<td>10am-11am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M10" id="M10" required></td>
@@ -507,7 +597,7 @@ id="mySidebar"><br>
 				<td><input type="checkbox" name="availability_list[]" value="TH10" id="TH10" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F10" id="F10" required></td>
 			</tr>
-	
+
 			<tr>
 				<td>11am-12pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M11" id="M11" required></td>
@@ -516,7 +606,7 @@ id="mySidebar"><br>
 				<td><input type="checkbox" name="availability_list[]" value="TH11" id="TH11" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F11" id="F11" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>12am-1pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M12" id="M12" required></td>
@@ -525,7 +615,7 @@ id="mySidebar"><br>
 				<td><input type="checkbox" name="availability_list[]" value="TH12" id="TH12" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F12" id="F12" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>1pm-2pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M1" id="M1" required></td>
@@ -534,7 +624,7 @@ id="mySidebar"><br>
 				<td><input type="checkbox" name="availability_list[]" value="TH1" id="TH1" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F1" id="F1" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>2pm-3pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M2" id="M2" required></td>
@@ -543,7 +633,7 @@ id="mySidebar"><br>
 				<td><input type="checkbox" name="availability_list[]" value="TH2" id="TH2" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F2" id="F2" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>3pm-4pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M3" id="M3" required></td>
@@ -552,8 +642,8 @@ id="mySidebar"><br>
 				<td><input type="checkbox" name="availability_list[]" value="TH3" id="TH3" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F3" id="F3" required></td>
 			</tr>
-		
-			<tr>	
+
+			<tr>
 				<td>4pm-5pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="T4" id="T4"required></td>
@@ -565,13 +655,13 @@ id="mySidebar"><br>
 			<tr>
 				<td><br></td>
 			</tr>
-		
-			
-			
+
+
+
 
 		</table>
 
-	
+
 		<!--break-->
 		<tr>
 			<td><br></td>
@@ -580,19 +670,19 @@ id="mySidebar"><br>
 
 		<!--submit button. Will post info.-->
 		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit Application"/> </td>
-		
-		
+
+
 		<!--break-->
 		<p><br></p>
 
 
 	</form>
-	
-	
+
+
 	<!--JQuery used to ensure at least one checkbox is checked off for availability-->
-	
+
 	<script>
-	
+
 		//function will remove required tags from checkboxes as long as at least one box is checked off
 		$(function(){
 
@@ -610,11 +700,11 @@ id="mySidebar"><br>
 			});
 
 		});
-		
-		
-		//function to limit the amount of characters in textarea 
+
+
+		//function to limit the amount of characters in textarea
 		$("textarea").keyup(function(){
-			
+
 			 var words = this.value.match(/\S+/g).length;
 
 			if (words > 500) {
@@ -629,8 +719,3 @@ id="mySidebar"><br>
 </div>
 
 </html>
-
-
-
-
-
