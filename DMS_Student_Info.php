@@ -80,6 +80,7 @@ id="mySidebar"><br>
 <body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "DMS_connect2.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
+	<input type="hidden" name="user_id" value="<?php echo $_GET['user_id']?>"/>
 
 		<table>
 
@@ -302,7 +303,7 @@ id="mySidebar"><br>
 				<td>What is your 2nd major? (if applicable)</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="major_2" size="20" maxlength="30" required/></td>
+				<td><input type="text" name="major_2" size="20" maxlength="30"/></td>
 			</tr>
 
 

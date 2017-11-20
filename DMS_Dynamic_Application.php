@@ -8,6 +8,8 @@
 
 <?php
 	require 'DMS_db.php';	
+	
+	$user_id=$_POST['user_id'];
 		
 	$application_id=$_POST['application_id'];
 	
@@ -49,6 +51,7 @@
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "DMS_Dynamic_Application_connect.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
 		<input type="hidden" name="application_id" value="<?php echo $application_id?>"/>
+		<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
 		<table>
 			<?php
 				foreach($array_unique_questions as $key=>$value)

@@ -18,6 +18,8 @@
 		
 		
 		
+		
+		
 		//prepare SQL statement to prevent SQL injection
 		$stmt = $dbc-> prepare('INSERT INTO applications(term,year,number_unique_questions,list_unique_questions,program_id) 
 		VALUES (:term,:year,:number_unique_questions, :list_unique_questions, :program_id)');
@@ -52,9 +54,15 @@
 			
 			
 			
-			$sql="CREATE TABLE $name_of_table (
+			/*$sql="CREATE TABLE $name_of_table (
 			id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY
-			$sql_table_fields)";
+			$sql_table_fields)";*/
+			
+			$sql="CREATE TABLE $name_of_table (
+			user_id INT(11)
+			$sql_table_fields
+			,PRIMARY KEY(user_id)
+			,FOREIGN KEY (user_id) REFERENCES user(user_id))";
 		
 			$dbc->exec($sql);
 			echo "Table created successfully";

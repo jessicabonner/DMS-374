@@ -33,7 +33,7 @@ $semester_commitment=$_POST['semester_commitment'];
 //turn availability_list into a string 
 $availability= implode(',', $_POST['availability_list']);
 
-$user_id = 1;
+$user_id = $_POST['user_id'];
 
 
 //prepare SQL statement to prevent SQL injection
@@ -51,8 +51,11 @@ $stmt->execute(array('user_id' => $user_id, 'first_name' => $first_name, 'middle
 	
 //comment
 
+	header('Location: DMS_Select_Program_Apply.php?user_id='.$user_id);
+	die();
 
 
-echo '<h1 style= "text-align:center;color:#BF5700">Your application has been received! Thanks for applying!</h1>';
+
+//echo '<h1 style= "text-align:center;color:#BF5700">Your application has been received! Thanks for applying!</h1>';
 
 ?>

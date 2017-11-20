@@ -3,12 +3,12 @@
 
 	//link to file containing database connection string
 	require 'DMS_db.php';
+	
+	$user_id=$_POST['user_id'];
 
 	$application_id= $_POST['application_id'];
 	//echo $_POST['question_0'];
 	
-	require 'DMS_db.php';
-				
 	$sql="SELECT term, year, number_unique_questions, list_unique_questions, program_id FROM applications WHERE application_id='".$application_id."'";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
@@ -65,7 +65,9 @@
 		}
 	}
 	
-
+	$sql_fields=$sql_fields.", user_id";
+	$sql_values=$sql_values.",?";
+	$sql_array[]=$user_id;
 
 //create variables from those submitted through application form (DMS_Apply.html)
 //$first_name=$_POST['first_name'];

@@ -1,13 +1,16 @@
 
 <?php
 //pulling all programs from the database
-
+	$user_id=$_GET['user_id'];
 	require 'DMS_db.php';
 				
 	$sql="SELECT program_id, application_id FROM applications";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$applications= $stmt->fetchAll();
+	
+	
+	
 
 
 ?>
@@ -25,6 +28,8 @@
 <body>
 	
 	<form name="apply_form" action = "DMS_Dynamic_Application.php" method= "post">
+		<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
+		
 		<table>
 			<tr> 
 				<td>Which program do you want to apply to?</td>
