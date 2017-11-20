@@ -100,15 +100,15 @@
             <nav>
               <ul class="nav" id="main-nav" role="menu">
             <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
+        <a href="DMS_Admin_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">New Program</a>                  <div class="sub-nav-wrapper">
+        <a href="DMS_CreateProgram.html" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>                  <div class="sub-nav-wrapper">
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+        <a href="DMS_CreateApplication.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
