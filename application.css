@@ -8,6 +8,7 @@ input[type="text"] {
 textarea[class=written] {
   display: block;
   margin-bottom: 25px;
+  width: 100%;
   max-width:800px;
   overflow: auto;
   position: relative;

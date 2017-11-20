@@ -1,95 +1,156 @@
 
 <?php
 //pulling all programs from the database
-	$user_id=$_GET['user_id'];
+	//$user_id=$_GET['user_id'];
 	require 'DMS_db.php';
-				
+
 	$sql="SELECT program_id, application_id FROM applications";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$applications= $stmt->fetchAll();
-	
-	
-	
-
 
 ?>
 
-
-
-
 <!--Form to allow students to apply to dell med school internship programs-->
-<html>
+<html lang="en" dir="ltr">
 <head>
-	<link href='application.css' type='text/css' rel='stylesheet'>
-	<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
+	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+<meta name="msapplication-TileColor" content="#bf5700" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-72x72.png" />
+<meta name="description" content="Dell Medical School at The University of Texas at Austin is the first med school in decades to be built from the ground up at a Tier 1 research university." />
+<meta name="robots" content="follow, index" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://dellmed.utexas.edu" />
+<link rel="shortlink" href="https://dellmed.utexas.edu" />
+  <title>Dell Medical School | The University of Texas at Austin</title>
+  <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+<style type="text/css" media="all">
+/*--><![CDATA[/*><!--*/
+#main-nav li a{font-family:open_sans;}
+.UT-page{margin-top:50px;}
 
-
-<title>
-	Dell Medical School 
-</title>
-
-
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-
-
-<style>
-	body,h1,h2,h3,h4,h5 {font-family: "Open Sans", serif}	
-	body {font-size:16px;}
-	.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-	.w3-half img:hover{opacity:1}
+/*]]>*/
 </style>
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
+  <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
+</head>
 
+<body class="html front not-logged-in no-sidebars page-node"  >
+  <div id="skip-link">
+    <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+      <header class="UT-header theme1">
 
-  <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding" style="background-color:#BF5700;z-index:3;width:350px;font-weight:bold;" 
-id="mySidebar"><br>
-	
-	<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-	
-	
-	<div class="w3-container">
-		<!--<h3 class="w3-padding-64"><b>Dell Medical</br>School</b></h3>-->
-		<img src="DMS_logo2.jpg" alt="Dell Medical School" height="75px"/>
-	</div>
-	
-    <div class="w3-bar-block">
-		<!--no link to apply since they are already on the apply page-->
-		<a href="" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Apply</a>
-		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Dashboard</a>
-	</div>
-</nav>
+    <div class="container container-logo-p2">
+      <div class="row">
+        <div class="column small-12">
+           <div class="p2-logo">
+             <a href="http://dellmed.utexas.edu" onclick="w3_close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
+    </div> <!-- container-logo -->
 
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <div class="nav-wrapper" role="navigation">
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding" style="background-color:#BF5700">
-  <a href="javascript:void(0)" class="w3-button w3-margin-right" style="background-color:#BF5700" onclick="w3_open()">☰</a>
-  <span style="background-color:#BF5700">Dell Medical School</span>
-</header>
+      <div class="container container-topnav">
+        <div class="row">
+          <div class="column small-12">
+            <div class="topnav">
+              <div class="hide-for-large-up">
+                <ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
+<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
+<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
+<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
+</ul>              </div>
+              <div class="parent-banner-links">
+                <h2 class="UT-secondary-logo">
+                  <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+                </h2>
+                              </div>
 
+              <div class="hide-for-large-up">
+                <div class="parent-links" id="parents">
+                  <a href="http://www.utexas.edu">The University of Texas at Austin</a>
+                                  </div>
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+                                  <a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
+                              </div>
+                      <br>
+                    <br>
+                  <br>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container-topnav -->
+
+      <div class="container container-nav container-nav-phase2">
+        <div class="row">
+          <div class="column small-12">
+            <nav>
+              <ul class="nav" id="main-nav" role="menu">
+            <li class="nav-item" role="menuitem">
+        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+        <a href="" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+            </div>
+          </div>
+              </li>
+                  </ul>
+            </nav>
+          </div>
+        </div>
+      </div> <!-- container-nav-phase2 -->
+
+    </div> <!-- nav-wrapper -->
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:390px;margin-right:40px">
+<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
   <!-- Header -->
-<div class="w3-container" style="margin-top:80px" id="showcase">
+<div class="w3-container" style="margin-top:40px" id="showcase">
 	<h1 class="w3-jumbo">
-		<b>Programs</b>
+		<b>Dell Medical Undergraduate Programs</b>
 	</h1>
-	
-	
+
+
 	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
-	
-	<b>Choose the program you want to apply to</b>
+	<br>
+	<b>Please select which program you would like to apply to. </b>
+	<br>
+	<br>
 </div>
 
 
@@ -98,34 +159,33 @@ id="mySidebar"><br>
 <div class="w3-container" id="application" style="margin-top:10px">
 
 <body>
-	
 	<form name="apply_form" action = "DMS_Dynamic_Application.php" method= "post">
 		<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
-		
+
 		<table>
-			
+
 				<?php
-				
+
 					foreach($applications as $application)
 					{
 						$sql="SELECT name_of_program FROM programs WHERE program_id=$application[program_id]";
 						$stmt=$dbc->prepare($sql);
 						$stmt->execute();
-						
+
 						$program = $stmt->fetch();
 						$name_of_program = $program['name_of_program'];
-						
+
 						echo "<tr><td><input type='radio' name='application_id' value=$application[application_id] required>$name_of_program<br></td></tr>";
 					}
 				?>
-				
-				
-			
-			
-			
+
+
+
+
+
 
 		</table>
-		
+
 		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" name="submit"/> </td>
 
 </body>
