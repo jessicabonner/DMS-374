@@ -65,12 +65,16 @@
 			,FOREIGN KEY (user_id) REFERENCES user(user_id))";
 		
 			$dbc->exec($sql);
-			echo "Table created successfully";
+			
+			
+			header('Location: DMS_Admin_Dashboard.php');
+			die();
 		}
-		
-		catch(PDOException $e)
+
+		catch(Exception $e)
 		{
-			echo $sql . "<br>" . $e->getMessage();
+			//echo 'Caught exception: ',  $e->getMessage(), "\n";
+			echo 'There was a problem';
 		}
 		
 		
