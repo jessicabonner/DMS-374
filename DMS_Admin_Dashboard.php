@@ -112,6 +112,10 @@
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
+        <a href="DMS_View_All_Applications.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applications</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
             </div>
           </div>
               </li>
