@@ -53,7 +53,7 @@
       <div class="row">
         <div class="column small-12">
            <div class="p2-logo">
-             <a href="/" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
+             <a href="http://dellmed.utexas.edu" on-click="w3-close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
           </div>
         </div>
       </div>
