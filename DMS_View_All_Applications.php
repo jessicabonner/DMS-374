@@ -174,8 +174,7 @@ if (!$query) {
 </head>
 <body>
 
-<form action='DMS_delete_applcations.php' method='post' onsubmit="return confirm('Are you sure you want to delete the selected tables? If you do,
-all applicant data will be lost and CANNOT be recovered');">
+<form action='DMS_delete_applications.php' method='post' onsubmit="return confirm('Are you sure you want to delete the selected tables? If you do, all applicant data will be lost and CANNOT be recovered');">
 	<!--<h1>Applications</h1>-->
 	<table class="data-table">
 		<caption class="title">Application Data of DMS</caption>
