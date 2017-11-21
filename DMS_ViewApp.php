@@ -193,4 +193,16 @@ echo "</tr>";
 }
 
 echo "</table>";
+
+
+echo "<form action='DMS_close_applcation.php' method='POST'>
+
+<tr><td></td> 
+<td></td>
+<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
+<input type='hidden' name='application_id' value=$id><br /></td></tr>
+<tr><td></td>
+<td></td>
+<td><input type='submit' value=' Enter '></td></tr>
+</form>";
 ?>

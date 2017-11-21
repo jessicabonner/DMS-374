@@ -77,7 +77,7 @@ id="mySidebar"><br>
 require 'DMS_db.php';
 
 $sql = 'SELECT application_id, term, year, number_unique_questions, list_unique_questions, program_id, application_closed
-		FROM applications';
+		FROM applications ORDER BY application_id DESC';
 		
 //$query = mysqli_query($dbc, $sql); //what's the error
 
@@ -173,16 +173,20 @@ if (!$query) {
 	</style>
 </head>
 <body>
+
+<form action='DMS_delete_applcations.php' method='post' onsubmit="return confirm('Are you sure you want to delete the selected tables? If you do,
+all applicant data will be lost and CANNOT be recovered');">
 	<!--<h1>Applications</h1>-->
 	<table class="data-table">
 		<caption class="title">Application Data of DMS</caption>
 		<thead>
 			<tr>
+				<th> </th>
 				<th>ID</th>
 				<th>Program Name</th>
 				<th>Term</th>
 				<th>Year</th>
-				<!--<th>Number of Applicants</th>-->
+				<th>Applicants</th>
 				<th>Open?</th>
 			</tr>
 		</thead>
@@ -211,19 +215,43 @@ if (!$query) {
 	
 				$program = $stmt->fetch();
 				$name_of_program=$program['name_of_program'];
+				
+				//get the table name for this application
+				$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
+				
+				//get a count of all applicants in the table
+				$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
+				$stmt=$dbc->prepare($sql);
+				$stmt->execute();
+				$application=$stmt->fetch();
+				
 								
+				
+				echo'<td><input type="checkbox" name="application_delete_list[]" value='.$id.' id='.$id.'></td>';
 				echo "<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
 	
 				echo '
 						<td>'.$name_of_program.'</td>
 						<td>'.$row['term'].'</td>
 						<td>'.$row['year'].'</td>
+						<td>'.$application['number_of_applicants'].'</td>
 						<td>'.$application_closed.'</td>
+						
 					</tr>';
+					
+				
 		}?>
 		</tbody>
 
 		
 	</table>
+	<tr><td><br></td>
+	<td><input type='submit' value='Delete'></td>
+	<td><b> **Note that clicking delete will PERMANENTLY delete the selected tables along with all applications </b></td>
+	<tr>
+	
+</form>
+	
+	
 </body>
 </html>

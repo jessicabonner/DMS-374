@@ -147,7 +147,7 @@
 
 <body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
-	<form name="apply_form" action = "DMS_connect2.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
+	<form name="apply_form" action = "DMS_connect2.php" method= "post">
 	<input type="hidden" name="user_id" value="<?php echo $_GET['user_id']?>"/>
 
 		<table>
@@ -671,7 +671,7 @@
 
 
 		<!--submit button. Will post info.-->
-		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit Application"/> </td>
+		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Save profile information"/> </td>
 
 
 		<!--break-->
