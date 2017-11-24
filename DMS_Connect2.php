@@ -20,6 +20,7 @@ $classification=$_POST['classification'];
 $degree_type=$_POST['degree_type'];
 $major=$_POST['major'];
 $major_2=$_POST['major_2'];
+$GPA=$_POST['GPA'];
 $worked_at_dms=$_POST['worked_at_dms'];
 $volunteered_at_seton=$_POST['volunteered_at_seton'];
 $car=$_POST['car'];
@@ -38,14 +39,14 @@ $user_id = $_POST['user_id'];
 
 //prepare SQL statement to prevent SQL injection
 $stmt = $dbc-> prepare('INSERT INTO student_info (user_id, first_name, middle_name, last_name, EID, address, city, state, zip_code, phone, email, employment,
-classification, degree_type, major, major_2, worked_at_dms, volunteered_at_seton, car, semester_commitment, availability) VALUES (:user_id, :first_name, :middle_name, :last_name, :EID, :address, :city, :state, :zip_code, :phone, 
-:email, :employment, :classification, :degree_type, :major, :major_2, :worked_at_dms, :volunteered_at_seton, :car, :semester_commitment, :availability)');
+classification, degree_type, major, major_2, GPA, worked_at_dms, volunteered_at_seton, car, semester_commitment, availability) VALUES (:user_id, :first_name, :middle_name, :last_name, :EID, :address, :city, :state, :zip_code, :phone, 
+:email, :employment, :classification, :degree_type, :major, :major_2, :GPA, :worked_at_dms, :volunteered_at_seton, :car, :semester_commitment, :availability)');
 
 
 //bind variables to prepared statement and execute
 $stmt->execute(array('user_id' => $user_id, 'first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'EID' => $EID,'address' => $address,'city' => $city,
 'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'classification' => $classification,
-'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2,'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
+'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2, 'GPA'=>$GPA, 'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
 'car'=>$car,'semester_commitment' => $semester_commitment,'availability' => $availability ));
 
 	
