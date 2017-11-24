@@ -386,7 +386,15 @@
 			<tr>
 				<td><input type="text" name="major_2" size="20" maxlength="30"/></td>
 			</tr>
-
+			
+			<tr>
+				<td>What is your GPA?</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="text" name="GPA" size="20" required pattern="^[0]|[0-3]\.(\d?\d?)|[4].[0]$"/></td>
+			</tr>
 
 			<!--Radio buttons for if they have worked at dell med school before-->
 			<tr>
@@ -454,7 +462,7 @@
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
-				<td><input type="text" placeholder="ex: 3" name="semester_commitment" size="20" maxlength="2" required/ pattern="^[0-9]*$"></td>
+				<td><input type="text" placeholder="ex: 3" name="semester_commitment" size="20" maxlength="2" required pattern="^[0-9]*$"/></td>
 			</tr>
 
 

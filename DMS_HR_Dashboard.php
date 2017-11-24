@@ -182,11 +182,19 @@ id="mySidebar"><br>
 			<tr>
 				<th>ID</th>
 				<th>First Name</th>
+				<th>Middle Name</th>
 				<th>Last Name</th>
+				<th>Address</th>
+				<th>City</th>
+				<th>State</th>
+				<th>Zip</th>
 				<th>EID</th>
 				<th>Email</th>
 				<th>Classification</th>
+				<th>Degree Type</th>
 				<th>Major</th>
+				<th>2nd Major</th>
+				<th>GPA</th>
 				<th>Accepted Offer?</th>
 			</tr>
 		</thead>
@@ -207,11 +215,19 @@ id="mySidebar"><br>
 	
 				echo '
 						<td>'.$row['first_name'].'</td>
+						<td>'.$row['middle_name'].'</td>
 						<td>'.$row['last_name'].'</td>
+						<td>'.$row['address'].'</td>
+						<td>'.$row['city'].'</td>
+						<td>'.$row['state'].'</td>
+						<td>'.$row['zip_code'].'</td>
 						<td>'.$row['EID'].'</td>
 						<td>'.$row['email'].'</td>
 						<td>'.$row['classification'].'</td>
+						<td>'.$row['degree_type'].'</td>
 						<td>'.$row['major'].'</td>
+						<td>'.$row['major_2'].'</td>
+						<td>'.$row['GPA'].'</td>
 						<td>'.$row['offer_accepted'].'</td>
 					</tr>';
 		}?>
