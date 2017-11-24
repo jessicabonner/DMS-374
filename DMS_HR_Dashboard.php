@@ -169,10 +169,153 @@ id="mySidebar"><br>
 			<td><input id='submit' type='submit' value='Search'/></td>
 		</tr>
 	</form>
+	<form name="filter" method= "get">
+		<tr>
+				<td>GPA Greater than</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="text" name="GPA_greater" size="20"/></td>
+			</tr>
+			
+			<td>GPA less than</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="text" name="GPA_less" size="20"/></td>
+			</tr>
+			
+			
+			<!--checkbox buttons for student's classification-->
+			<tr>
+				<td>Classification</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Other' ">Other<br></td>
+			</tr>
+
+			<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
+			<tr>
+				<td>Work eligibility</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" employment='UT' " >Currently employed at UT<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" employment='eligible' ">Eligible to work in the US with no restrictions<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
+			</tr>
+			
+			<!--checkbox buttons for if they have worked at dell med school before-->
+			<tr>
+				<td>Previously worked at Dell Medical School?</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='1' ">Yes<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='0' ">No<br></td>
+			</tr>
+
+
+			<!--checkbox buttons for if they have volunteered at seton before-->
+			<tr>
+				<td>Previously volunteered at Seton Hospital?</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='1' " >Yes<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
+			</tr>
+			
+			<tr>
+				<td>Accepted offer?</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" accepted_offer='1' ">Yes<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" accepted_offer='0' ">No<br></td>
+			</tr>
+			
+			<!--break-->
+			<tr>
+				<td><br></td>
+			</tr>
+			
+		
+			
+			<tr>
+				<td><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></td>
+			</tr>
+
+			<td><input id='submit' type='submit' value='Search'/></td>
+	
+	</form>
+	
 	<?php
 		require 'DMS_HR.php';
-		if(isset($_GET['search_criteria'])){
-			$query=search($_GET['search_criteria']); //here goes the function call
+		if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
+			$query=search($_GET['search_criteria']); //call search_criteria function
+		}
+		if(isset($_GET['filter_criteria'])){
+			/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less']))
+			{
+				
+				echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
+			} */
+			if (isset($_GET['GPA_greater']))
+			{
+				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
+			}
+			
+			elseif(isset($_GET['GPA_less']))
+			{
+					$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
+			}
+			
+			else 
+			{
+				$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
+				
+			}
 		}
 	?>
 	
