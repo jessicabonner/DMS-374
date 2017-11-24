@@ -195,14 +195,16 @@ echo "</tr>";
 echo "</table>";
 
 
-echo "<form action='DMS_close_applcation.php' method='POST'>
+echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit?');>
 
 <tr><td></td> 
 <td></td>
-<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
-<input type='hidden' name='application_id' value=$id><br /></td></tr>
+<td><input type='checkbox' name='new_accepted_by_DMS' value='1'> Check to Accept Applicant<br />
+<input type='hidden' name='user_id' value=$id><br /></td></tr>
 <tr><td></td>
 <td></td>
 <td><input type='submit' value=' Enter '></td></tr>
 </form>";
+
+
 ?>

@@ -185,7 +185,7 @@ if (!$query) {
 				<th>Email</th>
 				<th>Classification</th>
 				<th>Major</th>
-				<th>Accepted?</th>
+				<th>Accepted</th>
 			</tr>
 		</thead>
 		
@@ -196,6 +196,7 @@ if (!$query) {
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 				$id = $row['user_id'];
+				$accepted_by_DMS = $row['accepted_by_DMS'];
 								
 				echo "<td> <a href='DMS_ViewApp.php?id= $id '>" .$row['user_id'] . "</a> </td>";
 	
@@ -205,8 +206,12 @@ if (!$query) {
 						<td>'.$row['EID'].'</td>
 						<td>'.$row['email'].'</td>
 						<td>'.$row['classification'].'</td>
-						<td>'.$row['major'].'</td>
-						<td>'.$row['accepted_by_DMS'].'</td>
+						<td>'.$row['major'].'</td>';
+						//Still need to do: Display 1 - accepted & 0 - not accepted
+						if($accepted_by_DMS = '1'){
+							$accepted_by_DMS = 'accepted';
+						}
+				echo '  <td>'.$row['accepted_by_DMS'].'</td>
 					</tr>';
 		}?>
 		</tbody>

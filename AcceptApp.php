@@ -59,3 +59,4 @@ Check to Accept Candidate <input type="checkbox" name="new_accepted_by_DMS" valu
 <input type="hidden" name="user_id" value="<?php echo $user_id ?>"><br />
 <input type="submit" value=" Enter ">
 </form>
+
