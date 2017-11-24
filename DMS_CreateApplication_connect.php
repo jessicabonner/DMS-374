@@ -11,6 +11,9 @@
 		$array_unique_questions=$_POST['list_unique_questions'];
 		$list_unique_questions= implode('(#!BREAK!#)', $_POST['list_unique_questions']);
 		
+		
+		//$word_limit=implode(',',$_POST['word_limit']);
+		
 		$term=$_POST['term'];
 		$year=$_POST['year'];
 		$program_id=$_POST['program_id'];
@@ -36,6 +39,7 @@
 		$sql_table_fields="";
 		
 		
+		
 		foreach ($array_unique_questions as $x=>$value)
 		{
 			$sql_table_fields .= ", question_".$x." VARCHAR(30) NOT NULL";
@@ -59,7 +63,8 @@
 			$sql_table_fields)";*/
 			
 			$sql="CREATE TABLE $name_of_table (
-			user_id INT(11)
+			user_id INT(11),
+			competitive VARCHAR(1)
 			$sql_table_fields
 			,PRIMARY KEY(user_id)
 			,FOREIGN KEY (user_id) REFERENCES user(user_id))";

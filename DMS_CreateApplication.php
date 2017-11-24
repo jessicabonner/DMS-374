@@ -266,8 +266,9 @@
 			$("#unique_questions_table").prepend("Enter the unique questions below");
 			while (question_number>0){
 
-				var text = $("<tr></tr>").html("<input type='text' name='list_unique_questions[]' id='unique_question' required/>");
+				var text = $("<tr></tr>").html("<td><input type='text' name='list_unique_questions[]' id='unique_question' required/></td>");
 				$("#unique_questions_table").append(text);
+				
 				question_number-=1;
 			}
 
