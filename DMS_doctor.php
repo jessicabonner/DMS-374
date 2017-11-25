@@ -174,6 +174,9 @@ if (!$query) {
 </head>
 <body>
 	<h1>Applicants</h1>
+	
+	<form action='DMS_doctor_review.php' method='post' onsubmit="return confirm('Are you sure you want to update the review status of the applications?');">
+		
 	<table class="data-table">
 		<caption class="title">Applicant Data of DMS</caption>
 		<thead>
@@ -181,6 +184,7 @@ if (!$query) {
 				<th>ID</th>
 				<th>First Name</th>
 				<th>Last Name</th>
+				<th>Review</th>
 				<th>EID</th>
 				<th>Email</th>
 				<th>Classification</th>
@@ -203,20 +207,41 @@ if (!$query) {
 				echo '
 						<td>'.$row['first_name'].'</td>
 						<td>'.$row['last_name'].'</td>
+
+				<td><select name="application_review_list[]">
+					<option value="0">Noncompetitive</option>
+					<option value="1">Competitive</option>
+				</select></td>
+				
 						<td>'.$row['EID'].'</td>
 						<td>'.$row['email'].'</td>
 						<td>'.$row['classification'].'</td>
 						<td>'.$row['major'].'</td>';
-						//Still need to do: Display 1 - accepted & 0 - not accepted
-						if($accepted_by_DMS = '1'){
-							$accepted_by_DMS = 'accepted';
+						
+						if ($row['accepted_by_DMS']==0)
+						{
+							$accepted_by_DMS="No";
 						}
-				echo '  <td>'.$row['accepted_by_DMS'].'</td>
+						else{
+							$accepted_by_DMS="Yes";
+						}
+						
+				echo '  <td>'.$accepted_by_DMS.'</td>
 					</tr>';
 		}?>
 		</tbody>
+	</table>
+	
 
 		
-	</table>
+		</table>
+		<tr><td><br></td>
+		<td><input type='submit' value='SAVE'></td>
+		<td><b> **Note that clicking delete will PERMANENTLY delete the selected tables along with all applications </b></td>
+		<tr>
+	
+	</form>
+	
+	
 </body>
 </html>

@@ -28,8 +28,7 @@
 		VALUES (:term,:year,:number_unique_questions, :list_unique_questions, :program_id)');
 		
 		//bind variables to prepared statement and execute
-		$stmt->execute(array('term'=>$term,'year'=>$year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions,
-		'program_id'=>$program_id));
+		$stmt->execute(array('term'=>$term,'year'=>$year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'program_id'=>$program_id));
 		
 		
 		
