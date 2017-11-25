@@ -169,6 +169,10 @@ id="mySidebar"><br>
 			<td><input id='submit' type='submit' value='Search'/></td>
 		</tr>
 	</form>
+	
+	<details>
+	<summary>filter search</summary>
+	<p>
 	<form name="filter" method= "get">
 		<tr>
 				<td>GPA Greater than</td>
@@ -289,6 +293,8 @@ id="mySidebar"><br>
 			<td><input id='submit' type='submit' value='Search'/></td>
 	
 	</form>
+	</p>
+	</details>
 	
 	<?php
 		require 'DMS_HR.php';
