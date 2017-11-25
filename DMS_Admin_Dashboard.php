@@ -112,8 +112,16 @@
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
-        <a href="DMS_View_All_Applications.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applications</a>                  <div class="sub-nav-wrapper">
+        <a href="DMS_View_All_Applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>                  <div class="sub-nav-wrapper">
           </div>
+		  </li>
+                <li class="nav-item" role="menuitem">
+        <a href="DMS_Doctor.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>                  <div class="sub-nav-wrapper">
+			</div>
+			</li>
+                <li class="nav-item" role="menuitem">
+        <a href="DMS_HR_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>                  <div class="sub-nav-wrapper">
+			</div>
               </li>
                 <li class="nav-item" role="menuitem">
             </div>
@@ -144,3 +152,171 @@
 
 
 <div class="w3-container" id="application" style="margin-top:10px">
+
+<?php
+//THIS COMES FROM VIEW_ALL_APPLICATIONS.PHP 
+//NEED TO MAKE IT A FUNCTION TO BE CALLED
+//ONLY CHANGE IS THE WHERE 
+
+require 'DMS_db.php';
+
+$sql = 'SELECT application_id, term, year, number_unique_questions, list_unique_questions, program_id, application_closed
+		FROM applications WHERE application_closed=0 ORDER BY application_id DESC';
+		
+//$query = mysqli_query($dbc, $sql); //what's the error
+
+$query= $dbc->query($sql);;
+
+if (!$query) {
+	die ('SQL Error: ' . mysqli_error($dbc));
+}
+?>
+
+<html>
+<head>
+	<title>Program Applicants</title>
+	<style type="text/css">
+		body {
+			font-size: 15px;
+			color: #343d44;
+			font-family: "segoe-ui", "open-sans", tahoma, arial;
+			padding: 0;
+			margin: 0;
+		}
+		table {
+			margin: auto;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
+			font-size: 12px;
+		}
+
+		h1 {
+			margin: 25px auto 0;
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 17px;
+		}
+
+		table td {
+			transition: all .5s;
+		}
+		
+		/* Table */
+		.data-table {
+			border-collapse: collapse;
+			font-size: 14px;
+			min-width: 537px;
+		}
+
+		.data-table th, 
+		.data-table td {
+			border: 1px solid #e1edff;
+			padding: 7px 17px;
+		}
+		.data-table caption {
+			margin: 7px;
+		}
+
+		/* Table Header */
+		.data-table thead th {
+			background-color: #ff751a;
+			color: #FFFFFF;
+			border-color: #ff751a !important;
+			text-transform: uppercase;
+		}
+
+		/* Table Body */
+		.data-table tbody td {
+			color: #353535;
+		}
+		.data-table tbody td:first-child,
+		.data-table tbody td:nth-child(4),
+		.data-table tbody td:last-child {
+			text-align: right;
+		}
+
+		.data-table tbody tr:nth-child(odd) td {
+			background-color: #f4fbff;
+		}
+		.data-table tbody tr:hover td {
+			background-color: #ffd1b3;
+			border-color: #ffd1b3;
+		}
+
+		/* Table Footer */
+		.data-table tfoot th {
+			background-color: #e5f5ff;
+			text-align: right;
+		}
+		.data-table tfoot th:first-child {
+			text-align: left;
+		}
+		/* Color for an empy table field */
+		/*.data-table tbody td:empty
+		{
+			background-color: #ffcccc;
+		} */
+	</style>
+</head>
+<body>
+
+<table class="data-table">
+		<caption class="title">All Open Applications</caption>
+		<thead>
+			<tr>
+				
+				<th>ID</th>
+				<th>Program Name</th>
+				<th>Term</th>
+				<th>Year</th>
+				<th>Applicants</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>
+		<?php
+		//while ($row = mysqli_fetch_array($query))
+			
+		while ($row=$query->fetch(PDO::FETCH_ASSOC))
+		{
+				$id = $row['application_id'];
+				
+				
+				
+				
+				$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
+				$stmt=$dbc->prepare($sql);
+				$stmt->execute();
+	
+				$program = $stmt->fetch();
+				$name_of_program=$program['name_of_program'];
+				
+				//get the table name for this application
+				$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
+				
+				//get a count of all applicants in the table
+				$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
+				$stmt=$dbc->prepare($sql);
+				$stmt->execute();
+				$application=$stmt->fetch();
+				
+								
+				
+				
+				echo "<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
+	
+				echo '
+						<td>'.$name_of_program.'</td>
+						<td>'.$row['term'].'</td>
+						<td>'.$row['year'].'</td>
+						<td>'.$application['number_of_applicants'].'</td>
+						
+						
+					</tr>';
+					
+				
+		}?>
+		</tbody>
+
+		
+	</table>

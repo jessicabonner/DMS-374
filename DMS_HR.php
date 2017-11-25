@@ -22,6 +22,8 @@
 		$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND( $filter_criteria_sql)";
 		
 		$query= $dbc->query($sql);;
+		
+		echo "Displaying students where $filter_criteria_sql";
 		return $query;
 		
 		
@@ -37,6 +39,8 @@
 		$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND( $filter_criteria_sql)";
 		
 		$query= $dbc->query($sql);;
+		
+		echo "Displaying students where $filter_criteria_sql";
 		return $query;
 	}
 	
@@ -50,6 +54,8 @@
 		$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND $filter_criteria_sql";
 		
 		$query= $dbc->query($sql);;
+		
+		echo "Displaying students with GPA".$greater_less.$GPA;
 		return $query;
 	}
 	
@@ -79,6 +85,8 @@
 			OR major LIKE '%$search_criteria%'
 			OR major_2 LIKE '%$search_criteria%')";
 		$query= $dbc->query($sql);;
+		
+		echo "Displaying students containing '$search_criteria'";
 		return $query;
 	if (!$query) {
 		die ('SQL Error: ' . mysqli_error($dbc));
