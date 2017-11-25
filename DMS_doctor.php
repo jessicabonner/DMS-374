@@ -237,7 +237,6 @@ if (!$query) {
 		</table>
 		<tr><td><br></td>
 		<td><input type='submit' value='SAVE'></td>
-		<td><b> **Note that clicking delete will PERMANENTLY delete the selected tables along with all applications </b></td>
 		<tr>
 	
 	</form>
