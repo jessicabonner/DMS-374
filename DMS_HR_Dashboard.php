@@ -301,12 +301,13 @@ id="mySidebar"><br>
 				
 				echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
 			} */
-			if (isset($_GET['GPA_greater']))
+			if ($_GET['GPA_greater']!="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
+				
 			}
 			
-			elseif(isset($_GET['GPA_less']))
+			elseif($_GET['GPA_less']!="")
 			{
 					$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
 			}
@@ -315,6 +316,19 @@ id="mySidebar"><br>
 			{
 				$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
 				
+			}
+		}
+		
+		if(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
+		{
+			if($_GET['GPA_greater']!="")
+			{
+				$query=filter_only_gpa($_GET['GPA_greater'],'>');
+			}
+			
+			elseif($_GET['GPA_less']!="")
+			{
+				$query=filter_only_gpa($_GET['GPA_less'],'<');
 			}
 		}
 	?>

@@ -32,13 +32,25 @@
 		require 'DMS_db.php';
 		
 		$filter_criteria_sql=implode($and_or,$filter_criteria);
+		$filter_criteria_sql=$filter_criteria_sql." ".$and_or." GPA".$greater_less.$GPA;
 		
-		$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND( $filter_criteria_sql $and_or GPA $greater_less $GPA)";
+		$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND( $filter_criteria_sql)";
 		
 		$query= $dbc->query($sql);;
 		return $query;
+	}
+	
+	function filter_only_gpa($GPA, $greater_less)
+	{
+		require 'DMS_db.php';
 		
+		$filter_criteria_sql="";
+		$filter_criteria_sql=$filter_criteria_sql."GPA".$greater_less.$GPA;
 		
+		$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND $filter_criteria_sql";
+		
+		$query= $dbc->query($sql);;
+		return $query;
 	}
 	
 	
