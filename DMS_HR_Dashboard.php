@@ -317,6 +317,15 @@
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 				$id = $row['user_id'];
+				
+				if ($row['offer_accepted']=='1')
+				{
+					$offer_accepted="Yes";
+				}
+				else
+				{
+					$offer_accepted="No";
+				}
 								
 				echo "<td> <a href='DMS_ViewApp.php?id= $id '>" .$row['user_id'] . "</a> </td>";
 	
@@ -335,7 +344,7 @@
 						<td>'.$row['major'].'</td>
 						<td>'.$row['major_2'].'</td>
 						<td>'.$row['GPA'].'</td>
-						<td>'.$row['offer_accepted'].'</td>
+						<td>'.$offer_accepted.'</td>
 					</tr>';
 		}?>
 		
