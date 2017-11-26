@@ -1,3 +1,13 @@
+<?php
+	if (isset($_GET['error']))
+	{
+		echo '<script language="javascript">';
+		echo 'alert("The application already exists")';
+		echo '</script>'; 
+		
+	}
+?>
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>

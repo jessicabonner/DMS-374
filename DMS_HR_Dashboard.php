@@ -318,13 +318,13 @@
 		{
 				$id = $row['user_id'];
 				
-				if ($row['offer_accepted']=='1')
+				if ($row['accepted_offer']=='1')
 				{
-					$offer_accepted="Yes";
+					$accepted_offer="Yes";
 				}
 				else
 				{
-					$offer_accepted="No";
+					$accepted_offer="No";
 				}
 								
 				echo "<td> <a href='DMS_ViewApp.php?id= $id '>" .$row['user_id'] . "</a> </td>";
@@ -344,7 +344,7 @@
 						<td>'.$row['major'].'</td>
 						<td>'.$row['major_2'].'</td>
 						<td>'.$row['GPA'].'</td>
-						<td>'.$offer_accepted.'</td>
+						<td>'.$accepted_offer.'</td>
 					</tr>';
 		}?>
 		
