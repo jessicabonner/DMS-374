@@ -75,7 +75,8 @@ id="mySidebar"><br>
 <?php
 require 'DMS_db.php';
 
-
+echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
+	
 // Get ID from the URL
 $id = $_GET['id'];
 
@@ -118,7 +119,7 @@ echo "<td>" . $row['email'] .  "</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<th>Addres</th>";
+echo "<th>Address</th>";
 echo "<td>" . $row['address'] .  "</td>";
 echo "</tr>";
 
@@ -174,7 +175,7 @@ echo "</tr>";
 
 echo "<tr>";
 echo "<th>Has volunteered at Seton before?</th>";
-echo "<td>" . $row['classification'] .  "</td>";
+echo "<td>" . $row['volunteered_at_seton'] .  "</td>";
 echo "</tr>";
 
 echo "<tr>";
@@ -187,6 +188,38 @@ echo "<th>Semester Committment</th>";
 echo "<td>" . $row['semester_commitment'] .  "</td>";
 echo "</tr>";
 
+echo "<tr>";
+echo "<th>Review</th>";
+
+$stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
+        $x = $stmt->fetch();
+
+		if ($x['review']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
+		{
+			echo '<td><select name="new_review">
+				<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+				<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+				<option value="review = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
+			</select></td>';
+		}
+		elseif ($x['review']=="1") //if review = 1 (Noncompetitive) in the db, show the correct selected value
+		{
+			echo'<td><select name="new_review">
+				<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+				<option value="review = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
+				<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+			</select></td>';
+		}
+		else{ //if review = 0 (N/A) in the db, show the correct selected value
+			echo '<td><select name="new_review">
+				<option value="review = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
+				<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+				<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+			</select></td>';
+		}
+
+echo "</tr>";
+
 //echo "<br>"
 
 echo "</tr>";
@@ -195,16 +228,24 @@ echo "</tr>";
 echo "</table>";
 
 
-echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit?');>
-
+//echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>
+echo "
+<td><br></td>
+<td><br></td>
 <tr><td></td> 
 <td></td>
 <td><input type='checkbox' name='new_accepted_by_DMS' value='1'> Check to Accept Applicant<br />
 <input type='hidden' name='user_id' value=$id><br /></td></tr>
 <tr><td></td>
 <td></td>
-<td><input type='submit' value=' Enter '></td></tr>
+<td><input type='submit' name= 'update' value=' Enter '></td></tr>
+
+
+<td><br></td>
+<td><br></td>
+<td><br></td>
+<td><br></td>
+<td><br></td>
+<td><br></td>
 </form>";
-
-
 ?>

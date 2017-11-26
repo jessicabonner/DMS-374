@@ -129,7 +129,7 @@
   <!-- Header -->
 <div class="w3-container" style="margin-top:40px" id="showcase">
 	<h1 class="w3-jumbo">
-		<b>Program Applicants</b>
+		<b>Applicants</b>
 	</h1>
 
 

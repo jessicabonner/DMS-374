@@ -4,25 +4,35 @@
 
 require 'DMS_db.php';
 
-if( isset($_POST['new_accepted_by_DMS']))
+if( isset($_POST['update']))
 {	//echo $_POST['new_close_application'];
 	
 	$user_id=$_POST['user_id'];
 	//echo $user_id;
 	
-	$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
-	//echo $new_accepted_by_DMS;
 	
 	
-	$sql = "UPDATE student_info SET accepted_by_dms = '".$new_accepted_by_DMS."' WHERE user_id ='".$user_id."'";
-
-	//echo $sql;
 	
-	//$query= $dbc->query($sql);
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
+	if ( ($_POST['new_accepted_by_DMS'])!== null)
+	{
+		$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
+		$sql = "UPDATE student_info SET accepted_by_dms = '".$new_accepted_by_DMS."' WHERE user_id ='".$user_id."'";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
 		
-			
+		
+		
+	}
+
+	if( ($_POST['new_review'])!== null)
+	{
+		$new_review = $_POST['new_review'];
+		$sql = "UPDATE student_info SET $new_review";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+
+	}
+	
 	if (!$stmt) {
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
@@ -31,7 +41,8 @@ if( isset($_POST['new_accepted_by_DMS']))
 		die();
 	}
 	
+
+	
 	
 }
-
 ?>

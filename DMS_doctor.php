@@ -175,13 +175,13 @@ if (!$query) {
 <body>
 	<h1>Applicants</h1>
 	
-	<form action='DMS_doctor_review.php' method='post' onsubmit="return confirm('Are you sure you want to save changes?');">
+	<form action='DMS_doctor_review.php' method='post'>
 		
 	<table class="data-table">
 		<caption class="title">Applicant Data of DMS</caption>
 		<thead>
 			<tr>
-				<th> </th>
+				<th>Accept</th>
 				<th>ID</th>
 				<th>First Name</th>
 				<th>Last Name</th>
@@ -285,8 +285,11 @@ if (!$query) {
 		
 		</table>
 		<tr><td><br></td>
-		<td><input type='submit' value='Save Changes'></td>
+		<td><input type='submit' name= "accept" value='Accept Students' onclick="return confirm('Are you sure you want to ACCEPT the selected students?')"></td>
+		<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
 		<tr>
+
+
 
 	
 	</form>
