@@ -175,12 +175,13 @@ if (!$query) {
 <body>
 	<h1>Applicants</h1>
 	
-	<form action='DMS_doctor_review.php' method='post' onsubmit="return confirm('Are you sure you want to update the review status of the applications?');">
+	<form action='DMS_doctor_review.php' method='post' onsubmit="return confirm('Are you sure you want to save changes?');">
 		
 	<table class="data-table">
 		<caption class="title">Applicant Data of DMS</caption>
 		<thead>
 			<tr>
+				<th> </th>
 				<th>ID</th>
 				<th>First Name</th>
 				<th>Last Name</th>
@@ -203,6 +204,7 @@ if (!$query) {
 				$accepted_by_DMS = $row['accepted_by_DMS'];
 				$review_array = array('1', '0');
 				
+				echo'<td><input type="checkbox" name="application_accept_list[]" value='.$id.' id='.$id.'></td>';
 							
 				echo "<td> <a href='DMS_ViewApp.php?id= $id '>" .$row['user_id'] . "</a> </td>";
 	
@@ -283,8 +285,9 @@ if (!$query) {
 		
 		</table>
 		<tr><td><br></td>
-		<td><input type='submit' value='SAVE'></td>
+		<td><input type='submit' value='Save Changes'></td>
 		<tr>
+
 	
 	</form>
 	
