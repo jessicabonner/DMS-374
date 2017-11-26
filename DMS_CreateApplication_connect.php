@@ -19,7 +19,17 @@
 		$program_id=$_POST['program_id'];
 		
 		
+		$stmt = $dbc->query("SELECT * FROM applications WHERE program_id='".$program_id."' AND term='".$term."' AND year='".$year."'" );
+		$x = $stmt->fetch();
 		
+		if (count($x['application_id'])>0)
+		{
+			
+			header('Location: DMS_CreateApplication.php?error="1"');
+			die();
+		}
+		
+			
 		
 		
 		
@@ -53,6 +63,8 @@
 		
 		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
 		
+		
+		
 		try {
 			
 			
@@ -78,8 +90,10 @@
 		catch(Exception $e)
 		{
 			//echo 'Caught exception: ',  $e->getMessage(), "\n";
-			echo 'There was a problem';
+			echo "there was an error";
 		}
+		
+		//}
 		
 		
 		
