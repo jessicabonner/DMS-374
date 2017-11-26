@@ -1,5 +1,7 @@
 <?php
 	require 'DMS_db.php';
+	
+	
 
 	$user_id=$_POST['user_id'];
 
@@ -19,12 +21,26 @@
 
 
 
-	$sql="SELECT number_unique_questions, list_unique_questions FROM applications WHERE application_id='".$application_id."'";
+	$sql="SELECT number_unique_questions, list_unique_questions, term, year FROM applications WHERE application_id='".$application_id."'";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 
 	$x = $stmt->fetch();
 	
+	$term=$x['term'];
+	$year=$x['year'];
+	
+	$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
+	
+	$stmt = $dbc->query("SELECT * FROM $name_of_table WHERE user_id='".$user_id."'" );
+	$student = $stmt->fetch();
+		
+		if (count($student['user_id'])>0)
+		{
+			
+			header("Location: DMS_Select_Program_Apply.php?user_id=$user_id&error='1'");
+			die();
+		}
 	
 	
 	$number_unique_questions = $x['number_unique_questions'];

@@ -1,5 +1,12 @@
-
 <?php
+	if (isset($_GET['error']))
+	{
+		echo '<script language="javascript">';
+		echo 'alert("You have already applied to this program")';
+		echo '</script>'; 
+		
+	}
+
 //pulling all programs from the database
 	//$user_id=$_GET['user_id'];
 	require 'DMS_db.php';
