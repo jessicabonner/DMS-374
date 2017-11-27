@@ -4,34 +4,50 @@
 
 require 'DMS_db.php';
 
-if( isset($_POST['new_accepted_by_DMS']))
-{	//echo $_POST['new_close_application'];
-	
 	$user_id=$_POST['user_id'];
-	//echo $user_id;
-	
-	$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
-	//echo $new_accepted_by_DMS;
-	
-	
-	$sql = "UPDATE student_info SET accepted_by_dms = '".$new_accepted_by_DMS."' WHERE user_id ='".$user_id."'";
 
-	//echo $sql;
+
+	if( ($_POST['accept']))
+	{	//echo $_POST['new_close_application'];
 	
-	//$query= $dbc->query($sql);
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
+		$user_id=$_POST['user_id'];
+		//echo $user_id;
 		
-			
-	if (!$stmt) {
+		$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
+		
+		if ( ($_POST['new_accepted_by_DMS'])!== null)
+		{
+			$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
+			$sql = "UPDATE student_info SET accepted_by_dms = '".$new_accepted_by_DMS."' WHERE user_id ='".$user_id."'";
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+
+		}
+
+	
+	}
+	elseif( ($_POST['save']))
+	{
+		$new_review = $_POST['new_review'];
+		$user_id=$_POST['user_id'];
+		
+		if( ($_POST['new_review'])!== null)
+		{
+			$new_review = $_POST['new_review'];
+			$sql = "UPDATE student_info SET $new_review";
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+
+		}
+	}
+
+	if (!$stmt) 
+	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
-	else{
+	else
+	{
 		header('Location: DMS_ViewApp.php?id='.$user_id);
 		die();
 	}
-	
-	
-}
-
 ?>
