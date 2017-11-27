@@ -176,18 +176,18 @@ if (!$query) {
 	</form>
 	
 	<form name="sort" method= "get">
-	<tr><td><b>Sort by</b><br></td></tr>
-	<tr>
-		<td><input type="radio" name="sort" value="user_id">ID<br></td>
-	</tr>
-	<tr>
-		<td><input type="radio" name="sort" value="GPA ASC">GPA ascending<br></td>
-	</tr>
-	<tr>
-		<td><input type="radio" name="sort" value="GPA DESC">GPA descending<br></td>
-	</tr>
+		<tr><td><b>Sort by</b><br></td></tr>
+		<tr>
+			<td><input type="radio" name="sort" value="user_id">ID<br></td>
+		</tr>
+		<tr>
+			<td><input type="radio" name="sort" value="GPA ASC">GPA ascending<br></td>
+		</tr>
+		<tr>
+			<td><input type="radio" name="sort" value="GPA DESC">GPA descending<br></td>
+		</tr>
 	
-	<td><input id='sort' type='submit' value='Search'/></td>
+		<td><input id='sort' type='submit' value='Search'/></td>
 	
 	</form>
 	
@@ -215,8 +215,8 @@ if (!$query) {
 				<td><input type="text" name="GPA_greater" size="20"/></td>
 			</tr>
 			<tr>
-			<td><br></td>
-			<td>GPA less than</td>
+				<td><br></td>
+				<td>GPA less than</td>
 			</tr>
 			<tr class="blankrow">
 				
@@ -438,8 +438,8 @@ if (!$query) {
 			
 			$sort=$_GET['sort'];
 			
-			$sql = "SELECT *
-			FROM student_info ORDER BY $sort";
+			$sql = "SELECT * FROM student_info ORDER BY $sort";
+			$query= $dbc->query($sql);;
 		}
 		elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
 			
