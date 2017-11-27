@@ -71,11 +71,12 @@ id="mySidebar"><br>
 </div>
 </html>
 
+<form action='DMS_doctor_AcceptApp.php' method='POST'>
 
 <?php
 require 'DMS_db.php';
 
-echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
+//echo "<form action='DMS_doctor_AcceptApp.php' method='POST'">
 	
 // Get ID from the URL
 $id = $_GET['id'];
@@ -228,7 +229,9 @@ echo "</tr>";
 echo "</table>";
 
 
+
 //echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>
+
 echo "
 <td><br></td>
 <td><br></td>
@@ -237,15 +240,19 @@ echo "
 <td><input type='checkbox' name='new_accepted_by_DMS' value='1'> Check to Accept Applicant<br />
 <input type='hidden' name='user_id' value=$id><br /></td></tr>
 <tr><td></td>
-<td></td>
-<td><input type='submit' name= 'update' value=' Enter '></td></tr>
+<td></td>";
 
-
-<td><br></td>
-<td><br></td>
-<td><br></td>
-<td><br></td>
-<td><br></td>
-<td><br></td>
-</form>";
 ?>
+</table>
+<tr><td><br></td>
+<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT the selected students?')"></td>
+<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
+<tr>
+
+<td><br></td>
+<td><br></td>
+<td><br></td>
+<td><br></td>
+<td><br></td>
+<td><br></td>
+</form>
