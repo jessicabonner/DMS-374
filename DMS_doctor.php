@@ -74,7 +74,7 @@ id="mySidebar"><br>
 
 <?php
 
-require 'DMS_db.php';
+/* require 'DMS_db.php';
 
 $sql = 'SELECT user_id, first_name, last_name, EID, email, classification, major, accepted_by_dms
 		FROM student_info';
@@ -85,7 +85,7 @@ $query= $dbc->query($sql);;
 
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($dbc));
-}
+} */
 ?>
 <html>
 <head>
@@ -186,8 +186,27 @@ if (!$query) {
 		</tr>
 	</form>
 	
+	<form name="sort" method= "get">
+	<tr><td><b>Sort by</b><br></td></tr>
+	<tr>
+		<td><input type="radio" name="sort" value="user_id">ID<br></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="sort" value="GPA ASC">GPA ascending<br></td>
+	</tr>
+	<tr>
+		<td><input type="radio" name="sort" value="GPA DESC">GPA descending<br></td>
+	</tr>
+	
+	<td><input id='sort' type='submit' value='Search'/></td>
+	
+	</form>
+	
+	
+	
+	
 	<details>
-	<summary>filter search</summary>
+	<summary><b>filter search</b></summary>
 	<p>
 	<form name="filter" method= "get">
 		<tr>
@@ -391,6 +410,7 @@ if (!$query) {
 				<th>Last Name</th>
 				<th>Review</th>
 				<th>EID</th>
+				<th>GPA</th>
 				<th>Email</th>
 				<th>Classification</th>
 				<th>Major</th>
@@ -401,6 +421,31 @@ if (!$query) {
 		<tbody>
 		<?php
 		//while ($row = mysqli_fetch_array($query))
+			
+		require 'DMS_db.php';
+		
+		
+		
+		if (isset($_GET['sort'])){
+			
+			$sort=$_GET['sort'];
+			
+			$sql = "SELECT *
+			FROM student_info ORDER BY $sort";
+		}
+		else 
+		{
+			$sql = 'SELECT *
+			FROM student_info';
+		}
+		
+		//$query = mysqli_query($dbc, $sql); //what's the error
+
+		$query= $dbc->query($sql);;
+
+		if (!$query) {
+			die ('SQL Error: ' . mysqli_error($dbc));
+		}
 			
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
@@ -465,6 +510,7 @@ if (!$query) {
 				
 				
 				echo ' 	<td>'.$row['EID'].'</td>
+						<td>'.$row['GPA'].'</td>
 						<td>'.$row['email'].'</td>
 						<td>'.$row['classification'].'</td>
 						<td>'.$row['major'].'</td>';
@@ -497,6 +543,18 @@ if (!$query) {
 
 	
 	</form>
+	
+	
+	<script>
+		$('#sort').change(function(){
+			$.ajax({
+				type: "POST",
+				url: "DMS_doctor.php",
+				data: {text:$(this).val()}
+			});
+		});
+	
+	</script>
 	
 	
 </body>
