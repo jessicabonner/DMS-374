@@ -1,4 +1,7 @@
 <?php
+//THIS FILE TAKES THE INFORMATION SUBMITTED IN DMS_CreateProgram.html AND COMMITS IT TO THE DATABASE 
+//IN ORDER TO LET THE USER CREATE NEW PROGRAMS
+	
 	
 	//require file containing database string
 	require 'DMS_db.php';

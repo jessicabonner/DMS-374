@@ -1,5 +1,8 @@
 <?php
-	
+//THIS FILE TAKES THE INFORMATION SUBMITTED IN DMS_CreateApplication.php AND COMMITS IT TO THE DATABASE 
+//IN ORDER TO LET THE USER CREATE NEW APPLICATONS
+
+
 	//require file containing db string
 	require 'DMS_db.php';
 	

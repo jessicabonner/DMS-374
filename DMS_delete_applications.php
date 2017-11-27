@@ -1,58 +1,50 @@
 <?php
+//THIS FILE CONNECTS TO THE DATABASE USING THE INFORMATION PROVIDED BY THE USER IN DMS_View_All_Applications.php 
+//IN ORDER TO DELETE ANY APPLICATIONS AND THEIR CORRESPONDING TABLES
 
-
-
-$availability= $_POST['application_delete_list'];
-foreach($availability as $value)
-{
-	require 'DMS_db.php';
-	
-	$sql= "SELECT * FROM applications WHERE application_id=$value";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
-	$application = $stmt->fetch();
-	
-	$program_id=$application['program_id'];
-	$sql= "SELECT name_of_program FROM programs WHERE program_id=$program_id";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
-	$program = $stmt->fetch();
-	$name_of_program=$program['name_of_program'];
+	//pull the list of applications to be deleted
+	$availability= $_POST['application_delete_list'];
 	
 	
-	$term=$application['term'];
-	$year=$application['year'];
+	//loop through the list
+	foreach($availability as $value)
+	{
+		//require db connection string
+		require 'DMS_db.php';
 	
+		//select the record (application) with the given id
+		$sql= "SELECT * FROM applications WHERE application_id=$value";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application = $stmt->fetch();
 	
-	$name_of_table= $value."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
+		//find the corresponding program and get it's name
+		$program_id=$application['program_id'];
+		$sql= "SELECT name_of_program FROM programs WHERE program_id=$program_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$program = $stmt->fetch();
+		$name_of_program=$program['name_of_program'];
 	
+		//get the application's other values needed to find table name
+		$term=$application['term'];
+		$year=$application['year'];
 	
-	$sql="DROP TABLE $name_of_table";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
+		
+		//use values to create table name- same process that was used to create the table name on DMS_CreateApplication_connect.php
+		$name_of_table= $value."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
 	
-	$sql="DELETE FROM applications WHERE application_id=$value";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
+		//drop the table for this application
+		$sql="DROP TABLE $name_of_table";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+	
+		//delete this application record from applciations table
+		$sql="DELETE FROM applications WHERE application_id=$value";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
 
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+	}
 
 
 ?>
