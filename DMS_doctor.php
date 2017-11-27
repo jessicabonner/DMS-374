@@ -59,25 +59,23 @@
 
 <?php
 
-<<<<<<< HEAD
-/* require 'DMS_db.php';
-=======
-	require 'DMS_db.php';
->>>>>>> 5eae68558f8b2579f32b87631629d1fd9c244282
 
+ require 'DMS_db.php';
+
+	require 'DMS_db.php';
 	$sql = 'SELECT user_id, first_name, last_name, EID, email, classification, major, accepted_by_dms FROM student_info';
 
 	$query= $dbc->query($sql);;
 
-<<<<<<< HEAD
+
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($dbc));
-} */
-=======
+} 
+
 	if (!$query) {
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
->>>>>>> 5eae68558f8b2579f32b87631629d1fd9c244282
+
 ?>
 
 <html>
@@ -197,18 +195,18 @@ if (!$query) {
 	
 	
 	<details>
-<<<<<<< HEAD
+
 	<summary><b>filter search</b></summary>
 	<p>
 	<form name="filter" method= "get">
 		<tr>
-=======
+
 		<summary>filter search</summary>
 		<p>
 			
 		<form name="filter" method= "get">
 			<tr>
->>>>>>> 5eae68558f8b2579f32b87631629d1fd9c244282
+
 				<td>GPA Greater than</td>
 			</tr>
 			<tr class="blankrow">
@@ -371,10 +369,7 @@ if (!$query) {
 	
 	require 'DMS_doctor_filter.php';
 		
-	if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
-	{
-		$query=search($_GET['search_criteria']); //call search_criteria function
-	}
+	
 		
 	if(isset($_GET['filter_criteria']))
 	{
@@ -446,15 +441,24 @@ if (!$query) {
 			$sql = "SELECT *
 			FROM student_info ORDER BY $sort";
 		}
+		elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
+			
+			//call search_criteria function
+			$query=search($_GET['search_criteria']);
+		}
+			
+		
 		else 
 		{
 			$sql = 'SELECT *
 			FROM student_info';
+			
+			$query= $dbc->query($sql);;
 		}
 		
 		//$query = mysqli_query($dbc, $sql); //what's the error
 
-		$query= $dbc->query($sql);;
+		
 
 		if (!$query) {
 			die ('SQL Error: ' . mysqli_error($dbc));
