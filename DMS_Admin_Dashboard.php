@@ -2,7 +2,12 @@
 	//this will display a message when a user is redirected to this page after completing an action
 	if (isset($_GET['message']))
 	{
-if ($_GET['message']=="1"){
+		if ($_GET['message']=="0"){
+			echo '<script language="javascript">';
+			echo 'alert("The new program has been created successfully")';
+			echo '</script>';
+		}
+		if ($_GET['message']=="1"){
 			echo '<script language="javascript">';
 			echo 'alert("The new application has been created successfully")';
 			echo '</script>';
