@@ -1,25 +1,18 @@
-<!--Form to allow students to apply to dell med school internship programs-->
-<!DOCTYPE html>
+<!--Doctor's view that displays applicants-->
+<!doctype html>
 <html>
 <head>
 	<link href='application.css' type='text/css' rel='stylesheet'>
 	<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
-
-
 <title>
 	Dell Medical School - Apply
 </title>
-
-
-
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-
-
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
 	body,h1,h2,h3,h4,h5 {font-family: "Open Sans", serif}	
 	body {font-size:16px;}
@@ -27,26 +20,19 @@
 	.w3-half img:hover{opacity:1}
 </style>
 
-
-  <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding" style="background-color:#BF5700;z-index:3;width:350px;font-weight:bold;" 
-id="mySidebar"><br>
-	
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding" style="background-color:#BF5700;z-index:3;width:350px;font-weight:bold;" id="mySidebar"><br>
 	<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-	
-	
 	<div class="w3-container">
 		<!--<h3 class="w3-padding-64"><b>Dell Medical</br>School</b></h3>-->
 		<img src="DMS_logo2.jpg" alt="Dell Medical School" height="75px"/>
 	</div>
-	
-    <div class="w3-bar-block">
+	<div class="w3-bar-block">
 		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
 		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Apply</a>
 		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Programs</a>
 	</div>
 </nav>
-
 
 <!-- Top menu on small screens -->
 <header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding" style="background-color:#BF5700">
@@ -54,7 +40,6 @@ id="mySidebar"><br>
   <span style="background-color:#BF5700">Applicants
   </span>
 </header>
-
 
 <!-- Overlay effect when opening sidebar on small screens -->
 <div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
@@ -74,22 +59,31 @@ id="mySidebar"><br>
 
 <?php
 
+<<<<<<< HEAD
 /* require 'DMS_db.php';
+=======
+	require 'DMS_db.php';
+>>>>>>> 5eae68558f8b2579f32b87631629d1fd9c244282
 
-$sql = 'SELECT user_id, first_name, last_name, EID, email, classification, major, accepted_by_dms
-		FROM student_info';
-		
-//$query = mysqli_query($dbc, $sql); //what's the error
+	$sql = 'SELECT user_id, first_name, last_name, EID, email, classification, major, accepted_by_dms FROM student_info';
 
-$query= $dbc->query($sql);;
+	$query= $dbc->query($sql);;
 
+<<<<<<< HEAD
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($dbc));
 } */
+=======
+	if (!$query) {
+		die ('SQL Error: ' . mysqli_error($dbc));
+	}
+>>>>>>> 5eae68558f8b2579f32b87631629d1fd9c244282
 ?>
+
 <html>
 <head>
 	<title>Program Applicants</title>
+	
 	<style type="text/css">
 		body {
 			font-size: 15px;
@@ -171,13 +165,10 @@ if (!$query) {
 			background-color: #ffcccc;
 		} */
 	</style>
+
 </head>
 <body>
 
-
-
-	
-	
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
@@ -206,10 +197,18 @@ if (!$query) {
 	
 	
 	<details>
+<<<<<<< HEAD
 	<summary><b>filter search</b></summary>
 	<p>
 	<form name="filter" method= "get">
 		<tr>
+=======
+		<summary>filter search</summary>
+		<p>
+			
+		<form name="filter" method= "get">
+			<tr>
+>>>>>>> 5eae68558f8b2579f32b87631629d1fd9c244282
 				<td>GPA Greater than</td>
 			</tr>
 			<tr class="blankrow">
@@ -230,7 +229,9 @@ if (!$query) {
 			
 			<!--checkbox buttons for student's classification-->
 			<tr>
+			<!--Page Break-->
 			<td><br></td>
+			<!--Page Break-->
 			<td><br></td>
 				<td>Classification</td>
 			</tr>
@@ -260,9 +261,11 @@ if (!$query) {
 
 			<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
 			<tr>
+			<!--Page Break-->
 			<td><br></td>
 				<td>Work eligibility</td>
 			</tr>
+			<!--Page Break-->
 			<tr class="blankrow">
 				<td><br></td>
 			</tr>
@@ -278,9 +281,11 @@ if (!$query) {
 			
 			<!--checkbox buttons for if they have worked at dell med school before-->
 			<tr>
+			<!--Page Break-->
 			<td><br></td>
 				<td>Previously worked at Dell Medical School?</td>
 			</tr>
+			<!--Page Break-->
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
@@ -291,11 +296,13 @@ if (!$query) {
 			</tr>
 
 
-			<!--checkbox buttons for if they have volunteered at seton before-->
+			<!--checkbox buttons for if they have volunteered at Seton before-->
 			<tr>
+			<!--Page Break-->
 			<td><br></td>
 				<td>Previously volunteered at Seton Hospital?</td>
 			</tr>
+			<!--Page Break-->
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
@@ -307,9 +314,11 @@ if (!$query) {
 			
 			<!--checkbox buttons for if they have volunteered at seton before-->
 			<tr>
+			<!--Page Break-->
 			<td><br></td>
 				<td>Car?</td>
 			</tr>
+			<!--Page Break-->
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
@@ -319,10 +328,13 @@ if (!$query) {
 				<td><input type="checkbox" name="filter_criteria[]" value=" car='0' ">No<br></td>
 			</tr>
 			
+			<!--checkbox for review status-->
 			<tr>
+			<!--Page Break-->
 			<td><br></td>
 				
 			</tr>
+			<!--Page Break-->
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
@@ -341,7 +353,7 @@ if (!$query) {
 			</tr>
 			
 		
-			
+			<!--Radio button for AND/OR search type-->
 			<tr>
 				<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
 			</tr>
@@ -351,54 +363,55 @@ if (!$query) {
 
 			<td><input id='submit' type='submit' value='Search'/></td>
 	
-	</form>
-	</p>
+		</form>
+		</p>
 	</details>
 	
-	<?php
-		require 'DMS_doctor_filter.php';
-		if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
-			$query=search($_GET['search_criteria']); //call search_criteria function
+<?php //Doctor's filter functionality
+	
+	require 'DMS_doctor_filter.php';
+		
+	if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
+	{
+		$query=search($_GET['search_criteria']); //call search_criteria function
+	}
+		
+	if(isset($_GET['filter_criteria']))
+	{
+		/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less'])){		
+			echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
+		} */
+		if ($_GET['GPA_greater']!="")
+		{
+			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');	
 		}
-		if(isset($_GET['filter_criteria'])){
-			/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less']))
-			{
-				
-				echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
-			} */
-			if ($_GET['GPA_greater']!="")
-			{
-				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
-				
-			}
 			
-			elseif($_GET['GPA_less']!="")
-			{
-					$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
-			}
-			
-			else 
-			{
-				$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
-				
-			}
+		elseif($_GET['GPA_less']!="")
+		{
+			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
 		}
 		
-		if(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
+		else 
 		{
-			if($_GET['GPA_greater']!="")
-			{
-				$query=filter_only_gpa($_GET['GPA_greater'],'>');
-			}
-			
-			elseif($_GET['GPA_less']!="")
-			{
-				$query=filter_only_gpa($_GET['GPA_less'],'<');
-			}
+			$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function	
 		}
+	}	
+		
+	if(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
+	{
+		if($_GET['GPA_greater']!="")
+		{
+			$query=filter_only_gpa($_GET['GPA_greater'],'>');
+		}
+			
+		elseif($_GET['GPA_less']!="")
+		{
+			$query=filter_only_gpa($_GET['GPA_less'],'<');
+		}
+	}
 	?>
 	
-	<form action='DMS_doctor_review.php' method='post'>
+<form action='DMS_doctor_review.php' method='post'>
 		
 	<table class="data-table">
 		<caption class="title">Applicant Data of DMS</caption>
@@ -530,18 +543,15 @@ if (!$query) {
 		}?>
 		</tbody>
 	</table>
-	
-
 		
-		</table>
-		<tr><td><br></td>
-		<td><input type='submit' name= "accept" value='Accept Students' onclick="return confirm('Are you sure you want to ACCEPT the selected students?')"></td>
-		<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
+	</table>
+		<!--Page Break-->
+		<tr>
+			<td><br></td>
+			<td><input type='submit' name= "accept" value='Accept Students' onclick="return confirm('Are you sure you want to ACCEPT the selected students?')"></td>
+			<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
 		<tr>
 
-
-
-	
 	</form>
 	
 	
