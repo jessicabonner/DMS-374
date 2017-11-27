@@ -1,3 +1,16 @@
+<?php
+	//this will display an error message if the user tries to create an application that already exists in the database
+	if (isset($_GET['message']))
+	{
+		if ($_GET['message']=="1"){
+			echo '<script language="javascript">';
+			echo 'alert("The new application has been created successfully")';
+			echo '</script>';
+		}
+		
+	}
+?>
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>

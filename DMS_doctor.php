@@ -76,7 +76,7 @@ id="mySidebar"><br>
 
 require 'DMS_db.php';
 
-$sql = 'SELECT user_id, first_name, last_name, EID, email, classification, major, accepted_by_DMS
+$sql = 'SELECT user_id, first_name, last_name, EID, email, classification, major, accepted_by_dms
 		FROM student_info';
 		
 //$query = mysqli_query($dbc, $sql); //what's the error
@@ -173,7 +173,211 @@ if (!$query) {
 	</style>
 </head>
 <body>
-	<h1>Applicants</h1>
+
+
+
+	
+	
+	<!--search bar-->
+	<form name="search" method= "get">
+		<tr>
+			<td><input id='search' type='text' name='search_criteria' size='20'/></td>
+			<td><input id='submit' type='submit' value='Search'/></td>
+		</tr>
+	</form>
+	
+	<details>
+	<summary>filter search</summary>
+	<p>
+	<form name="filter" method= "get">
+		<tr>
+				<td>GPA Greater than</td>
+			</tr>
+			<tr class="blankrow">
+				
+			<tr>
+				<td><input type="text" name="GPA_greater" size="20"/></td>
+			</tr>
+			<tr>
+			<td><br></td>
+			<td>GPA less than</td>
+			</tr>
+			<tr class="blankrow">
+				
+			<tr>
+				<td><input type="text" name="GPA_less" size="20"/></td>
+			</tr>
+			
+			
+			<!--checkbox buttons for student's classification-->
+			<tr>
+			<td><br></td>
+			<td><br></td>
+				<td>Classification</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th year undergrad<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Other' ">Other<br></td>
+			</tr>
+
+			<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
+			<tr>
+			<td><br></td>
+				<td>Work eligibility</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" employment='UT' " >Currently employed at UT<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" employment='eligible' ">Eligible to work in the US with no restrictions<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
+			</tr>
+			
+			<!--checkbox buttons for if they have worked at dell med school before-->
+			<tr>
+			<td><br></td>
+				<td>Previously worked at Dell Medical School?</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='1' ">Yes<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='0' ">No<br></td>
+			</tr>
+
+
+			<!--checkbox buttons for if they have volunteered at seton before-->
+			<tr>
+			<td><br></td>
+				<td>Previously volunteered at Seton Hospital?</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='1' " >Yes<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
+			</tr>
+			
+			<!--checkbox buttons for if they have volunteered at seton before-->
+			<tr>
+			<td><br></td>
+				<td>Car?</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" car='1' " >Yes<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" car='0' ">No<br></td>
+			</tr>
+			
+			<tr>
+			<td><br></td>
+				
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" review='0' ">Not yet reviewed<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" review='1' ">Noncompetitive<br></td>
+			</tr>
+			<tr>
+				<td><input type="checkbox" name="filter_criteria[]" value=" review='2' ">Competitive<br></td>
+			</tr>
+			
+			<!--break-->
+			<tr>
+				<td><br></td>
+			</tr>
+			
+		
+			
+			<tr>
+				<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
+			</tr>
+			<tr>
+				<td><b><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></b></td>
+			</tr>
+
+			<td><input id='submit' type='submit' value='Search'/></td>
+	
+	</form>
+	</p>
+	</details>
+	
+	<?php
+		require 'DMS_doctor_filter.php';
+		if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
+			$query=search($_GET['search_criteria']); //call search_criteria function
+		}
+		if(isset($_GET['filter_criteria'])){
+			/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less']))
+			{
+				
+				echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
+			} */
+			if ($_GET['GPA_greater']!="")
+			{
+				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
+				
+			}
+			
+			elseif($_GET['GPA_less']!="")
+			{
+					$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
+			}
+			
+			else 
+			{
+				$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
+				
+			}
+		}
+		
+		if(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
+		{
+			if($_GET['GPA_greater']!="")
+			{
+				$query=filter_only_gpa($_GET['GPA_greater'],'>');
+			}
+			
+			elseif($_GET['GPA_less']!="")
+			{
+				$query=filter_only_gpa($_GET['GPA_less'],'<');
+			}
+		}
+	?>
 	
 	<form action='DMS_doctor_review.php' method='post' onsubmit="return confirm('Are you sure you want to save changes?');">
 		
@@ -201,7 +405,7 @@ if (!$query) {
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 				$id = $row['user_id'];
-				$accepted_by_DMS = $row['accepted_by_DMS'];
+				$accepted_by_dms = $row['accepted_by_dms'];
 				$review_array = array('1', '0');
 				
 				echo'<td><input type="checkbox" name="application_accept_list[]" value='.$id.' id='.$id.'></td>';
@@ -267,15 +471,15 @@ if (!$query) {
 						
 						
 						
-						if ($row['accepted_by_DMS']==0)
+						if ($row['accepted_by_dms']==0)
 						{
-							$accepted_by_DMS="No";
+							$accepted_by_dms="No";
 						}
 						else{
-							$accepted_by_DMS="Yes";
+							$accepted_by_dms="Yes";
 						}
 						
-				echo '  <td>'.$accepted_by_DMS.'</td>
+				echo '  <td>'.$accepted_by_dms.'</td>
 					</tr>';
 		}?>
 		</tbody>
