@@ -181,24 +181,24 @@ if (!$query) {
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
-			<td><input id='search' type='text' name='search_criteria' size='20'/></td>
-			<td><input id='submit' type='submit' value='Search'/></td>
+			<td><input placeholder="search" id='search' type='text' name='search_criteria' size='20'/></td>
+			<!--<td><input id='submit' type='submit' value='Search'/></td>-->
 		</tr>
 	</form>
 	
 	<form name="sort" method= "get">
-	<tr><td><b>Sort by</b><br></td></tr>
-	<tr>
-		<td><input type="radio" name="sort" value="user_id">ID<br></td>
-	</tr>
-	<tr>
-		<td><input type="radio" name="sort" value="GPA ASC">GPA ascending<br></td>
-	</tr>
-	<tr>
-		<td><input type="radio" name="sort" value="GPA DESC">GPA descending<br></td>
-	</tr>
+		<tr><td><b>Sort by</b><br></td></tr>
+		<tr>
+			<td><input type="radio" name="sort" value="user_id">ID<br></td>
+		</tr>
+		<tr>
+			<td><input type="radio" name="sort" value="GPA ASC">GPA ascending<br></td>
+		</tr>
+		<tr>
+			<td><input type="radio" name="sort" value="GPA DESC">GPA descending<br></td>
+		</tr>
 	
-	<td><input id='sort' type='submit' value='Search'/></td>
+		<td><input id='sort' type='submit' value='Search'/></td>
 	
 	</form>
 	
@@ -226,8 +226,8 @@ if (!$query) {
 				<td><input type="text" name="GPA_greater" size="20"/></td>
 			</tr>
 			<tr>
-			<td><br></td>
-			<td>GPA less than</td>
+				<td><br></td>
+				<td>GPA less than</td>
 			</tr>
 			<tr class="blankrow">
 				
@@ -413,6 +413,8 @@ if (!$query) {
 		elseif($_GET['GPA_less']!="")
 		{
 			$query=filter_only_gpa($_GET['GPA_less'],'<');
+			
+		
 		}
 	}
 	?>
@@ -449,8 +451,8 @@ if (!$query) {
 			
 			$sort=$_GET['sort'];
 			
-			$sql = "SELECT *
-			FROM student_info ORDER BY $sort";
+			$sql = "SELECT * FROM student_info ORDER BY $sort";
+			$query= $dbc->query($sql);;
 		}
 		elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
 			
@@ -466,6 +468,7 @@ if (!$query) {
 			
 			$query= $dbc->query($sql);;
 		}
+		
 		
 		//$query = mysqli_query($dbc, $sql); //what's the error
 
