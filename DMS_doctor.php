@@ -170,8 +170,8 @@ if (!$query) {
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
-			<td><input id='search' type='text' name='search_criteria' size='20'/></td>
-			<td><input id='submit' type='submit' value='Search'/></td>
+			<td><input placeholder="search" id='search' type='text' name='search_criteria' size='20'/></td>
+			<!--<td><input id='submit' type='submit' value='Search'/></td>-->
 		</tr>
 	</form>
 	
@@ -402,6 +402,8 @@ if (!$query) {
 		elseif($_GET['GPA_less']!="")
 		{
 			$query=filter_only_gpa($_GET['GPA_less'],'<');
+			
+		
 		}
 	}
 	?>
@@ -455,6 +457,7 @@ if (!$query) {
 			
 			$query= $dbc->query($sql);;
 		}
+		
 		
 		//$query = mysqli_query($dbc, $sql); //what's the error
 
