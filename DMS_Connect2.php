@@ -8,6 +8,22 @@
 	//get the user id which was passed through the url when student logged in/created a profile
 	$user_id = $_POST['user_id'];
 	
+	
+	
+	
+	//check if the student info already exists in the database
+	$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$user_id");
+	$x = $stmt->fetch();
+		
+	//if the student info already exists, redirect back to the DMS_CreateApplication.php page along with an indication that there was an error
+	if (count($x['user_id'])>0)
+	{
+		header('Location: DMS_Select_Program_Apply.php?error=0&user_id='.$user_id);
+		die();
+	}
+
+
+	
 	//create variables from those submitted through application form (DMS_Student_Info.php)
 	$first_name=$_POST['first_name'];
 	$middle_name=$_POST['middle_name'];

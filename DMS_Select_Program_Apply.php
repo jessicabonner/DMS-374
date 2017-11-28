@@ -1,8 +1,15 @@
 <?php
-	if (isset($_GET['error']))
+	if ($_GET['error']=="1")
 	{
+		
 		echo '<script language="javascript">';
 		echo 'alert("You have already applied to this program")';
+		echo '</script>'; 
+	}
+	
+	elseif($_GET['error']=="0")	{
+		echo '<script language="javascript">';
+		echo 'alert("You have already submitted your Student Information. If you wish to edit your information, please click on the edit profile tab")';
 		echo '</script>'; 
 		
 	}
