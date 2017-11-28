@@ -483,7 +483,7 @@
 					$accepted_offer="No";
 				}
 
-				echo "<td> <a href='DMS_ViewApp.php?id= $id '>" .$row['user_id'] . "</a> </td>";
+				echo "<td> <a href='DMS_HR_View_Student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
 
 				echo '
 						<td>'.$row['first_name'].'</td>

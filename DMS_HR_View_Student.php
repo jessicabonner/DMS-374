@@ -113,7 +113,7 @@
             <nav>
               <ul class="nav" id="main-nav" role="menu">
             <li class="nav-item" role="menuitem">
-        <a href="DMS_doctor.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
+        <a href="DMS_HR_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
@@ -314,7 +314,7 @@ echo "<th>Semester Committment</th>";
 echo "<td>" . $row['semester_commitment'] .  " semester(s)</td>";
 echo "</tr>";
 
-echo "<tr>";
+/* echo "<tr>";
 echo "<th>Review</th>";
 
 $stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
@@ -344,7 +344,7 @@ $stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
 			</select></td>';
 		}
 
-echo "</tr>";
+echo "</tr>"; */
 
 
 //echo "<br>"
@@ -365,9 +365,9 @@ echo "</tr>";
 echo "</table>"; */
 
 //}
-echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
+//echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>
 
-echo "
+/* echo "
 <td><br></td>
 <td><br></td>
 <tr><td></td>
@@ -375,14 +375,14 @@ echo "
 <td><input type='checkbox' name='new_accepted_by_DMS' value='1'> Check to Accept Applicant<br />
 <input type='hidden' name='user_id' value=$id><br /></td></tr>
 <tr><td></td>
-<td></td>";
+<td></td>"; */
 
 ?>
 </table>
-<tr><td><br></td>
+<!-- <tr><td><br></td>
 <td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"></td>
 <td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
-<tr>
+<tr> -->
 
 <td><br></td>
 <td><br></td>

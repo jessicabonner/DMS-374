@@ -13,6 +13,42 @@
 	}
 	
 	*/
+	function select_program($program_id)
+	{
+		require 'DMS_db.php';
+
+		$sql="SELECT * FROM programs WHERE program_id=$program_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$program= $stmt->fetch();
+		$name_of_program= $program['name_of_program'];
+		
+		$sql="SELECT * FROM applications WHERE program_id=$program_id AND application_closed='0'";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+		
+		$application_id=$application['application_id'];
+		$term=$application['term'];
+		$year=$application['year'];
+		
+		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
+		
+		$sql="SELECT * FROM $name_of_table";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$student_applicants= $stmt->fetchAll();
+		
+		$student_applicant_id_array=array();
+		foreach($student_applicants as $key=>$value)
+		{
+			$student_applicant_id_array[]=$value["user_id"];
+			//echo $value['user_id'];
+		}
+		return $student_applicant_id_array;
+	}
+	
+	
 	function filter($filter_criteria, $and_or)
 	{
 		require 'DMS_db.php';

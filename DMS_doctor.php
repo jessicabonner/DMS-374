@@ -7,7 +7,11 @@
 		echo '</script>';
 
 	}
+	
+	
+
 ?>
+
 
 <!--Doctor's view that displays applicants-->
 <!doctype html>
@@ -237,8 +241,24 @@ if (!$query) {
 
 	</style>
 </head>
-<body>
+<?php
+//link to file containing database connection string
+	require 'DMS_db.php';
 
+	$sql="SELECT program_id, name_of_program FROM programs";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$programs= $stmt->fetchAll();
+?>
+<body>
+	<form name="select_program" method="get">
+		<select name="select_program" required>
+			<?php foreach($programs as $program): ?>
+				<option id="select_program" name="select_program" value="<?= $program['program_id']; ?>"><?= $program['name_of_program']; ?></option>
+			<?php endforeach; ?>
+		</select>
+		<td><input id='program' type='submit' value='Choose Program'/></td>
+	</form>
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
@@ -443,12 +463,24 @@ if (!$query) {
 		</p>
 	</details>
 
-<?php //Doctor's filter functionality
+<?php 
+	//require file containing all doctor functions
+	require 'DMS_doctor_functionality.php';
+	
+	
+	//doctor choose program functionality
+	if(isset($_GET['select_program'])){
+		
+		$student_applicants=select_program($_GET['select_program']); 
+		$student_applicants= implode(',',$student_applicants);
+		echo $student_applicants;
+		
+	}
 
-	require 'DMS_doctor_filter.php';
-
-
-
+	
+	//Doctor's filter functionality
+	
+	
 	if(isset($_GET['filter_criteria']))
 	{
 		/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less'])){
@@ -528,6 +560,12 @@ if (!$query) {
 		}
 
 
+		elseif (isset($student_applicants))
+		{
+			$sql = "SELECT * FROM student_info WHERE user_id IN ($student_applicants)";
+
+			$query= $dbc->query($sql);;
+		}
 		else
 		{
 			$sql = 'SELECT *
