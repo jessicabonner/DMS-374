@@ -169,6 +169,9 @@ $id = $_GET['id'];
 //$result = mysqli_query($dbc, "SELECT * FROM application WHERE ApplicationID = '$id'");
 $result = "SELECT * FROM student_info WHERE user_id = '$id'";
 
+$query= $dbc->query($result);
+
+
 $query= $dbc->query($result);;
 
 if (!$query) {
@@ -252,29 +255,62 @@ echo "<th>Major</th>";
 echo "<td>" . $row['major'] .  "</td>";
 echo "</tr>";
 
+if ($row['major_2']=='')
+{
+	$major_2="None";
+}
+
 echo "<tr>";
 echo "<th>Second Major</th>";
-echo "<td>" . $row['major_2'] .  "</td>";
+//echo "<td>" . $row['major_2'] .  "</td>";
+echo "<td>$major_2</td>";
 echo "</tr>";
+
+if ($row['worked_at_dms']==0)
+{
+	$worked_at_dms="No";
+}
+else{
+	$worked_at_dms="Yes";
+}
 
 echo "<tr>";
 echo "<th>Has worked at DMS before?</th>";
-echo "<td>" . $row['worked_at_dms'] .  "</td>";
+//echo "<td>" . $row['worked_at_dms'] .  "</td>";
+echo "<td>$worked_at_dms</td>";
 echo "</tr>";
+
+if ($row['volunteered_at_seton']==0)
+{
+	$volunteered_at_seton="No";
+}
+else{
+	$volunteered_at_seton="Yes";
+}
 
 echo "<tr>";
 echo "<th>Has volunteered at Seton before?</th>";
-echo "<td>" . $row['volunteered_at_seton'] .  "</td>";
+//echo "<td>" . $row['volunteered_at_seton'] .  "</td>";
+echo "<td>$volunteered_at_seton</td>";
 echo "</tr>";
+
+if ($row['car']==0)
+{
+	$car="No";
+}
+else{
+	$car="Yes";
+}
 
 echo "<tr>";
 echo "<th>Has a car?</th>";
-echo "<td>" . $row['car'] .  "</td>";
+//echo "<td>" . $row['car'] .  "</td>";
+echo "<td>$car</td>";
 echo "</tr>";
 
 echo "<tr>";
 echo "<th>Semester Committment</th>";
-echo "<td>" . $row['semester_commitment'] .  "</td>";
+echo "<td>" . $row['semester_commitment'] .  " semester(s)</td>";
 echo "</tr>";
 
 echo "<tr>";
@@ -309,15 +345,25 @@ $stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
 
 echo "</tr>";
 
+
 //echo "<br>"
 
 echo "</tr>";
 }
 
+$result1 = "SELECT question_0 FROM 11_Mobile_Research_Fall_2018 WHERE user_id='$id'";
+$query1= $dbc->query($result1);
+
+while ($row=$query1->fetch(PDO::FETCH_ASSOC))
+{
+
+echo "<tr>";
+echo "<th>Question1</th>";
+echo "<td>" . $row['question_0'] .  "</td>";
+echo "</tr>";
 echo "</table>";
 
-
-
+}
 //echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>
 
 echo "
