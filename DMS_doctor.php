@@ -4,67 +4,124 @@
 	{
 		echo '<script language="javascript">';
 		echo 'alert("The selected list contains students that are already accepted. Please try again.")';
-		echo '</script>'; 
-		
+		echo '</script>';
+
 	}
 ?>
 
 <!--Doctor's view that displays applicants-->
 <!doctype html>
-<html>
+<html lang="en" dir="ltr">
 <head>
-	<link href='application.css' type='text/css' rel='stylesheet'>
-	<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
+	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
-<title>
-	Dell Medical School - Apply
-</title>
-<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-<style>
-	body,h1,h2,h3,h4,h5 {font-family: "Open Sans", serif}	
-	body {font-size:16px;}
-	.w3-half img{margin-bottom:-6px;margin-top:16px;opacity:0.8;cursor:pointer}
-	.w3-half img:hover{opacity:1}
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+<meta name="msapplication-TileColor" content="#bf5700" />
+<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-120x120.png" />
+<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-76x76.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-57x57.png" />
+<link rel="apple-touch-icon" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-60x60.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-72x72.png" />
+<meta name="description" content="Dell Medical School at The University of Texas at Austin is the first med school in decades to be built from the ground up at a Tier 1 research university." />
+<meta name="robots" content="follow, index" />
+<meta name="generator" content="Drupal 7 (http://drupal.org)" />
+<link rel="canonical" href="https://dellmed.utexas.edu" />
+<link rel="shortlink" href="https://dellmed.utexas.edu" />
+  <title>Dell Medical School | The University of Texas at Austin</title>
+  <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+<style type="text/css" media="all">
+/*--><![CDATA[/*><!--*/
+#main-nav li a{font-family:open_sans;}
+.UT-page{margin-top:50px;}
+
+/*]]>*/
 </style>
+<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
+  <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
+</head>
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-collapse w3-top w3-large w3-padding" style="background-color:#BF5700;z-index:3;width:350px;font-weight:bold;" id="mySidebar"><br>
-	<a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-	<div class="w3-container">
-		<!--<h3 class="w3-padding-64"><b>Dell Medical</br>School</b></h3>-->
-		<img src="DMS_logo2.jpg" alt="Dell Medical School" height="75px"/>
-	</div>
-	<div class="w3-bar-block">
-		<a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a>
-		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Apply</a>
-		<a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Programs</a>
-	</div>
-</nav>
+<body class="html front not-logged-in no-sidebars page-node"  >
+  <div id="skip-link">
+    <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
+  </div>
+      <header class="UT-header theme1">
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-xlarge w3-padding" style="background-color:#BF5700">
-  <a href="javascript:void(0)" class="w3-button w3-margin-right" style="background-color:#BF5700" onclick="w3_open()">☰</a>
-  <span style="background-color:#BF5700">Applicants
-  </span>
-</header>
+    <div class="container container-logo-p2">
+      <div class="row">
+        <div class="column small-12">
+           <div class="p2-logo">
+             <a href="http://dellmed.utexas.edu" onclick="w3_close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
+          </div>
+        </div>
+      </div>
+      <a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
+    </div> <!-- container-logo -->
 
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+    <div class="nav-overlay" id="nav-overlay"></div>
+    <div class="nav-wrapper" role="navigation">
+
+      <div class="container container-topnav">
+        <div class="row">
+          <div class="column small-12">
+            <div class="topnav">
+              <div class="hide-for-large-up">
+                <ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
+<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
+<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
+<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
+</ul>              </div>
+              <div class="parent-banner-links">
+                <h2 class="UT-secondary-logo">
+                  <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+                </h2>
+                              </div>
+
+              <div class="hide-for-large-up">
+                <div class="parent-links" id="parents">
+                  <a href="http://www.utexas.edu">The University of Texas at Austin</a>
+                                  </div>
+
+                                  <a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
+                              </div>
+                      <br>
+                    <br>
+                  <br>
+            </div>
+          </div>
+        </div>
+      </div> <!-- container-topnav -->
+
+    </div> <!-- nav-wrapper -->
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:390px;margin-right:40px">
+<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
   <!-- Header -->
-<div class="w3-container" style="margin-top:80px" id="showcase">
+<div class="w3-container" style="margin-top:120px; font-familt:benton sans;" id="showcase">
 	<h1 class="w3-jumbo">
-		<b>Applicants</b>
+		<b>Student Applicants</b>
 	</h1>
-	
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+
+
+	<hr style="min-width:100%;border:5px solid #BF5700" class="w3-round">
+	<br>
+	<b> </b>
 </div>
 </html>
 
@@ -81,7 +138,7 @@
 
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($dbc));
-} 
+}
 
 	if (!$query) {
 		die ('SQL Error: ' . mysqli_error($dbc));
@@ -92,7 +149,7 @@ if (!$query) {
 <html>
 <head>
 	<title>Program Applicants</title>
-	
+
 	<style type="text/css">
 		body {
 			font-size: 15px;
@@ -117,7 +174,7 @@ if (!$query) {
 		table td {
 			transition: all .5s;
 		}
-		
+
 		/* Table */
 		.data-table {
 			border-collapse: collapse;
@@ -125,7 +182,7 @@ if (!$query) {
 			min-width: 537px;
 		}
 
-		.data-table th, 
+		.data-table th,
 		.data-table td {
 			border: 1px solid #e1edff;
 			padding: 7px 17px;
@@ -181,85 +238,80 @@ if (!$query) {
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
-			<td><input placeholder="search" id='search' type='text' name='search_criteria' size='20'/></td>
+			<td><input placeholder="Search" style="width:50%;"id='search' type='text' name='search_criteria' size='20'/></td>
 			<!--<td><input id='submit' type='submit' value='Search'/></td>-->
 		</tr>
 	</form>
-	
+
 	<form name="sort" method= "get">
-		<tr><td><b>Sort by</b><br></td></tr>
+		<tr><td><b>Sort By</b><br></td></tr>
+		<tr class="blankrow">
+			<td><br></td>
 		<tr>
 			<td><input type="radio" name="sort" value="user_id">ID<br></td>
 		</tr>
 		<tr>
-			<td><input type="radio" name="sort" value="GPA ASC">GPA ascending<br></td>
+			<td><input type="radio" name="sort" value="GPA ASC">GPA Ascending<br></td>
 		</tr>
 		<tr>
-			<td><input type="radio" name="sort" value="GPA DESC">GPA descending<br></td>
+			<td><input type="radio" name="sort" value="GPA DESC">GPA Descending<br></td>
 		</tr>
-	
-		<td><input id='sort' type='submit' value='Search'/></td>
-	
+
+		<td><input id='sort' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
+
 	</form>
-	
-	
-	
-	
+
 	<details>
 
-	<summary><b>filter search</b></summary>
+	<summary><b>Filter</b></summary>
 	<p>
 	<form name="filter" method= "get">
-		<tr>
 
-		<summary>filter search</summary>
-		<p>
-			
 		<form name="filter" method= "get">
 			<tr>
 
 				<td>GPA Greater than</td>
 			</tr>
 			<tr class="blankrow">
-				
+
 			<tr>
-				<td><input type="text" name="GPA_greater" size="20"/></td>
+				<td><input type="text" name="GPA_greater" size="20" style="width:25%;"/></td>
 			</tr>
 			<tr>
 				<td><br></td>
-				<td>GPA less than</td>
+				<td>GPA Less than</td>
 			</tr>
 			<tr class="blankrow">
-				
+
 			<tr>
-				<td><input type="text" name="GPA_less" size="20"/></td>
+				<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
 			</tr>
-			
-			
+
+
 			<!--checkbox buttons for student's classification-->
 			<tr>
-			<!--Page Break-->
-			<td><br></td>
 			<!--Page Break-->
 			<td><br></td>
 				<td>Classification</td>
 			</tr>
 			<tr class="blankrow">
 				<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st year undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd year undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd year undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th year undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th year undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year Undergrad<br></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
@@ -277,6 +329,8 @@ if (!$query) {
 			<!--Page Break-->
 			<tr class="blankrow">
 				<td><br></td>
+			<tr class="blankrow">
+				<td><br></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" employment='UT' " >Currently employed at UT<br></td>
@@ -287,7 +341,7 @@ if (!$query) {
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
 			</tr>
-			
+
 			<!--checkbox buttons for if they have worked at dell med school before-->
 			<tr>
 			<!--Page Break-->
@@ -295,6 +349,8 @@ if (!$query) {
 				<td>Previously worked at Dell Medical School?</td>
 			</tr>
 			<!--Page Break-->
+			<tr class="blankrow">
+				<td><br></td>
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
@@ -314,13 +370,15 @@ if (!$query) {
 			<!--Page Break-->
 			<tr class="blankrow">
 				<td><br></td>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='1' " >Yes<br></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
 			</tr>
-			
+
 			<!--checkbox buttons for if they have volunteered at seton before-->
 			<tr>
 			<!--Page Break-->
@@ -330,20 +388,25 @@ if (!$query) {
 			<!--Page Break-->
 			<tr class="blankrow">
 				<td><br></td>
+			<tr class="blankrow">
+				<td><br></td>
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" car='1' " >Yes<br></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" car='0' ">No<br></td>
 			</tr>
-			
+
 			<!--checkbox for review status-->
 			<tr>
 			<!--Page Break-->
 			<td><br></td>
-				
+
+				<td>Review Status</td>
 			</tr>
 			<!--Page Break-->
+			<tr class="blankrow">
+				<td><br></td>
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
@@ -355,13 +418,13 @@ if (!$query) {
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" review='2' ">Competitive<br></td>
 			</tr>
-			
+
 			<!--break-->
 			<tr>
 				<td><br></td>
 			</tr>
-			
-		
+
+
 			<!--Radio button for AND/OR search type-->
 			<tr>
 				<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
@@ -370,57 +433,57 @@ if (!$query) {
 				<td><b><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></b></td>
 			</tr>
 
-			<td><input id='submit' type='submit' value='Search'/></td>
-	
+			<td><input id='submit' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
+
 		</form>
 		</p>
 	</details>
-	
+
 <?php //Doctor's filter functionality
-	
+
 	require 'DMS_doctor_filter.php';
-		
-	
-		
+
+
+
 	if(isset($_GET['filter_criteria']))
 	{
-		/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less'])){		
+		/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less'])){
 			echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
 		} */
 		if ($_GET['GPA_greater']!="")
 		{
-			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');	
+			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
 		}
-			
+
 		elseif($_GET['GPA_less']!="")
 		{
 			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
 		}
-		
-		else 
+
+		else
 		{
-			$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function	
+			$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
 		}
-	}	
-		
+	}
+
 	if(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
 	{
 		if($_GET['GPA_greater']!="")
 		{
 			$query=filter_only_gpa($_GET['GPA_greater'],'>');
 		}
-			
+
 		elseif($_GET['GPA_less']!="")
 		{
 			$query=filter_only_gpa($_GET['GPA_less'],'<');
-			
-		
+
+
 		}
 	}
 	?>
-	
+
 <form action='DMS_doctor_review.php' method='post'>
-		
+
 	<table class="data-table">
 		<caption class="title">Applicant Data of DMS</caption>
 		<thead>
@@ -438,56 +501,56 @@ if (!$query) {
 				<th>Accepted</th>
 			</tr>
 		</thead>
-		
+
 		<tbody>
 		<?php
 		//while ($row = mysqli_fetch_array($query))
-			
+
 		require 'DMS_db.php';
-		
-		
-		
+
+
+
 		if (isset($_GET['sort'])){
-			
+
 			$sort=$_GET['sort'];
-			
+
 			$sql = "SELECT * FROM student_info ORDER BY $sort";
 			$query= $dbc->query($sql);;
 		}
 		elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
-			
+
 			//call search_criteria function
 			$query=search($_GET['search_criteria']);
 		}
-			
-		
-		else 
+
+
+		else
 		{
 			$sql = 'SELECT *
 			FROM student_info';
-			
+
 			$query= $dbc->query($sql);;
 		}
-		
-		
+
+
 		//$query = mysqli_query($dbc, $sql); //what's the error
 
-		
+
 
 		if (!$query) {
 			die ('SQL Error: ' . mysqli_error($dbc));
 		}
-			
+
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 				$id = $row['user_id'];
 				$accepted_by_dms = $row['accepted_by_dms'];
 				$review_array = array('1', '0');
-				
+
 				echo'<td><input type="checkbox" name="application_accept_list[]" value='.$id.' id='.$id.'></td>';
-							
+
 				echo "<td> <a href='DMS_ViewApp.php?id= $id '>" .$row['user_id'] . "</a> </td>";
-	
+
 				echo '
 						<td>'.$row['first_name'].'</td>
 						<td>'.$row['last_name'].'</td>';
@@ -496,9 +559,9 @@ if (!$query) {
 						$sql = "SELECT review FROM student_info WHERE user_id=$id;";
 						        $query = mysql_query($sql, $dbc) or die (mysql_error($dbc));
 								if($row = mysql_fetch_assoc($query)) {
-								          $review = $row['review']; 
+								          $review = $row['review'];
 								           foreach($review_array as $value) {
-								         if ($review == $value) { //if the province==the user's setting, make it default 
+								         if ($review == $value) { //if the province==the user's setting, make it default
 								           echo '<option value="'.$value.'" selected="selected">'.$value.'</option>';
 								         //} else { //else, echo it as regular
 								           echo '<option value="'.$value.'">'.$value.'</option>';
@@ -506,14 +569,14 @@ if (!$query) {
 								       }
 								    }
 				echo '<select></td>';
-				
+
 				*/
-				
-				
+
+
 						//check the value of the review field in table 'student_info'
 				$stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
 				        $x = $stmt->fetch();
-				
+
 						if ($x['review']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
 						{
 							echo '<td><select name="application_review_list[]">
@@ -536,18 +599,18 @@ if (!$query) {
 								<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
 								<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
 							</select></td>';								}
-				
-				
-				
-				
+
+
+
+
 				echo ' 	<td>'.$row['EID'].'</td>
 						<td>'.$row['GPA'].'</td>
 						<td>'.$row['email'].'</td>
 						<td>'.$row['classification'].'</td>
 						<td>'.$row['major'].'</td>';
-						
-						
-						
+
+
+
 						if ($row['accepted_by_dms']==0)
 						{
 							$accepted_by_dms="No";
@@ -555,13 +618,13 @@ if (!$query) {
 						else{
 							$accepted_by_dms="Yes";
 						}
-						
+
 				echo '  <td>'.$accepted_by_dms.'</td>
 					</tr>';
 		}?>
 		</tbody>
 	</table>
-		
+
 	</table>
 		<!--Page Break-->
 		<tr>
@@ -571,8 +634,8 @@ if (!$query) {
 		<tr>
 
 	</form>
-	
-	
+
+
 	<script>
 		$('#sort').change(function(){
 			$.ajax({
@@ -581,9 +644,9 @@ if (!$query) {
 				data: {text:$(this).val()}
 			});
 		});
-	
+
 	</script>
-	
-	
+
+
 </body>
 </html>

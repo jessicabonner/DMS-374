@@ -288,19 +288,19 @@
 				<tr class="blankrow">
 					<td><br></td>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year Undergrad<br></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
