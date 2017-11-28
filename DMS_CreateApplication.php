@@ -4,8 +4,8 @@
 	{
 		echo '<script language="javascript">';
 		echo 'alert("The application already exists")';
-		echo '</script>'; 
-		
+		echo '</script>';
+
 	}
 ?>
 
@@ -83,7 +83,7 @@
 										<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
 										<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
 										<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-									</ul>   
+									</ul>
 								</div>
 								<div class="parent-banner-links">
 									<h2 class="UT-secondary-logo">
@@ -97,11 +97,11 @@
 
 									<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
 								</div>
-								
+
 								<br>
 								<br>
 								<br>
-								
+
 							</div>
 						</div>
 					</div>
@@ -113,22 +113,36 @@
 							<nav>
 								<ul class="nav" id="main-nav" role="menu">
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_Admin_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>   
+										<a href="DMS_Admin_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_CreateProgram.html" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>  
+										<a href="DMS_CreateProgram.html" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_CreateApplication.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>    
+										<a href="DMS_CreateApplication.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-									
+										<a href="DMS_View_All_Applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>
+										<div class="sub-nav-wrapper">
+										</div>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="DMS_Doctor.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
+										<div class="sub-nav-wrapper">
+										</div>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="DMS_HR_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>
+										<div class="sub-nav-wrapper">
+										</div>
+									</li>
+									<li class="nav-item" role="menuitem">
 									</li>
 								</ul>
 							</nav>
@@ -137,7 +151,7 @@
 				</div> <!-- container-nav-phase2 -->
 
 			</div> <!-- nav-wrapper -->
-		
+
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
@@ -163,7 +177,7 @@
 					<form name="apply_form" action = "DMS_CreateApplication_connect.php" method= "post">
 
 						<table>
-	
+
 							<!--get all program names to populate dropdown-->
 							<?php
 							//link to file containing database connection string
@@ -244,7 +258,7 @@
 						<tr>
 							<td><br></td>
 						</tr>
-			
+
 						<table id="unique_questions_table">
 
 
@@ -276,7 +290,7 @@
 
 								var text = $("<tr></tr>").html("<td><input type='text' name='list_unique_questions[]' id='unique_question' required/></td>");
 								$("#unique_questions_table").append(text);
-				
+
 								question_number-=1;
 							}
 
