@@ -13,22 +13,35 @@
 	}
 	
 	*/
-	function select_program($program_id)
+	function get_program($program_id)
 	{
 		require 'DMS_db.php';
-
-		$sql="SELECT * FROM programs WHERE program_id=$program_id";
+		
+		$sql="SELECT name_of_program FROM programs WHERE program_id=$program_id";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$program= $stmt->fetch();
-		$name_of_program= $program['name_of_program'];
+		return $program['name_of_program'];
+	}
+	function select_application($application_id)
+	{
+		require 'DMS_db.php';
+
+		/* $sql="SELECT * FROM programs WHERE program_id=$program_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$program= $stmt->fetch();
+		$name_of_program= $program['name_of_program']; */
 		
-		$sql="SELECT * FROM applications WHERE program_id=$program_id AND application_closed='0'";
+		
+		
+		$sql="SELECT * FROM applications WHERE application_id=$application_id";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$application= $stmt->fetch();
 		
-		$application_id=$application['application_id'];
+		$name_of_program=get_program($application['program_id']);
+		
 		$term=$application['term'];
 		$year=$application['year'];
 		

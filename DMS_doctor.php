@@ -1,4 +1,8 @@
 <?php
+
+	//require file containing all doctor functions
+	require 'DMS_doctor_functionality.php';
+	
 	//this will display an error message if the user tries to accept a student already accepted in the database
 	if (isset($_GET['error']))
 	{
@@ -245,16 +249,25 @@ if (!$query) {
 //link to file containing database connection string
 	require 'DMS_db.php';
 
-	$sql="SELECT program_id, name_of_program FROM programs";
+	/* $sql="SELECT program_id, name_of_program FROM programs";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
-	$programs= $stmt->fetchAll();
+	$programs= $stmt->fetchAll(); */
+	
+	$sql="SELECT * FROM applications WHERE archived='FALSE'";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$applications= $stmt->fetchAll();
+	
 ?>
 <body>
-	<form name="select_program" method="get">
-		<select name="select_program" required>
-			<?php foreach($programs as $program): ?>
-				<option id="select_program" name="select_program" value="<?= $program['program_id']; ?>"><?= $program['name_of_program']; ?></option>
+	<form name="select_application" method="get">
+		<select name="select_application" required>
+			<?php foreach($applications as $application): 
+			//call function from DMS_doctor_funtionality.php to get the name of the program
+			$name_of_program=get_program($application['program_id']);?>
+				
+				<option id="select_application" name="select_application" value="<?= $application['application_id']; ?>"><?= $name_of_program.' '.$application['term'].' '.$application['year'] ; ?></option>
 			<?php endforeach; ?>
 		</select>
 		<td><input id='program' type='submit' value='Choose Program'/></td>
@@ -464,16 +477,15 @@ if (!$query) {
 	</details>
 
 <?php 
-	//require file containing all doctor functions
-	require 'DMS_doctor_functionality.php';
+	
 	
 	
 	//doctor choose program functionality
-	if(isset($_GET['select_program'])){
+	if(isset($_GET['select_application'])){
 		
-		$student_applicants=select_program($_GET['select_program']); 
+		$student_applicants=select_application($_GET['select_application']); 
 		$student_applicants= implode(',',$student_applicants);
-		echo $student_applicants;
+		//echo $student_applicants;
 		
 	}
 
@@ -562,9 +574,16 @@ if (!$query) {
 
 		elseif (isset($student_applicants))
 		{
+			//TODO:change this to if stmt?
+			try{
 			$sql = "SELECT * FROM student_info WHERE user_id IN ($student_applicants)";
 
 			$query= $dbc->query($sql);;
+			}
+			catch(Exception $e){
+				echo "No students have applied yet";
+				die();
+			}
 		}
 		else
 		{
