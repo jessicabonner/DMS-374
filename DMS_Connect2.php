@@ -36,6 +36,7 @@
 	$phone=$_POST['phone'];
 	$email=$_POST['email'];
 	$employment=$_POST['employment'];
+	$student_type=$_POST['student_type'];
 	$classification=$_POST['classification'];
 	$degree_type=$_POST['degree_type'];
 	$major=$_POST['major'];
@@ -52,14 +53,14 @@
 
 
 	//prepare SQL statement to prevent SQL injection
-	$stmt = $dbc-> prepare('INSERT INTO student_info (user_id, first_name, middle_name, last_name, EID, address, city, state, zip_code, phone, email, employment,
+	$stmt = $dbc-> prepare('INSERT INTO student_info (user_id, first_name, middle_name, last_name, EID, address, city, state, zip_code, phone, email, employment, student_type,
 	classification, degree_type, major, major_2, GPA, worked_at_dms, volunteered_at_seton, car, semester_commitment, availability) VALUES (:user_id, :first_name, :middle_name, :last_name, :EID, :address, :city, :state, :zip_code, :phone, 
-	:email, :employment, :classification, :degree_type, :major, :major_2, :GPA, :worked_at_dms, :volunteered_at_seton, :car, :semester_commitment, :availability)');
+	:email, :employment, :student_type, :classification, :degree_type, :major, :major_2, :GPA, :worked_at_dms, :volunteered_at_seton, :car, :semester_commitment, :availability)');
 
 
 	//bind variables to prepared statement and execute
 	$stmt->execute(array('user_id' => $user_id, 'first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'EID' => $EID,'address' => $address,'city' => $city,
-	'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'classification' => $classification,
+	'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'student_type' => $student_type,'classification' => $classification,
 	'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2, 'GPA'=>$GPA, 'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
 	'car'=>$car,'semester_commitment' => $semester_commitment,'availability' => $availability ));
 

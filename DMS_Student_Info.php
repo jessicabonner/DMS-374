@@ -313,16 +313,38 @@
 				<td><br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="employment" value="UT" required>Currently employed at UT<br></td>
+				<td><input type="radio" name="employment" value="UT" required> Currently employed at UT<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="employment" value="eligible">Eligible to work in the US with no restrictions<br></td>
+				<td><input type="radio" name="employment" value="eligible"> Eligible to work in the US with no restrictions<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="employment" value="none">None of the above<br></td>
+				<td><input type="radio" name="employment" value="none"> None of the above<br></td>
 			</tr>
-
-
+			
+			<!--break between radio button questions-->
+			<tr>
+				<td><br></td>
+			</tr>
+			
+			<!--Radio buttons for student's classification-->
+			<tr>
+				<td>Type of student:</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+				<tr>
+					<td><input type="radio" name="student_type" value="Undergraduate" required> Undergraduate Student<br></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="student_type" value="Graduate"> Graduate Student<br></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="student_type" value="PhD"> PhD Student<br></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="student_type" value="Other"> Other<br></td>
+				</tr>
 
 			<!--break between radio button questions-->
 			<tr>
@@ -335,27 +357,21 @@
 			</tr>
 			<tr class="blankrow">
 				<td><br></td>
-			<tr>
-				<td><input type="radio" name="classification" value="1st year" required>1st year undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="2nd year">2nd year undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="3rd year">3rd year undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="4th year">4th year undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="5th year">5th year undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="Grad">Graduate Student<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="Other">Other<br></td>
-			</tr>
+				<tr>
+					<td><input type="radio" name="classification" value="1st year" required> 1st year<br></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="classification" value="2nd year"> 2nd year<br></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="classification" value="3rd year"> 3rd year<br></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="classification" value="4th year"> 4th year<br></td>
+				</tr>
+				<tr>
+					<td><input type="radio" name="classification" value="5th year"> 5th year<br></td>
+				</tr>
 
 
 			<!--break-->
