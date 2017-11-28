@@ -149,7 +149,6 @@ if (!$query) {
 <html>
 <head>
 	<title>Program Applicants</title>
-
 	<style type="text/css">
 		body {
 			font-size: 15px;
@@ -173,30 +172,35 @@ if (!$query) {
 
 		table td {
 			transition: all .5s;
+			font-size: 10px;
+			text-align-last: center;
 		}
 
 		/* Table */
 		.data-table {
 			border-collapse: collapse;
 			font-size: 14px;
-			min-width: 537px;
 		}
 
 		.data-table th,
 		.data-table td {
 			border: 1px solid #e1edff;
 			padding: 7px 17px;
+			text-align: center;
+			font-size: 10px;
 		}
 		.data-table caption {
 			margin: 7px;
+			font-size: 18px;
 		}
 
 		/* Table Header */
 		.data-table thead th {
-			background-color: #ff751a;
+			background-color: #bf5700;
 			color: #FFFFFF;
-			border-color: #ff751a !important;
+			border-color: #000000 !important;
 			text-transform: uppercase;
+			text-align: center;
 		}
 
 		/* Table Body */
@@ -230,8 +234,8 @@ if (!$query) {
 		{
 			background-color: #ffcccc;
 		} */
-	</style>
 
+	</style>
 </head>
 <body>
 
