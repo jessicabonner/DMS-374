@@ -141,7 +141,7 @@
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
 
   <!-- Header -->
-<div class="w3-container" style="margin-top:40px" id="showcase">
+<div class="w3-container" style="margin-top:40px; font-familt:benton sans;" id="showcase">
 	<h1 class="w3-jumbo">
 		<b>Human Resources Dashboard</b>
 	</h1>
@@ -268,7 +268,7 @@
 			<tr class="blankrow">
 
 			<tr>
-				<td><input type="text" name="GPA_greater" size="20"/></td>
+				<td><input type="text" name="GPA_greater" size="20" style="width:25%;"/></td>
 			</tr>
 			<tr>
 			<td>GPA Less than</td>
@@ -276,7 +276,7 @@
 			<tr class="blankrow">
 
 			<tr>
-				<td><input type="text" name="GPA_less" size="20"/></td>
+				<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
 			</tr>
 
 
@@ -288,19 +288,19 @@
 				<tr class="blankrow">
 					<td><br></td>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year Undergrad<br></td>
 			</tr>
 			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th year Undergrad<br></td>
+				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year Undergrad<br></td>
 			</tr>
 			<tr>
 				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
@@ -391,7 +391,7 @@
 				<td><b><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></b></td>
 			</tr>
 
-			<td><input id='submit' type='submit' value='Search'/></td>
+			<td><input id='submit' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
 
 	</form>
 	</p>

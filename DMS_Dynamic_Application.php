@@ -38,7 +38,7 @@
 		if (count($student['user_id'])>0)
 		{
 			
-			header("Location: DMS_Select_Program_Apply.php?user_id=$user_id&error='1'");
+			header("Location: DMS_Select_Program_Apply.php?user_id=$user_id&error=1");
 			die();
 		}
 	

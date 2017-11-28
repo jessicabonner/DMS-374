@@ -1,3 +1,12 @@
+<?php
+	
+	if (isset($_GET['error'])){
+		echo '<script language="javascript">';
+		echo 'alert("You have already submitted your Student Information")';
+		echo '</script>'; 
+	}
+
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -471,79 +480,6 @@
 				<td><br></td>
 			</tr>
 
-
-	<!--Commented out all textarea questions
-			<tr>
-				<td>What are your career goal(s) and your plan to achieve them? (500 word limit)</td>
-			</tr>
-			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q1" rows="10"
-				cols="800" required></textarea></td>
-			</tr>
-
-
-
-			<tr>
-				<td><br></td>
-			</tr>
-
-
-
-			<tr>
-				<td>Why do you want to work at Dell Medical School, and how can we help you further your goals? (500 word limit)</td>
-			</tr>
-			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q2" rows="10"
-				cols="800" required></textarea></td>
-			</tr>
-
-
-
-			<tr>
-				<td><br></td>
-			</tr>
-
-
-
-			<tr>
-				<td>How would you create value to the program you are applying for? (500 word limit)</td>
-			</tr>
-			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q3"
-				rows="10" cols="800" required></textarea></td>
-			</tr>
-
-
-			<tr>
-				<td><br></td>
-			</tr>
-
-
-			<tr>
-				<td>Describe your personality. (500 word limit)</td>
-			</tr>
-			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q4"
-				rows="10" cols="800" required></textarea></td>
-			</tr>
-
-
-
-			<tr>
-				<td><br></td>
-			</tr>
-
-
-
-			<tr>
-				<td>If you don't get this position, how else will you fill your time? (500 word limit)</td>
-			</tr>
-			<tr>
-				<td><textarea class="written" placeholder="Please enter your response here" name="essay_q5"
-				rows="10" cols="800" required></textarea></td>
-			</tr>
-	-->
-
 		</table>
 
 
@@ -710,20 +646,7 @@
 			});
 
 		});
-
-
-		//function to limit the amount of characters in textarea
-		$("textarea").keyup(function(){
-
-			 var words = this.value.match(/\S+/g).length;
-
-			if (words > 500) {
-			// Split the string on first 200 words and rejoin on spaces
-			var trimmed = $(this).val().split(/\s+/, 500).join(" ");
-			// Add a space at the end to make sure more typing creates new words
-			$(this).val(trimmed + " ");
-			}
-		});
+		
 	</script>
 </body>
 </div>
