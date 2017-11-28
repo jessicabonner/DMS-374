@@ -118,11 +118,11 @@
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
-        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+        <a href="" onclick="w3_close()" class="nav-link has-child nolink">HR Forms</a>                  <div class="sub-nav-wrapper">
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
-        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Programs</a>                  <div class="sub-nav-wrapper">
+        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Biographical Forms</a>                  <div class="sub-nav-wrapper">
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
@@ -143,11 +143,11 @@
   <!-- Header -->
 <div class="w3-container" style="margin-top:40px" id="showcase">
 	<h1 class="w3-jumbo">
-		<b>Applicants</b>
+		<b>Human Resources Dashboard</b>
 	</h1>
 
 
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<hr style="min-width:100%;border:5px solid #BF5700" class="w3-round">
 	<br>
 	<b> </b>
 	<br>
@@ -180,23 +180,26 @@
 
 		table td {
 			transition: all .5s;
+			font-size: 10px;
+			text-align-last: center;
 		}
 
 		/* Table */
 		.data-table {
 			border-collapse: collapse;
 			font-size: 14px;
-			min-width: 100%;
 		}
 
 		.data-table th,
 		.data-table td {
 			border: 1px solid #e1edff;
 			padding: 7px 17px;
-			text-align: left;
+			text-align: center;
+			font-size: 10px;
 		}
 		.data-table caption {
 			margin: 7px;
+			font-size: 18px;
 		}
 
 		/* Table Header */
@@ -251,7 +254,7 @@
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
-			<td><input id='search' type='text' name='search_criteria' size='20'/></td>
+			<td><input id='search' type='text' name='search_criteria' size='20' placeholder="Search" style="width: 50%;"/></td>
 		</tr>
 	</form>
 
