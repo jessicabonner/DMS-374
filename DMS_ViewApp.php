@@ -168,13 +168,11 @@ $id = $_GET['id'];
 
 //$result = mysqli_query($dbc, "SELECT * FROM application WHERE ApplicationID = '$id'");
 $result = "SELECT * FROM student_info WHERE user_id = '$id'";
-<<<<<<< HEAD
-	
+
 $query= $dbc->query($result);
-=======
+
 
 $query= $dbc->query($result);;
->>>>>>> 6a8311ba77b31730cddb6128fc2ae7e26b3a9345
 
 if (!$query) {
 	die ('SQL Error: ' . mysqli_error($dbc));
