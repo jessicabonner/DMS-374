@@ -278,6 +278,7 @@ if (!$query) {
 			margin: auto;
 			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
 			font-size: 12px;
+			width: 100%;
 		}
 
 		h1 {
@@ -289,30 +290,36 @@ if (!$query) {
 
 		table td {
 			transition: all .5s;
+			font-size: 10px;
+			text-align-last: center;
 		}
 
 		/* Table */
 		.data-table {
 			border-collapse: collapse;
 			font-size: 14px;
-			min-width: 537px;
+			width: 100%;
 		}
 
 		.data-table th,
 		.data-table td {
 			border: 1px solid #e1edff;
 			padding: 7px 17px;
+			text-align: center;
+			font-size: 10px;
 		}
 		.data-table caption {
 			margin: 7px;
+			font-size: 18px;
 		}
 
 		/* Table Header */
 		.data-table thead th {
-			background-color: #ff751a;
+			background-color: #bf5700;
 			color: #FFFFFF;
-			border-color: #ff751a !important;
+			border-color: #000000 !important;
 			text-transform: uppercase;
+			text-align: center;
 		}
 
 		/* Table Body */
@@ -346,6 +353,7 @@ if (!$query) {
 		{
 			background-color: #ffcccc;
 		} */
+
 	</style>
 </head>
 <body>
