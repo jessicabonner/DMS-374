@@ -12,7 +12,7 @@
 			echo 'alert("The new application has been created successfully")';
 			echo '</script>';
 		}
-		
+
 	}
 ?>
 
@@ -35,7 +35,7 @@
 	<meta name="msapplication-TileColor" content="#bf5700" />
 	<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-120x120.png" />
 	<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-76x76.png" />
-	<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-114x114.png" />	
+	<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-114x114.png" />
 	<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-57x57.png" />
 	<link rel="apple-touch-icon" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon.png" />
 	<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-60x60.png" />
@@ -58,95 +58,103 @@
 	</style>
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
-	
+
 	<title>Program Applicants</title>
-				<style type="text/css">
-					body {
-						font-size: 15px;
-						color: #343d44;
-						font-family: "segoe-ui", "open-sans", tahoma, arial;
-						padding: 0;
-						margin: 0;
-					}
-					table {
-						margin: auto;
-						font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
-						font-size: 12px;
-					}
-					h1 {
-						margin: 25px auto 0;
-						text-align: center;
-						text-transform: uppercase;
-						font-size: 17px;
-					}
+	<style type="text/css">
+		body {
+			font-size: 15px;
+			color: #343d44;
+			font-family: "segoe-ui", "open-sans", tahoma, arial;
+			padding: 0;
+			margin: 0;
+		}
+		table {
+			margin: auto;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
+			font-size: 12px;
+			width: 100%;
+		}
 
-					table td {
-						transition: all .5s;
-					}
-			
-					/* Table */
-					.data-table {
-						border-collapse: collapse;
-						font-size: 14px;
-						min-width: 537px;
-					}
+		h1 {
+			margin: 25px auto 0;
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 17px;
+		}
 
-					.data-table th, 
-					.data-table td {
-						border: 1px solid #e1edff;
-						padding: 7px 17px;
-					}
-					.data-table caption {
-						margin: 7px;
-					}
-	
-					/* Table Header */
-					.data-table thead th {
-						background-color: #ff751a;
-						color: #FFFFFF;
-						border-color: #ff751a !important;
-						text-transform: uppercase;
-					}
+		table td {
+			transition: all .5s;
+			font-size: 10px;
+			text-align-last: center;
+		}
 
-					/* Table Body */
-					.data-table tbody td {
-						color: #353535;
-					}
-					.data-table tbody td:first-child,
-					.data-table tbody td:nth-child(4),
-					.data-table tbody td:last-child {
-						text-align: right;
-					}
+		/* Table */
+		.data-table {
+			border-collapse: collapse;
+			font-size: 14px;
+		}
 
-					.data-table tbody tr:nth-child(odd) td {
-						background-color: #f4fbff;
-					}
-					.data-table tbody tr:hover td {
-						background-color: #ffd1b3;
-						border-color: #ffd1b3;
-					}
+		.data-table th,
+		.data-table td {
+			border: 1px solid #e1edff;
+			padding: 7px 17px;
+			text-align: center;
+			font-size: 10px;
+		}
+		.data-table caption {
+			margin: 7px;
+			font-size: 18px;
+		}
 
-					/* Table Footer */
-					.data-table tfoot th {
-						background-color: #e5f5ff;
-						text-align: right;
-					}
-					.data-table tfoot th:first-child {
-						text-align: left;
-					}
-					/* Color for an empy table field */
-					/*.data-table tbody td:empty{
-						background-color: #ffcccc;
-					} */
-				</style>
-	
+		/* Table Header */
+		.data-table thead th {
+			background-color: #bf5700;
+			color: #FFFFFF;
+			border-color: #000000 !important;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		/* Table Body */
+		.data-table tbody td {
+			color: #353535;
+		}
+		.data-table tbody td:first-child,
+		.data-table tbody td:nth-child(4),
+		.data-table tbody td:last-child {
+			text-align: right;
+		}
+
+		.data-table tbody tr:nth-child(odd) td {
+			background-color: #f4fbff;
+		}
+		.data-table tbody tr:hover td {
+			background-color: #ffd1b3;
+			border-color: #ffd1b3;
+		}
+
+		/* Table Footer */
+		.data-table tfoot th {
+			background-color: #e5f5ff;
+			text-align: right;
+		}
+		.data-table tfoot th:first-child {
+			text-align: left;
+		}
+		/* Color for an empy table field */
+		/*.data-table tbody td:empty
+		{
+			background-color: #ffcccc;
+		} */
+
+	</style>
 </head>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">
 		<a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
 	</div>
-	
+
 	<header class="UT-header theme1">
 		<div class="container container-logo-p2">
 			<div class="row">
@@ -172,7 +180,7 @@
 										<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
 										<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
 										<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-									</ul>              
+									</ul>
 								</div>
 								<div class="parent-banner-links">
 									<h2 class="UT-secondary-logo">
@@ -201,32 +209,32 @@
 							<nav>
 								<ul class="nav" id="main-nav" role="menu">
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_Admin_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a> 
+										<a href="DMS_Admin_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_CreateProgram.html" onclick="w3_close()" class="nav-link has-child nolink">New Program</a> 
+										<a href="DMS_CreateProgram.html" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_CreateApplication.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                 
+										<a href="DMS_CreateApplication.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_View_All_Applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>                  
+										<a href="DMS_View_All_Applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_Doctor.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a> 
+										<a href="DMS_Doctor.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="DMS_HR_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>                  
+										<a href="DMS_HR_Dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
@@ -239,7 +247,7 @@
 				</div> <!-- container-nav-phase2 -->
 			</div> <!-- nav-wrapper -->
 
-			
+
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
@@ -271,10 +279,10 @@
 							<th>Term</th>
 							<th>Year</th>
 							<th>Applicants</th>
-				
+
 						</tr>
 					</thead>
-		
+
 					<tbody>
 <?php
 
@@ -288,36 +296,36 @@
 	if (!$query) {
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
-	
+
 	while ($row=$query->fetch(PDO::FETCH_ASSOC)){
-		
+
 		$id = $row['application_id'];
-				
+
 		$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
-	
+
 		$program = $stmt->fetch();
 		$name_of_program=$program['name_of_program'];
-				
+
 		//get the table name for this application
 		$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
-				
+
 		//get a count of all applicants in the table
 		$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$application=$stmt->fetch();
-				
+
 		echo "<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
-	
+
 		echo '
 			<td>'.$name_of_program.'</td>
 			<td>'.$row['term'].'</td>
 			<td>'.$row['year'].'</td>
-			<td>'.$application['number_of_applicants'].'</td>		
+			<td>'.$application['number_of_applicants'].'</td>
 			</tr>';
-			
+
 	}
 ?>
 					</tbody>
