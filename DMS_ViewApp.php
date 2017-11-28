@@ -1,3 +1,16 @@
+<?php
+
+	//this will display an error message if the user tries to accept a student already accepted in the database
+	if (isset($_GET['error']))
+	{
+		echo '<script language="javascript">';
+		echo 'alert("This student is already accepted. Cannot accept again.")';
+		echo '</script>'; 
+		
+	}
+?>
+
+
 <!--Form to allow students to apply to dell med school internship programs-->
 <!DOCTYPE html>
 <html>
@@ -75,6 +88,8 @@ id="mySidebar"><br>
 
 <?php
 require 'DMS_db.php';
+
+//this will display an error message if the user tries to accept a student already accepted in the database
 
 //echo "<form action='DMS_doctor_AcceptApp.php' method='POST'">
 	
@@ -245,7 +260,7 @@ echo "
 ?>
 </table>
 <tr><td><br></td>
-<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT the selected students?')"></td>
+<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"></td>
 <td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
 <tr>
 

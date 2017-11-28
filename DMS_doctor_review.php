@@ -1,5 +1,8 @@
 <?php
 
+//require file containing db string
+require 'DMS_db.php';
+
 if (isset($_POST['save'])) {
         # Save-button was clicked
 		$review= $_POST['application_review_list'];
@@ -21,16 +24,28 @@ if (isset($_POST['save'])) {
         # Accept-button was clicked
 		$accept= $_POST['application_accept_list'];
 		//$id= $_POST['user_id'];
-
+		
+		//check if student is already accepted in the database
+		$stmt = $dbc->query("SELECT * FROM student_info WHERE accepted_by_dms= '1'");
+		$x = $stmt->fetch();
+		
+		//if the student is already accepted, redirect back to the DMS_doctor.php page along with an indication that there was an error
+		if (count($x['user_id'])>0)
+		{
+			
+			header('Location: DMS_doctor.php?error="1"');
+			die();
+		}
+		
 		foreach($accept as $value)
 		{
 			require 'DMS_db.php';
 
-				$sql="UPDATE student_info SET accepted_by_DMS = 1 WHERE user_id= $value";
+				$sql="UPDATE student_info SET accepted_by_dms = 1 WHERE user_id= $value";
 				$stmt=$dbc->prepare($sql);
 				$stmt->execute();
 	
-				//echo $value;
+				
 		}
     }
 	

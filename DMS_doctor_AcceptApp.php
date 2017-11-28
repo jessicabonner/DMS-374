@@ -15,6 +15,19 @@ require 'DMS_db.php';
 		
 		$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
 		
+		//check if student is already accepted in the database
+		$stmt = $dbc->query("SELECT * FROM student_info WHERE accepted_by_dms= '1'");
+		$x = $stmt->fetch();
+		
+		
+		//if the student is already accepted, redirect back to the DMS_doctor.php page along with an indication that there was an error
+		if (count($x['user_id'])>0)
+		{
+			
+			header('Location: DMS_ViewApp.php?error="1" & id='.$user_id.'');
+			die();
+		}
+		
 		if ( ($_POST['new_accepted_by_DMS'])!== null)
 		{
 			$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];

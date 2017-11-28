@@ -1,3 +1,14 @@
+<?php
+	//this will display an error message if the user tries to accept a student already accepted in the database
+	if (isset($_GET['error']))
+	{
+		echo '<script language="javascript">';
+		echo 'alert("The selected list contains students that are already accepted. Please try again.")';
+		echo '</script>'; 
+		
+	}
+?>
+
 <!--Doctor's view that displays applicants-->
 <!doctype html>
 <html>
