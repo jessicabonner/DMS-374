@@ -32,6 +32,28 @@ if( isset($_POST['new_close_application']))
 	}
 	
 }
+elseif(isset($_POST['unarchive_application']))
+{
+	$application_id = $_POST['application_id'];
+	
+	
+	$sql = "UPDATE applications SET archived= 'FALSE' WHERE application_id ='".$application_id."'";
+
+	
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+
+	
+			
+			
+	if (!$stmt) {
+		die ('SQL Error: ' . mysqli_error($dbc));
+	}
+	else{
+		header('Location: DMS_view_application.php?id='.$application_id);
+		die();
+	}
+}
 
 
 

@@ -166,17 +166,18 @@ echo "</tr>";
 
 //break
 echo "<tr><td><br></td></tr>";
+if ($row['archived']=="FALSE"){
+	echo "<tr>";
+	echo "<th>Open?</th>";
+	echo "<td>" . $application_closed.  "</td>";
 
-echo "<tr>";
-echo "<th>Open?</th>";
-echo "<td>" . $application_closed.  "</td>";
+
+
+echo "</tr>";
 
 
 echo "</tr>";
 
-
-echo "</tr>";
-}
 
 //break
 echo "<tr><td><br></td></tr>";
@@ -206,6 +207,25 @@ echo "<form action='DMS_close_applcation.php' method='POST'>
 </form>";
 
 echo "</table>";
+}
+
+else
+{
+	echo "This application is archived";
+	echo "<form action='DMS_close_applcation.php' method='POST'>
+
+	<tr><td></td> 
+	<td></td>
+	<td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
+	<input type='hidden' name='application_id' value=$id><br /></td></tr>
+	<tr><td></td>
+	<td></td>
+	<td><input type='submit' value=' Enter '></td></tr>
+	</form>";
+
+	
+}
+}
 
 
 

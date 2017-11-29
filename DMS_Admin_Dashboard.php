@@ -229,6 +229,11 @@
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
+										<a href="DMS_View_Archived_Applications.php" onclick="w3_close()" class="nav-link has-child nolink">Delete Applications</a>
+										<div class="sub-nav-wrapper">
+										</div>
+									</li>
+									<li class="nav-item" role="menuitem">
 										<a href="DMS_Doctor.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
 										<div class="sub-nav-wrapper">
 										</div>

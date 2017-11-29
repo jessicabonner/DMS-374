@@ -210,6 +210,7 @@
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
+									</li>
 									<li class="nav-item" role="menuitem">
 										<a href="DMS_View_Archived_Applications.php" onclick="w3_close()" class="nav-link has-child nolink">Delete Applications</a>
 										<div class="sub-nav-wrapper">
@@ -240,7 +241,7 @@
 				<!-- Header -->
 				<div class="w3-container" style="margin-top:40px" id="showcase">
 					<h1 class="w3-jumbo">
-						<b>All Active Applications (Closed and Open)</b>
+						<b>All Archived Applications</b>
 					</h1>
 
 
@@ -258,7 +259,7 @@
 require 'DMS_db.php';
 
 $sql = 'SELECT application_id, term, year, number_unique_questions, list_unique_questions, program_id, application_closed
-		FROM applications WHERE archived="FALSE" ORDER BY application_id DESC';
+		FROM applications WHERE archived="TRUE" ORDER BY application_id DESC';
 
 //$query = mysqli_query($dbc, $sql); //what's the error
 
@@ -363,7 +364,7 @@ if (!$query) {
 </head>
 <body>
 
-<form action='DMS_change_application_status.php' method='get'>
+<form action='DMS_delete_applications.php' method='post' onsubmit="return confirm('Are you sure you want to delete the selected tables? If you do, all applicant data will be lost and CANNOT be recovered');">
 	<!--<h1>Applications</h1>-->
 	<table class="data-table">
 		<thead>
@@ -414,8 +415,8 @@ if (!$query) {
 
 
 
-				echo'<td><input type="checkbox" name="application_list[]" value='.$id.' id='.$id.'></td>';
-				echo "<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
+				echo'<td><input type="checkbox" name="application_delete_list[]" value='.$id.' id='.$id.'></td>';
+				echo "<td> <a href='DMS_view_application.php?id=$id '>" .$row['application_id'] . "</a> </td>";
 
 				echo '
 						<td>'.$name_of_program.'</td>
@@ -433,10 +434,8 @@ if (!$query) {
 
 	</table>
 	<tr><td><br></td>
-	<td><input type='submit' name='action' value='Close'></td>
-	
-	<tr><td><br></td>
-	<td><input type='submit' name='action' value='Archive'></td>
+	<td><input type='submit' value='Delete'></td>
+	<td><b> **Note that clicking delete will PERMANENTLY delete the selected tables along with all applications </b></td>
 	<tr>
 
 </form>

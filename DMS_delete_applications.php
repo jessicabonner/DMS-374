@@ -3,11 +3,11 @@
 //IN ORDER TO DELETE ANY APPLICATIONS AND THEIR CORRESPONDING TABLES
 
 	//pull the list of applications to be deleted
-	$availability= $_POST['application_delete_list'];
+	$applications= $_POST['application_delete_list'];
 	
 	
 	//loop through the list
-	foreach($availability as $value)
+	foreach($applications as $value)
 	{
 		//require db connection string
 		require 'DMS_db.php';
