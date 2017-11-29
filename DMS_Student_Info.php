@@ -5,6 +5,21 @@
 		echo 'alert("You have already submitted your Student Information")';
 		echo '</script>'; 
 	}
+	
+	require "DMS_db.php";
+	$user_id=$_GET['user_id'];
+	//check if the application already exists in the database
+		$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id='".$user_id."'" );
+		$x = $stmt->fetch();
+		
+		//if the application already exists, redirect back to the DMS_CreateApplication.php page along with an indication that there was an error
+		if (count($x['user_id'])>0)
+		{
+			
+			header("Location: DMS_confirm_profile_information.php?user_id=$user_id");
+			die();
+		}
+	
 
 ?>
 <!doctype html>

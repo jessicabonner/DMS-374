@@ -11,7 +11,7 @@
 	
 	
 	
-	//check if the student info already exists in the database
+	/* //check if the student info already exists in the database
 	$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$user_id");
 	$x = $stmt->fetch();
 		
@@ -20,15 +20,16 @@
 	{
 		header('Location: DMS_Select_Program_Apply.php?error=0&user_id='.$user_id);
 		die();
-	}
+	} */
 
 
 	
 	//create variables from those submitted through application form (DMS_Student_Info.php)
+	
 	$first_name=$_POST['first_name'];
 	$middle_name=$_POST['middle_name'];
 	$last_name=$_POST['last_name'];
-	$EID=$_POST['EID'];
+	
 	$address=$_POST['address'];
 	$city=$_POST['city'];
 	$state=$_POST['state'];
@@ -49,20 +50,31 @@
 	//turn availability_list into a string 
 	$availability= implode(',', $_POST['availability_list']);
 	
-
+	
+	
 
 	//prepare SQL statement to prevent SQL injection
-	$stmt = $dbc-> prepare('INSERT INTO student_info (user_id, first_name, middle_name, last_name, EID, address, city, state, zip_code, phone, email, employment,
-	classification, degree_type, major, major_2, GPA, worked_at_dms, volunteered_at_seton, car, semester_commitment, availability) VALUES (:user_id, :first_name, :middle_name, :last_name, :EID, :address, :city, :state, :zip_code, :phone, 
-	:email, :employment, :classification, :degree_type, :major, :major_2, :GPA, :worked_at_dms, :volunteered_at_seton, :car, :semester_commitment, :availability)');
-
+	$stmt = $dbc-> prepare('UPDATE student_info SET first_name=:first_name, middle_name=:middle_name, last_name=:last_name, 
+	address=:address, city=:city, state=:state, zip_code=:zip_code, phone=:phone, email=:email, employment=:employment,
+	classification=:classification, degree_type=:degree_type, major=:major, major_2=:major_2, GPA=:GPA, worked_at_dms=:worked_at_dms, 
+	volunteered_at_seton=:volunteered_at_seton, car=:car, semester_commitment=:semester_commitment, availability=:availability 
+	WHERE user_id= :user_id');
+	
+	
+	/* UPDATE student_info SET first_name="testingSQL", middle_name="d", last_name="d", EID="EID", 
+	address="address", city="city", state="tx", zip_code="43232", phone="324-432-4433", email="email@email.com", employment="UT",
+	classification="Grad", degree_type="ba", major="major", major_2="major_2", GPA="3.43", worked_at_dms="0", 
+	volunteered_at_seton="1", car="0", semester_commitment="2", availability="M9" 
+	WHERE user_id= "11" */
+	
 
 	//bind variables to prepared statement and execute
-	$stmt->execute(array('user_id' => $user_id, 'first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'EID' => $EID,'address' => $address,'city' => $city,
+	$stmt->execute(array('first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'address' => $address,'city' => $city,
 	'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'classification' => $classification,
 	'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2, 'GPA'=>$GPA, 'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
-	'car'=>$car,'semester_commitment' => $semester_commitment,'availability' => $availability ));
+	'car'=>$car,'semester_commitment' => $semester_commitment,'availability' => $availability, 'user_id' => $user_id, ));
 
+	
 	
 
 	//direct to page to let student select which program to apply to

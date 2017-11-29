@@ -1,4 +1,5 @@
 <?php
+if (isset($_GET['error'])){
 	if ($_GET['error']=="1")
 	{
 		
@@ -13,7 +14,7 @@
 		echo '</script>'; 
 		
 	}
-
+}
 //pulling all programs from the database
 	//$user_id=$_GET['user_id'];
 	require 'DMS_db.php';
