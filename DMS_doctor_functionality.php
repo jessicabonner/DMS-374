@@ -26,6 +26,50 @@
 	function select_application($application_id)
 	{
 		require 'DMS_db.php';
+		
+		$sql="SELECT * FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+		
+		
+		return $application;
+	}
+	
+	function get_application_table_name($application_id)
+	{
+		require 'DMS_db.php';
+		
+		$sql="SELECT * FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+		$name_of_program=get_program($application['program_id']);
+		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$application['term']."_".$application['year'];
+		
+		return $name_of_table;
+	}
+	
+	function get_id_array($name_of_table)
+	{
+		require 'DMS_db.php';
+		
+		$sql="SELECT * FROM $name_of_table";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$applicants= $stmt->fetchAll();
+		
+		$applicant_id_array=array();
+		foreach ($applicants as $applicant)
+		{
+			$applicant_id_array=$applicant['user_id'];
+		}
+		
+		return $applicant_id_array;
+	}
+	function select_application_student_list($application_id)
+	{
+		require 'DMS_db.php';
 
 		/* $sql="SELECT * FROM programs WHERE program_id=$program_id";
 		$stmt=$dbc->prepare($sql);
@@ -62,13 +106,17 @@
 	}
 	
 	
-	function filter($filter_criteria, $and_or)
+	function filter($filter_criteria, $and_or, $selected_application_id)
 	{
 		require 'DMS_db.php';
 		
 		$filter_criteria_sql=implode($and_or,$filter_criteria);
 		
-		$sql="SELECT * FROM student_info WHERE ($filter_criteria_sql)";
+		$name_of_table=get_application_table_name($selected_application_id);
+		$applicant_id_array= get_id_array($name_of_table);
+		
+		$sql="SELECT * FROM student_info WHERE $filter_criteria_sql AND user_id IN ($applicant_id_array)";
+		echo $sql;
 		
 		$query= $dbc->query($sql);;
 		
@@ -78,14 +126,17 @@
 		
 	}
 	
-	function filter_with_gpa($filter_criteria, $and_or, $GPA, $greater_less)
+	function filter_with_gpa($filter_criteria, $and_or, $GPA, $greater_less, $selected_application_id)
 	{
 		require 'DMS_db.php';
 		
 		$filter_criteria_sql=implode($and_or,$filter_criteria);
 		$filter_criteria_sql=$filter_criteria_sql." ".$and_or." GPA".$greater_less.$GPA;
 		
-		$sql="SELECT * FROM student_info WHERE ( $filter_criteria_sql)";
+		$name_of_table=get_application_table_name($selected_application_id);
+		$applicant_id_array= get_id_array($name_of_table);
+		
+		$sql="SELECT * FROM student_info WHERE ( $filter_criteria_sql) AND user_id IN ($applicant_id_array)";
 		
 		$query= $dbc->query($sql);;
 		
@@ -93,14 +144,17 @@
 		return $query;
 	}
 	
-	function filter_only_gpa($GPA, $greater_less)
+	function filter_only_gpa($GPA, $greater_less, $selected_application_id)
 	{
 		require 'DMS_db.php';
 		
 		$filter_criteria_sql="";
 		$filter_criteria_sql=$filter_criteria_sql."GPA".$greater_less.$GPA;
 		
-		$sql="SELECT * FROM student_info WHERE $filter_criteria_sql";
+		$name_of_table=get_application_table_name($selected_application_id);
+		$applicant_id_array= get_id_array($name_of_table);
+		
+		$sql="SELECT * FROM student_info WHERE $filter_criteria_sql AND user_id IN ($applicant_id_array)";
 		
 		$query= $dbc->query($sql);;
 		
@@ -109,7 +163,7 @@
 	}
 	
 	
-	function search($search_criteria)
+	function search($search_criteria, $selected_application_id)
 	{
 		require 'DMS_db.php';
 		
@@ -118,8 +172,12 @@
 		
 		$search_criteria=$_GET['search_criteria'];
 		
+		$name_of_table=get_application_table_name($selected_application_id);
+		$applicant_id_array= get_id_array($name_of_table);
 		
-		$sql="SELECT * FROM student_info WHERE (
+		
+		$sql="SELECT * FROM student_info WHERE 
+			user_id IN ($applicant_id_array) AND(
 			first_name LIKE '%$search_criteria%' 
 			OR middle_name LIKE '%$search_criteria%' 
 			OR last_name LIKE '%$search_criteria%'
@@ -133,6 +191,8 @@
 			OR degree_type LIKE '%$search_criteria%'
 			OR major LIKE '%$search_criteria%'
 			OR major_2 LIKE '%$search_criteria%')";
+			
+			echo $sql;
 		$query= $dbc->query($sql);;
 		
 		echo "Displaying students containing '$search_criteria'";

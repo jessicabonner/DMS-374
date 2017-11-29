@@ -276,6 +276,7 @@ if (!$query) {
 	<form name="search" method= "get">
 		<tr>
 			<td><input placeholder="Search" style="width:50%;"id='search' type='text' name='search_criteria' size='20'/></td>
+			<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
 			<!--<td><input id='submit' type='submit' value='Search'/></td>-->
 		</tr>
 	</form>
@@ -293,6 +294,8 @@ if (!$query) {
 		<tr>
 			<td><input type="radio" name="sort" value="GPA DESC">GPA Descending<br></td>
 		</tr>
+		<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
+			<!--<input type="hidden" value=<?phpecho $_GET['selected_application']?>>-->
 
 		<td><input id='sort' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
 
@@ -469,6 +472,8 @@ if (!$query) {
 			<tr>
 				<td><b><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></b></td>
 			</tr>
+			
+			<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
 
 			<td><input id='submit' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
 
@@ -481,59 +486,30 @@ if (!$query) {
 	
 	
 	//doctor choose program functionality
-	if(isset($_GET['select_application'])){
+	//if(isset($_GET['select_application'])){
 		
-		$student_applicants=select_application($_GET['select_application']); 
+		
+		$student_applicants=select_application_student_list($_GET['select_application']); 
 		$student_applicants= implode(',',$student_applicants);
+		$selected_application = select_application($_GET['select_application']);
+		$name_of_program=get_program($selected_application['program_id']);
+		$selected_application_id=$selected_application['application_id'];
 		//echo $student_applicants;
 		
-	}
+	//}
 
 	
 	//Doctor's filter functionality
 	
 	
-	if(isset($_GET['filter_criteria']))
-	{
-		/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less'])){
-			echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
-		} */
-		if ($_GET['GPA_greater']!="")
-		{
-			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
-		}
-
-		elseif($_GET['GPA_less']!="")
-		{
-			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
-		}
-
-		else
-		{
-			$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
-		}
-	}
-
-	if(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
-	{
-		if($_GET['GPA_greater']!="")
-		{
-			$query=filter_only_gpa($_GET['GPA_greater'],'>');
-		}
-
-		elseif($_GET['GPA_less']!="")
-		{
-			$query=filter_only_gpa($_GET['GPA_less'],'<');
-
-
-		}
-	}
+	
 	?>
+	
 
 <form action='DMS_doctor_review.php' method='post'>
 
 	<table class="data-table">
-		<caption class="title">Applicant Data of DMS</caption>
+		<caption class="title"><?php echo $name_of_program.' '.$selected_application['term'].' '.$selected_application['year']; ?></caption>
 		<thead>
 			<tr>
 				<th>Accept</th>
@@ -562,19 +538,53 @@ if (!$query) {
 
 			$sort=$_GET['sort'];
 
-			$sql = "SELECT * FROM student_info ORDER BY $sort";
+			$sql = "SELECT * FROM student_info WHERE application_id=$selected_application_id ORDER BY $sort";
 			$query= $dbc->query($sql);;
 		}
 		elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
 
 			//call search_criteria function
-			$query=search($_GET['search_criteria']);
+			$query=search($_GET['search_criteria'],$selected_application_id);
 		}
+		
+		elseif(isset($_GET['filter_criteria']))
+		{
+			/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less'])){
+				echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
+			} */
+			if ($_GET['GPA_greater']!="")
+			{
+				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>',$selected_application_id);
+			}
+
+			elseif($_GET['GPA_less']!="")
+			{
+				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<',$selected_application_id);
+			}
+
+			else
+			{
+				$query=filter($_GET['filter_criteria'], $_GET['and_or'],$selected_application_id); //call filter_criteria function
+			}
+		}
+	
+		elseif(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
+		{
+			if($_GET['GPA_greater']!="")
+			{	
+				$query=filter_only_gpa($_GET['GPA_greater'],'>',$selected_application_id);
+			}
+
+			elseif($_GET['GPA_less']!="")
+			{
+				$query=filter_only_gpa($_GET['GPA_less'],'<',$selected_application_id);
 
 
+			}
+		}
 		elseif (isset($student_applicants))
 		{
-			//TODO:change this to if stmt?
+			
 			try{
 			$sql = "SELECT * FROM student_info WHERE user_id IN ($student_applicants)";
 
@@ -610,7 +620,7 @@ if (!$query) {
 
 				echo'<td><input type="checkbox" name="application_accept_list[]" value='.$id.' id='.$id.'></td>';
 
-				echo "<td> <a href='DMS_ViewApp.php?id= $id '>" .$row['user_id'] . "</a> </td>";
+				echo "<td> <a href='DMS_ViewApp.php?id= $id &selected_application=$selected_application_id'>" .$row['user_id'] . "</a> </td>";
 
 				echo '
 						<td>'.$row['first_name'].'</td>
