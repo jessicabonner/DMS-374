@@ -296,7 +296,7 @@ if (!$query) {
 			<td><input type="radio" name="sort" value="GPA DESC">GPA Descending<br></td>
 		</tr>
 		<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
-			<!--<input type="hidden" value=<?phpecho $_GET['selected_application']?>>-->
+			
 
 		<td><input id='sort' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
 
