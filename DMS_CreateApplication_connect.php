@@ -39,11 +39,11 @@
 		
 		//below is making a new field in the applications table for this application
 		//prepare SQL statement to prevent SQL injection
-		$stmt = $dbc-> prepare('INSERT INTO applications(term,year,number_unique_questions,list_unique_questions,program_id) 
-		VALUES (:term,:year,:number_unique_questions, :list_unique_questions, :program_id)');
+		$stmt = $dbc-> prepare('INSERT INTO applications(term,year,number_unique_questions,list_unique_questions,program_id, archived) 
+		VALUES (:term,:year,:number_unique_questions, :list_unique_questions, :program_id, :archived)');
 		
 		//bind variables to prepared statement and execute
-		$stmt->execute(array('term'=>$term,'year'=>$year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'program_id'=>$program_id));
+		$stmt->execute(array('term'=>$term,'year'=>$year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'program_id'=>$program_id, 'archived'=>'FALSE'));
 		
 		
 		//get the primary key (application_id) that was just created
