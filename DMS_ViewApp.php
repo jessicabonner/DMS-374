@@ -179,7 +179,7 @@ if (!$query) {
 }
 
 ?>
-<table width=100% table border>
+<table width=100%>
 <tr>
 
 </tr>
