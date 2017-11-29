@@ -57,15 +57,16 @@
 		$sql="SELECT * FROM $name_of_table";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
-		$applicants= $stmt->fetchAll();
+		$student_applicants= $stmt->fetchAll();
 		
-		$applicant_id_array=array();
-		foreach ($applicants as $applicant)
+		$student_applicant_id_array=array();
+		foreach($student_applicants as $key=>$value)
 		{
-			$applicant_id_array=$applicant['user_id'];
+			$student_applicant_id_array[]=$value["user_id"];
+			//echo $value['user_id'];
 		}
-		
-		return $applicant_id_array;
+		$student_applicant_id_list=implode(',',$student_applicant_id_array);
+		return $student_applicant_id_list;
 	}
 	function select_application_student_list($application_id)
 	{
@@ -116,7 +117,7 @@
 		$applicant_id_array= get_id_array($name_of_table);
 		
 		$sql="SELECT * FROM student_info WHERE $filter_criteria_sql AND user_id IN ($applicant_id_array)";
-		echo $sql;
+		
 		
 		$query= $dbc->query($sql);;
 		
@@ -161,6 +162,18 @@
 		echo "Displaying students with GPA".$greater_less.$GPA;
 		return $query;
 	}
+	function doctor_sort($sort_criteria, $selected_application_id)
+	{
+		require 'DMS_db.php';
+		$name_of_table=get_application_table_name($selected_application_id);
+		$applicant_id_array= get_id_array($name_of_table);
+		
+		$sql="SELECT * FROM student_info WHERE user_id IN ($applicant_id_array) ORDER BY $sort_criteria";
+		
+		$query= $dbc->query($sql);;
+		return $query;
+		
+	}
 	
 	
 	function search($search_criteria, $selected_application_id)
@@ -192,7 +205,7 @@
 			OR major LIKE '%$search_criteria%'
 			OR major_2 LIKE '%$search_criteria%')";
 			
-			echo $sql;
+			
 		$query= $dbc->query($sql);;
 		
 		echo "Displaying students containing '$search_criteria'";
@@ -203,7 +216,7 @@
 	}
 	
 	
-	$sql="SELECT * FROM student_info";
+	/* $sql="SELECT * FROM student_info";
 	//$stmt=$dbc->prepare($sql);
 	//$stmt->execute();
 	//$students = $stmt->fetch();
@@ -212,7 +225,7 @@
 	if (!$query) {
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
-	
+	 */
 
 
 ?>

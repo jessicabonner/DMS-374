@@ -272,6 +272,7 @@ if (!$query) {
 		</select>
 		<td><input id='program' type='submit' value='Choose Program'/></td>
 	</form>
+	<?php if(isset($_GET['select_application'])):?>
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
@@ -536,10 +537,7 @@ if (!$query) {
 
 		if (isset($_GET['sort'])){
 
-			$sort=$_GET['sort'];
-
-			$sql = "SELECT * FROM student_info WHERE application_id=$selected_application_id ORDER BY $sort";
-			$query= $dbc->query($sql);;
+			$query=doctor_sort($_GET['sort'], $selected_application_id);
 		}
 		elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
 
@@ -705,6 +703,8 @@ if (!$query) {
 		<tr>
 
 	</form>
+
+	<?php endif; ?>
 
 
 	<script>
