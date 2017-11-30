@@ -25,8 +25,9 @@ if (isset($_POST['save'])) {
 		$accept= $_POST['application_accept_list'];
 		//$id= $_POST['user_id'];
 		
+		$accept_list=implode(',',$accept);
 		//check if student is already accepted in the database
-		$stmt = $dbc->query("SELECT * FROM student_info WHERE accepted_by_dms= '1'");
+		$stmt = $dbc->query("SELECT * FROM student_info WHERE accepted_by_dms= '1' AND user_id IN ($accept_list)");
 		$x = $stmt->fetch();
 		
 		//if the student is already accepted, redirect back to the DMS_doctor.php page along with an indication that there was an error
@@ -42,6 +43,7 @@ if (isset($_POST['save'])) {
 			require 'DMS_db.php';
 
 				$sql="UPDATE student_info SET accepted_by_dms = 1 WHERE user_id= $value";
+				echo $sql;
 				$stmt=$dbc->prepare($sql);
 				$stmt->execute();
 	
