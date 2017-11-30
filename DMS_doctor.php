@@ -508,6 +508,7 @@ if (!$query) {
 	
 
 <form action='DMS_doctor_review.php' method='post'>
+	<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
 
 	<table class="data-table">
 		<caption class="title"><?php echo $name_of_program.' '.$selected_application['term'].' '.$selected_application['year']; ?></caption>
