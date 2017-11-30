@@ -33,8 +33,8 @@ if (isset($_POST['save'])) {
 		//if the student is already accepted, redirect back to the DMS_doctor.php page along with an indication that there was an error
 		if (count($x['user_id'])>0)
 		{
-			
-			header('Location: DMS_doctor.php?error="1"');
+			$select_application_id=$_POST['select_application'];
+			header("Location: DMS_doctor.php?error='1'&select_application=$select_application_id");
 			die();
 		}
 		
@@ -55,7 +55,8 @@ if (isset($_POST['save'])) {
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
 	else{
-		header('Location: DMS_doctor.php');
+		$select_application_id=$_POST['select_application'];
+		header("Location: DMS_doctor.php?select_application=$select_application_id");
 		die();
 	}
 
