@@ -166,6 +166,7 @@
 	function doctor_sort($sort_criteria, $selected_application_id)
 	{
 		require 'DMS_db.php';
+		//get applicant id based on sort criteria
 		$name_of_table=get_application_table_name($selected_application_id);
 		$applicant_id_array= get_id_array($name_of_table);
 
@@ -183,7 +184,7 @@
 
 	//if (isset($_GET['search_criteria']))
 	//{
-
+		//get the search result
 		$search_criteria=$_GET['search_criteria'];
 
 		$name_of_table=get_application_table_name($selected_application_id);
