@@ -157,8 +157,6 @@
 		<summary><b>Sort By</b></summary>
 		<p>
 		<form name="sort" method= "get">
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="radio" name="sort" value="user_id">ID<br></td>
 			</tr>

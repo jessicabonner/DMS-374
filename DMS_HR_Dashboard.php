@@ -148,9 +148,34 @@
 			<td><input id='search' type='text' name='search_criteria' size='20' placeholder="Search" style="width: 50%;"/></td>
 		</tr>
 	</form>
+
+	<details>
+
+	<!-- Doctor sort function -->
+	<summary><b>Sort By</b></summary>
+	<p>
+	<form name="sort" method= "get">
+		<tr>
+			<td><input type="radio" name="sort" value="user_id">ID<br></td>
+		</tr>
+		<tr>
+			<td><input type="radio" name="sort" value="GPA ASC">GPA Ascending<br></td>
+		</tr>
+		<tr>
+			<td><input type="radio" name="sort" value="GPA DESC">GPA Descending<br></td>
+		</tr>
+		<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
+
+		<td><input id='sort' type='submit' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value='Search'/></td>
+
+	</form>
+	</p>
+</details>
+<br>
+
 	<!--drop-down menu for filters-->
 	<details>
-	<summary>Filter</summary>
+	<summary><b>Filter</b></summary>
 	<p>
 		<form name="filter" method= "get">
 		<!--filter for greater GPA's-->
