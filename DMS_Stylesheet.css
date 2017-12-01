@@ -16,9 +16,8 @@ table {
 
 h1 {
   margin: 25px auto 0;
-  text-align: center;
+  text-align: left;
   text-transform: uppercase;
-  font-size: 17px;
 }
 
 table td {
@@ -31,6 +30,7 @@ table td {
 .data-table {
   border-collapse: collapse;
   font-size: 14px;
+  align-content: left;
 }
 
 .data-table th,

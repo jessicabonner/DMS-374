@@ -141,7 +141,7 @@
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
 
   <!-- Header -->
-<div class="w3-container" style="margin-top:40px; font-familt:benton sans;" id="showcase">
+<div class="w3-container" style="margin-top:40px;" id="showcase">
 	<h1 class="w3-jumbo">
 		<b>Human Resources Dashboard</b>
 	</h1>
@@ -150,12 +150,9 @@
 	<hr style="min-width:100%;border:5px solid #BF5700" class="w3-round">
 	<br>
 	<b> </b>
-	<br>
-	<br>
 </div>
 
 <body>
-
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
@@ -286,8 +283,6 @@
 			<tr>
 				<td><br></td>
 			</tr>
-
-
 
 			<tr>
 				<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
