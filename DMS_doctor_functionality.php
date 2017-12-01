@@ -70,6 +70,19 @@
 		return $name_of_table;
 	}
 	
+	function get_program_name($program_id)
+	{
+		require 'DMS_db.php';
+					
+			$sql="SELECT name_of_program FROM programs WHERE program_id=$program_id";
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+			$program = $stmt->fetch();
+			$name_of_program=$program['name_of_program'];
+
+			return $name_of_program;
+	}
+	
 	function get_id_array($name_of_table)
 	{
 		require 'DMS_db.php';
