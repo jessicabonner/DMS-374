@@ -167,7 +167,7 @@
 	{
 	die ('SQL Error: ' . mysqli_error($dbc));
 	}
-	
+
 
 ?>
 <html>
@@ -196,7 +196,7 @@ require 'DMS_doctor_functionality.php';
 				while ($row=$query->fetch(PDO::FETCH_ASSOC))
 					{
 						$id = $row['application_id'];
-						
+
 						if ($row['application_closed']==0)
 						{
 							$application_closed="Yes";
@@ -205,19 +205,19 @@ require 'DMS_doctor_functionality.php';
 						{
 							$application_closed="No";
 						}
-							
+
 						$program_id = $row['program_id'];
 						$name_of_program= get_program_name($program_id);
-							
+
 						//get the table name for this application
 						$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
-	
+
 						//get a count of all applicants in the table
 						$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
 						$stmt=$dbc->prepare($sql);
 						$stmt->execute();
 						$application=$stmt->fetch();
-							
+
 						echo'
 							<td><input type="checkbox" name="application_list[]" value='.$id.' id='.$id.'></td>';
 						echo "
@@ -230,7 +230,7 @@ require 'DMS_doctor_functionality.php';
 							<td>'.$application['number_of_applicants'].'</td>
 							<td>'.$application_closed.'</td>
 							</tr>';
-							
+
 					}
 
 ?>
@@ -238,8 +238,8 @@ require 'DMS_doctor_functionality.php';
 	</tbody>
 	</table>
 	<tr><td><br></td>
-	<td><input type='submit' name='action' value='Close'></td>
-	<td><input type='submit' name='action' value='Archive'></td>
+	<td><input type='submit' name='action' value='Close' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+	<td><input type='submit' name='action' value='Archive' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<tr>
 </form>
 </body>

@@ -181,7 +181,7 @@
 							<?php
 							//link to file containing database connection string
 							require 'DMS_general_functions.php';
-							
+
 							$programs= get_all_programs()
 							?>
 							<!--specify program application is for & # of unique questions -->
@@ -251,16 +251,10 @@
 
 						<table id="unique_questions_table">
 
-
 						</table>
 
 						<!--submit button. Will post info.-->
-						<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" name="submit"/> </td>
-
-
-
-
-
+						<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
 
 					<script>
 
