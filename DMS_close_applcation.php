@@ -4,12 +4,10 @@
 
 require 'DMS_db.php';
 
+//if the user has indicated that they want to close an application
 if( isset($_POST['new_close_application']))
 {	
-	
-	
-	
-	
+	//get whether to open or close and application as well as the value of the application to be closed
 	$new_close_application = $_POST['new_close_application'];
 	$application_id = $_POST['application_id'];
 	
