@@ -141,11 +141,6 @@
 		.data-table tfoot th:first-child {
 			text-align: left;
 		}
-		/* Color for an empy table field */
-		/*.data-table tbody td:empty
-		{
-			background-color: #ffcccc;
-		} */
 
 	</style>
 </head>
