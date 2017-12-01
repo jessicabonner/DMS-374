@@ -486,20 +486,10 @@
 				<td><br></td>
 			</tr>
 
-
-
-
 		</table>
 
-
-		<!--break-->
-		<tr>
-			<td><br></td>
-		</tr>
-
-
 		<!--submit button. Will post info.-->
-		<td colspan="1" style="text-align: center; float: center;"><input type="submit" name="submit" value="Update Profile Information"> </td>
+		<td colspan="1" style="text-align: center; float: center;"><input type="submit" name="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Update Profile Information"> </td>
 
 
 		<!--break-->

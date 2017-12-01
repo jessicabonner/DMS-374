@@ -331,10 +331,10 @@
 
 		<form action="DMS_Edit_Profile_Information.php" method="get">
 			<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
-			<input type="submit" value="Edit"/>
+			<input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Edit"/>
 		</form>
 
 		<form action="DMS_Select_Program_Apply.php" method="get">
 		<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
-			<input type="submit" value="Confirm"/>
+			<input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Confirm"/>
 		</form>
