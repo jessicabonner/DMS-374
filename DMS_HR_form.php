@@ -140,10 +140,30 @@
 	<br>
 </div>
 
-
-
+				<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+				<br>
+				<b>Please enter the name of the program and its associated doctor </b>
+				<br>
+				<br>
+			</div>
 
 <div class="w3-container" id="application" style="margin-top:10px">
+
+<?php
+//link to file containing database connection string
+	require 'DMS_db.php';
+
+	/* $sql="SELECT program_id, name_of_program FROM programs";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$programs= $stmt->fetchAll(); */
+	
+	$sql="SELECT * FROM applications WHERE archived='FALSE'";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$applications= $stmt->fetchAll();
+	
+?>
 
 <body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->

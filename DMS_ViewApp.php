@@ -157,27 +157,19 @@
 <form action='DMS_doctor_AcceptApp.php' method='POST'>
 
 <?php
-require 'DMS_db.php';
+	require 'DMS_db.php';
 
-//this will display an error message if the user tries to accept a student already accepted in the database
+	// Get ID from the URL
+	$id = $_GET['id'];
 
-//echo "<form action='DMS_doctor_AcceptApp.php' method='POST'">
+	$result = "SELECT * FROM student_info WHERE user_id = '$id'";
 
-// Get ID from the URL
-$id = $_GET['id'];
+	$query= $dbc->query($result);
 
-//$result = mysqli_query($dbc, "SELECT * FROM application WHERE ApplicationID = '$id'");
-$result = "SELECT * FROM student_info WHERE user_id = '$id'";
-
-$query= $dbc->query($result);
-
-
-$query= $dbc->query($result);;
-
-if (!$query) {
-	die ('SQL Error: ' . mysqli_error($dbc));
-}
-
+	if (!$query) 
+	{
+		die ('SQL Error: ' . mysqli_error($dbc));
+	}
 ?>
 <table width=100% table style>
 <tr>
@@ -185,197 +177,179 @@ if (!$query) {
 </tr>
 
 <?php
+	while ($row=$query->fetch(PDO::FETCH_ASSOC))
+	{
+		echo "<tr>";
+		echo "<th>ID</th>";
+		echo "<td>" . $row['user_id'] .  "</td>";
+		echo "</tr>";
 
-//while($row = mysqli_fetch_array($result))
-while ($row=$query->fetch(PDO::FETCH_ASSOC))
-{
+		echo "<tr>";
+		echo "<th>First Name</th>";
+		echo "<td>" . $row['first_name'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>ID</th>";
-echo "<td>" . $row['user_id'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Last Name</th>";
+		echo "<td>" . $row['last_name'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>First Name</th>";
-echo "<td>" . $row['first_name'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Email</th>";
+		echo "<td>" . $row['email'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>Last Name</th>";
-echo "<td>" . $row['last_name'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Address</th>";
+		echo "<td>" . $row['address'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>Email</th>";
-echo "<td>" . $row['email'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>City</th>";
+		echo "<td>" . $row['city'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>Address</th>";
-echo "<td>" . $row['address'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>State</th>";
+		echo "<td>" . $row['state'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>City</th>";
-echo "<td>" . $row['city'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Zip Code</th>";
+		echo "<td>" . $row['zip_code'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>State</th>";
-echo "<td>" . $row['state'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Phone Number</th>";
+		echo "<td>" . $row['phone'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>Zip Code</th>";
-echo "<td>" . $row['zip_code'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Employment</th>";
+		echo "<td>" . $row['employment'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>Phone Number</th>";
-echo "<td>" . $row['phone'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Classification</th>";
+		echo "<td>" . $row['classification'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>Employment</th>";
-echo "<td>" . $row['employment'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Degree Type</th>";
+		echo "<td>" . $row['degree_type'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>Classification</th>";
-echo "<td>" . $row['classification'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Major</th>";
+		echo "<td>" . $row['major'] .  "</td>";
+		echo "</tr>";
 
-echo "<tr>";
-echo "<th>Degree Type</th>";
-echo "<td>" . $row['degree_type'] .  "</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<th>Major</th>";
-echo "<td>" . $row['major'] .  "</td>";
-echo "</tr>";
-
-if ($row['major_2']=='')
-{
-	$major_2="None";
-}
-
-echo "<tr>";
-echo "<th>Second Major</th>";
-//echo "<td>" . $row['major_2'] .  "</td>";
-if (isset($major_2)){
-echo "<td>$major_2</td>";}
-echo "</tr>";
-
-if ($row['worked_at_dms']==0)
-{
-	$worked_at_dms="No";
-}
-else{
-	$worked_at_dms="Yes";
-}
-
-echo "<tr>";
-echo "<th>Has worked at DMS before?</th>";
-//echo "<td>" . $row['worked_at_dms'] .  "</td>";
-echo "<td>$worked_at_dms</td>";
-echo "</tr>";
-
-if ($row['volunteered_at_seton']==0)
-{
-	$volunteered_at_seton="No";
-}
-else{
-	$volunteered_at_seton="Yes";
-}
-
-echo "<tr>";
-echo "<th>Has volunteered at Seton before?</th>";
-//echo "<td>" . $row['volunteered_at_seton'] .  "</td>";
-echo "<td>$volunteered_at_seton</td>";
-echo "</tr>";
-
-if ($row['car']==0)
-{
-	$car="No";
-}
-else{
-	$car="Yes";
-}
-
-echo "<tr>";
-echo "<th>Has a car?</th>";
-//echo "<td>" . $row['car'] .  "</td>";
-echo "<td>$car</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<th>Semester Committment</th>";
-echo "<td>" . $row['semester_commitment'] .  " semester(s)</td>";
-echo "</tr>";
-
-echo "<tr>";
-echo "<th>Review</th>";
-
-$stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
-        $x = $stmt->fetch();
-
-		if ($x['review']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
+		if ($row['major_2']=='')
 		{
-			echo '<td><select name="new_review">
-				<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-				<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-				<option value="review = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
-			</select></td>';
+			$major_2="None";
 		}
-		elseif ($x['review']=="1") //if review = 1 (Noncompetitive) in the db, show the correct selected value
+
+		echo "<tr>";
+		echo "<th>Second Major</th>";
+		
+		if (isset($major_2))
 		{
-			echo'<td><select name="new_review">
-				<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-				<option value="review = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
-				<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
-			</select></td>';
+			echo "<td>$major_2</td>";}
+			echo "</tr>";
+
+			if ($row['worked_at_dms']==0)
+			{
+				$worked_at_dms="No";
+			}
+			else
+			{
+				$worked_at_dms="Yes";
+			}
+
+			echo "<tr>";
+			echo "<th>Has worked at DMS before?</th>";
+			echo "<td>$worked_at_dms</td>";
+			echo "</tr>";
+
+			if ($row['volunteered_at_seton']==0)
+			{
+				$volunteered_at_seton="No";
+			}
+			else
+			{
+				$volunteered_at_seton="Yes";
+			}
+
+			echo "<tr>";
+			echo "<th>Has volunteered at Seton before?</th>";
+			echo "<td>$volunteered_at_seton</td>";
+			echo "</tr>";
+
+			if ($row['car']==0)
+			{
+				$car="No";
+			}
+			else
+			{
+				$car="Yes";
+			}
+
+			echo "<tr>";
+			echo "<th>Has a car?</th>";
+			echo "<td>$car</td>";
+			echo "</tr>";
+
+			echo "<tr>";
+			echo "<th>Semester Committment</th>";
+			echo "<td>" . $row['semester_commitment'] .  " semester(s)</td>";
+			echo "</tr>";
+
+			echo "<tr>";
+			echo "<th>Review</th>";
+
+			$stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
+       	 	$x = $stmt->fetch();
+
+			if ($x['review']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
+			{
+				echo '<td><select name="new_review">
+					<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+					<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+					<option value="review = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
+				</select></td>';
+			}
+			elseif ($x['review']=="1") //if review = 1 (Noncompetitive) in the db, show the correct selected value
+			{
+				echo'<td><select name="new_review">
+					<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+					<option value="review = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
+					<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+				</select></td>';
+			}
+			else //if review = 0 (N/A) in the db, show the correct selected value
+			{ 
+				echo '<td><select name="new_review">
+					<option value="review = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
+					<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+					<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+				</select></td>';
+			}
+
+			echo "</tr>";
+
 		}
-		else{ //if review = 0 (N/A) in the db, show the correct selected value
-			echo '<td><select name="new_review">
-				<option value="review = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
-				<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-				<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
-			</select></td>';
-		}
 
-echo "</tr>";
+		echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
 
-
-//echo "<br>"
-
-echo "</tr>";
-}
-
-//$result1 = "SELECT question_0 FROM 11_Mobile_Research_Fall_2018 WHERE user_id='$id'";
-//$query1= $dbc->query($result1);
-
-/* while ($row=$query1->fetch(PDO::FETCH_ASSOC))
-{
-
-echo "<tr>";
-echo "<th>Question1</th>";
-echo "<td>" . $row['question_0'] .  "</td>";
-echo "</tr>";
-echo "</table>"; */
-
-//}
-echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
-
-echo "
-<td><br></td>
-<td><br></td>
-<tr><td></td>
-<td></td>
-<td><input type='checkbox' name='new_accepted_by_DMS' value='1'> Check to Accept Applicant<br />
-<input type='hidden' name='user_id' value=$id><br /></td></tr>
-<tr><td></td>
-<td></td>";
+		echo "
+			<td><br></td>
+			<td><br></td>
+			<tr>
+				<td></td>
+				<td></td>
+				<td><input type='checkbox' name='new_accepted_by_DMS' value='1'> Check to Accept Applicant<br />
+				<input type='hidden' name='user_id' value=$id><br /></td>
+			</tr>";
 
 ?>
 </table>
