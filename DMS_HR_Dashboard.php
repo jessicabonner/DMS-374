@@ -87,7 +87,7 @@ if ($_GET['message']=="1")
 		   <li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
 		   <li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
 		   <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-		  </ul>              
+		  </ul>
 		 </div>
           <div class="parent-banner-links">
            <h2 class="UT-secondary-logo">
@@ -106,7 +106,7 @@ if ($_GET['message']=="1")
         </div>
        </div>
       </div>
-     </div> 
+     </div>
 <!-- container-topnav -->
 
      <div class="container container-nav container-nav-phase2">
@@ -115,15 +115,15 @@ if ($_GET['message']=="1")
         <nav>
          <ul class="nav" id="main-nav" role="menu">
           <li class="nav-item" role="menuitem">
-			<a href="DMS_doctor.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  
+			<a href="DMS_doctor.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
           <li class="nav-item" role="menuitem">
-			<a href="" onclick="w3_close()" class="nav-link has-child nolink">HR Forms</a>                  
+			<a href="" onclick="w3_close()" class="nav-link has-child nolink">HR Forms</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
           <li class="nav-item" role="menuitem">
-			<a href="" onclick="w3_close()" class="nav-link has-child nolink">Biographical Forms</a>                  
+			<a href="" onclick="w3_close()" class="nav-link has-child nolink">Biographical Forms</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
           <li class="nav-item" role="menuitem">
@@ -154,31 +154,36 @@ if ($_GET['message']=="1")
 </div>
 
 <body>
+
 	<!--search bar-->
 	<form name="search" method= "get">
 		<tr>
 			<td><input id='search' type='text' name='search_criteria' size='20' placeholder="Search" style="width: 50%;"/></td>
 		</tr>
 	</form>
-
+	<!--drop-down menu for filters-->
 	<details>
 	<summary>Filter</summary>
 	<p>
 		<form name="filter" method= "get">
+		<!--filter for greater GPA's-->
 		<tr>
 			<td>GPA Greater than</td>
 		</tr>
 		<tr class="blankrow">
+		<!--insert standard GPA to be used for filter-->
 		<tr>
 			<td><input type="text" name="GPA_greater" size="20" style="width:25%;"/></td>
 		</tr>
+		<!--filter for lower GPA's-->
 		<tr>
 			<td>GPA Less than</td>
 		</tr>
 		<tr class="blankrow">
-			<tr>
-				<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
-			</tr>
+		<!--insert standard GPA to be used for filter-->
+		<tr>
+			<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
+		</tr>
 			<!--checkbox buttons for student's classification-->
 			<td>Classification</td>
 		</tr>
@@ -226,7 +231,6 @@ if ($_GET['message']=="1")
 		<tr>
 			<td><input type="checkbox" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
 		</tr>
-
 		<!--checkbox buttons for if they have worked at dell med school before-->
 		<tr>
 			<td><br></td>
@@ -242,7 +246,6 @@ if ($_GET['message']=="1")
 		<tr>
 			<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='0' ">No<br></td>
 		</tr>
-
 		<!--checkbox buttons for if they have volunteered at seton before-->
 		<tr>
 			<td><br></td>
@@ -258,6 +261,7 @@ if ($_GET['message']=="1")
 		<tr>
 			<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
 		</tr>
+	<!--checkbox buttons for if they have accpeted their offer-->
 		<tr>
 			<td><br></td>
 			<td>Accepted offer?</td>
@@ -276,12 +280,15 @@ if ($_GET['message']=="1")
 		<tr>
 			<td><br></td>
 		</tr>
+		<!--displays all applicants who match all of the given criteria-->
 		<tr>
 			<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
 		</tr>
+		<!--displays all applicants who match at least one of the given criteria-->
 		<tr>
 			<td><b><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></b></td>
 		</tr>
+		<!--submit filter decision-->
 		<td><input id='submit' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
 	</form>
 	</p>
@@ -293,13 +300,13 @@ if ($_GET['message']=="1")
 	{
 		$query=search($_GET['search_criteria']); //call search_criteria function
 	}
-	
+
 	if(isset($_GET['filter_criteria']))
 	{
 	/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less']))
 		{
 			echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
-		} */	
+		} */
 	if ($_GET['GPA_greater']!="")
 	{
 		$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
@@ -326,6 +333,7 @@ if ($_GET['message']=="1")
 	}
 	?>
 
+	<!--Displays all of the students who have been accepted, unless given specific criteria -->
 	<table class="data-table">
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
