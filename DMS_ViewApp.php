@@ -13,7 +13,6 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
@@ -45,6 +44,7 @@
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
 <style type="text/css" media="all">
 /*--><![CDATA[/*><!--*/
 #main-nav li a{font-family:open_sans;}
@@ -147,16 +147,12 @@
 
 
 	<hr style="min-width:100%;border:5px solid #BF5700" class="w3-round">
-	<br>
-	<b> </b>
-	<br>
-	<br>
 </div>
 </html>
 
 <form action='DMS_doctor_AcceptApp.php' method='POST'>
 
-<?php 
+<?php
 require 'DMS_db.php';
 
 	// Get ID from the URL
@@ -166,7 +162,7 @@ require 'DMS_db.php';
 
 	$query= $dbc->query($result);
 
-	if (!$query) 
+	if (!$query)
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
@@ -251,7 +247,7 @@ require 'DMS_db.php';
 
 		echo "<tr>";
 		echo "<th>Second Major</th>";
-		
+
 		if (isset($major_2))
 		{
 			echo "<td>$major_2</td>";}
@@ -327,7 +323,7 @@ require 'DMS_db.php';
 				</select></td>';
 			}
 			else //if review = 0 (N/A) in the db, show the correct selected value
-			{ 
+			{
 				echo '<td><select name="new_review">
 					<option value="review = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
 					<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
@@ -354,14 +350,7 @@ require 'DMS_db.php';
 ?>
 </table>
 <tr><td><br></td>
-<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"></td>
-<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
+<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 <tr>
-
-<td><br></td>
-<td><br></td>
-<td><br></td>
-<td><br></td>
-<td><br></td>
-<td><br></td>
 </form>
