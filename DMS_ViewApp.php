@@ -350,8 +350,8 @@ require 'DMS_doctor_functionality.php';
 
 ?>
 </table>
-<tr><td><br></td>
-<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
-<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
-<tr>
+	<tr><td><br></td>
+		<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+		<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+	<tr>
 </form>
