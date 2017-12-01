@@ -13,6 +13,14 @@
 	}
 	
 	*/
+	function select_student_from_list($student_applicants)
+	{
+		require 'DMS_db.php';	
+		
+		$sql = "SELECT * FROM student_info WHERE user_id IN ($student_applicants)";
+		$query= $dbc->query($sql);;
+		return $query;
+	}
 	
 	function select_student($id)
 	{	
@@ -34,16 +42,7 @@
 		
 		return $applications;
 	}
-	function get_program($program_id)
-	{
-		require 'DMS_db.php';
-		
-		$sql="SELECT name_of_program FROM programs WHERE program_id=$program_id";
-		$stmt=$dbc->prepare($sql);
-		$stmt->execute();
-		$program= $stmt->fetch();
-		return $program['name_of_program'];
-	}
+	
 	function select_application($application_id)
 	{
 		require 'DMS_db.php';

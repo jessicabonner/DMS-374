@@ -2,7 +2,8 @@
 
 	//require file containing all doctor functions
 	require 'DMS_doctor_functionality.php';
-
+	require 'DMS_general_functions.php';
+	
 	//this will display an error message if the user tries to accept a student already accepted in the database
 	if (isset($_GET['error']))
 	{
@@ -132,6 +133,96 @@
 
 
 <html>
+	<style type="text/css">
+		body {
+			font-size: 15px;
+			color: #343d44;
+			font-family: "segoe-ui", "open-sans", tahoma, arial;
+			padding: 0;
+			margin: 0;
+		}
+		table {
+			margin: auto;
+			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
+			font-size: 12px;
+		}
+
+		h1 {
+			margin: 25px auto 0;
+			text-align: center;
+			text-transform: uppercase;
+			font-size: 17px;
+		}
+
+		table td {
+			transition: all .5s;
+			font-size: 10px;
+			text-align-last: center;
+		}
+
+		/* Table */
+		.data-table {
+			border-collapse: collapse;
+			font-size: 14px;
+		}
+
+		.data-table th,
+		.data-table td {
+			border: 1px solid #e1edff;
+			padding: 7px 17px;
+			text-align: center;
+			font-size: 10px;
+		}
+		.data-table caption {
+			margin: 7px;
+			font-size: 18px;
+		}
+
+		/* Table Header */
+		.data-table thead th {
+			background-color: #bf5700;
+			color: #FFFFFF;
+			border-color: #000000 !important;
+			text-transform: uppercase;
+			text-align: center;
+		}
+
+		/* Table Body */
+		.data-table tbody td {
+			color: #353535;
+		}
+		.data-table tbody td:first-child,
+		.data-table tbody td:nth-child(4),
+		.data-table tbody td:last-child {
+			text-align: right;
+		}
+
+		.data-table tbody tr:nth-child(odd) td {
+			background-color: #f4fbff;
+		}
+		.data-table tbody tr:hover td {
+			background-color: #ffd1b3;
+			border-color: #ffd1b3;
+		}
+
+		/* Table Footer */
+		.data-table tfoot th {
+			background-color: #e5f5ff;
+			text-align: right;
+		}
+		.data-table tfoot th:first-child {
+			text-align: left;
+		}
+		/* Color for an empy table field */
+		/*.data-table tbody td:empty
+		{
+			background-color: #ffcccc;
+		} */
+
+	</style>
+</head>
+
+
 <?php
 	//get list of applications to populate dropdown
 	$applications=select_all_applications();
@@ -147,6 +238,7 @@
 		</select>
 		<td><input id='program' type='submit' value='Choose Program'style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"/></td>
 	</form>
+	
 
 	<?php if(isset($_GET['select_application'])):?>
 		<!--search bar-->
@@ -173,8 +265,8 @@
 			</tr>
 			<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
 
+			<td><input id='sort' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
 
-			<td><input id='sort' type='submit' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value='Search'/></td>
 
 		</form>
 
@@ -357,12 +449,13 @@
 		</details>
 
 
+		//call select_application_student_list function from DMS_doctor_functionality.php 
 	<?php
-
-		//call select_application_student_list function from DMS_doctor_functionality.php
 		//to get the list of applicants for this program
+		$student_applicants=select_application_student_list($_GET['select_application']); 
 		$student_applicants=select_application_student_list($_GET['select_application']);
 		$student_applicants= implode(',',$student_applicants);
+	
 
 		//call select_application program from DMS_doctor_functionality.php
 		//to get all information on the selected application
@@ -370,8 +463,10 @@
 		$selected_application_id=$selected_application['application_id'];
 
 		//call get_program on DMS_doctor_functionality.php to get the name of the program
+		$name_of_program=get_program($selected_application['program_id']);	
 		$name_of_program=get_program($selected_application['program_id']);
 	?>
+		
 
 		<form action='DMS_doctor_review.php' method='post'>
 		<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
@@ -442,8 +537,7 @@
 			{
 				try
 				{
-					$sql = "SELECT * FROM student_info WHERE user_id IN ($student_applicants)";
-					$query= $dbc->query($sql);;
+					$query= select_student_from_list($student_applicants);
 				}
 				//if the program has no applicants
 				catch(Exception $e)
@@ -454,6 +548,7 @@
 			}
 
 			//if there is an error in the query, display error
+			if (!$query) 
 			if (!$query)
 			{
 				//TODO: delete this later
@@ -475,8 +570,6 @@
 
 				echo '
 						<td>'.$row['first_name'].'</td>
-						<td>'.$row['last_name'].'</td>';
-
 						//call function select_student from SMD_doctor_functionality.php
 						//to pull the value of the review field in table 'student_info'
 						$x=select_student($id);
@@ -531,12 +624,11 @@
 		?>
 
 		</table>
+	
 
 		<!--Page Break-->
 		<tr>
 			<td><br></td>
-			<td><input type='submit' name= "accept" value='Accept Students' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to ACCEPT the selected students?')"></td>
-			<td><input type='submit' name= "save" value='Save Changes' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
 		<tr>
 
 	</form>
