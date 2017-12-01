@@ -166,6 +166,7 @@ require 'DMS_db.php';
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
+
 ?>
 <table width=100% table style>
 <tr>
@@ -175,76 +176,77 @@ require 'DMS_db.php';
 <?php
 	while ($row=$query->fetch(PDO::FETCH_ASSOC))
 	{
+		// Display applicants's ID
 		echo "<tr>";
 		echo "<th>ID</th>";
 		echo "<td>" . $row['user_id'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's First Name
 		echo "<tr>";
 		echo "<th>First Name</th>";
 		echo "<td>" . $row['first_name'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Last Name
 		echo "<tr>";
 		echo "<th>Last Name</th>";
 		echo "<td>" . $row['last_name'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Email
 		echo "<tr>";
 		echo "<th>Email</th>";
 		echo "<td>" . $row['email'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Address
 		echo "<tr>";
 		echo "<th>Address</th>";
 		echo "<td>" . $row['address'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's City
 		echo "<tr>";
 		echo "<th>City</th>";
 		echo "<td>" . $row['city'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's State
 		echo "<tr>";
 		echo "<th>State</th>";
 		echo "<td>" . $row['state'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Zip Code
 		echo "<tr>";
 		echo "<th>Zip Code</th>";
 		echo "<td>" . $row['zip_code'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Phone Number
 		echo "<tr>";
 		echo "<th>Phone Number</th>";
 		echo "<td>" . $row['phone'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Employment
 		echo "<tr>";
 		echo "<th>Employment</th>";
 		echo "<td>" . $row['employment'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Classification
 		echo "<tr>";
 		echo "<th>Classification</th>";
 		echo "<td>" . $row['classification'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Degree Type
 		echo "<tr>";
 		echo "<th>Degree Type</th>";
 		echo "<td>" . $row['degree_type'] .  "</td>";
 		echo "</tr>";
-
+		// Display applicants's Major
 		echo "<tr>";
 		echo "<th>Major</th>";
 		echo "<td>" . $row['major'] .  "</td>";
 		echo "</tr>";
-
+		// Check if the applicant has a Second Major
 		if ($row['major_2']=='')
 		{
 			$major_2="None";
 		}
-
+		// Display applicants's Second Major
 		echo "<tr>";
 		echo "<th>Second Major</th>";
 
@@ -252,7 +254,7 @@ require 'DMS_db.php';
 		{
 			echo "<td>$major_2</td>";}
 			echo "</tr>";
-
+		// Check if the applicant has worked for DMS before
 			if ($row['worked_at_dms']==0)
 			{
 				$worked_at_dms="No";
@@ -261,12 +263,12 @@ require 'DMS_db.php';
 			{
 				$worked_at_dms="Yes";
 			}
-
+		// Display applicants's work history with DMS
 			echo "<tr>";
 			echo "<th>Has worked at DMS before?</th>";
 			echo "<td>$worked_at_dms</td>";
 			echo "</tr>";
-
+		// Check if the applicant has volunteered for Seton before
 			if ($row['volunteered_at_seton']==0)
 			{
 				$volunteered_at_seton="No";
@@ -275,12 +277,12 @@ require 'DMS_db.php';
 			{
 				$volunteered_at_seton="Yes";
 			}
-
+		// Display applicants's volunteer history with Seton
 			echo "<tr>";
 			echo "<th>Has volunteered at Seton before?</th>";
 			echo "<td>$volunteered_at_seton</td>";
 			echo "</tr>";
-
+		// Check if the applicant owns a car
 			if ($row['car']==0)
 			{
 				$car="No";
@@ -289,17 +291,17 @@ require 'DMS_db.php';
 			{
 				$car="Yes";
 			}
-
+		// Display if the applicant has a car
 			echo "<tr>";
 			echo "<th>Has a car?</th>";
 			echo "<td>$car</td>";
 			echo "</tr>";
-
+		// Display applicants's Semester Committment
 			echo "<tr>";
 			echo "<th>Semester Committment</th>";
 			echo "<td>" . $row['semester_commitment'] .  " semester(s)</td>";
 			echo "</tr>";
-
+		// Display applicants's review status
 			echo "<tr>";
 			echo "<th>Review</th>";
 

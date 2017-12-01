@@ -2,9 +2,7 @@
 
 	//require file containing all doctor functions
 	require 'DMS_doctor_functionality.php';
-
 	require 'DMS_general_functions.php';
-	
 
 	//this will display an error message if the user tries to accept a student already accepted in the database
 	if (isset($_GET['error']))
@@ -132,8 +130,6 @@
 </div>
 </html>
 
-
-
 <html>
 <?php
 	//get list of applications to populate dropdown
@@ -176,7 +172,6 @@
 			</tr>
 			<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
 
-
 			<td><input id='sort' type='submit' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value='Search'/></td>
 
 		</form>
@@ -192,20 +187,18 @@
 					<td>GPA Greater than</td>
 				</tr>
 				<tr class="blankrow">
-
 				<tr>
 					<td><input type="text" name="GPA_greater" size="20" style="width:25%;"/></td>
 				</tr>
+
 				<tr>
 					<td><br></td>
 					<td>GPA Less than</td>
 				</tr>
 				<tr class="blankrow">
-
 				<tr>
 					<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
 				</tr>
-
 
 				<!--checkbox buttons for student's classification-->
 				<tr>
@@ -342,7 +335,6 @@
 					<td><br></td>
 				</tr>
 
-
 				<!--Radio button for AND/OR search type-->
 				<tr>
 					<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
@@ -359,9 +351,7 @@
 			</p>
 		</details>
 
-
 	<?php
-
 		//call select_application_student_list function from DMS_doctor_functionality.php
 		//to get the list of applicants for this program
 		$student_applicants=select_application_student_list($_GET['select_application']);
@@ -397,9 +387,7 @@
 				</tr>
 			</thead>
 
-
-		<?php
-
+<?php
 			//if user is trying to sort
 			if (isset($_GET['sort']))
 			{
@@ -508,16 +496,11 @@
 								</select></td>';
 						}
 
-
-
-
-				echo ' 	<td>'.$row['EID'].'</td>
-						<td>'.$row['GPA'].'</td>
-						<td>'.$row['email'].'</td>
-						<td>'.$row['classification'].'</td>
-						<td>'.$row['major'].'</td>';
-
-
+							echo ' 	<td>'.$row['EID'].'</td>
+								<td>'.$row['GPA'].'</td>
+								<td>'.$row['email'].'</td>
+								<td>'.$row['classification'].'</td>
+								<td>'.$row['major'].'</td>';
 
 						if ($row['accepted_by_dms']==0)
 						{
@@ -556,7 +539,5 @@
 		});
 
 	</script>
-
-
 </body>
 </html>
