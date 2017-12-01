@@ -27,4 +27,17 @@
 		return $programs;
 	}
 
+	
+	//pulling a list of all applications from the database
+	function get_all_applications()
+	{	
+		require 'DMS_db.php';
+		
+		$sql="SELECT * FROM applications";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$applications= $stmt->fetchAll();
+		
+		return $applications;
+	}
 ?>
