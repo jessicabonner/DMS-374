@@ -156,7 +156,7 @@
 				<!--<td><input id='submit' type='submit' value='Search'/></td>-->
 			</tr>
 		</form>
-
+		<!-- Doctor sort function -->
 		<form name="sort" method= "get">
 			<tr><td><b>Sort By</b><br></td></tr>
 			<tr class="blankrow">
@@ -177,7 +177,7 @@
 		</form>
 
 		<details>
-
+		<!-- Doctor filter function -->
 		<summary><b>Filter</b></summary>
 		<p>
 		<form name="filter" method= "get">
@@ -368,7 +368,7 @@
 
 		<form action='DMS_doctor_review.php' method='post'>
 		<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
-
+		<!-- Doctor view for applicants -->
 		<table class="data-table">
 			<caption class="title"><?php echo $name_of_program.' '.$selected_application['term'].' '.$selected_application['year']; ?></caption>
 			<thead>
