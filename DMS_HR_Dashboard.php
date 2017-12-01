@@ -286,38 +286,44 @@
 	
 	if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
 	{
-		$query=search($_GET['search_criteria']); //call search_criteria function
+		//call search_criteria function
+		$query=search($_GET['search_criteria']); 
 	}
 
+	//if user is filtering
 	if(isset($_GET['filter_criteria']))
 	{
-	/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less']))
+		if ($_GET['GPA_greater']!="")
 		{
-			echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
-		} */
-	if ($_GET['GPA_greater']!="")
-	{
-		$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
+			//call the filter with gpa function
+			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
+		}
+		//if filter is by gpa less than
+		elseif($_GET['GPA_less']!="")
+		{
+			//call the filter with gppa function
+			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
+		}
+		//if filter doesn't include gpa
+		else
+		{
+			$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
+		}
 	}
-	elseif($_GET['GPA_less']!="")
-	{
-		$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
-	}
-	else
-	{
-		$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
-	}
-	}
+	
+	//if user is trying to filter by GPA along with other criteria
 	if(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
 	{
-	if($_GET['GPA_greater']!="")
-	{
-		$query=filter_only_gpa($_GET['GPA_greater'],'>');
-	}
-	elseif($_GET['GPA_less']!="")
-	{
-		$query=filter_only_gpa($_GET['GPA_less'],'<');
-	}
+		//if filter is by gpa greater than
+		if($_GET['GPA_greater']!="")
+		{
+			$query=filter_only_gpa($_GET['GPA_greater'],'>');
+		}
+		//if filter is by gpa less than
+		elseif($_GET['GPA_less']!="")
+		{
+			$query=filter_only_gpa($_GET['GPA_less'],'<');
+		}
 	}
 	?>
 
@@ -362,6 +368,8 @@
 			{
 				$accepted_offer="No";
 			}
+			
+			//display all student info in the table
 			echo "<td> <a href='DMS_HR_View_Student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
 			echo '
 				<td>'.$row['first_name'].'</td>
