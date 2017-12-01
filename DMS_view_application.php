@@ -158,20 +158,14 @@
 
 <?php
 
-	require 'DMS_db.php';
+	require 'DMS_doctor_functionality.php';
+	require 'DMS_general_functions.php';
 
 	// Get ID from the URL
-	$id = $_GET['id'];
+	$application_id = $_GET['id'];
 
-	//$result = mysqli_query($dbc, "SELECT * FROM application WHERE ApplicationID = '$id'");
-	$result = "SELECT * FROM applications WHERE application_id = '$id'";
-
-	$query= $dbc->query($result);;
-
-	if (!$query)
-	{
-		die ('SQL Error: ' . mysqli_error($dbc));
-	}
+	//Calls select_application2 function from DMS_doctor_functionality.php
+	$query=select_application2($application_id);
 
 
 	echo "<table width=100%>
@@ -180,14 +174,10 @@
 	//while($row = mysqli_fetch_array($result))
 	while ($row=$query->fetch(PDO::FETCH_ASSOC))
 	{
-		//get program name
-		$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
-		$stmt=$dbc->prepare($sql);
-		$stmt->execute();
-
-		$program = $stmt->fetch();
-		$name_of_program=$program['name_of_program'];
-
+		$program_id = $row['program_id'];
+		
+		//Calls get_program function from DMS_general functions
+		$name_of_program = get_program($program_id);
 
 		//get the list of questions and turn into an array
 		$list_unique_questions = $row['list_unique_questions'];
@@ -203,103 +193,109 @@
 			{
 				$application_closed="No";
 			}
+			
 		// Display application's ID
-echo "<tr>";
-echo "<th>ID</th>";
-echo "<td>" . $row['application_id'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>ID</th>";
+		echo "<td>" . $row['application_id'] .  "</td>";
+		echo "</tr>";
+		
 		// Display appliction's Name
-echo "<tr>";
-echo "<th>Program</th>";
-echo "<td>" . $name_of_program .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Program</th>";
+		echo "<td>" . $name_of_program .  "</td>";
+		echo "</tr>";
+		
 		// Display applications's Term
-echo "<tr>";
-echo "<th>Term</th>";
-echo "<td>" . $row['term'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Term</th>";
+		echo "<td>" . $row['term'] .  "</td>";
+		echo "</tr>";
+		
 		// Display applications's Year
-echo "<tr>";
-echo "<th>Year</th>";
-echo "<td>" . $row['year'] .  "</td>";
-echo "</tr>";
+		echo "<tr>";
+		echo "<th>Year</th>";
+		echo "<td>" . $row['year'] .  "</td>";
+		echo "</tr>";
 
-//loop through the array of questions and display all unique questions
-echo "<tr>";
-echo "<th>Questions</th>";
+		//loop through the array of questions and display all unique questions
+		echo "<tr>";
+		echo "<th>Questions</th>";
+
+		foreach($array_unique_questions as $key=>$value)
+		{
+			if ($key==0)
+				{
+					echo "<td>$value</td>";
+				}
+			else
+				{
+					echo "<tr><td></td>";
+					echo "<td>$value</td></tr>";
+				}
+		}
+		echo "</tr>";
 
 
-foreach($array_unique_questions as $key=>$value)
-	{
-		if ($key==0)
+		//break
+		echo "<tr><td><br></td></tr>";
+		if ($row['archived']=="FALSE")
 			{
-				echo "<td>$value</td>";
+				// Display whether or not the applications is open or closed
+				echo "<tr>";
+				echo "<th>Open?</th>";
+				echo "<td>" . $application_closed.  "</td>";
+
+				echo "</tr>";
+				echo "</tr>";
+
+				//break
+				echo "<tr><td><br></td></tr>";
+
+				//set variable to change whether she can close or open an application
+				//0 is false 1 is true
+				if ($application_closed=="No")
+				{
+					$close_open="Open";
+					$value="0";
+				}
+				else
+				{
+					$close_open="Close";
+					$value="1";
+				}
+
+				echo "<form action='DMS_close_applcation.php' method='POST'>
+
+					<tr>
+						<td></td>
+						<td></td>
+						<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
+						<input type='hidden' name='application_id' value=$application_id><br /></td></tr>
+					<tr>
+						<td></td>
+						<td></td>
+						<td><input type='submit' value=' Enter '></td></tr>
+					</form>";
+					
+				echo "</table>";
 			}
-		else
-			{
-				echo "<tr><td></td>";
-				echo "<td>$value</td></tr>";
-			}
-	}
-echo "</tr>";
-
-
-//break
-echo "<tr><td><br></td></tr>";
-if ($row['archived']=="FALSE")
-{
-	// Display whether or not the applications is open or closed
-	echo "<tr>";
-	echo "<th>Open?</th>";
-	echo "<td>" . $application_closed.  "</td>";
-
-	echo "</tr>";
-	echo "</tr>";
-
-	//break
-	echo "<tr><td><br></td></tr>";
-
-	//set variable to change whether she can close or open an application
-	//0 is false 1 is true
-	if ($application_closed=="No")
-	{
-		$close_open="Open";
-		$value="0";
-	}
-	else
-	{
-		$close_open="Close";
-		$value="1";
-	}
-
-	echo "<form action='DMS_close_applcation.php' method='POST'>
-
-	<tr><td></td>
-	<td></td>
-	<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
-	<input type='hidden' name='application_id' value=$id><br /></td></tr>
-	<tr><td></td>
-	<td></td>
-	<td><input type='submit' value=' Enter '></td></tr>
-	</form>";
-
-	echo "</table>";
-	}
 
 	else
-	{
-		echo "This application is archived";
-		echo "<form action='DMS_close_applcation.php' method='POST'>
+		{
+			echo "This application is archived";
+			echo "<form action='DMS_close_applcation.php' method='POST'>
 
-		<tr><td></td>
-		<td></td>
-		<td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
-		<input type='hidden' name='application_id' value=$id><br /></td></tr>
-		<tr><td></td>
-		<td></td>
-		<td><input type='submit' value=' Enter '></td></tr>
-		</form>";
+				<tr><td></td>
+					<td></td>
+					<td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
+						<input type='hidden' name='application_id' value=$id><br /></td></tr>
+				<tr>
+					<td></td>
+					<td></td>
+					<td><input type='submit' value=' Enter '></td></tr>
+				</form>";
+		}
 	}
-}
 
 ?>

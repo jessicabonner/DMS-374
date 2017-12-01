@@ -52,7 +52,22 @@
 		$application= $stmt->fetch();
 		return $application;
 	}
+	
+	function select_application2($application_id)
+	{
+		require 'DMS_db.php';
+		// select a specific application using application_id
+		$result = "SELECT * FROM applications WHERE application_id = '$application_id'";
+		$query= $dbc->query($result);;
 
+		if (!$query)
+		{
+			die ('SQL Error: ' . mysqli_error($dbc));
+		}
+		
+		return $query;
+	}
+	
 	function get_application_table_name($application_id)
 	{
 		require 'DMS_db.php';
@@ -65,7 +80,7 @@
 		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$application['term']."_".$application['year'];
 		return $name_of_table;
 	}
-<<<<<<< HEAD
+
 	
 	function get_program_name($program_id)
 	{
@@ -80,9 +95,9 @@
 			return $name_of_program;
 	}
 	
-=======
 
->>>>>>> ecccbab255ea3f34a84a414c62058999121c876a
+
+
 	function get_id_array($name_of_table)
 	{
 		require 'DMS_db.php';
