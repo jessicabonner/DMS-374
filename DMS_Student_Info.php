@@ -521,7 +521,7 @@
 
 
 			<!--submit button. Will post info.-->
-			<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Save profile information"/> </td>
+			<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Save Profile Information" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"/> </td>
 
 
 			<!--break-->
