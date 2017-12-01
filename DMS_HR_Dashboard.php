@@ -1,15 +1,3 @@
-<?php
-//this will display an error message if the user tries to create an application that already exists in the database
-if (isset($_GET['message']))
-{
-if ($_GET['message']=="1")
-{
-	echo '<script language="javascript">';
-	echo 'alert("The new application has been created successfully")';
-	echo '</script>';
-}
-}
-?>
 
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -295,7 +283,7 @@ if ($_GET['message']=="1")
 	</details>
 
 	<?php
-	require 'DMS_HR.php';
+	
 	if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
 	{
 		$query=search($_GET['search_criteria']); //call search_criteria function
@@ -358,38 +346,40 @@ if ($_GET['message']=="1")
 
 		<tbody>
 		<?php
-		//while ($row = mysqli_fetch_array($query))
+		//this will run the user-created query and return all applicants that came out of that query
 		require 'DMS_db.php';
 
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 			$id = $row['user_id'];
-		if ($row['accepted_offer']=='1')
-		{
-			$accepted_offer="Yes";
-		}
-		else
-		{
-			$accepted_offer="No";
-		}
-		echo "<td> <a href='DMS_HR_View_Student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
-		echo '
-			<td>'.$row['first_name'].'</td>
-			<td>'.$row['middle_name'].'</td>
-			<td>'.$row['last_name'].'</td>
-			<td>'.$row['address'].'</td>
-			<td>'.$row['city'].'</td>
-			<td>'.$row['state'].'</td>
-			<td>'.$row['zip_code'].'</td>
-			<td>'.$row['EID'].'</td>
-			<td>'.$row['email'].'</td>
-			<td>'.$row['classification'].'</td>
-			<td>'.$row['major'].'</td>
-			<td>'.$row['major_2'].'</td>
-			<td>'.$row['GPA'].'</td>
-			<td>'.$accepted_offer.'</td>
-			</tr>';
-		}
+			
+			//change the value from the database to "yes" or "no" to be displayed to the user
+			if ($row['accepted_offer']=='1')
+			{
+				$accepted_offer="Yes";
+			}
+			else
+			{
+				$accepted_offer="No";
+			}
+			echo "<td> <a href='DMS_HR_View_Student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
+			echo '
+				<td>'.$row['first_name'].'</td>
+				<td>'.$row['middle_name'].'</td>
+				<td>'.$row['last_name'].'</td>
+				<td>'.$row['address'].'</td>
+				<td>'.$row['city'].'</td>
+				<td>'.$row['state'].'</td>
+				<td>'.$row['zip_code'].'</td>
+				<td>'.$row['EID'].'</td>
+				<td>'.$row['email'].'</td>
+				<td>'.$row['classification'].'</td>
+				<td>'.$row['major'].'</td>
+				<td>'.$row['major_2'].'</td>
+				<td>'.$row['GPA'].'</td>
+				<td>'.$accepted_offer.'</td>
+				</tr>';
+			}
 		?>
 		</tbody>
 	</table>
