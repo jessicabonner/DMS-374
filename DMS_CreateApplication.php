@@ -105,7 +105,7 @@
 						</div>
 					</div>
 				</div> <!-- container-topnav -->
-
+				<!-- Page tabs -->
 				<div class="container container-nav container-nav-phase2">
 					<div class="row">
 						<div class="column small-12">
@@ -160,7 +160,7 @@
 					<b>Create a New Application</b>
 				</h1>
 
-
+				<!-- Instructions to create new program -->
 				<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 				<br>
 				<b>Please enter the name of the program and its associated doctor </b>
@@ -184,7 +184,7 @@
 							
 							$programs= get_all_programs()
 							?>
-
+							<!--specify program application is for & # of unique questions -->
 							<tr>
 								<td>Please associate a new application with a program and enter any unique questions</td>
 							</tr>
@@ -205,7 +205,7 @@
 							<tr>
 								<td><br></td>
 							</tr>
-
+							<!-- specify term and year for application -->
 							<tr>
 								<td>Please enter the year and semester that this application is for</td>
 							</tr>
@@ -236,7 +236,7 @@
 								<td><br></td>
 							</tr>
 
-							<!--text box for number of programs to create-->
+							<!--text box for number of questions to create-->
 							<tr>
 								<td>Please enter the number of custom questions that you wish to create</td>
 							</tr>
