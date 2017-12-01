@@ -1,4 +1,6 @@
 <?php
+	require 'DMS_general_functions.php';
+	require 'DMS_Admin_Dashboard_Functionality.php';
 	//this will display a message when a user is redirected to this page after completing an action
 	if (isset($_GET['message']))
 	{
@@ -198,50 +200,45 @@
 					</thead>
 
 					<tbody>
-<?php
 
-	require 'DMS_db.php';
+					<?php
+						$query=get_application_info();
+	
+						require 'DMS_db.php';
 
-	$sql = 'SELECT application_id, term, year, number_unique_questions, list_unique_questions, program_id, application_closed
-	FROM applications WHERE application_closed=0 ORDER BY application_id DESC';
+						//if the query fails show an error
+						if (!$query) 
+						{
+							//TODO
+							die ('SQL Error: ' . mysqli_error($dbc));
+							
+							//die("There was an error");
+						}
+		
+						while ($row=$query->fetch(PDO::FETCH_ASSOC))
+						{
+							$id = $row['application_id'];
 
-	$query= $dbc->query($sql);;
+							$name_of_program=get_program($row['program_id']);
 
-	if (!$query) {
-		die ('SQL Error: ' . mysqli_error($dbc));
-	}
+							//get the table name for this application
+							$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
 
-	while ($row=$query->fetch(PDO::FETCH_ASSOC)){
+							//get a count of all applicants in the table
+			
+							$application=count_applicants($name_of_table);
+							
+							//Display application info
+							echo "<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
 
-		$id = $row['application_id'];
+							echo '
+								<td>'.$name_of_program.'</td>
+								<td>'.$row['term'].'</td>
+								<td>'.$row['year'].'</td>
+								<td>'.$application['number_of_applicants'].'</td>
+								</tr>';
 
-		$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
-		$stmt=$dbc->prepare($sql);
-		$stmt->execute();
-
-		$program = $stmt->fetch();
-		$name_of_program=$program['name_of_program'];
-
-		//get the table name for this application
-		$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
-
-		//get a count of all applicants in the table
-		$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
-		$stmt=$dbc->prepare($sql);
-		$stmt->execute();
-		$application=$stmt->fetch();
-
-		echo "<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
-
-		echo '
-			<td>'.$name_of_program.'</td>
-			<td>'.$row['term'].'</td>
-			<td>'.$row['year'].'</td>
-			<td>'.$application['number_of_applicants'].'</td>
-			</tr>';
-
-	}
-?>
+						}
+					?>
 					</tbody>
-
 				</table>
