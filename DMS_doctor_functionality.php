@@ -103,9 +103,6 @@
 			return $name_of_program;
 	}
 	
-
-
-
 	//return an array of the id's of all student applicants
 	function get_id_array($name_of_table)
 	{
@@ -124,7 +121,6 @@
 		$student_applicant_id_list=implode(',',$student_applicant_id_array);
 		return $student_applicant_id_list;
 	}
-	
 	
 	//return an array of all students who have applied to the given application
 	function select_application_student_list($application_id)
@@ -156,7 +152,6 @@
 		}
 		return $student_applicant_id_array;
 	}
-
 
 	function filter($filter_criteria, $and_or, $selected_application_id)
 	{
@@ -220,15 +215,10 @@
 	function search($search_criteria, $selected_application_id)
 	{
 		require 'DMS_db.php';
-
-	//if (isset($_GET['search_criteria']))
-	//{
-		//get the search result
+		
 		$search_criteria=$_GET['search_criteria'];
-
 		$name_of_table=get_application_table_name($selected_application_id);
 		$applicant_id_array= get_id_array($name_of_table);
-
 
 		$sql="SELECT * FROM student_info WHERE
 			user_id IN ($applicant_id_array) AND(
@@ -255,20 +245,6 @@
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
 	}
-
-
-
-
-	/* $sql="SELECT * FROM student_info";
-	//$stmt=$dbc->prepare($sql);
-	//$stmt->execute();
-	//$students = $stmt->fetch();
-	$query= $dbc->query($sql);;
-
-	if (!$query) {
-		die ('SQL Error: ' . mysqli_error($dbc));
-	}
-	 */
 
 
 ?>
