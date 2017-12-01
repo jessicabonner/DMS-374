@@ -11,6 +11,10 @@
 		return $program['name_of_program'];
 	}
 	
+<<<<<<< HEAD
+
+
+=======
 	function get_all_programs()
 	{
 		require 'DMS_db.php';
@@ -23,4 +27,5 @@
 		return $programs;
 	}
 	
+>>>>>>> ecccbab255ea3f34a84a414c62058999121c876a
 ?>
