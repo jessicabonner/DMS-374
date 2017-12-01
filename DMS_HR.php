@@ -1,17 +1,5 @@
 <?php
 require 'DMS_db.php';
-/*
-$sql="SELECT * FROM student_info WHERE accepted_by_dms='1'";
-//$stmt=$dbc->prepare($sql);
-//$stmt->execute();
-//$students = $stmt->fetch();
-$query= $dbc->query($sql);;
-
-if (!$query)
-{
-	die ('SQL Error: ' . mysqli_error($dbc));
-}
-*/
 
 function filter($filter_criteria, $and_or)
 {
@@ -41,6 +29,7 @@ function filter_with_gpa($filter_criteria, $and_or, $GPA, $greater_less)
 	echo "Displaying students where $filter_criteria_sql";
 	return $query;
 }
+
 function filter_only_gpa($GPA, $greater_less)
 {
 	require 'DMS_db.php';
@@ -60,8 +49,6 @@ function search($search_criteria)
 {
 	require 'DMS_db.php';
 	//perform search based on HR selected criteria
-//if (isset($_GET['search_criteria']))
-//{
 	$search_criteria=$_GET['search_criteria'];
 
 	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND(
@@ -83,21 +70,18 @@ function search($search_criteria)
 	echo "Displaying students containing '$search_criteria'";
 	return $query;
 
-//error handing
-if (!$query)
-{
-	die ('SQL Error: ' . mysqli_error($dbc));
-}
+	//error handing
+	if (!$query)
+	{
+		die ('SQL Error: ' . mysqli_error($dbc));
+	}
 }	
 
-$sql="SELECT * FROM student_info WHERE accepted_by_dms='1'";
-//$stmt=$dbc->prepare($sql);
-//$stmt->execute();
-//$students = $stmt->fetch();
-$query= $dbc->query($sql);;
+	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1'";
+	$query= $dbc->query($sql);;
 
-if (!$query)
-{
-	die ('SQL Error: ' . mysqli_error($dbc));
-}
+	if (!$query)
+	{
+		die ('SQL Error: ' . mysqli_error($dbc));
+	}
 ?>
