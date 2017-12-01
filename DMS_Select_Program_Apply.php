@@ -6,15 +6,15 @@
 		{
 			echo '<script language="javascript">';
 			echo 'alert("You have already applied to this program")';
-			echo '</script>'; 
+			echo '</script>';
 		}
-	
-		elseif($_GET['error']=="0")	
+
+		elseif($_GET['error']=="0")
 		{
 			echo '<script language="javascript">';
 			echo 'alert("You have already submitted your Student Information. If you wish to edit your information, please click on the edit profile tab")';
-			echo '</script>'; 
-		
+			echo '</script>';
+
 		}
 	}
 	//pulling all programs from the database
@@ -31,7 +31,6 @@
 <!--Form to allow students to apply to dell med school internship programs-->
 <html lang="en" dir="ltr">
 <head>
-	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
@@ -87,7 +86,7 @@
      </div>
      </div>
      	<a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
-    </div> 
+    </div>
 	<!-- container-logo -->
     <div class="nav-overlay" id="nav-overlay"></div>
     <div class="nav-wrapper" role="navigation">
@@ -102,7 +101,7 @@
 	</li>
 	<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
 	<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-	</ul>              
+	</ul>
 	</div>
     <div class="parent-banner-links">
     <h2 class="UT-secondary-logo">
@@ -121,7 +120,7 @@
     </div>
     </div>
     </div>
-    </div> 
+    </div>
 	<!-- container-topnav -->
 	<div class="container container-nav container-nav-phase2">
     <div class="row">
@@ -129,7 +128,7 @@
     <nav>
     <ul class="nav" id="main-nav" role="menu">
 		<li class="nav-item" role="menuitem">
-        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  
+        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 	<div class="sub-nav-wrapper">
     </div>
         </li>
@@ -163,7 +162,6 @@
 	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 	<br>
 	<b>Please select which program you would like to apply to. </b>
-	<br>
 	<br>
 	</div>
 	<div class="w3-container" id="application" style="margin-top:10px">
