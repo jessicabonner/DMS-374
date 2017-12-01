@@ -1,5 +1,7 @@
 <?php
+//THIS FILE CONTAINS FUNCTIONS THAT ARE REGULARLY ACCESSED ACROSS ALL DMS_ FILES
 
+	//gets the name of a specific program based on its id
 	function get_program($program_id)
 	{
 		require 'DMS_db.php';
@@ -12,9 +14,7 @@
 	}
 	
 
-
-
-
+	//gets the information on all programs listed in the "programs" table of the database
 	function get_all_programs()
 	{
 		require 'DMS_db.php';
