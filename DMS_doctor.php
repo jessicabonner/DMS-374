@@ -123,14 +123,11 @@
 		<b>Student Applicants</b>
 	</h1>
 
-
 	<hr style="min-width:100%;border:5px solid #BF5700" class="w3-round">
 	<br>
 	<b> </b>
 </div>
-</html>
 
-<html>
 <?php
 	//get list of applications to populate dropdown
 	$applications=select_all_applications();
