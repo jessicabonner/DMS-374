@@ -153,6 +153,7 @@
 		return $student_applicant_id_array;
 	}
 
+	//return query based on the filter the user specified IF GPA NOT INCLUDED
 	function filter($filter_criteria, $and_or, $selected_application_id)
 	{
 		require 'DMS_db.php';
@@ -166,6 +167,7 @@
 		return $query;
 	}
 
+	//return query based on the filter the user specified IF GPA INCLUDED
 	function filter_with_gpa($filter_criteria, $and_or, $GPA, $greater_less, $selected_application_id)
 	{
 		require 'DMS_db.php';
@@ -180,6 +182,7 @@
 		return $query;
 	}
 
+	//return query based on filter given when filter only includes gpa
 	function filter_only_gpa($GPA, $greater_less, $selected_application_id)
 	{
 		require 'DMS_db.php';
@@ -197,6 +200,8 @@
 		echo "Displaying students with GPA".$greater_less.$GPA;
 		return $query;
 	}
+	
+	//return query based on how user specified they want applicants to be sorted
 	function doctor_sort($sort_criteria, $selected_application_id)
 	{
 		require 'DMS_db.php';
@@ -211,7 +216,7 @@
 
 	}
 
-
+	//return quey based on user's search criteria
 	function search($search_criteria, $selected_application_id)
 	{
 		require 'DMS_db.php';
