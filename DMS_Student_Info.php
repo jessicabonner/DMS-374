@@ -1,32 +1,31 @@
 <?php
-	
+
 	if (isset($_GET['error']))
 	{
 		echo '<script language="javascript">';
 		echo 'alert("You have already submitted your Student Information")';
-		echo '</script>'; 
+		echo '</script>';
 	}
-	
+
 	require "DMS_db.php";
 	$user_id=$_GET['user_id'];
 	//check if the application already exists in the database
 	$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id='".$user_id."'" );
 	$x = $stmt->fetch();
-		
+
 	//if the application already exists, redirect back to the DMS_CreateApplication.php page along with an indication that there was an error
 	if (count($x['user_id'])>0)
 	{
-			
+
 		header("Location: DMS_confirm_profile_information.php?user_id=$user_id");
 		die();
 	}
-	
+
 
 ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
@@ -94,7 +93,7 @@
 <li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
 <li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
 <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-		</ul>              
+		</ul>
 		</div>
 		<div class="parent-banner-links">
     	<h2 class="UT-secondary-logo">
@@ -120,7 +119,7 @@
         <nav>
         <ul class="nav" id="main-nav" role="menu">
         <li class="nav-item" role="menuitem">
-        	<a href="" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  
+        	<a href="" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper">
             </div>
         </li>
@@ -153,9 +152,8 @@
 			</h1>
 		<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 		<br>
-			<b>Before you apply, please enter your basic profile information. 
+			<b>Before you apply, please enter your basic profile information.
 			</b>
-			<br>
 		<br>
 		</div>
 
@@ -165,9 +163,6 @@
 	<form name="apply_form" action = "DMS_connect2.php" method= "post">
 	<input type="hidden" name="user_id" value="<?php echo $_GET['user_id']?>"/>
 		<table>
-			<!--text box for students first name!-->
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td>First Name</td>
 			</tr>
@@ -286,16 +281,10 @@
 			<tr>
 				<td><input type="text" placeholder="ex: John@utexas.edu" name="email" size="20" maxlength="30" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/></td>
 			</tr>
-			<!--break between text box questions and radio button questions-->
-			<tr>
-				<td><br></td>
-			</tr>
 			<!--radio buttons for if student is eligible to work in US/employed at UT-->
 			<tr>
 				<td>Are you:</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			</tr>
 			<tr>
 				<td><input type="radio" name="employment" value="UT" required> Currently employed at UT<br></td>
@@ -305,29 +294,25 @@
 			</tr>
 			<tr>
 				<td><input type="radio" name="employment" value="none"> None of the above<br></td>
-			</tr>			
-			<!--break between radio button questions-->
-			<tr>
+			</tr>
+			<tr class="blankrow">
 				<td><br></td>
-			</tr>			
 			<!--Radio buttons for student's classification-->
 			<tr>
 				<td>Type of student:</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-				<tr>
-					<td><input type="radio" name="student_type" value="Undergraduate" required> Undergraduate Student<br></td>
-				</tr>
-				<tr>
-					<td><input type="radio" name="student_type" value="Graduate"> Graduate Student<br></td>
-				</tr>
-				<tr>
-					<td><input type="radio" name="student_type" value="PhD"> PhD Student<br></td>
-				</tr>
-				<tr>
-					<td><input type="radio" name="student_type" value="Other"> Other<br></td>
-				</tr>
+			<tr>
+				<td><input type="radio" name="student_type" value="Undergraduate" required> Undergraduate Student<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="student_type" value="Graduate"> Graduate Student<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="student_type" value="PhD"> PhD Student<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="student_type" value="Other"> Other<br></td>
+			</tr>
 			<!--break between radio button questions-->
 			<tr>
 				<td><br></td>
@@ -336,33 +321,25 @@
 			<tr>
 				<td>What is your classification?</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-				<tr>
-					<td><input type="radio" name="classification" value="1st year" required> 1st year<br></td>
-				</tr>
-				<tr>
-					<td><input type="radio" name="classification" value="2nd year"> 2nd year<br></td>
-				</tr>
-				<tr>
-					<td><input type="radio" name="classification" value="3rd year"> 3rd year<br></td>
-				</tr>
-				<tr>
-					<td><input type="radio" name="classification" value="4th year"> 4th year<br></td>
-				</tr>
-				<tr>
-					<td><input type="radio" name="classification" value="5th year"> 5th year<br></td>
-				</tr>
-			<!--break-->
 			<tr>
-				<td><br></td>
+				<td><input type="radio" name="classification" value="1st year" required> 1st year<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="classification" value="2nd year"> 2nd year<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="classification" value="3rd year"> 3rd year<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="classification" value="4th year"> 4th year<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="classification" value="5th year"> 5th year<br></td>
 			</tr>
 			<!--text box for degree type-->
 			<tr>
 				<td>What is your degree type? (E.g. BS, MS)</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="text" name="degree_type" size="20" maxlength="10" required/></td>
 			</tr>
@@ -370,8 +347,6 @@
 			<tr>
 				<td>What is your major?</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="text" name="major" size="20" maxlength="30" required/></td>
 			</tr>
@@ -379,16 +354,12 @@
 			<tr>
 				<td>What is your 2nd major? (if applicable)</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="text" name="major_2" size="20" maxlength="30"/></td>
-			</tr>			
+			</tr>
 			<tr>
 				<td>What is your GPA?</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="text" name="GPA" size="20" required pattern="^[0]|[0-3]\.(\d?\d?)|[4].[0]$"/></td>
 			</tr>
@@ -396,8 +367,6 @@
 			<tr>
 				<td>Have you previously worked at Dell Medical School?</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="radio" name="worked_at_dms" value="1" required>Yes<br></td>
 			</tr>
@@ -412,8 +381,6 @@
 			<tr>
 				<td>Have you previously volunteered at Seton Hospital?</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="radio" name="volunteered_at_seton" value="1" required>Yes<br></td>
 			</tr>
@@ -428,32 +395,19 @@
 			<tr>
 				<td>Do you own a car?</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="radio" name="car" value="1" required>Yes<br></td>
 			</tr>
 			<tr>
 				<td><input type="radio" name="car" value="0">No<br></td>
 			</tr>
-			<!--break-->
-			<tr>
-				<td><br></td>
-			</tr>
 			<!--text box for how many semesters they plan to commit-->
 			<tr>
 				<td>How many semesters do you expect to commit to this role?</td>
 			</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="text" placeholder="ex: 3" name="semester_commitment" size="20" maxlength="2" required pattern="^[0-9]*$"/></td>
 			</tr>
-			<!--break-->
-			<tr>
-				<td><br></td>
-			</tr>
-
 			</table>
 			<!--break-->
 			<tr>
@@ -462,8 +416,6 @@
 			<!--Checkboxes for availibility for next semester-->
 			<table>
 			<tr>What is your availability for the upcoming semester?</tr>
-			<tr class="blankrow">
-				<td><br></td>
 			<tr>
 				<td><input type="checkbox" name="availability_list[]" value="NA" required>Unknown</td>
 			</tr>
@@ -559,13 +511,9 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH4" id="TH4" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F" id="F4" required></td>
 			</tr>
-
-			<tr>
-				<td><br></td>
-			</tr>
 			</table>
-			
-			
+
+
 			<!--break-->
 			<tr>
 				<td><br></td>
@@ -594,19 +542,19 @@
 			requiredCheckboxes.change(function()
 				{
 
-					if(requiredCheckboxes.is(':checked')) 
+					if(requiredCheckboxes.is(':checked'))
 					{
 						requiredCheckboxes.removeAttr('required');
 					}
 
-					else 
+					else
 					{
 					requiredCheckboxes.attr('required', 'required');
 					}
 				});
 
 		});
-		
+
 	</script>
 </body>
 </div>
