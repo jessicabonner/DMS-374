@@ -19,9 +19,6 @@
 	$year=$x['year'];
 	$program_id=$x['program_id'];
 
-	//echo $number_unique_questions;
-	//echo $list_unique_questions;
-
 	$array_unique_questions=explode('(#!BREAK!#)', $list_unique_questions);
 
 	$sql="SELECT name_of_program FROM programs WHERE program_id='".$program_id."'";
@@ -65,15 +62,12 @@
 	$sql_values=$sql_values.",?";
 	$sql_array[]=$user_id;
 
-//create variables from those submitted through application form (DMS_Apply.html)
-//$first_name=$_POST['first_name'];
+	//prepare SQL statement to prevent SQL injection
+	$stmt = $dbc-> prepare("INSERT INTO $name_of_table ($sql_fields)VALUES ($sql_values)");
 
-//prepare SQL statement to prevent SQL injection
-$stmt = $dbc-> prepare("INSERT INTO $name_of_table ($sql_fields)VALUES ($sql_values)");
+	$stmt->execute($sql_array);
 
-$stmt->execute($sql_array);
-
-echo "Thanks for applying! :)";
+	echo "Thanks for applying! :)";
 
 
 ?>
