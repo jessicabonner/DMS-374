@@ -2,6 +2,7 @@
 
 	//require file containing all doctor functions
 	require 'DMS_doctor_functionality.php';
+	require 'DMS_general_functions.php';
 	
 	//this will display an error message if the user tries to accept a student already accepted in the database
 	if (isset($_GET['error']))
@@ -534,8 +535,7 @@
 			{
 				try
 				{
-					$sql = "SELECT * FROM student_info WHERE user_id IN ($student_applicants)";
-					$query= $dbc->query($sql);;
+					$query= select_student_from_list($student_applicants);
 				}
 				//if the program has no applicants
 				catch(Exception $e)
