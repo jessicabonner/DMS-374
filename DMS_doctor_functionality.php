@@ -23,6 +23,14 @@
 		$student = $stmt->fetch();
 		return	$student;
 	}
+	
+	function select_student2($id)
+	{
+		require 'DMS_db.php';
+		$result = "SELECT * FROM student_info WHERE user_id = '$id'";
+		$student = $dbc->query($result);
+		return $student;
+	}
 
 	
 	//return all applications that are not archived

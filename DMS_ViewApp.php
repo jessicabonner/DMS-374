@@ -153,16 +153,15 @@
 <form action='DMS_doctor_AcceptApp.php' method='POST'>
 
 <?php
-require 'DMS_db.php';
+require 'DMS_doctor_functionality.php';
 
 	// Get ID from the URL
 	$id = $_GET['id'];
 
-	$result = "SELECT * FROM student_info WHERE user_id = '$id'";
+	$query = select_student2($id);
 
-	$query= $dbc->query($result);
-
-	if (!$query)
+	//TODO: DeleteThis Later
+	if (!$query) 
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
