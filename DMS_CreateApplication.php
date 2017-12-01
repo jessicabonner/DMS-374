@@ -180,12 +180,9 @@
 							<!--get all program names to populate dropdown-->
 							<?php
 							//link to file containing database connection string
-							require 'DMS_db.php';
-
-							$sql="SELECT program_id, name_of_program FROM programs";
-							$stmt=$dbc->prepare($sql);
-							$stmt->execute();
-							$programs= $stmt->fetchAll();
+							require 'DMS_general_functions.php';
+							
+							$programs= get_all_programs()
 							?>
 
 							<tr>

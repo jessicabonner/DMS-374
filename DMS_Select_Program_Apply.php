@@ -61,6 +61,7 @@
 	<link type="text/css" rel="stylesheet" 		href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
 	<link type="text/css" rel="stylesheet" 		href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
 	<link type="text/css" rel="stylesheet" 		href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
 	<style type="text/css" media="all">
 		/*--><![CDATA[/*><!--*/
 		#main-nav li a{font-family:open_sans;}
@@ -166,12 +167,15 @@
 	</div>
 	<div class="w3-container" id="application" style="margin-top:10px">
 	<body>
+
+<!--Calls on the function to display all applications -->
 	<form name="apply_form" action = "DMS_Dynamic_Application.php" method= "post">
+<!--Calls on the function to display all applications for that specific doctor -->
 	<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
 <table>
 
 				<?php
-
+				//Displays every application that is associated with that doctor
 					foreach($applications as $application)
 					{
 						if ($application['application_closed']==0)
@@ -183,10 +187,13 @@
 						$program = $stmt->fetch();
 						$name_of_program = $program['name_of_program'];
 
+						//Displays the actual name of the application
 						echo "<tr><td><input type='radio' name='application_id' value=$application[application_id] required>$name_of_program<br></td></tr>";
 						}
 					}
 				?>
 </table>
-<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" name="submit"/> </td>
+
+<!--Selects the application that the doctor has seleceted -->
+<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
 </body>

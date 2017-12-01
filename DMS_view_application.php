@@ -203,28 +203,28 @@
 			{
 				$application_closed="No";
 			}
-
+		// Display application's ID
 echo "<tr>";
 echo "<th>ID</th>";
 echo "<td>" . $row['application_id'] .  "</td>";
 echo "</tr>";
-
+		// Display appliction's Name
 echo "<tr>";
 echo "<th>Program</th>";
 echo "<td>" . $name_of_program .  "</td>";
 echo "</tr>";
-
+		// Display applications's Term
 echo "<tr>";
 echo "<th>Term</th>";
 echo "<td>" . $row['term'] .  "</td>";
 echo "</tr>";
-
+		// Display applications's Year
 echo "<tr>";
 echo "<th>Year</th>";
 echo "<td>" . $row['year'] .  "</td>";
 echo "</tr>";
 
-//loop through the array of questions and display all
+//loop through the array of questions and display all unique questions
 echo "<tr>";
 echo "<th>Questions</th>";
 
@@ -248,6 +248,7 @@ echo "</tr>";
 echo "<tr><td><br></td></tr>";
 if ($row['archived']=="FALSE")
 {
+	// Display whether or not the applications is open or closed
 	echo "<tr>";
 	echo "<th>Open?</th>";
 	echo "<td>" . $application_closed.  "</td>";

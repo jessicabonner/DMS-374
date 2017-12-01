@@ -1,18 +1,17 @@
 <?php
 require 'DMS_doctor_functionality.php';
-	
+
 	if (isset($_GET['error']))
 	{
 		echo '<script language="javascript">';
 		echo 'alert("You have already submitted your Student Information")';
 		echo '</script>';
 	}
-	
-	$id=$_GET['id'];
-	
 
-	$x = select_student($id);
-	
+	$user_id=$_GET['user_id'];
+
+	$x = select_student($user_id);
+
 	//if the application already exists, redirect back to the DMS_CreateApplication.php page along with an indication that there was an error
 	if (count($x['user_id'])>0)
 	{
@@ -20,7 +19,7 @@ require 'DMS_doctor_functionality.php';
 		header("Location: DMS_confirm_profile_information.php?user_id=$user_id");
 		die();
 	}
-	
+
 
 
 ?>
@@ -113,7 +112,8 @@ require 'DMS_doctor_functionality.php';
     	</div>
     	</div>
     	</div>
-    	</div> <!-- container-topnav -->
+    	</div>
+<!-- container-topnav -->
 		<div class="container container-nav container-nav-phase2">
         <div class="row">
         <div class="column small-12">
@@ -164,6 +164,7 @@ require 'DMS_doctor_functionality.php';
 	<form name="apply_form" action = "DMS_connect2.php" method= "post">
 	<input type="hidden" name="user_id" value="<?php echo $_GET['user_id']?>"/>
 		<table>
+			<!--text box for students first name-->
 			<tr>
 				<td>First Name</td>
 			</tr>
@@ -177,36 +178,40 @@ require 'DMS_doctor_functionality.php';
 			<tr>
 				<td><input type="text" name="middle_name" size="20" maxlength="30"/></td>
 			</tr>
-			<!--text box for last name-->
+			<!--text box for student's last name-->
 			<tr>
 				<td>Last Name</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="last_name" size="20" maxlength="30" required/></td>
 			</tr>
-			<!--text box for eid-->
+			<!--text box for student's UTEID-->
 			<tr>
 				<td>UT EID</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="EID" size="20" maxlength="10" required/></td>
 			</tr>
-			<!--text boxes for address-->
+			<!--text boxes for student's address-->
 			<tr>
 				<td>Street Address</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="address" size="20" maxlength="30" required/></td>
 			</tr>
+			<!--text box for students city-->
 			<tr>
 				<td>City</td>
 			</tr>
+			<!--text box for students zip code-->
 			<tr>
 				<td><input type="text" name="city" size="20" maxlength="30" required/></td>
 			</tr>
+			<!--drop down menu for students state-->
 			<tr>
 				<td>State</td>
 			</tr>
+			<!--populates the drop-down menu with the different states-->
 			<tr>
 				<td><select name="state" required>
 					<option value="AL">Alabama</option>
@@ -262,20 +267,21 @@ require 'DMS_doctor_functionality.php';
 					<option value="WY">Wyoming</option>
 				</select></td>
 			</tr>
+			<!--text box for students zip code-->
 			<tr>
-			<td>Zip Code</td>
+				<td>Zip Code</td>
 			<tr>
 			<tr>
-			<td><input type="text" name="zip_code" size="20" maxlength="5" required pattern="[0-9]{5}"/></td>
+				<td><input type="text" name="zip_code" size="20" maxlength="5" required pattern="[0-9]{5}"/></td>
 			</tr>
-			<!--text box for phone number-->
+			<!--text box for student's phone number-->
 			<tr>
 				<td>Phone Number</td>
 			</tr>
 			<tr>
 				<td><input type="text" placeholder="ex: 123-456-7890" name="phone" size="20" maxlength="16" required pattern="^\d{3}-\d{3}-\d{4}$"/></td>
 			</tr>
-			<!--text box for email-->
+			<!--text box for student's email-->
 			<tr>
 				<td>Email Address</td>
 			</tr>
@@ -337,27 +343,28 @@ require 'DMS_doctor_functionality.php';
 			<tr>
 				<td><input type="radio" name="classification" value="5th year"> 5th year<br></td>
 			</tr>
-			<!--text box for degree type-->
+			<!--text box for student's degree type-->
 			<tr>
 				<td>What is your degree type? (E.g. BS, MS)</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="degree_type" size="20" maxlength="10" required/></td>
 			</tr>
-			<!--text box for major-->
+			<!--text box for student's major-->
 			<tr>
 				<td>What is your major?</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="major" size="20" maxlength="30" required/></td>
 			</tr>
-			<!--text box for 2nd major-->
+			<!--text box for student's 2nd major if they have one-->
 			<tr>
 				<td>What is your 2nd major? (if applicable)</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="major_2" size="20" maxlength="30"/></td>
 			</tr>
+			<!--text box for student's GPA-->
 			<tr>
 				<td>What is your GPA?</td>
 			</tr>
@@ -440,7 +447,6 @@ require 'DMS_doctor_functionality.php';
 				<td><input type="checkbox" name="availability_list[]" value="TH8" id="TH8" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F8" id="F8" required></td>
 			</tr>
-
 			<tr>
 				<td>9am-10am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M9" id="M9" required></td>
@@ -449,7 +455,6 @@ require 'DMS_doctor_functionality.php';
 				<td><input type="checkbox" name="availability_list[]" value="TH9" id="TH9" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F9" id="F9" required></td>
 			</tr>
-
 			<tr>
 				<td>10am-11am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M10" id="M10" required></td>
@@ -458,7 +463,6 @@ require 'DMS_doctor_functionality.php';
 				<td><input type="checkbox" name="availability_list[]" value="TH10" id="TH10" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F10" id="F10" required></td>
 			</tr>
-
 			<tr>
 				<td>11am-12pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M11" id="M11" required></td>
@@ -467,7 +471,6 @@ require 'DMS_doctor_functionality.php';
 				<td><input type="checkbox" name="availability_list[]" value="TH11" id="TH11" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F11" id="F11" required></td>
 			</tr>
-
 			<tr>
 				<td>12am-1pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M12" id="M12" required></td>
@@ -476,7 +479,6 @@ require 'DMS_doctor_functionality.php';
 				<td><input type="checkbox" name="availability_list[]" value="TH12" id="TH12" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F12" id="F12" required></td>
 			</tr>
-
 			<tr>
 				<td>1pm-2pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M1" id="M1" required></td>
@@ -485,7 +487,6 @@ require 'DMS_doctor_functionality.php';
 				<td><input type="checkbox" name="availability_list[]" value="TH1" id="TH1" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F1" id="F1" required></td>
 			</tr>
-
 			<tr>
 				<td>2pm-3pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M2" id="M2" required></td>
@@ -494,7 +495,6 @@ require 'DMS_doctor_functionality.php';
 				<td><input type="checkbox" name="availability_list[]" value="TH2" id="TH2" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F2" id="F2" required></td>
 			</tr>
-
 			<tr>
 				<td>3pm-4pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M3" id="M3" required></td>
@@ -503,7 +503,6 @@ require 'DMS_doctor_functionality.php';
 				<td><input type="checkbox" name="availability_list[]" value="TH3" id="TH3" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F3" id="F3" required></td>
 			</tr>
-
 			<tr>
 				<td>4pm-5pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" required></td>
