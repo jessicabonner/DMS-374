@@ -161,12 +161,13 @@
 	$sql = 'SELECT application_id, term, year, number_unique_questions, list_unique_questions, program_id, application_closed
 	FROM applications WHERE archived="FALSE" ORDER BY application_id DESC';
 
-	//$query = mysqli_query($dbc, $sql); //what's the error
+
 	$query= $dbc->query($sql);;
 	if (!$query)
 	{
 	die ('SQL Error: ' . mysqli_error($dbc));
 	}
+	
 
 ?>
 <html>
@@ -190,50 +191,49 @@
 		<tbody>
 
 <?php
+require 'DMS_doctor_functionality.php';
 
-	//while ($row = mysqli_fetch_array($query))
+				while ($row=$query->fetch(PDO::FETCH_ASSOC))
+					{
+						$id = $row['application_id'];
+						
+						if ($row['application_closed']==0)
+						{
+							$application_closed="Yes";
+						}
+						else
+						{
+							$application_closed="No";
+						}
+							
+						$program_id = $row['program_id'];
+						$name_of_program= get_program_name($program_id);
+							
+						//get the table name for this application
+						$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
+	
+						//get a count of all applicants in the table
+						$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
+						$stmt=$dbc->prepare($sql);
+						$stmt->execute();
+						$application=$stmt->fetch();
+							
+						echo'
+							<td><input type="checkbox" name="application_list[]" value='.$id.' id='.$id.'></td>';
+						echo "
+							<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
 
-	while ($row=$query->fetch(PDO::FETCH_ASSOC))
-		{
-			$id = $row['application_id'];
-			if ($row['application_closed']==0)
-				{
-					$application_closed="Yes";
-				}
-			else{
-					$application_closed="No";
-				}
-			$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
-			$stmt=$dbc->prepare($sql);
-			$stmt->execute();
+						echo '
+							<td>'.$name_of_program.'</td>
+							<td>'.$row['term'].'</td>
+							<td>'.$row['year'].'</td>
+							<td>'.$application['number_of_applicants'].'</td>
+							<td>'.$application_closed.'</td>
+							</tr>';
+							
+					}
 
-			$program = $stmt->fetch();
-			$name_of_program=$program['name_of_program'];
-
-			//get the table name for this application
-			$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
-
-			//get a count of all applicants in the table
-			$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
-			$stmt=$dbc->prepare($sql);
-			$stmt->execute();
-			$application=$stmt->fetch();
-
-			echo'
-				<td><input type="checkbox" name="application_list[]" value='.$id.' id='.$id.'></td>';
-			echo "
-				<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
-
-			echo '
-				<td>'.$name_of_program.'</td>
-				<td>'.$row['term'].'</td>
-				<td>'.$row['year'].'</td>
-				<td>'.$application['number_of_applicants'].'</td>
-				<td>'.$application_closed.'</td>
-				</tr>';
-
-
-}?>
+?>
 
 	</tbody>
 	</table>

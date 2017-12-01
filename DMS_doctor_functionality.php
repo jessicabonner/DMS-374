@@ -65,7 +65,24 @@
 		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$application['term']."_".$application['year'];
 		return $name_of_table;
 	}
+<<<<<<< HEAD
+	
+	function get_program_name($program_id)
+	{
+		require 'DMS_db.php';
+					
+			$sql="SELECT name_of_program FROM programs WHERE program_id=$program_id";
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+			$program = $stmt->fetch();
+			$name_of_program=$program['name_of_program'];
 
+			return $name_of_program;
+	}
+	
+=======
+
+>>>>>>> ecccbab255ea3f34a84a414c62058999121c876a
 	function get_id_array($name_of_table)
 	{
 		require 'DMS_db.php';

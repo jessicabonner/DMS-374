@@ -8,9 +8,9 @@ require 'DMS_doctor_functionality.php';
 		echo '</script>';
 	}
 
-	$id=$_GET['id'];
+	$user_id=$_GET['user_id'];
 
-	$x = select_student($id);
+	$x = select_student($user_id);
 
 	//if the application already exists, redirect back to the DMS_CreateApplication.php page along with an indication that there was an error
 	if (count($x['user_id'])>0)

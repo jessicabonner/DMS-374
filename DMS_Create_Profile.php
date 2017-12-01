@@ -14,7 +14,7 @@
 
 		<table>
 
-			<!--text box for students first name!-->
+			<!--text box for students first name-->
 			<tr>
 				<td>Username</td>
 			</tr>

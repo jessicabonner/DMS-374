@@ -7,6 +7,7 @@
 
 	//get the user id which was passed through the url when student logged in/created a profile
 	$user_id = $_POST['user_id'];
+	echo $user_id;
 	
 	//check if the student info already exists in the database
 	$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$user_id");
