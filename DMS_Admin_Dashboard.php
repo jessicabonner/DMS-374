@@ -115,7 +115,7 @@
 						</div>
 					</div>
 				</div> <!-- container-topnav -->
-
+				<!-- Admin Dashboard Tabs -->
 				<div class="container container-nav container-nav-phase2">
 					<div class="row">
 						<div class="column small-12">
@@ -185,7 +185,7 @@
 
 
 
-
+				<!-- Table for all open applications -->
 				<table class="data-table">
 					<caption class="title">All Open Applications</caption>
 					<thead>
