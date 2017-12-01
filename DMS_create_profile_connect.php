@@ -17,7 +17,7 @@ try{
 
 	$user_id=$dbc->lastInsertId();
 
-	header('Location: DMS_Student_Info.php?user_id='.$user_id);
+	header('Location: DMS_Student_Info.php?id='.$user_id);
 	die();
 }
 
