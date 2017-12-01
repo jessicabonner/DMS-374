@@ -5,7 +5,7 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
 	<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
 	<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
@@ -50,6 +50,7 @@
 			padding: 0;
 			margin: 0;
 		}
+		
 		table {
 			margin: auto;
 			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
@@ -151,7 +152,6 @@
 
 		<div class="nav-overlay" id="nav-overlay"></div>
 			<div class="nav-wrapper" role="navigation">
-
 				<div class="container container-topnav">
 					<div class="row">
 						<div class="column small-12">
@@ -169,13 +169,11 @@
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 									</h2>
 								</div>
-
 								<div class="hide-for-large-up">
 									<div class="parent-links" id="parents">
 										<a href="http://www.utexas.edu">The University of Texas at Austin</a>
 									</div>
-
-									<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
+										<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
 								</div>
 								<br>
 								<br>
@@ -243,69 +241,59 @@
 					<h1 class="w3-jumbo">
 						<b>Application Information</b>
 					</h1>
-
-
-
 					<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 				</div>
-
-
-
 				<div class="w3-container" id="application" style="margin-top:10px"></div>
 <body>
 
 
 <?php
-require 'DMS_db.php';
+
+	require 'DMS_db.php';
+	
+	// Get ID from the URL
+	$id = $_GET['id'];
+
+	//$result = mysqli_query($dbc, "SELECT * FROM application WHERE ApplicationID = '$id'");
+	$result = "SELECT * FROM applications WHERE application_id = '$id'";
+
+	$query= $dbc->query($result);;
+
+	if (!$query) 
+	{
+		die ('SQL Error: ' . mysqli_error($dbc));
+	}
 
 
-// Get ID from the URL
-$id = $_GET['id'];
+	echo "<table width=100%>
+	<tr>
+	</tr>";
+	//while($row = mysqli_fetch_array($result))
+	while ($row=$query->fetch(PDO::FETCH_ASSOC))
+	{
+		//get program name
+		$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
 
-//$result = mysqli_query($dbc, "SELECT * FROM application WHERE ApplicationID = '$id'");
-$result = "SELECT * FROM applications WHERE application_id = '$id'";
-
-$query= $dbc->query($result);;
-
-if (!$query) {
-	die ('SQL Error: ' . mysqli_error($dbc));
-}
-
-
-echo "<table width=100%>
-<tr>
-
-</tr>";
-
-//while($row = mysqli_fetch_array($result))
-while ($row=$query->fetch(PDO::FETCH_ASSOC))
-{
-	//get program name
-$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
-$stmt=$dbc->prepare($sql);
-$stmt->execute();
-
-$program = $stmt->fetch();
-$name_of_program=$program['name_of_program'];
+		$program = $stmt->fetch();
+		$name_of_program=$program['name_of_program'];
 
 
-//get the list of questions and turn into an array
-$list_unique_questions = $row['list_unique_questions'];
-$array_unique_questions=explode('(#!BREAK!#)', $list_unique_questions);
+		//get the list of questions and turn into an array
+		$list_unique_questions = $row['list_unique_questions'];
+		$array_unique_questions=explode('(#!BREAK!#)', $list_unique_questions);
 
-//convert applcation closed value to words
-//0 is false 1 is true
-if ($row['application_closed']==0)
-				{
-					$application_closed="Yes";
-				}
-				else{
-					$application_closed="No";
-				}
-
-
-
-
+		//convert applcation closed value to words
+		//0 is false 1 is true
+		if ($row['application_closed']==0)
+			{
+				$application_closed="Yes";
+			}
+		else
+			{
+				$application_closed="No";
+			}
 
 echo "<tr>";
 echo "<th>ID</th>";
@@ -332,88 +320,76 @@ echo "<tr>";
 echo "<th>Questions</th>";
 
 
-				foreach($array_unique_questions as $key=>$value)
-				{
-					if ($key==0)
-					{
-						echo "<td>$value</td>";
-					}
-					else
-					{
-						echo "<tr><td></td>";
-						echo "<td>$value</td></tr>";
-					}
-				}
+foreach($array_unique_questions as $key=>$value)
+	{
+		if ($key==0)
+			{
+				echo "<td>$value</td>";
+			}
+		else
+			{
+				echo "<tr><td></td>";
+				echo "<td>$value</td></tr>";
+			}
+	}
 echo "</tr>";
 
 
 //break
 echo "<tr><td><br></td></tr>";
-if ($row['archived']=="FALSE"){
+if ($row['archived']=="FALSE")
+{
 	echo "<tr>";
 	echo "<th>Open?</th>";
 	echo "<td>" . $application_closed.  "</td>";
 
+	echo "</tr>";
+	echo "</tr>";
 
+	//break
+	echo "<tr><td><br></td></tr>";
 
-echo "</tr>";
-
-
-echo "</tr>";
-
-
-//break
-echo "<tr><td><br></td></tr>";
-
-//set variable to change whether she can close or open an application
-//0 is false 1 is true
-if ($application_closed=="No")
-{
-	$close_open="Open";
-	$value="0";
-}
-else
-{
+	//set variable to change whether she can close or open an application
+	//0 is false 1 is true
+	if ($application_closed=="No")
+	{
+		$close_open="Open";
+		$value="0";
+	}
+	else
+	{
 		$close_open="Close";
 		$value="1";
-}
+	}
 
-echo "<form action='DMS_close_applcation.php' method='POST'>
-
-<tr><td></td>
-<td></td>
-<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
-<input type='hidden' name='application_id' value=$id><br /></td></tr>
-<tr><td></td>
-<td></td>
-<td><input type='submit' value=' Enter '></td></tr>
-</form>";
-
-echo "</table>";
-}
-
-else
-{
-	echo "This application is archived";
 	echo "<form action='DMS_close_applcation.php' method='POST'>
 
 	<tr><td></td>
 	<td></td>
-	<td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
+	<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
 	<input type='hidden' name='application_id' value=$id><br /></td></tr>
 	<tr><td></td>
 	<td></td>
 	<td><input type='submit' value=' Enter '></td></tr>
 	</form>";
 
+	echo "</table>";
+	}
 
+	else
+	{
+		echo "This application is archived";
+		echo "<form action='DMS_close_applcation.php' method='POST'>
+
+		<tr><td></td>
+		<td></td>
+		<td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
+		<input type='hidden' name='application_id' value=$id><br /></td></tr>
+		<tr><td></td>
+		<td></td>
+		<td><input type='submit' value=' Enter '></td></tr>
+		</form>";
+	}
 }
-}
-
-
-
-
-
-
 
 ?>
