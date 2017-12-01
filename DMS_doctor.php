@@ -554,7 +554,7 @@
 			}
 
 			
-			//Use the query to get each record and display the applicant's applications
+			//Use the query to get each record and display the applicant's student info in a table
 			while ($row=$query->fetch(PDO::FETCH_ASSOC))
 			{
 				$id = $row['user_id'];
@@ -569,9 +569,8 @@
 						<td>'.$row['first_name'].'</td>
 						<td>'.$row['last_name'].'</td>';				
 						
-						//check the value of the review field in table 'student_info'
-						/* $stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
-				        $x = $stmt->fetch(); */
+						//call function select_student from SMD_doctor_functionality.php
+						//to pull the value of the review field in table 'student_info'
 						$x=select_student($id);
 						
 						if ($x['review']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
@@ -580,7 +579,7 @@
 								<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 								<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
 								<option value="review = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
-							</select></td>';
+								</select></td>';
 						}
 						elseif ($x['review']=="1") //if review = 1 (Noncompetitive) in the db, show the correct selected value
 						{
@@ -588,14 +587,16 @@
 								<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 								<option value="review = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
 								<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
-							</select></td>';
+								</select></td>';
 						}
-						else{ //if review = 0 (N/A) in the db, show the correct selected value
+						else
+						{ //if review = 0 (N/A) in the db, show the correct selected value
 							echo '<td><select name="application_review_list[]">
 								<option value="review = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
 								<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
 								<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
-							</select></td>';								}
+								</select></td>';								
+						}
 
 
 
@@ -618,11 +619,11 @@
 
 				echo '  <td>'.$accepted_by_dms.'</td>
 					</tr>';
-		}?>
+			}
+		?>
 		
-	</table>
-
-	</table>
+		</table>
+	
 		<!--Page Break-->
 		<tr>
 			<td><br></td>
