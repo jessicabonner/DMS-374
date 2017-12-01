@@ -156,9 +156,12 @@
 				<!--<td><input id='submit' type='submit' value='Search'/></td>-->
 			</tr>
 		</form>
+
+		<details>
 		<!-- Doctor sort function -->
+		<summary><b>Sort By</b></summary>
+		<p>
 		<form name="sort" method= "get">
-			<tr><td><b>Sort By</b><br></td></tr>
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
@@ -175,6 +178,9 @@
 			<td><input id='sort' type='submit' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value='Search'/></td>
 
 		</form>
+		</p>
+	</details>
+	<br>
 
 		<details>
 		<!-- Doctor filter function -->
