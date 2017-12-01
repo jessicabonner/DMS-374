@@ -63,6 +63,7 @@
 
     <div class="nav-overlay" id="nav-overlay"></div>
     <div class="nav-wrapper" role="navigation">
+
      <div class="container container-topnav">
       <div class="row">
        <div class="column small-12">
@@ -94,6 +95,7 @@
       </div>
      </div>
 <!-- container-topnav -->
+</div>
 
      <div class="container container-nav container-nav-phase2">
       <div class="row">
@@ -122,10 +124,10 @@
     </div>
 <!-- container-nav-phase2 -->
 
-<!-- nav-wrapper -->
+</div><!-- nav-wrapper -->
 
 <!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:40px;margin-right:450px"></div>
+<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
 <!-- Header -->
 <div class="w3-container" style="margin-top:40px;" id="showcase">

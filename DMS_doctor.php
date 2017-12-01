@@ -96,12 +96,10 @@
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
                 </h2>
                               </div>
-
               <div class="hide-for-large-up">
                 <div class="parent-links" id="parents">
                   <a href="http://www.utexas.edu">The University of Texas at Austin</a>
                                   </div>
-
                                   <a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
                               </div>
                       <br>
