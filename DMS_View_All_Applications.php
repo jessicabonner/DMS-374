@@ -5,7 +5,7 @@
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
 	<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
 	<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
@@ -40,87 +40,93 @@
 	</style>
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
-
 	<title>Program Applicants</title>
 	<style type="text/css">
-		body {
+		body
+		{
 			font-size: 15px;
 			color: #343d44;
 			font-family: "segoe-ui", "open-sans", tahoma, arial;
 			padding: 0;
 			margin: 0;
 		}
-		table {
+		table 
+		{
 			margin: auto;
 			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
 			font-size: 12px;
 			width: 100%;
 		}
 
-		h1 {
+		h1 
+		{
 			margin: 25px auto 0;
 			text-align: center;
 			text-transform: uppercase;
 			font-size: 17px;
 		}
-
-		table td {
+		table td 
+		{
 			transition: all .5s;
 			font-size: 10px;
 			text-align-last: center;
 		}
-
 		/* Table */
-		.data-table {
+		.data-table 
+		{
 			border-collapse: collapse;
 			font-size: 14px;
 		}
-
 		.data-table th,
-		.data-table td {
+		.data-table td 
+		{
 			border: 1px solid #e1edff;
 			padding: 7px 17px;
 			text-align: center;
 			font-size: 10px;
 		}
-		.data-table caption {
+		.data-table caption 
+		{
 			margin: 7px;
 			font-size: 18px;
 		}
-
 		/* Table Header */
-		.data-table thead th {
+		.data-table thead th 
+		{
 			background-color: #bf5700;
 			color: #FFFFFF;
 			border-color: #000000 !important;
 			text-transform: uppercase;
 			text-align: center;
 		}
-
 		/* Table Body */
-		.data-table tbody td {
+		.data-table tbody td 
+		{
 			color: #353535;
 		}
 		.data-table tbody td:first-child,
 		.data-table tbody td:nth-child(4),
-		.data-table tbody td:last-child {
+		.data-table tbody td:last-child 
+		{
 			text-align: right;
 		}
 
-		.data-table tbody tr:nth-child(odd) td {
+		.data-table tbody tr:nth-child(odd) td 
+		{
 			background-color: #f4fbff;
 		}
-		.data-table tbody tr:hover td {
+		.data-table tbody tr:hover td 
+		{
 			background-color: #ffd1b3;
 			border-color: #ffd1b3;
 		}
-
 		/* Table Footer */
 		.data-table tfoot th {
 			background-color: #e5f5ff;
 			text-align: right;
 		}
-		.data-table tfoot th:first-child {
+		.data-table tfoot th:first-child 
+		{
 			text-align: left;
 		}
 		/* Color for an empy table field */
@@ -148,10 +154,9 @@
 			</div>
 			<a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
 		</div> <!-- container-logo -->
-
+		
 		<div class="nav-overlay" id="nav-overlay"></div>
 			<div class="nav-wrapper" role="navigation">
-
 				<div class="container container-topnav">
 					<div class="row">
 						<div class="column small-12">
@@ -169,17 +174,15 @@
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 									</h2>
 								</div>
-
 								<div class="hide-for-large-up">
 									<div class="parent-links" id="parents">
 										<a href="http://www.utexas.edu">The University of Texas at Austin</a>
 									</div>
-
 									<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
 								</div>
-								<br>
-								<br>
-								<br>
+									<br>
+									<br>
+									<br>
 							</div>
 						</div>
 					</div>
@@ -232,6 +235,7 @@
 						</div>
 					</div>
 				</div> <!-- container-nav-phase2 -->
+				
 			</div> <!-- nav-wrapper -->
 
 			<!-- !PAGE CONTENT! -->
@@ -242,31 +246,23 @@
 					<h1 class="w3-jumbo">
 						<b>All Active Applications (Closed and Open)</b>
 					</h1>
-
-
-
 					<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 				</div>
-
-
-
 				<div class="w3-container" id="application" style="margin-top:10px"></div>
-
 
 <?php
 
-require 'DMS_db.php';
-
-$sql = 'SELECT application_id, term, year, number_unique_questions, list_unique_questions, program_id, application_closed
-		FROM applications WHERE archived="FALSE" ORDER BY application_id DESC';
-
-//$query = mysqli_query($dbc, $sql); //what's the error
-
-$query= $dbc->query($sql);;
-
-if (!$query) {
+	require 'DMS_db.php';
+	$sql = 'SELECT application_id, term, year, number_unique_questions, list_unique_questions, program_id, application_closed
+	FROM applications WHERE archived="FALSE" ORDER BY application_id DESC';
+	
+	//$query = mysqli_query($dbc, $sql); //what's the error
+	$query= $dbc->query($sql);;
+	if (!$query) 
+	{
 	die ('SQL Error: ' . mysqli_error($dbc));
-}
+	}
+	
 ?>
 <html>
 <head>
@@ -379,68 +375,60 @@ if (!$query) {
 		</thead>
 
 		<tbody>
-		<?php
-		//while ($row = mysqli_fetch_array($query))
+			
+<?php
 
-		while ($row=$query->fetch(PDO::FETCH_ASSOC))
+	//while ($row = mysqli_fetch_array($query))
+
+	while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
-				$id = $row['application_id'];
-
-
-				if ($row['application_closed']==0)
+			$id = $row['application_id'];
+			if ($row['application_closed']==0)
 				{
 					$application_closed="Yes";
 				}
-				else{
+			else{
 					$application_closed="No";
 				}
+			$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+			
+			$program = $stmt->fetch();
+			$name_of_program=$program['name_of_program'];
+
+			//get the table name for this application
+			$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
+
+			//get a count of all applicants in the table
+			$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+			$application=$stmt->fetch();
+
+			echo'
+				<td><input type="checkbox" name="application_list[]" value='.$id.' id='.$id.'></td>';
+			echo "
+				<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
+
+			echo '
+				<td>'.$name_of_program.'</td>
+				<td>'.$row['term'].'</td>
+				<td>'.$row['year'].'</td>
+				<td>'.$application['number_of_applicants'].'</td>
+				<td>'.$application_closed.'</td>
+				</tr>';
 
 
-				$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
-				$stmt=$dbc->prepare($sql);
-				$stmt->execute();
+}?>
 
-				$program = $stmt->fetch();
-				$name_of_program=$program['name_of_program'];
-
-				//get the table name for this application
-				$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
-
-				//get a count of all applicants in the table
-				$sql="SELECT COUNT(*) as number_of_applicants from $name_of_table";
-				$stmt=$dbc->prepare($sql);
-				$stmt->execute();
-				$application=$stmt->fetch();
-
-
-
-				echo'<td><input type="checkbox" name="application_list[]" value='.$id.' id='.$id.'></td>';
-				echo "<td> <a href='DMS_view_application.php?id= $id '>" .$row['application_id'] . "</a> </td>";
-
-				echo '
-						<td>'.$name_of_program.'</td>
-						<td>'.$row['term'].'</td>
-						<td>'.$row['year'].'</td>
-						<td>'.$application['number_of_applicants'].'</td>
-						<td>'.$application_closed.'</td>
-
-					</tr>';
-
-
-		}?>
-		</tbody>
-
-
+	</tbody>
 	</table>
 	<tr><td><br></td>
-	<td><input type='submit' name='action' value='Close'></td>
-	
+	<td><input type='submit' name='action' value='Close'></td>	
 	<tr><td><br></td>
 	<td><input type='submit' name='action' value='Archive'></td>
 	<tr>
-
 </form>
-
-
 </body>
 </html>
