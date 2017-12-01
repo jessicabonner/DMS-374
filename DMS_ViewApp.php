@@ -156,8 +156,8 @@
 
 <form action='DMS_doctor_AcceptApp.php' method='POST'>
 
-<?php
-	require 'DMS_db.php';
+<?php 
+require 'DMS_db.php';
 
 	// Get ID from the URL
 	$id = $_GET['id'];
