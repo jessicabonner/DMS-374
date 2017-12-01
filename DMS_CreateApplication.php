@@ -12,7 +12,6 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
@@ -170,7 +169,7 @@
 			</div>
 
 
-			<div class="w3-container" id="application" style="margin-top:10px">
+			<div class="w3-container" id="application">
 
 				<body>
 					<!--this form will post to DMS_connect in order to submit data to DB-->
@@ -253,23 +252,10 @@
 							</tr>
 						</table>
 
-
-						<!--break-->
-						<tr>
-							<td><br></td>
-						</tr>
-
 						<table id="unique_questions_table">
 
 
 						</table>
-
-
-						<!--break-->
-						<tr>
-							<td><br></td>
-						</tr>
-
 
 						<!--submit button. Will post info.-->
 						<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" name="submit"/> </td>

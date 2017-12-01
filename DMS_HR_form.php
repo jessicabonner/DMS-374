@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
@@ -123,229 +122,224 @@
 
     </div> <!-- nav-wrapper -->
 
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:40px;margin-right:450px">
+		<!-- !PAGE CONTENT! -->
+		<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
-  <!-- Header -->
-<div class="w3-container" style="margin-top:40px" id="showcase">
-	<h1 class="w3-jumbo">
-		<b>Job Posting Information</b>
-	</h1>
-
-
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
-	<br>
-	<b>HR requests the following posting information. </b>
-	<br>
-	<br>
-</div>
+		  <!-- Header -->
+		<div class="w3-container" style="margin-top:40px" id="showcase">
+			<h1 class="w3-jumbo">
+				<b>Job Posting Information</b>
+			</h1>
 
 
+			<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+			<br>
+			<b>HR requests the following posting information. </b>
+			<br>
+			<br>
+		</div>
+
+		<div class="w3-container" id="application" style="margin-top:10px">
+
+		<body>
+
+			<!--this form will post to DMS_connect in order to submit data to DB-->
+			<form name="apply_form" action = "DMS_HR_Connect.php" method= "post">
+			<input type="hidden" name="posting_id" value="<?php echo $_GET['posting_id']?>"/>
+
+				<table>
+
+					<!--text box for first name-->
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+						<td>Supervisor's First Name</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="text" name="supervisor_first_name" size="20" maxlength="30" required/></td>
+					</tr>
 
 
-<div class="w3-container" id="application" style="margin-top:10px">
-
-<body>
-	<!--this form will post to DMS_connect in order to submit data to DB-->
-	<form name="apply_form" action = "DMS_HR_Connect.php" method= "post">
-	<input type="hidden" name="posting_id" value="<?php echo $_GET['posting_id']?>"/>
-
-		<table>
-
-			<!--text box for first name-->
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td>Supervisor's First Name</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="text" name="supervisor_first_name" size="20" maxlength="30" required/></td>
-			</tr>
+					<!--text box for middle name-->
+					<tr>
+						<td>Supervisor's Middle Name (if applicable)</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="text" name="supervisor_middle_name" size="20" maxlength="30"/></td>
+					</tr>
 
 
-			<!--text box for middle name-->
-			<tr>
-				<td>Supervisor's Middle Name (if applicable)</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="text" name="supervisor_middle_name" size="20" maxlength="30"/></td>
-			</tr>
+					<!--text box for last name-->
+					<tr>
+						<td>Supervisor's Last Name</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="text" name="supervisor_last_name" size="20" maxlength="30" required/></td>
+					</tr>
 
 
-			<!--text box for last name-->
-			<tr>
-				<td>Supervisor's Last Name</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="text" name="supervisor_last_name" size="20" maxlength="30" required/></td>
-			</tr>
+					<!--text box for eid-->
+					<tr>
+						<td>Supervisor's UT EID</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="text" name="doctor_EID" size="20" maxlength="10" required/></td>
+					</tr>
+
+					<tr>
+						<td>Assignment Length</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><select name="assignment_length" required>
+							<option value="AL">Summer</option>
+							<option value="AK">Semester</option>
+							<option value="AZ">School Year</option>
+							<option value="AR">Other</option>
+						</select></td>
+
+					</tr>
+
+					<!--text boxes for dates-->
+					<tr>
+						<td>Start Date:</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="date" name="start_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required/></td>
+					</tr>
+
+					<tr>
+						<td>End Date:</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="date" name="end_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required pattern="^\d{2}/\d{2}/\d{4}$"/></td>
+					</tr>
+
+					<tr>
+						<td>Renewed position:</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><select name="renew" required>
+							<option value="1">Yes</option>
+							<option value="0">No</option>
+						</select></td>
+
+					</tr>
+
+					<tr>
+						<td>Student classification:</td>
+					<tr>
+						<tr class="blankrow">
+							<td><br></td>
+						<tr>
+					<tr>
+						<td><select name="classification" required>
+							<option value="undergrad">Undergraduate</option>
+							<option value="graduate">Graduate</option>
+						</select></td>
+
+					</tr>
+
+					<!--text box for IT Equipment-->
+					<tr>
+						<td>IT Equipment:</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="text" name="it_equipment" size="20" maxlength="30" required/></td>
+					</tr>
+
+					<!--text box for Work Location-->
+					<tr>
+						<td>Specify the Student's Work Location:</td>
+					</tr>
+					<tr>
+						<td>(For students working remotely, specify the supervisor's work location.)</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="text" name="work_location" placeholder="ex. station #, seat #" size="20" maxlength="30" required/></td>
+					</tr>
+
+					<!--text box for Hours Per Week-->
+					<tr>
+						<td>Expected Hours Per Week:</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="text" name="hours_per_week" placeholder="ex. 20" size="20" maxlength="30" required/></td>
+					</tr>
+
+					<!--text box for hourly rate-->
+					<tr>
+						<td>Expected Hourly Rate:</td>
+					</tr>
+					<tr class="blankrow">
+						<td><br></td>
+					<tr>
+					<tr>
+						<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" required/></td>
+					</tr>
+
+				</table>
+
+				<!--submit button. Will post info.-->
+				<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit"/> </td>
 
 
-			<!--text box for eid-->
-			<tr>
-				<td>Supervisor's UT EID</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="text" name="doctor_EID" size="20" maxlength="10" required/></td>
-			</tr>
-			
-			<tr>
-				<td>Assignment Length</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><select name="assignment_length" required>
-					<option value="AL">Summer</option>
-					<option value="AK">Semester</option>
-					<option value="AZ">School Year</option>
-					<option value="AR">Other</option>
-				</select></td>
-
-			</tr>
-
-			<!--text boxes for dates-->
-			<tr>
-				<td>Start Date:</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="date" name="start_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required/></td>
-			</tr>
-
-			<tr>
-				<td>End Date:</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="date" name="end_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required pattern="^\d{2}/\d{2}/\d{4}$"/></td>
-			</tr>
-
-			<tr>
-				<td>Renewed position:</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><select name="renew" required>
-					<option value="1">Yes</option>
-					<option value="0">No</option>
-				</select></td>
-
-			</tr>
-
-			<tr>
-				<td>Student classification:</td>
-			<tr>
-				<tr class="blankrow">
-					<td><br></td>
-				<tr>
-			<tr>
-				<td><select name="classification" required>
-					<option value="undergrad">Undergraduate</option>
-					<option value="graduate">Graduate</option>
-				</select></td>
-
-			</tr>
-			
-			<!--text box for IT Equipment-->
-			<tr>
-				<td>IT Equipment:</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="text" name="it_equipment" size="20" maxlength="30" required/></td>
-			</tr>
-			
-			<!--text box for Work Location-->
-			<tr>
-				<td>Specify the Student's Work Location:</td>
-			</tr>
-			<tr>
-				<td>(For students working remotely, specify the supervisor's work location.)</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="text" name="work_location" placeholder="ex. station #, seat #" size="20" maxlength="30" required/></td>
-			</tr>
-
-			<!--text box for Hours Per Week-->
-			<tr>
-				<td>Expected Hours Per Week:</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="text" name="hours_per_week" placeholder="ex. 20" size="20" maxlength="30" required/></td>
-			</tr>
-			
-			<!--text box for hourly rate-->
-			<tr>
-				<td>Expected Hourly Rate:</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-			<tr>
-				<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" required/></td>
-			</tr>
-
-			<!--break-->
-			<tr>
-				<td><br></td>
-			</tr>
+				<!--break-->
+				<p><br></p>
 
 
-		</table>
+			</form>
 
 
-		<!--break-->
-		<tr>
-			<td><br></td>
-		</tr>
+		</body>
+		</div>
 
+		</html>
 
-		<!--break-->
-		<tr>
-			<td><br></td>
-		</tr>
+<?php
+//link to file containing database connection string
+	require 'DMS_db.php';
 
+	/* $sql="SELECT program_id, name_of_program FROM programs";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$programs= $stmt->fetchAll(); */
 
-		<!--submit button. Will post info.-->
-		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit"/> </td>
+	$sql="SELECT * FROM applications WHERE archived='FALSE'";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$applications= $stmt->fetchAll();
 
-
-		<!--break-->
-		<p><br></p>
-
-
-	</form>
-
-
-</body>
-</div>
-
-</html>
+?>

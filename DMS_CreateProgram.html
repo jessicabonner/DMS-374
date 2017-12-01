@@ -1,7 +1,6 @@
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
-	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
@@ -68,11 +67,6 @@
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="hide-for-large-up">
-									<ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
-										<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
-										<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
-										<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-									</ul>
 								</div>
 								<div class="parent-banner-links">
 									<h2 class="UT-secondary-logo">
@@ -83,14 +77,11 @@
 									<div class="parent-links" id="parents">
 										<a href="http://www.utexas.edu">The University of Texas at Austin</a>
 									</div>
-
 									<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
 								</div>
-
 								<br>
 								<br>
 								<br>
-
 							</div>
 						</div>
 					</div>
@@ -132,7 +123,6 @@
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-
 									</li>
 								</ul>
 							</nav>
@@ -146,12 +136,12 @@
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
 				<!-- Header -->
-				<div class="w3-container" style="margin-top:40px" id="showcase">
+				<div class="w3-container" id="showcase">
 					<h1 class="w3-jumbo">
 						<b>Create a New Program</b>
 					</h1>
 
-
+					<!-- Secondary Text -->
 					<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 					<br>
 					<b>Please enter the name of the program and its associated doctor </b>
@@ -160,7 +150,7 @@
 				</div>
 
 
-				<div class="w3-container" id="application" style="margin-top:10px">
+				<div class="w3-container" id="application">
 
 					<body>
 						<form name="apply_form" action = "DMS_CreateProgram.php" method= "post">
@@ -173,7 +163,7 @@
 									<td><p>Name of Program</p></td>
 								</tr>
 								<tr>
-									<td><input type="text" name="name_of_program" size="20" pattern="^([a-zA-Z0-9_\s\-]*)$" required/></td>
+									<td><input type="text" name="name_of_program" size="64" pattern="^([a-zA-Z0-9_\s\-]*)$" required/></td>
 								</tr>
 
 								<!--text box for doctor eid-->
@@ -181,17 +171,10 @@
 									<td><p>Doctor EID</p></td>
 								</tr>
 								<tr>
-									<td><input type="text" name="doctor_EID" size="20" maxlength="10" required/></td>
-								</tr>
-
-								<!--text box for students first name!-->
-
-								<!--break-->
-								<tr>
-									<td><br></td>
+									<td><input type="text" name="doctor_EID" size="64" maxlength="10" required/></td>
 								</tr>
 
 								<!--submit button. Will post info.-->
-								<td colspan="1" style="text-align: center; float: center; fontcolor:#ffffff;"><input type="submit" value="Submit" name="submit"/> </td>
+								<td colspan="1"> <input type="submit" value="Submit" name="submit"/> </td>
 					</body>
 </html>
