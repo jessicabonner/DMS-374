@@ -24,6 +24,7 @@
 		return	$student;
 	}
 	
+	//return student in student_info where the user_id matches the given user_id - for code with While loops
 	function select_student2($id)
 	{
 		require 'DMS_db.php';
