@@ -176,7 +176,7 @@
 	{
 		$program_id = $row['program_id'];
 		
-		//Calls get_program function from DMS_general functions
+		//Calls get_program function from DMS_general_functions.php
 		$name_of_program = get_program($program_id);
 
 		//get the list of questions and turn into an array
