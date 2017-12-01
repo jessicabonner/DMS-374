@@ -1,18 +1,10 @@
 <?php
-
+//ALL THE FUNCTIONS FOR THE DMS_doctor PAGE
+	
 	require 'DMS_db.php';
-/*
-	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1'";
-	//$stmt=$dbc->prepare($sql);
-	//$stmt->execute();
-	//$students = $stmt->fetch();
-	$query= $dbc->query($sql);;
-
-	if (!$query) {
-		die ('SQL Error: ' . mysqli_error($dbc));
-	}
-
-	*/
+	
+	
+	//return all records contained in the given $student_applicants list
 	function select_student_from_list($student_applicants)
 	{
 		require 'DMS_db.php';
@@ -22,19 +14,22 @@
 		return $query;
 	}
 
-	function select_student($id)
+	
+	//return student in student_info where the user_id matches the given user_id
+	function select_student($user_id)
 	{
 		require 'DMS_db.php';
-	  //get student info
-		$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$id;");
+		$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$user_id;");
 		$student = $stmt->fetch();
 		return	$student;
 	}
 
+	
+	//return all applications that are not archived
 	function select_all_applications()
 	{
 		require 'DMS_db.php';
-	  //select all the applications that are active
+		//select all the applications that are active
 		$sql="SELECT * FROM applications WHERE archived='FALSE'";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
@@ -42,6 +37,8 @@
 		return $applications;
 	}
 
+	
+	//return the application that corresponds to a given id
 	function select_application($application_id)
 	{
 		require 'DMS_db.php';
@@ -53,6 +50,8 @@
 		return $application;
 	}
 
+	
+	//return a particular application's table name when given only the application_id
 	function get_application_table_name($application_id)
 	{
 		require 'DMS_db.php';
@@ -65,8 +64,8 @@
 		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$application['term']."_".$application['year'];
 		return $name_of_table;
 	}
-<<<<<<< HEAD
-	
+
+	//return the name of a program from its program_id
 	function get_program_name($program_id)
 	{
 		require 'DMS_db.php';
@@ -80,9 +79,8 @@
 			return $name_of_program;
 	}
 	
-=======
 
->>>>>>> ecccbab255ea3f34a84a414c62058999121c876a
+	//return an array of the id's of all student applicants
 	function get_id_array($name_of_table)
 	{
 		require 'DMS_db.php';
@@ -100,15 +98,13 @@
 		$student_applicant_id_list=implode(',',$student_applicant_id_array);
 		return $student_applicant_id_list;
 	}
+	
+	
+	//return an array of all students who have applied to the given application
 	function select_application_student_list($application_id)
 	{
 		require 'DMS_db.php';
 		// select different student info
-		/* $sql="SELECT * FROM programs WHERE program_id=$program_id";
-		$stmt=$dbc->prepare($sql);
-		$stmt->execute();
-		$program= $stmt->fetch();
-		$name_of_program= $program['name_of_program']; */
 		$sql="SELECT * FROM applications WHERE application_id=$application_id";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
