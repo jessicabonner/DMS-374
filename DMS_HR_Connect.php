@@ -22,21 +22,17 @@
 
 
   //prepare SQL statement to prevent SQL injection
-  $stmt = $dbc-> prepare('INSERT INTO posting_info (posting_id, supervisor_first_name, supervisor_middle_name, supervisor_last_name, doctor_EID, assignment_length, start_date, end_date, renew, classification, it_equipment, work_location,
-hours_per_week, hourly_rate) VALUES (:posting_id, :supervisor_first_name, :supervisor_middle_name, :supervisor_last_name, :doctor_EID, :assignment_length, :start_date, :end_date, :renew, :classification,
+  $stmt = $dbc-> prepare('INSERT INTO posting_info (posting_id, supervisor_first_name, supervisor_middle_name, supervisor_last_name, doctor_EID, assignment_length, start_date, end_date, renew, classification, it_equipment, work_location,hours_per_week, hourly_rate) 
+  VALUES (:posting_id, :supervisor_first_name, :supervisor_middle_name, :supervisor_last_name, :doctor_EID, :assignment_length, :start_date, :end_date, :renew, :classification,
 :it_equipment, :work_location, :hours_per_week, :hourly_rate)');
 
 
   //bind variables to prepared statement and execute
-  $stmt->execute(array('posting_id' => $posting_id, 'supervisor_first_name' => $supervisor_first_name, 'supervisor_middle_name' => $supervisor_middle_name, 'supervisor_last_name' => $supervisor_last_name,'doctor_EID' => $doctor_EID,'assignment_length' => $assignment_length,'start_date' => $start_date,
-'end_date' => $end_date,'renew' => $renew,'classification' => $classification,'it_equipment' => $it_equipment,'work_location' => $work_location,'hours_per_week' => $hours_per_week,
-'hourly_rate' => $hourly_rate ));
+  $stmt->execute(array('posting_id' => $posting_id, 'supervisor_first_name' => $supervisor_first_name, 'supervisor_middle_name' => $supervisor_middle_name, 'supervisor_last_name' => $supervisor_last_name,'doctor_EID' => $doctor_EID,'assignment_length' => $assignment_length,'start_date' => $start_date,'end_date' => $end_date,'renew' => $renew,'classification' => $classification,'it_equipment' => $it_equipment,'work_location' => $work_location,'hours_per_week' => $hours_per_week,'hourly_rate' => $hourly_rate ));
 
 
   header('Location: DMS_doctor.php');
   die();
 
-
-  //echo '<h1 style= "text-align:center;color:#BF5700">Your application has been received! Thanks for applying!</h1>';
 
 ?>
