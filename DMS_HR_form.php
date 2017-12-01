@@ -68,9 +68,6 @@
             <div class="topnav">
               <div class="hide-for-large-up">
                 <ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
-<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
-<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
-<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 </ul>              </div>
               <div class="parent-banner-links">
                 <h2 class="UT-secondary-logo">
@@ -131,7 +128,6 @@
 				<b>Job Posting Information</b>
 			</h1>
 
-
 			<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 			<br>
 			<b>HR requests the following posting information. </b>
@@ -142,7 +138,6 @@
 		<div class="w3-container" id="application" style="margin-top:10px">
 
 		<body>
-
 			<!--this form will post to DMS_connect in order to submit data to DB-->
 			<form name="apply_form" action = "DMS_HR_Connect.php" method= "post">
 			<input type="hidden" name="posting_id" value="<?php echo $_GET['posting_id']?>"/>
@@ -162,7 +157,6 @@
 						<td><input type="text" name="supervisor_first_name" size="20" maxlength="30" required/></td>
 					</tr>
 
-
 					<!--text box for middle name-->
 					<tr>
 						<td>Supervisor's Middle Name (if applicable)</td>
@@ -174,7 +168,6 @@
 						<td><input type="text" name="supervisor_middle_name" size="20" maxlength="30"/></td>
 					</tr>
 
-
 					<!--text box for last name-->
 					<tr>
 						<td>Supervisor's Last Name</td>
@@ -185,7 +178,6 @@
 					<tr>
 						<td><input type="text" name="supervisor_last_name" size="20" maxlength="30" required/></td>
 					</tr>
-
 
 					<!--text box for eid-->
 					<tr>
@@ -211,7 +203,6 @@
 							<option value="AZ">School Year</option>
 							<option value="AR">Other</option>
 						</select></td>
-
 					</tr>
 
 					<!--text boxes for dates-->
@@ -246,7 +237,6 @@
 							<option value="1">Yes</option>
 							<option value="0">No</option>
 						</select></td>
-
 					</tr>
 
 					<tr>
@@ -260,7 +250,6 @@
 							<option value="undergrad">Undergraduate</option>
 							<option value="graduate">Graduate</option>
 						</select></td>
-
 					</tr>
 
 					<!--text box for IT Equipment-->
@@ -313,20 +302,11 @@
 				</table>
 
 				<!--submit button. Will post info.-->
-				<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit"/> </td>
-
-
-				<!--break-->
-				<p><br></p>
-
-
+				<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"/> </td>
 			</form>
-
-
 		</body>
 		</div>
-
-		</html>
+</html>
 
 <?php
 //link to file containing database connection string
