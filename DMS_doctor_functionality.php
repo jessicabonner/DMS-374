@@ -13,6 +13,27 @@
 	}
 	
 	*/
+	
+	function select_student($id)
+	{	
+		require 'DMS_db.php';	
+	
+		$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$id;");
+		$student = $stmt->fetch();
+		return	$student;
+	}
+	
+	function select_all_applications()
+	{
+		require 'DMS_db.php';	
+	
+		$sql="SELECT * FROM applications WHERE archived='FALSE'";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$applications= $stmt->fetchAll();
+		
+		return $applications;
+	}
 	function get_program($program_id)
 	{
 		require 'DMS_db.php';
@@ -116,7 +137,7 @@
 		$name_of_table=get_application_table_name($selected_application_id);
 		$applicant_id_array= get_id_array($name_of_table);
 		
-		$sql="SELECT * FROM student_info WHERE $filter_criteria_sql AND user_id IN ($applicant_id_array)";
+		$sql="SELECT * FROM student_info WHERE ($filter_criteria_sql) AND user_id IN ($applicant_id_array)";
 		
 		
 		$query= $dbc->query($sql);;
@@ -214,6 +235,8 @@
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
 	}
+	
+	
 	
 	
 	/* $sql="SELECT * FROM student_info";

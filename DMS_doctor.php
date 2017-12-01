@@ -9,11 +9,7 @@
 		echo '<script language="javascript">';
 		echo 'alert("The selected list contains students that are already accepted. Please try again.")';
 		echo '</script>';
-
 	}
-	
-	
-
 ?>
 
 
@@ -26,15 +22,15 @@
 	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
-<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
-<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
-<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
-<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
-<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
+	<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
+	<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+	<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+	<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+	<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
 <meta name="msapplication-TileColor" content="#bf5700" />
 <link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-76x76.png" />
@@ -133,26 +129,7 @@
 </div>
 </html>
 
-<?php
 
-
- require 'DMS_db.php';
-
-	require 'DMS_db.php';
-	$sql = 'SELECT user_id, first_name, last_name, EID, email, classification, major, accepted_by_dms FROM student_info';
-
-	$query= $dbc->query($sql);;
-
-
-if (!$query) {
-	die ('SQL Error: ' . mysqli_error($dbc));
-}
-
-	if (!$query) {
-		die ('SQL Error: ' . mysqli_error($dbc));
-	}
-
-?>
 
 <html>
 <head>
@@ -245,20 +222,11 @@ if (!$query) {
 
 	</style>
 </head>
-<?php
-//link to file containing database connection string
-	require 'DMS_db.php';
 
-	/* $sql="SELECT program_id, name_of_program FROM programs";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
-	$programs= $stmt->fetchAll(); */
-	
-	$sql="SELECT * FROM applications WHERE archived='FALSE'";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
-	$applications= $stmt->fetchAll();
-	
+
+<?php
+	//get list of applications to populate dropdown
+	$applications=select_all_applications();
 ?>
 <body>
 	<form name="select_application" method="get">
@@ -266,353 +234,329 @@ if (!$query) {
 			<?php foreach($applications as $application): 
 			//call function from DMS_doctor_funtionality.php to get the name of the program
 			$name_of_program=get_program($application['program_id']);?>
-				
 				<option id="select_application" name="select_application" value="<?= $application['application_id']; ?>"><?= $name_of_program.' '.$application['term'].' '.$application['year'] ; ?></option>
 			<?php endforeach; ?>
 		</select>
 		<td><input id='program' type='submit' value='Choose Program'/></td>
 	</form>
+	
 	<?php if(isset($_GET['select_application'])):?>
-	<!--search bar-->
-	<form name="search" method= "get">
-		<tr>
-			<td><input placeholder="Search" style="width:50%;"id='search' type='text' name='search_criteria' size='20'/></td>
-			<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
-			<!--<td><input id='submit' type='submit' value='Search'/></td>-->
-		</tr>
-	</form>
+		<!--search bar-->
+		<form name="search" method= "get">
+			<tr>
+				<td><input placeholder="Search" style="width:50%;"id='search' type='text' name='search_criteria' size='20'/></td>
+				<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
+				<!--<td><input id='submit' type='submit' value='Search'/></td>-->
+			</tr>
+		</form>
 
-	<form name="sort" method= "get">
-		<tr><td><b>Sort By</b><br></td></tr>
-		<tr class="blankrow">
-			<td><br></td>
-		<tr>
-			<td><input type="radio" name="sort" value="user_id">ID<br></td>
-		</tr>
-		<tr>
-			<td><input type="radio" name="sort" value="GPA ASC">GPA Ascending<br></td>
-		</tr>
-		<tr>
-			<td><input type="radio" name="sort" value="GPA DESC">GPA Descending<br></td>
-		</tr>
-		<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
+		<form name="sort" method= "get">
+			<tr><td><b>Sort By</b><br></td></tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="radio" name="sort" value="user_id">ID<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="sort" value="GPA ASC">GPA Ascending<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="sort" value="GPA DESC">GPA Descending<br></td>
+			</tr>
+			<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
 			
 
-		<td><input id='sort' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
-
-	</form>
-
-	<details>
-
-	<summary><b>Filter</b></summary>
-	<p>
-	<form name="filter" method= "get">
-
-		<form name="filter" method= "get">
-			<tr>
-
-				<td>GPA Greater than</td>
-			</tr>
-			<tr class="blankrow">
-
-			<tr>
-				<td><input type="text" name="GPA_greater" size="20" style="width:25%;"/></td>
-			</tr>
-			<tr>
-				<td><br></td>
-				<td>GPA Less than</td>
-			</tr>
-			<tr class="blankrow">
-
-			<tr>
-				<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
-			</tr>
-
-
-			<!--checkbox buttons for student's classification-->
-			<tr>
-			<!--Page Break-->
-			<td><br></td>
-				<td>Classification</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-				<tr class="blankrow">
-					<td><br></td>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year Undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year Undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year Undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year Undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year Undergrad<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" classification='Other' ">Other<br></td>
-			</tr>
-
-			<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
-			<tr>
-			<!--Page Break-->
-			<td><br></td>
-				<td>Work eligibility</td>
-			</tr>
-			<!--Page Break-->
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" employment='UT' " >Currently employed at UT<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" employment='eligible' ">Eligible to work in the US with no restrictions<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
-			</tr>
-
-			<!--checkbox buttons for if they have worked at dell med school before-->
-			<tr>
-			<!--Page Break-->
-			<td><br></td>
-				<td>Previously worked at Dell Medical School?</td>
-			</tr>
-			<!--Page Break-->
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='1' ">Yes<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='0' ">No<br></td>
-			</tr>
-
-
-			<!--checkbox buttons for if they have volunteered at Seton before-->
-			<tr>
-			<!--Page Break-->
-			<td><br></td>
-				<td>Previously volunteered at Seton Hospital?</td>
-			</tr>
-			<!--Page Break-->
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='1' " >Yes<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
-			</tr>
-
-			<!--checkbox buttons for if they have volunteered at seton before-->
-			<tr>
-			<!--Page Break-->
-			<td><br></td>
-				<td>Car?</td>
-			</tr>
-			<!--Page Break-->
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" car='1' " >Yes<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" car='0' ">No<br></td>
-			</tr>
-
-			<!--checkbox for review status-->
-			<tr>
-			<!--Page Break-->
-			<td><br></td>
-
-				<td>Review Status</td>
-			</tr>
-			<!--Page Break-->
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" review='0' ">Not yet reviewed<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" review='1' ">Noncompetitive<br></td>
-			</tr>
-			<tr>
-				<td><input type="checkbox" name="filter_criteria[]" value=" review='2' ">Competitive<br></td>
-			</tr>
-
-			<!--break-->
-			<tr>
-				<td><br></td>
-			</tr>
-
-
-			<!--Radio button for AND/OR search type-->
-			<tr>
-				<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
-			</tr>
-			<tr>
-				<td><b><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></b></td>
-			</tr>
-			
-			<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
-
-			<td><input id='submit' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
+			<td><input id='sort' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
 
 		</form>
-		</p>
-	</details>
 
-<?php 
+		<details>
 	
+		<summary><b>Filter</b></summary>
+		<p>
+		<form name="filter" method= "get">
 	
-	
-	//doctor choose program functionality
-	//if(isset($_GET['select_application'])){
+			<form name="filter" method= "get">
+				<tr>
+					<td>GPA Greater than</td>
+				</tr>
+				<tr class="blankrow">
+
+				<tr>
+					<td><input type="text" name="GPA_greater" size="20" style="width:25%;"/></td>
+				</tr>
+				<tr>
+					<td><br></td>
+					<td>GPA Less than</td>
+				</tr>
+				<tr class="blankrow">
+
+				<tr>
+					<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
+				</tr>
+
+
+				<!--checkbox buttons for student's classification-->
+				<tr>
+					<!--Page Break-->
+					<td><br></td>
+					<td>Classification</td>
+				</tr>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year Undergrad<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year Undergrad<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year Undergrad<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year Undergrad<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year Undergrad<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='Other' ">Other<br></td>
+				</tr>
+
+				<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
+				<tr>
+				<!--Page Break-->
+				<td><br></td>
+					<td>Work eligibility</td>
+				</tr>
+				<!--Page Break-->
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" employment='UT' " >Currently employed at UT<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" employment='eligible' ">Eligible to work in the US with no restrictions<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
+				</tr>
+
+				<!--checkbox buttons for if they have worked at dell med school before-->
+				<tr>
+				<!--Page Break-->
+				<td><br></td>
+					<td>Previously worked at Dell Medical School?</td>
+				</tr>
+				<!--Page Break-->
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='1' ">Yes<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='0' ">No<br></td>
+				</tr>
+
+
+				<!--checkbox buttons for if they have volunteered at Seton before-->
+				<tr>
+				<!--Page Break-->
+				<td><br></td>
+					<td>Previously volunteered at Seton Hospital?</td>
+				</tr>
+				<!--Page Break-->
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='1' " >Yes<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
+				</tr>
+
+				<!--checkbox buttons for if they have volunteered at seton before-->
+				<tr>
+				<!--Page Break-->
+				<td><br></td>
+					<td>Car?</td>
+				</tr>
+				<!--Page Break-->
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" car='1' " >Yes<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" car='0' ">No<br></td>
+				</tr>
+
+				<!--checkbox for review status-->
+				<tr>
+					<!--Page Break-->
+					<td><br></td>
+					<td>Review Status</td>
+				</tr>
+				<!--Page Break-->
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" review='0' ">Not yet reviewed<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" review='1' ">Noncompetitive<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" review='2' ">Competitive<br></td>
+				</tr>
+
+				<!--break-->
+				<tr>
+					<td><br></td>
+				</tr>
+
+
+				<!--Radio button for AND/OR search type-->
+				<tr>
+					<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
+				</tr>
+				<tr>
+					<td><b><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></b></td>
+				</tr>
+			
+				<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
+
+				<td><input id='submit' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
+
+			</form>
+			</p>
+		</details>
+
 		
-		
+	<?php 
+
+		//call select_application_student_list function from DMS_doctor_functionality.php 
+		//to get the list of applicants for this program
 		$student_applicants=select_application_student_list($_GET['select_application']); 
 		$student_applicants= implode(',',$student_applicants);
+	
+		//call select_application program from DMS_doctor_functionality.php
+		//to get all information on the selected application
 		$selected_application = select_application($_GET['select_application']);
-		$name_of_program=get_program($selected_application['program_id']);
 		$selected_application_id=$selected_application['application_id'];
-		//echo $student_applicants;
-		
-	//}
-
 	
-	//Doctor's filter functionality
-	
-	
-	
+		//call get_program on DMS_doctor_functionality.php to get the name of the program
+		$name_of_program=get_program($selected_application['program_id']);	
 	?>
-	
-
-<form action='DMS_doctor_review.php' method='post'>
-	<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
-
-	<table class="data-table">
-		<caption class="title"><?php echo $name_of_program.' '.$selected_application['term'].' '.$selected_application['year']; ?></caption>
-		<thead>
-			<tr>
-				<th>Accept</th>
-				<th>ID</th>
-				<th>First Name</th>
-				<th>Last Name</th>
-				<th>Review</th>
-				<th>EID</th>
-				<th>GPA</th>
-				<th>Email</th>
-				<th>Classification</th>
-				<th>Major</th>
-				<th>Accepted</th>
-			</tr>
-		</thead>
-
-		<tbody>
-		<?php
-		//while ($row = mysqli_fetch_array($query))
-
-		require 'DMS_db.php';
-
-
-
-		if (isset($_GET['sort'])){
-
-			$query=doctor_sort($_GET['sort'], $selected_application_id);
-		}
-		elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!=""){
-
-			//call search_criteria function
-			$query=search($_GET['search_criteria'],$selected_application_id);
-		}
 		
-		elseif(isset($_GET['filter_criteria']))
-		{
-			/* if(isset($_GET['GPA_greater'])&& isset($_GET['GPA_less'])){
-				echo "<script type=\"text/javascript\">window.alert('Choose either GPA greater than or less than')";
-			} */
-			if ($_GET['GPA_greater']!="")
+		<form action='DMS_doctor_review.php' method='post'>
+		<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
+
+		<table class="data-table">
+			<caption class="title"><?php echo $name_of_program.' '.$selected_application['term'].' '.$selected_application['year']; ?></caption>
+			<thead>
+				<tr>
+					<th>Accept</th>
+					<th>ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>Review</th>
+					<th>EID</th>
+					<th>GPA</th>
+					<th>Email</th>
+					<th>Classification</th>
+					<th>Major</th>
+					<th>Accepted</th>
+				</tr>
+			</thead>
+
+			
+		<?php
+
+			//if user is trying to sort
+			if (isset($_GET['sort']))
+			{
+				$query=doctor_sort($_GET['sort'], $selected_application_id);
+			}
+			//if user is trying to sort
+			elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
+			{
+				//call search_criteria function
+				$query=search($_GET['search_criteria'],$selected_application_id);
+			}
+			//if user wants to filter by gpa only
+			elseif(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
+			{
+				if($_GET['GPA_greater']!="")
+				{	
+					$query=filter_only_gpa($_GET['GPA_greater'],'>',$selected_application_id);
+				}
+
+				elseif($_GET['GPA_less']!="")
+				{
+					$query=filter_only_gpa($_GET['GPA_less'],'<',$selected_application_id);
+				}
+			}
+			//if user wants to filter by "gpa greater than" along with other filter criteria
+			elseif (isset($_GET['GPA_greater']) && $_GET['GPA_greater']!="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>',$selected_application_id);
 			}
-
-			elseif($_GET['GPA_less']!="")
+			//if user wants to filter by "gpa less than" along with other filter criteria
+			elseif(isset($_GET['GPA_greater']) && $_GET['GPA_less']!="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<',$selected_application_id);
 			}
 
-			else
+			//if user wants to filter by anything other than gpa
+			elseif(isset($_GET['filter_criteria']))
 			{
 				$query=filter($_GET['filter_criteria'], $_GET['and_or'],$selected_application_id); //call filter_criteria function
 			}
-		}
-	
-		elseif(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
-		{
-			if($_GET['GPA_greater']!="")
-			{	
-				$query=filter_only_gpa($_GET['GPA_greater'],'>',$selected_application_id);
-			}
-
-			elseif($_GET['GPA_less']!="")
+			//if no filter, sort, or search
+			elseif (isset($student_applicants))
 			{
-				$query=filter_only_gpa($_GET['GPA_less'],'<',$selected_application_id);
-
-
+				try
+				{
+					$sql = "SELECT * FROM student_info WHERE user_id IN ($student_applicants)";
+					$query= $dbc->query($sql);;
+				}
+				//if the program has no applicants
+				catch(Exception $e)
+				{
+					echo "No students have applied yet";
+					die();
+				}
 			}
-		}
-		elseif (isset($student_applicants))
-		{
+		
+			//if there is an error in the query, display error
+			if (!$query) 
+			{
+				//TODO: delete this later
+				//die ('SQL Error: ' . mysqli_error($dbc));
+				die("There was an error");
+			}
+
 			
-			try{
-			$sql = "SELECT * FROM student_info WHERE user_id IN ($student_applicants)";
-
-			$query= $dbc->query($sql);;
-			}
-			catch(Exception $e){
-				echo "No students have applied yet";
-				die();
-			}
-		}
-		else
-		{
-			$sql = 'SELECT *
-			FROM student_info';
-
-			$query= $dbc->query($sql);;
-		}
-
-
-		//$query = mysqli_query($dbc, $sql); //what's the error
-
-
-
-		if (!$query) {
-			die ('SQL Error: ' . mysqli_error($dbc));
-		}
-
-		while ($row=$query->fetch(PDO::FETCH_ASSOC))
-		{
+			//Use the query to get each record and display the applicant's applications
+			while ($row=$query->fetch(PDO::FETCH_ASSOC))
+			{
 				$id = $row['user_id'];
 				$accepted_by_dms = $row['accepted_by_dms'];
 				$review_array = array('1', '0');
@@ -623,30 +567,13 @@ if (!$query) {
 
 				echo '
 						<td>'.$row['first_name'].'</td>
-						<td>'.$row['last_name'].'</td>';
-/*
-				echo '<td><select name = "review">';
-						$sql = "SELECT review FROM student_info WHERE user_id=$id;";
-						        $query = mysql_query($sql, $dbc) or die (mysql_error($dbc));
-								if($row = mysql_fetch_assoc($query)) {
-								          $review = $row['review'];
-								           foreach($review_array as $value) {
-								         if ($review == $value) { //if the province==the user's setting, make it default
-								           echo '<option value="'.$value.'" selected="selected">'.$value.'</option>';
-								         //} else { //else, echo it as regular
-								           echo '<option value="'.$value.'">'.$value.'</option>';
-								         }
-								       }
-								    }
-				echo '<select></td>';
-
-				*/
-
-
+						<td>'.$row['last_name'].'</td>';				
+						
 						//check the value of the review field in table 'student_info'
-				$stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
-				        $x = $stmt->fetch();
-
+						/* $stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
+				        $x = $stmt->fetch(); */
+						$x=select_student($id);
+						
 						if ($x['review']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
 						{
 							echo '<td><select name="application_review_list[]">
@@ -692,7 +619,7 @@ if (!$query) {
 				echo '  <td>'.$accepted_by_dms.'</td>
 					</tr>';
 		}?>
-		</tbody>
+		
 	</table>
 
 	</table>
