@@ -1,6 +1,5 @@
 <?php
 
-
 	//link to file containing database connection string
 	require 'DMS_db.php';
 
@@ -32,11 +31,8 @@
 	$y = $stmt->fetch();
 	$name_of_program=$y['name_of_program'];
 
-
 	//exact copy from DMS_create program_connect.php
 	$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
-
-
 
 	$sql_fields="";
 	$sql_values="";
