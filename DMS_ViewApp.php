@@ -1,5 +1,5 @@
 <?php
-
+	
 	//this will display an error message if the user tries to accept a student already accepted in the database
 	if (isset($_GET['error']))
 	{
@@ -170,6 +170,7 @@ require 'DMS_db.php';
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
+
 ?>
 <table width=100% table style>
 <tr>
