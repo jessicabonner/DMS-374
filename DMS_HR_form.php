@@ -311,19 +311,3 @@
 		</body>
 		</div>
 </html>
-
-<?php
-//link to file containing database connection string
-	require 'DMS_db.php';
-
-	/* $sql="SELECT program_id, name_of_program FROM programs";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
-	$programs= $stmt->fetchAll(); */
-
-	$sql="SELECT * FROM applications WHERE archived='FALSE'";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
-	$applications= $stmt->fetchAll();
-
-?>
