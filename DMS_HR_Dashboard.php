@@ -149,9 +149,9 @@
 		</tr>
 	</form>
 
-	<details>
+	<!--<details>
 
-	<!-- Doctor sort function -->
+	
 	<summary><b>Sort By</b></summary>
 	<p>
 	<form name="sort" method= "get">
@@ -170,7 +170,7 @@
 
 	</form>
 	</p>
-</details>
+</details>-->
 <br>
 
 	<!--drop-down menu for filters-->
@@ -307,6 +307,8 @@
 	</details>
 
 	<?php
+	
+	require"DMS_HR.php";
 
 	if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
 	{
@@ -315,7 +317,7 @@
 	}
 
 	//if user is filtering
-	if(isset($_GET['filter_criteria']))
+	elseif(isset($_GET['filter_criteria']))
 	{
 		if ($_GET['GPA_greater']!="")
 		{
@@ -336,7 +338,7 @@
 	}
 
 	//if user is trying to filter by GPA along with other criteria
-	if(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
+	elseif(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
 	{
 		//if filter is by gpa greater than
 		if($_GET['GPA_greater']!="")
@@ -348,6 +350,12 @@
 		{
 			$query=filter_only_gpa($_GET['GPA_less'],'<');
 		}
+	}
+	
+	
+	else 
+	{
+		$query=view_all();
 	}
 	?>
 

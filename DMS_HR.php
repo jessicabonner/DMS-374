@@ -77,11 +77,15 @@ function search($search_criteria)
 	}
 }	
 
+function view_all(){
+	require 'DMS_db.php';
 	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1'";
 	$query= $dbc->query($sql);;
+	return $query;
+}
 
-	if (!$query)
+	/* if (!$query)
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
-	}
+	} */
 ?>
