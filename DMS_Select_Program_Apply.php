@@ -1,14 +1,18 @@
 <?php
-
+	require "DMS_general_functions.php"; 
+	
+	//if an error is passed on redirect, display error message
 	if (isset($_GET['error']))
 	{
+		//error message if student has already applied to the selected program
 		if ($_GET['error']=="1")
 		{
 			echo '<script language="javascript">';
 			echo 'alert("You have already applied to this program")';
 			echo '</script>';
 		}
-
+		
+		//error message if user is trying to resubmit their student info page and is redirected to the DMS_select_program_apply.php
 		elseif($_GET['error']=="0")
 		{
 			echo '<script language="javascript">';
@@ -17,13 +21,12 @@
 
 		}
 	}
-	//pulling all programs from the database
-	//$user_id=$_GET['user_id'];
-	require 'DMS_db.php';
-	$sql="SELECT program_id, application_id, application_closed FROM applications";
-	$stmt=$dbc->prepare($sql);
-	$stmt->execute();
-	$applications= $stmt->fetchAll();
+	
+	
+	//call function from DMS_general_functions to get a list of all applications
+	$applications=get_all_applications();
+	
+	//get the user id that was passed through the url
 	$user_id=$_GET['user_id'];
 
 ?>
@@ -175,20 +178,16 @@
 <table>
 
 				<?php
-				//Displays every application that is associated with that doctor
+				//Displays every application as a checkbox for the student to choose from
 					foreach($applications as $application)
 					{
 						if ($application['application_closed']==0)
 						{
-						$sql="SELECT name_of_program FROM programs WHERE program_id=$application[program_id]";
-						$stmt=$dbc->prepare($sql);
-						$stmt->execute();
+							//call function from DMS_general_functions to get the name of the program associated with each applications
+							$name_of_program = get_program($application['program_id']);
 
-						$program = $stmt->fetch();
-						$name_of_program = $program['name_of_program'];
-
-						//Displays the actual name of the application
-						echo "<tr><td><input type='radio' name='application_id' value=$application[application_id] required>$name_of_program<br></td></tr>";
+							//Displays the actual name of the application
+							echo "<tr><td><input type='radio' name='application_id' value=$application[application_id] required>$name_of_program<br></td></tr>";
 						}
 					}
 				?>
