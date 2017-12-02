@@ -387,16 +387,23 @@
 			</thead>
 
 <?php
+			
+			
+			
+			
 			//if user is trying to sort
 			if (isset($_GET['sort']))
 			{
 				$query=doctor_sort($_GET['sort'], $selected_application_id);
+				
+				
 			}
 			//if user is trying to sort
 			elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
 			{
 				//call search_criteria function
 				$query=search($_GET['search_criteria'],$selected_application_id);
+				
 			}
 			//if user wants to filter by gpa only
 			elseif(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
@@ -404,28 +411,33 @@
 				if($_GET['GPA_greater']!="")
 				{
 					$query=filter_only_gpa($_GET['GPA_greater'],'>',$selected_application_id);
+					
 				}
 
 				elseif($_GET['GPA_less']!="")
 				{
 					$query=filter_only_gpa($_GET['GPA_less'],'<',$selected_application_id);
+					
 				}
 			}
 			//if user wants to filter by "gpa greater than" along with other filter criteria
 			elseif (isset($_GET['GPA_greater']) && $_GET['GPA_greater']!="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>',$selected_application_id);
+				
 			}
 			//if user wants to filter by "gpa less than" along with other filter criteria
 			elseif(isset($_GET['GPA_greater']) && $_GET['GPA_less']!="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<',$selected_application_id);
+				
 			}
 
 			//if user wants to filter by anything other than gpa
 			elseif(isset($_GET['filter_criteria']))
 			{
 				$query=filter($_GET['filter_criteria'], $_GET['and_or'],$selected_application_id); //call filter_criteria function
+				
 			}
 			//if no filter, sort, or search
 			elseif (isset($student_applicants))
@@ -440,6 +452,7 @@
 					echo "No students have applied yet";
 					die();
 				}
+				
 			}
 
 			//if there is an error in the query, display error
