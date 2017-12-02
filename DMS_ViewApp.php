@@ -261,126 +261,148 @@ require 'DMS_general_functions.php';
 		{
 			echo "<td>$major_2</td>";}
 			echo "</tr>";
+			
+		
+		// Display applicants's GPA
+		echo "<tr>";
+		echo "<th>GPA</th>";
+		echo "<td>" . $row['GPA'] .  "</td>";
+		echo "</tr>";
+		// Display applicants's Credit Hours
+		echo "<tr>";
+		echo "<th>Credit Hours Enrollment</th>";
+		echo "<td>" . $row['credit_hours'] .  " credit hours</td>";
+		echo "</tr>";
 		// Check if the applicant has worked for DMS before
-			if ($row['worked_at_dms']==0)
-			{
-				$worked_at_dms="No";
-			}
-			else
-			{
-				$worked_at_dms="Yes";
-			}
+		if ($row['worked_at_dms']==0)
+		{
+			$worked_at_dms="No";
+		}
+		else
+		{
+			$worked_at_dms="Yes";
+		}
 		// Display applicants's work history with DMS
-			echo "<tr>";
-			echo "<th>Has worked at DMS before?</th>";
-			echo "<td>$worked_at_dms</td>";
-			echo "</tr>";
+		echo "<tr>";
+		echo "<th>Has worked at DMS before?</th>";
+		echo "<td>$worked_at_dms</td>";
+		echo "</tr>";
 		// Check if the applicant has volunteered for Seton before
-			if ($row['volunteered_at_seton']==0)
-			{
-				$volunteered_at_seton="No";
-			}
-			else
-			{
-				$volunteered_at_seton="Yes";
-			}
+		if ($row['volunteered_at_seton']==0)
+		{
+			$volunteered_at_seton="No";
+		}
+		else
+		{
+			$volunteered_at_seton="Yes";
+		}
 		// Display applicants's volunteer history with Seton
-			echo "<tr>";
-			echo "<th>Has volunteered at Seton before?</th>";
-			echo "<td>$volunteered_at_seton</td>";
-			echo "</tr>";
+		echo "<tr>";
+		echo "<th>Has volunteered at Seton before?</th>";
+		echo "<td>$volunteered_at_seton</td>";
+		echo "</tr>";
 		// Check if the applicant owns a car
-			if ($row['car']==0)
+		if ($row['car']==0)
+		{
+			$car="No";
+		}
+		else
+		{
+			$car="Yes";
+		}
+		// Display if the applicant has a car
+		echo "<tr>";
+		echo "<th>Has a car?</th>";
+		echo "<td>$car</td>";
+		echo "</tr>";
+		// Display the languages the applicant is fluent in
+		echo "<tr>";
+		echo "<th>Fluent in the following language(s):</th>";
+		echo "<td>". $row['bilingual']."</td>";
+		echo "</tr>";
+		// Display applicants's Semester Committment
+		echo "<tr>";
+		echo "<th>Semester Committment</th>";
+		echo "<td>" . $row['semester_commitment'] .  " semester(s)</td>";
+		echo "</tr>";
+		// Display the programs the applicant has applied to
+		echo "<tr>";
+		echo "<th>Programs they applied to:</th>";
+		echo "<td>" . $row['other_programs'] .  "</td>";
+		echo "</tr>";
+		// Display applicants's review status
+		echo "<tr>";
+		echo "<th>Review</th>";
+
+		$stmt = $dbc->query("SELECT * FROM review WHERE user_id=$id AND application_id=$application_id;");
+       	$x = $stmt->fetch();
+
+		if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
+		{
+			echo '<td><select name="new_review">
+				<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+				<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+				<option value="competitive = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
+			</select></td>';
+		}
+		elseif ($x['competitive']=="1") //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
+		{
+			echo'<td><select name="new_review">
+				<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+				<option value="competitive = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
+				<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+			</select></td>';
+		}
+		else //if competitive = 0 (N/A) in the db, show the correct selected value
+		{
+			echo '<td><select name="new_review">
+				<option value="competitive = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
+				<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+				<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+			</select></td>';
+		}
+			
+		echo "</tr>";
+			
+		echo "<tr>
+			<th>Potential Candidate?</th>";
+			if ($x['potential']=="1")
 			{
-				$car="No";
+				echo '<td><input type="checkbox" name="potential" value="1" checked="checked"></td>';
 			}
 			else
 			{
-				$car="Yes";
+				echo '<td><input type="checkbox" name="potential" value="1"></td>';
 			}
-		// Display if the applicant has a car
-			echo "<tr>";
-			echo "<th>Has a car?</th>";
-			echo "<td>$car</td>";
-			echo "</tr>";
-		// Display applicants's Semester Committment
-			echo "<tr>";
-			echo "<th>Semester Committment</th>";
-			echo "<td>" . $row['semester_commitment'] .  " semester(s)</td>";
-			echo "</tr>";
-		// Display applicants's review status
-			echo "<tr>";
-			echo "<th>Review</th>";
-
-			$stmt = $dbc->query("SELECT * FROM review WHERE user_id=$id AND application_id=$application_id;");
-       	 	$x = $stmt->fetch();
-
-			if ($x['competitive']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
-			{
-				echo '<td><select name="new_review">
-					<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-					<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-					<option value="competitive = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
-				</select></td>';
-			}
-			elseif ($x['competitive']=="1") //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
-			{
-				echo'<td><select name="new_review">
-					<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-					<option value="competitive = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
-					<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
-				</select></td>';
-			}
-			else //if competitive = 0 (N/A) in the db, show the correct selected value
-			{
-				echo '<td><select name="new_review">
-					<option value="competitive = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
-					<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-					<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
-				</select></td>';
-			}
-			
-			echo "</tr>";
-			
-			echo "<tr>
-				<th>Potential Candidate?</th>";
-				if ($x['potential']=="1")
-				{
-					echo '<td><input type="checkbox" name="potential" value="1" checked="checked"></td>';
-				}
-				else
-				{
-					echo '<td><input type="checkbox" name="potential" value="1"></td>';
-				}
 				
-			echo "<tr>
-				<th>Interview Candidate?</th>";
-				if ($x['interview']=="1")
-				{
-					echo '<td><input type="checkbox" name="interview" value="1" checked="checked"></td>';
-				}
-				else
-				{
-					echo '<td><input type="checkbox" name="interview" value="1"></td>';
-				}
+		echo "<tr>
+			<th>Interview Candidate?</th>";
+			if ($x['interview']=="1")
+			{
+				echo '<td><input type="checkbox" name="interview" value="1" checked="checked"></td>';
+			}
+			else
+			{
+				echo '<td><input type="checkbox" name="interview" value="1"></td>';
+			}
 				
 				
 		
 			
-			while ($number_unique_questions>0)
-			{	
-				$number_unique_questions-=1;
-				$question=question_unique_question($application_id, $number_unique_questions);
-				$answer=answer_unique_question($number_unique_questions, $application_id, $id);
-				echo "<tr>
-				<th>".$question."</th>
-				<td>".$answer."</td>
-				</tr>";
+		while ($number_unique_questions>0)
+		{	
+			$number_unique_questions-=1;
+			$question=question_unique_question($application_id, $number_unique_questions);
+			$answer=answer_unique_question($number_unique_questions, $application_id, $id);
+			echo "<tr>
+			<th>".$question."</th>
+			<td>".$answer."</td>
+			</tr>";
 				
-			}
-			
- 
 		}
+			
+	}
+	
 
 		//echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
 
