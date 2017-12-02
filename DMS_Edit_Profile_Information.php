@@ -312,8 +312,6 @@
             <input type="text" name="GPA" value="<?php echo $row ['GPA']; ?> " size=10>
 			Credit Hours Enrollment
             <input type="text" name="credit_hours" value="<?php echo $row ['credit_hours']; ?> " size=10>
-			Language(s)
-            <input type="text" name="bilingual" value="<?php echo $row ['bilingual']; ?> " size=10>
 
 			<!--break-->
 			<tr>
