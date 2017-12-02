@@ -382,7 +382,7 @@
 					<th>Email</th>
 					<th>Classification</th>
 					<th>Major</th>
-					<th>Accepted</th>
+					<th>Already Accepted?</th>
 				</tr>
 			</thead>
 
@@ -455,7 +455,7 @@
 			while ($row=$query->fetch(PDO::FETCH_ASSOC))
 			{
 				$id = $row['user_id'];
-				$accepted_by_dms = $row['accepted_by_dms'];
+				$working_for_dms = $row['working_for_dms'];
 				$review_array = array('1', '0');
 
 				
@@ -502,15 +502,15 @@
 								<td>'.$row['classification'].'</td>
 								<td>'.$row['major'].'</td>';
 
-						if ($row['accepted_by_dms']==0)
+						if ($row['working_for_dms']==0)
 						{
-							$accepted_by_dms="No";
+							$working_for_dms="No";
 						}
 						else{
-							$accepted_by_dms="Yes";
+							$working_for_dms="Yes";
 						}
 
-				echo '  <td>'.$accepted_by_dms.'</td>
+				echo '  <td>'.$working_for_dms.'</td>
 					</tr>';
 					
 					
