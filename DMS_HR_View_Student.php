@@ -201,6 +201,11 @@ echo "<td>" . $row['first_name'] .  "</td>";
 echo "</tr>";
 
 echo "<tr>";
+echo "<th>Middle Name</th>";
+echo "<td>" . $row['middle_name'] .  "</td>";
+echo "</tr>";
+
+echo "<tr>";
 echo "<th>Last Name</th>";
 echo "<td>" . $row['last_name'] .  "</td>";
 echo "</tr>";
@@ -310,8 +315,8 @@ echo "<td>$car</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<th>Semester Committment</th>";
-echo "<td>" . $row['semester_commitment'] .  " semester(s)</td>";
+echo "<th>Credit Hours Enrollment</th>";
+echo "<td>" . $row['credit_hours'] .  " credit hours</td>";
 echo "</tr>";
 
 /* echo "<tr>";
