@@ -417,22 +417,12 @@ require 'DMS_doctor_functionality.php';
 			<tr>
 				<td><input type="radio" name="car" value="0">No<br></td>
 			</tr>
-			<!--Radio buttons for if they are bilingual-->
-			<tr>
-				<td>Do you identify as bilingual?</td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="bilingual" value="1" required>Yes<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="bilingual" value="0">No<br></td>
-			</tr>
 			<!--text box for the language(s) they speak-->
 			<tr>
-				<td>For bilingual speakers, specify the language(s) below: (if applicable) </td>
+				<td>Specify which language(s) you are fluent in: </td>
 			</tr>
 			<tr>
-				<td><input type="text" name="language" size="20" maxlength="10"/></td>
+				<td><input type="text" name="bilingual" size="20" maxlength="10" required/></td>
 			</tr>
 			<!--text box for how many semesters they plan to commit-->
 			<tr>

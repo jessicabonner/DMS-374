@@ -168,6 +168,7 @@
 	$major=$row['major'];
 	$major_2=$row['major_2'];
 	$GPA=$row['GPA'];
+	$credit_hours=$row['credit_hours'];
 	if ($row['worked_at_dms']=="0")
 	{
 		$worked_at_dms="No";
@@ -192,9 +193,11 @@
 	{
 			$car="Yes";
 	}
+	$bilingual=$row['bilingual'];
 	$semester_commitment=$row['semester_commitment'];
+	$other_programs=$row['other_programs'];
 
-		echo "Please confirm your profile information<br>";
+		echo "Please confirm your profile information<br></br>";
 
 		echo "<tr><td><b>First Name</b></td> <td>$first_name</td></tr><br>";
 		echo "<tr><td><b>Middle Name</b></td> <td>$middle_name</td></tr><br>";
@@ -211,17 +214,19 @@
 		echo "<tr><td><b>Major</b></td> <td>$major</td></tr><br>";
 		echo "<tr><td><b>2nd Major</b></td> <td>$major_2</td></tr><br>";
 		echo "<tr><td><b>GPA</b></td> <td>$GPA</td></tr><br>";
+		echo "<tr><td><b>Credit Hours Enrollment</b></td> <td>$credit_hours</td></tr><br>";
 		echo "<tr><td><b>Have you worked at DMS before?</b></td> <td>$worked_at_dms</td></tr><br>";
 		echo "<tr><td><b>Have you volunteered at Seton before?</b></td> <td>$volunteered_at_seton</td></tr><br>";
-		echo "<tr><td><b>Dp you own a car?</b></td> <td>$car</td></tr><br>";
+		echo "<tr><td><b>Do you own a car?</b></td> <td>$car</td></tr><br>";
+		echo "<tr><td><b>Fluent in the following language(s):</b></td> <td>$bilingual</td></tr><br>";
 		echo "<tr><td><b>How many semesters are you willing to commit?</b></td> <td>$semester_commitment</td></tr><br>";
+		echo "<tr><td><b>DMS Programs you have already applied to:</b></td> <td>$other_programs</td></tr><br>";
 	?>
 		<table>
+			<br></br>
 			<tr>What is your availability for the upcoming semester?</tr>
 			<tr class="blankrow">
 				<td><br></td>
-
-
 
 			<tr>
 				<td><input type="checkbox" name="availability_list[]" value="NA" <?php if (in_array("NA",$availability_array))echo 'checked="checked"'?>disabled>Unknown</td>

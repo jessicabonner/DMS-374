@@ -310,6 +310,10 @@
             <input type="text" name="major_2" value="<?php echo $row ['major_2']; ?> " size=10>
 			GPA
             <input type="text" name="GPA" value="<?php echo $row ['GPA']; ?> " size=10>
+			Credit Hours Enrollment
+            <input type="text" name="credit_hours" value="<?php echo $row ['credit_hours']; ?> " size=10>
+			Language(s)
+            <input type="text" name="bilingual" value="<?php echo $row ['bilingual']; ?> " size=10>
 
 			<!--break-->
 			<tr>
@@ -372,9 +376,15 @@
 			<tr>
 				<td><input type="radio" name="car" value="0" <?php if($row['car'] == 0) echo 'checked="checked"'?>>No<br></td>
 			</tr>
+			
+			Language(s)
+            <input type="text" name="bilingual" value="<?php echo $row ['bilingual']; ?> " size=10>
 
 			Semester Commitment
             <input type="text" name="semester_commitment" value="<?php echo $row ['semester_commitment']; ?> " size=10>
+			
+			DMS Program(s) already applied to
+			<input type="text" name"other_programs" value= "<?php echo $row ['other_programs']; ?> " size=10>>
 
 			<table>
 			<tr>What is your availability for the upcoming semester?</tr>

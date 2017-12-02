@@ -42,9 +42,12 @@
 	$major=$_POST['major'];
 	$major_2=$_POST['major_2'];
 	$GPA=$_POST['GPA'];
+	$credit_hours=$_POST['credit_hours'];
 	$worked_at_dms=$_POST['worked_at_dms'];
 	$volunteered_at_seton=$_POST['volunteered_at_seton'];
 	$car=$_POST['car'];
+	$language=$_POST['bilingual'];
+	$other_programs = $_POST['other_programs'];
 	$semester_commitment=$_POST['semester_commitment'];
 
 	//turn availability_list into a string 
@@ -56,8 +59,8 @@
 	//prepare SQL statement to prevent SQL injection
 	$stmt = $dbc-> prepare('UPDATE student_info SET first_name=:first_name, middle_name=:middle_name, last_name=:last_name, 
 	address=:address, city=:city, state=:state, zip_code=:zip_code, phone=:phone, email=:email, employment=:employment,
-	classification=:classification, degree_type=:degree_type, major=:major, major_2=:major_2, GPA=:GPA, worked_at_dms=:worked_at_dms, 
-	volunteered_at_seton=:volunteered_at_seton, car=:car, semester_commitment=:semester_commitment, availability=:availability 
+	classification=:classification, degree_type=:degree_type, major=:major, major_2=:major_2, GPA=:GPA, credit_hours=:credit_hours, worked_at_dms=:worked_at_dms, 
+	volunteered_at_seton=:volunteered_at_seton, car=:car, bilingual=:bilingual, other_programs=:other_programs, semester_commitment=:semester_commitment, availability=:availability 
 	WHERE user_id= :user_id');
 	
 	
@@ -71,8 +74,8 @@
 	//bind variables to prepared statement and execute
 	$stmt->execute(array('first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'address' => $address,'city' => $city,
 	'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'classification' => $classification,
-	'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2, 'GPA'=>$GPA, 'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
-	'car'=>$car,'semester_commitment' => $semester_commitment,'availability' => $availability, 'user_id' => $user_id, ));
+	'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2, 'GPA'=>$GPA, 'credit_hours'=>$credit_hours ,'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
+	'car'=>$car, 'bilingual' => $bilingual, 'other_programs' => $other_programs, 'semester_commitment' => $semester_commitment,'availability' => $availability, 'user_id' => $user_id, ));
 
 	
 	
