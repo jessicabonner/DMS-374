@@ -139,6 +139,59 @@
 		}
 		return $student_applicant_id_array;
 	}
+	
+	//return an array of all students who have applied to the given application
+	function select_potential_student_list($application_id)
+	{
+		require 'DMS_db.php';
+		
+		// select different student info
+		$sql="SELECT * FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+
+		$name_of_program=get_program($application['program_id']);
+
+		$term=$application['term'];
+		$year=$application['year'];
+		
+		$sql="SELECT * FROM review WHERE application_id=$application_id AND potential='1'";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$potential_students= $stmt->fetchAll();
+		$potential_student_array=array();
+		 foreach ($potential_students as $key=>$value)
+		 {
+			 $potential_student_array[]=$value['user_id'];
+		 }
+		 
+		$potential_student_list=implode(',',$potential_student_array);
+		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
+		
+		
+		try
+		{
+		$sql="SELECT * FROM $name_of_table WHERE user_id IN ($potential_student_list)";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$student_applicants= $stmt->fetchAll();
+		}
+		
+		catch (Exception $e)
+		{
+			echo "There are no potential students at this time";
+			die();
+		}
+
+		$student_applicant_id_array=array();
+		foreach($student_applicants as $key=>$value)
+		{
+			$student_applicant_id_array[]=$value["user_id"];
+			//echo $value['user_id'];
+		}
+		return $student_applicant_id_array;
+	}
 
 	//return query based on the filter the user specified IF GPA NOT INCLUDED
 	function filter($filter_criteria, $and_or, $selected_application_id)
