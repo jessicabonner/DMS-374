@@ -66,6 +66,14 @@
 	$stmt = $dbc-> prepare("INSERT INTO $name_of_table ($sql_fields)VALUES ($sql_values)");
 
 	$stmt->execute($sql_array);
+	
+	if (!$stmt)
+	{
+		echo "error";
+	}
+	
+	$stmt = $dbc-> prepare('INSERT INTO review (user_id, application_id) VALUES (:user_id, :application_id)');
+	$stmt->execute(array('user_id' => $user_id, 'application_id' => $application_id));
 
 	echo "Thanks for applying! :)";
 

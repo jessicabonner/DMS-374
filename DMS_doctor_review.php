@@ -12,13 +12,13 @@ require 'DMS_db.php';
 		{
 			require 'DMS_db.php';
 
-			$sql="UPDATE student_info SET $value";
+			$sql="UPDATE review SET $value AND application_id=".$_POST['application_id'];
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 		
 		}
 	}
-	elseif (isset($_POST['accept']))
+	/* elseif (isset($_POST['accept']))
 	{
 		# Accept-button was clicked
 		$accept= $_POST['application_accept_list'];
@@ -44,7 +44,7 @@ require 'DMS_db.php';
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 		}
-	}
+	} */
 	//error handling
 	if (!$stmt)
 	{

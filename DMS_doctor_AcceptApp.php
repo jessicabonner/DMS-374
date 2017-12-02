@@ -62,8 +62,22 @@
 			}
 			elseif( ($_POST['potential'])== null)
 			{
-					$new_potential = $_POST['potential'];
+					
 					$sql = "UPDATE review SET potential=0 WHERE user_id= $user_id AND application_id='".$_POST['application_id']."'";
+					$stmt=$dbc->prepare($sql);
+					$stmt->execute();
+			}
+			if( ($_POST['interview'])!== null)
+			{
+					$new_interview = $_POST['interview'];
+					$sql = "UPDATE review SET interview=$new_interview WHERE user_id= $user_id AND application_id='".$_POST['application_id']."'";
+					$stmt=$dbc->prepare($sql);
+					$stmt->execute();
+			}
+			elseif( ($_POST['interview'])== null)
+			{
+					
+					$sql = "UPDATE review SET interview=NULL WHERE user_id= $user_id AND application_id='".$_POST['application_id']."'";
 					$stmt=$dbc->prepare($sql);
 					$stmt->execute();
 			}

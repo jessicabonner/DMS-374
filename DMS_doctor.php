@@ -372,7 +372,7 @@
 			<caption class="title"><?php echo $name_of_program.' '.$selected_application['term'].' '.$selected_application['year']; ?></caption>
 			<thead>
 				<tr>
-					<th>Accept</th>
+					
 					<th>ID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
@@ -458,7 +458,7 @@
 				$accepted_by_dms = $row['accepted_by_dms'];
 				$review_array = array('1', '0');
 
-				echo'<td><input type="checkbox" name="application_accept_list[]" value='.$id.' id='.$id.'></td>';
+				
 
 				echo "<td> <a href='DMS_ViewApp.php?id= $id &selected_application=$selected_application_id'>" .$row['user_id'] . "</a> </td>";
 
@@ -512,6 +512,8 @@
 
 				echo '  <td>'.$accepted_by_dms.'</td>
 					</tr>';
+					
+					
 			}
 		?>
 
@@ -520,7 +522,8 @@
 		<!--Page Break-->
 		<tr>
 			<td><br></td>
-			<td><input type='submit' name= "accept" value='Accept Students' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to ACCEPT the selected students?')"></td>
+			
+			<input type='hidden' name='application_id' value=<?php echo $selected_application_id ?>>
 			<td><input type='submit' name= "save" value='Save Changes' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
 		<tr>
 

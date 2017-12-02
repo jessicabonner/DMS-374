@@ -7,7 +7,7 @@ function filter($filter_criteria, $and_or)
 	//filtering accepted applicants with selected criteria
 	$filter_criteria_sql=implode($and_or,$filter_criteria);
 
-	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND( $filter_criteria_sql)";
+	$sql="SELECT * FROM student_info WHERE working_for_dms='1' AND( $filter_criteria_sql)";
 
 	$query= $dbc->query($sql);;
 
@@ -22,7 +22,7 @@ function filter_with_gpa($filter_criteria, $and_or, $GPA, $greater_less)
 	$filter_criteria_sql=implode($and_or,$filter_criteria);
 	$filter_criteria_sql=$filter_criteria_sql." ".$and_or." GPA".$greater_less.$GPA;
 
-	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND( $filter_criteria_sql)";
+	$sql="SELECT * FROM student_info WHERE working_for_dms='1' AND( $filter_criteria_sql)";
 
 	$query= $dbc->query($sql);;
 
@@ -37,7 +37,7 @@ function filter_only_gpa($GPA, $greater_less)
 	$filter_criteria_sql="";
 	$filter_criteria_sql=$filter_criteria_sql."GPA".$greater_less.$GPA;
 
-	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND $filter_criteria_sql";
+	$sql="SELECT * FROM student_info WHERE working_for_dms='1' AND $filter_criteria_sql";
 
 	$query= $dbc->query($sql);;
 
@@ -51,7 +51,7 @@ function search($search_criteria)
 	//perform search based on HR selected criteria
 	$search_criteria=$_GET['search_criteria'];
 
-	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1' AND(
+	$sql="SELECT * FROM student_info WHERE working_for_dms='1' AND(
 		first_name LIKE '%$search_criteria%'
 		OR middle_name LIKE '%$search_criteria%'
 		OR last_name LIKE '%$search_criteria%'
@@ -79,7 +79,7 @@ function search($search_criteria)
 
 function view_all(){
 	require 'DMS_db.php';
-	$sql="SELECT * FROM student_info WHERE accepted_by_dms='1'";
+	$sql="SELECT * FROM student_info WHERE working_for_dms='1'";
 	$query= $dbc->query($sql);;
 	return $query;
 }

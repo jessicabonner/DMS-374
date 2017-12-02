@@ -273,21 +273,7 @@
 		<tr>
 			<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
 		</tr>
-	<!--checkbox buttons for if they have accpeted their offer-->
-		<tr>
-			<td><br></td>
-			<td>Accepted offer?</td>
-		</tr>
-		<tr class="blankrow">
-		<td><br></td>
-		<tr class="blankrow">
-		<td><br></td>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" accepted_offer='1' ">Yes<br></td>
-		</tr>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" accepted_offer='0' ">No<br></td>
-		</tr>
+	
 		<!--break-->
 		<tr>
 			<td><br></td>
@@ -378,7 +364,7 @@
 				<th>Major</th>
 				<th>2nd Major</th>
 				<th>GPA</th>
-				<th>Accepted Offer?</th>
+				
 			</tr>
 		</thead>
 
@@ -391,15 +377,6 @@
 		{
 			$id = $row['user_id'];
 
-			//change the value from the database to "yes" or "no" to be displayed to the user
-			if ($row['accepted_offer']=='1')
-			{
-				$accepted_offer="Yes";
-			}
-			else
-			{
-				$accepted_offer="No";
-			}
 
 			//display all student info in the table
 			echo "<td> <a href='DMS_HR_View_Student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
@@ -417,7 +394,6 @@
 				<td>'.$row['major'].'</td>
 				<td>'.$row['major_2'].'</td>
 				<td>'.$row['GPA'].'</td>
-				<td>'.$accepted_offer.'</td>
 				</tr>';
 			}
 		?>

@@ -353,6 +353,17 @@ require 'DMS_general_functions.php';
 					echo '<td><input type="checkbox" name="potential" value="1"></td>';
 				}
 				
+			echo "<tr>
+				<th>Interview Candidate?</th>";
+				if ($x['interview']=="1")
+				{
+					echo '<td><input type="checkbox" name="interview" value="1" checked="checked"></td>';
+				}
+				else
+				{
+					echo '<td><input type="checkbox" name="interview" value="1"></td>';
+				}
+				
 				
 		
 			
