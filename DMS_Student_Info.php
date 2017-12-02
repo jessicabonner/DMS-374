@@ -11,6 +11,7 @@ require 'DMS_doctor_functionality.php';
 	$user_id=$_GET['user_id'];
 
 	$x = select_student($user_id);
+	
 
 	//if the application already exists, redirect back to the DMS_CreateApplication.php page along with an indication that there was an error
 	if (count($x['user_id'])>0)
@@ -371,6 +372,13 @@ require 'DMS_doctor_functionality.php';
 			<tr>
 				<td><input type="text" name="GPA" size="20" required pattern="^[0]|[0-3]\.(\d?\d?)|[4].[0]$"/></td>
 			</tr>
+			<!--text box for how many credit hours they plan to be enrolled in-->
+			<tr>
+				<td>How many credit hours do you expect to be enrolled in during the semester for this position?</td>
+			</tr>
+			<tr>
+				<td><input type="text" placeholder="ex: 15" name="credit_hours" size="20" maxlength="2" required pattern="^[0-20]*$"/></td>
+			</tr>
 			<!--Radio buttons for if they have worked at dell med school before-->
 			<tr>
 				<td>Have you previously worked at Dell Medical School?</td>
@@ -409,12 +417,36 @@ require 'DMS_doctor_functionality.php';
 			<tr>
 				<td><input type="radio" name="car" value="0">No<br></td>
 			</tr>
+			<!--Radio buttons for if they are bilingual-->
+			<tr>
+				<td>Do you identify as bilingual?</td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="bilingual" value="1" required>Yes<br></td>
+			</tr>
+			<tr>
+				<td><input type="radio" name="bilingual" value="0">No<br></td>
+			</tr>
+			<!--text box for the language(s) they speak-->
+			<tr>
+				<td>For bilingual speakers, specify the language(s) below: (if applicable) </td>
+			</tr>
+			<tr>
+				<td><input type="text" name="language" size="20" maxlength="10"/></td>
+			</tr>
 			<!--text box for how many semesters they plan to commit-->
 			<tr>
 				<td>How many semesters do you expect to commit to this role?</td>
 			</tr>
 			<tr>
 				<td><input type="text" placeholder="ex: 3" name="semester_commitment" size="20" maxlength="2" required pattern="^[0-9]*$"/></td>
+			</tr>
+			<!--text box for other programs student has applied for-->
+			<tr>
+				<td>Specify which DMS Programs you have already applied to: (Enter N/A if this doens't apply) </td>
+			</tr>
+			<tr>
+				<td><input type="text" name="other_programs" size="20" maxlength="10" required/></td>
 			</tr>
 			</table>
 			<!--break-->
