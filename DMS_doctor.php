@@ -320,13 +320,13 @@
 				<tr class="blankrow">
 					<td><br></td>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" review='0' ">Not yet reviewed<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='0' ">Not yet reviewed<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" review='1' ">Noncompetitive<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='1' ">Noncompetitive<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" review='2' ">Competitive<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='2' ">Competitive<br></td>
 				</tr>
 
 				<!--break-->
@@ -467,31 +467,32 @@
 						<td>'.$row['last_name'].'</td>';
 
 						//call function select_student from SMD_doctor_functionality.php
-						//to pull the value of the review field in table 'student_info'
-						$x=select_student($id);
+						//to pull the value of the competitive field in table 'review'
+						$x=select_student_review($id, $_GET['select_application']);
+						
 
-						if ($x['review']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
+						if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
 						{
 							echo '<td><select name="application_review_list[]">
-								<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-								<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-								<option value="review = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
+								<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+								<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+								<option value="competitive = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
 								</select></td>';
 						}
-						elseif ($x['review']=="1") //if review = 1 (Noncompetitive) in the db, show the correct selected value
+						elseif ($x['competitive']=="1") //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
 						{
 							echo'<td><select name="application_review_list[]">
-								<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-								<option value="review = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
-								<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+								<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+								<option value="competitive = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
+								<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
 								</select></td>';
 						}
 						else
-						{ //if review = 0 (N/A) in the db, show the correct selected value
+						{ //if competitive = 0 (N/A) in the db, show the correct selected value
 							echo '<td><select name="application_review_list[]">
-								<option value="review = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
-								<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-								<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+								<option value="competitive = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
+								<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+								<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
 								</select></td>';
 						}
 

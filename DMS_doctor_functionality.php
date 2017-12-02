@@ -282,6 +282,18 @@
 		return $array_unique_questions[$number_unique_questions];
 		
 	}
+	
+	function select_student_review($user_id, $application_id)
+	{
+		require 'DMS_db.php';
+		
+		$sql="SELECT * FROM review WHERE application_id=$application_id AND user_id=$user_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$review= $stmt->fetch();
+		
+		return $review;
+	}
 
 
 ?>

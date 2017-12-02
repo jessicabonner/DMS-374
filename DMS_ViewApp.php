@@ -174,6 +174,7 @@ require 'DMS_general_functions.php';
 	
 
 ?>
+<form action='DMS_doctor_AcceptApp.php' method='POST'>
 <table width=100% table style>
 <tr>
 
@@ -311,36 +312,49 @@ require 'DMS_general_functions.php';
 			echo "<tr>";
 			echo "<th>Review</th>";
 
-			$stmt = $dbc->query("SELECT review FROM student_info WHERE user_id=$id;");
+			$stmt = $dbc->query("SELECT * FROM review WHERE user_id=$id AND application_id=$application_id;");
        	 	$x = $stmt->fetch();
 
-			if ($x['review']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
+			if ($x['competitive']=="2") //if review = 2 (Competitive) in the db, show the correct selected value
 			{
 				echo '<td><select name="new_review">
-					<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-					<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-					<option value="review = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
+					<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+					<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+					<option value="competitive = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
 				</select></td>';
 			}
-			elseif ($x['review']=="1") //if review = 1 (Noncompetitive) in the db, show the correct selected value
+			elseif ($x['competitive']=="1") //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
 			{
 				echo'<td><select name="new_review">
-					<option value="review = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-					<option value="review = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
-					<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+					<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+					<option value="competitive = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
+					<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
 				</select></td>';
 			}
-			else //if review = 0 (N/A) in the db, show the correct selected value
+			else //if competitive = 0 (N/A) in the db, show the correct selected value
 			{
 				echo '<td><select name="new_review">
-					<option value="review = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
-					<option value="review = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-					<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
+					<option value="competitive = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
+					<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
+					<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
 				</select></td>';
 			}
 			
 			echo "</tr>";
 			
+			echo "<tr>
+				<th>Potential Candidate?</th>";
+				if ($x['potential']=="1")
+				{
+					echo '<td><input type="checkbox" name="potential" value="1" checked="checked"></td>';
+				}
+				else
+				{
+					echo '<td><input type="checkbox" name="potential" value="1"></td>';
+				}
+				
+				
+		
 			
 			while ($number_unique_questions>0)
 			{	
@@ -352,14 +366,12 @@ require 'DMS_general_functions.php';
 				<td>".$answer."</td>
 				</tr>";
 				
-				
-				
 			}
 			
  
 		}
 
-		echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
+		//echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
 
 		echo "
 			<td><br></td>
@@ -367,14 +379,15 @@ require 'DMS_general_functions.php';
 			<tr>
 				<td></td>
 				<td></td>
-				<td><input type='checkbox' name='new_accepted_by_DMS' value='1'> Check to Accept Applicant<br />
+				<td><input type='checkbox' name='new_accepted_by_DMS' value=1> Check to Accept Applicant<br />
 				<input type='hidden' name='user_id' value=$id><br /></td>
+				<input type='hidden' name='application_id' value=$application_id>
 			</tr>";
 
 ?>
 </table>
 	<tr><td><br></td>
 		<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
-		<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+		<td><input type='submit' name= "update" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<tr>
 </form>
