@@ -40,4 +40,20 @@
 		
 		return $applications;
 	}
+	
+	//return a particular application's table name when given only the application_id
+	function get_application_table_name($application_id)
+	{
+		require 'DMS_db.php';
+		// get application names
+		$sql="SELECT * FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+		$name_of_program=get_program($application['program_id']);
+		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$application['term']."_".$application['year'];
+		return $name_of_table;
+	}
+	
+	
 ?>

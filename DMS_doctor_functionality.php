@@ -73,21 +73,6 @@
 		
 		return $query;
 	}
-	
-	
-	//return a particular application's table name when given only the application_id
-	function get_application_table_name($application_id)
-	{
-		require 'DMS_db.php';
-		// get application names
-		$sql="SELECT * FROM applications WHERE application_id=$application_id";
-		$stmt=$dbc->prepare($sql);
-		$stmt->execute();
-		$application= $stmt->fetch();
-		$name_of_program=get_program($application['program_id']);
-		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$application['term']."_".$application['year'];
-		return $name_of_table;
-	}
 
 	
 	//return the name of a program from its program_id
@@ -127,6 +112,7 @@
 	function select_application_student_list($application_id)
 	{
 		require 'DMS_db.php';
+		
 		// select different student info
 		$sql="SELECT * FROM applications WHERE application_id=$application_id";
 		$stmt=$dbc->prepare($sql);
@@ -250,6 +236,51 @@
 	if (!$query) {
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
+	}
+	
+	
+	function get_number_questions($application_id)
+	{
+		require 'DMS_db.php';
+		$sql="SELECT number_unique_questions FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+		
+		return (int)$application['number_unique_questions'];
+		
+	}
+	
+	//this will return the answer that an applicant gave to a particular question
+	function answer_unique_question($number_unique_questions, $application_id, $user_id)
+	{
+		require 'DMS_db.php';
+		
+		$name_of_table=get_application_table_name($application_id);
+		$question="question_".$number_unique_questions;
+		$sql="SELECT $question FROM $name_of_table WHERE user_id=$user_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$applicant= $stmt->fetch();
+		
+		return $applicant["$question"];
+		
+	}
+	
+	function question_unique_question($application_id, $number_unique_questions)
+	{
+		require 'DMS_db.php';
+		
+		$sql="SELECT list_unique_questions FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+		
+		$list_unique_questions=$application['list_unique_questions'];
+		$array_unique_questions=explode('(#!BREAK!#)', $list_unique_questions);
+		
+		return $array_unique_questions[$number_unique_questions];
+		
 	}
 
 

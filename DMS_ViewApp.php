@@ -154,9 +154,12 @@
 
 <?php
 require 'DMS_doctor_functionality.php';
+require 'DMS_general_functions.php';
+
 
 	// Get ID from the URL
 	$id = $_GET['id'];
+	$application_id=$_GET['selected_application'];
 
 	$query = select_student2($id);
 
@@ -165,6 +168,10 @@ require 'DMS_doctor_functionality.php';
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
+	
+	
+	$number_unique_questions=get_number_questions($application_id);
+	
 
 ?>
 <table width=100% table style>
@@ -331,9 +338,25 @@ require 'DMS_doctor_functionality.php';
 					<option value="review = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
 				</select></td>';
 			}
-
+			
 			echo "</tr>";
-
+			
+			
+			while ($number_unique_questions>0)
+			{	
+				$number_unique_questions-=1;
+				$question=question_unique_question($application_id, $number_unique_questions);
+				$answer=answer_unique_question($number_unique_questions, $application_id, $id);
+				echo "<tr>
+				<th>".$question."</th>
+				<td>".$answer."</td>
+				</tr>";
+				
+				
+				
+			}
+			
+ 
 		}
 
 		echo "<form action='DMS_doctor_AcceptApp.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
