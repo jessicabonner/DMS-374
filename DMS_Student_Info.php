@@ -22,10 +22,7 @@ require 'DMS_doctor_functionality.php';
 	}
 
 
-	/* if (new DateTime() > new DateTime("2017-11-29 16:00:00")) 
-	{
-		echo"this is working";
-	} */
+	
 
 ?>
 <!doctype html>

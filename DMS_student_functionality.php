@@ -40,6 +40,21 @@ function get_application_submit_time($user_id, $application_id)
 	return date('m-d-Y',strtotime($date));
 }
 
+function get_application_submit_time_not_formatted($user_id, $application_id)
+{
+	require 'DMS_db.php';
+	//select all the applications that are active
+	$sql="SELECT application_submit_time FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$review= $stmt->fetch();
+	
+	$date= $review['application_submit_time'];
+	
+	
+	return date('Y-m-d',strtotime($date));
+}
+
 
 function get_accepted($user_id, $application_id)
 {
@@ -57,6 +72,47 @@ function get_accepted($user_id, $application_id)
 	else
 	{
 		return "";
+	}
+}
+
+function get_accepted_offer($user_id, $application_id)
+{
+	require 'DMS_db.php';
+	//select all the applications that are active
+	$sql="SELECT student_accept_offer FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$review= $stmt->fetch();
+	
+	
+	if (isset($review['student_accept_offer']))
+	{
+		return "1";
+	}
+	else 
+	{
+		return "0";
+	}
+}
+
+
+function get_accepted_declined_offer($user_id, $application_id)
+{
+	
+	require 'DMS_db.php';
+	//select all the applications that are active
+	$sql="SELECT student_accept_offer FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$review= $stmt->fetch();
+	
+	if ($review['student_accept_offer']=="0")
+	{
+		return "0";
+	}
+	elseif ($review['student_accept_offer']=="1")
+	{
+		return "1";
 	}
 }
 

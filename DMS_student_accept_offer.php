@@ -9,12 +9,23 @@
 	$date= get_application_submit_time($user_id, $application_id);
 	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));	
 	
+	$current_date=date('m/d/Y');
 	
 	
-	if (new DateTime() > new DateTime($deadline)) 
+	if ($current_date > $deadline) 
 	{
-		echo"this is working";
+		
+		
+		
+		header("Location: DMS_offer_expired.php?user_id=$user_id&application_id=$application_id");
+		die();
 	}
+	
+	elseif(get_accepted_offer($user_id, $application_id)=="1")
+	{
+		header("Location: DMS_student_home.php?user_id=$user_id&message=1");
+		die();
+	} 
 
 ?>
 <!doctype html>

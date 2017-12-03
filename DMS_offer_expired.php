@@ -1,3 +1,14 @@
+<?php
+
+	require "DMS_student_functionality.php";
+	require "DMS_general_functions.php";
+
+	$user_id=$_GET['user_id'];
+	$application_id=$_GET['application_id'];
+	
+	?>
+
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -126,18 +137,20 @@
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
 
-
-<?php
-
-	if ($_GET['decision']=="accept")
-	{
-		echo "<p> Thank you for accepting your offer</p>";
-	}
-	elseif($_GET['decision']=="decline")
-	{
-		echo "<p>Declined offer</p>"
-	}
+<div class="w3-container" style="margin-top:40px" id="showcase">
+	<h1 class="w3-jumbo">
+		<b>Accept your offer </b>
+	</h1>
 
 
-
-?>
+	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<br>
+	<b><u>Your offer expired on
+		<?php 
+			$date= get_application_submit_time_not_formatted($user_id, $application_id);
+			
+			echo date('Y-m-d', strtotime($date. ' + 7 days'));	
+		?> </u></b>
+	<br>
+	<br>
+</div>
