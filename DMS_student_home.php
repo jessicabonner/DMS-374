@@ -2,6 +2,30 @@
 	$user_id = '30';
 	require "DMS_student_functionality.php";
 	require "DMS_general_functions.php";
+	
+	if (isset($_GET['message']))
+	{
+		if ($_GET['message']=="1")
+		{
+			echo '<script language="javascript">';
+			echo 'alert("You have already responded to this offer")';
+			echo '</script>';
+		}
+		elseif($_GET['message']=="2")
+		{
+			echo '<script language="javascript">';
+			echo 'alert("You have successfully accepted your offer")';
+			echo '</script>';
+		}
+		elseif($_GET['message']=="3")
+		{
+			echo '<script language="javascript">';
+			echo 'alert("You have successfully declined your offer")';
+			echo '</script>';
+		}
+
+
+	}
 ?>
 
 <!doctype html>
@@ -172,9 +196,24 @@
 					echo '<tr><td>'.get_program($row['program_id']).'</td>
 						<td>'.$row['term'].'</td>
 						<td>'.$row['year'].'</td>
-						<td>'.get_application_submit_time($user_id, $row['application_id']).'</td>
-						<td><a href="DMS_student_accept_offer.php?user_id='. $user_id .'&application_id='.$row['application_id'].'">'.get_accepted($user_id, $row['application_id']).'</a></td>
-						</tr>';
+						<td>'.get_application_submit_time($user_id, $row['application_id']).'</td>';
+						
+						if (get_accepted_declined_offer($user_id, $row['application_id'])=="0")
+						{
+							echo '<td>Offer Declined</td>
+							</tr>';
+						}
+						elseif(get_accepted_declined_offer($user_id, $row['application_id'])=="1")
+						{
+							echo '<td>Offer Accepted</td>
+							</tr>';
+						}
+						else
+						{
+							echo '<td><a href="DMS_student_accept_offer.php?user_id='. $user_id .'&application_id='.$row['application_id'].'">'.get_accepted($user_id, $row['application_id']).'</a></td>
+							</tr>';
+						}
+						
 		
 				}
 		

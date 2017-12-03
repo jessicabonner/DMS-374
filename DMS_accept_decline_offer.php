@@ -10,7 +10,8 @@
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		
-		echo "offer successfully accepted";
+		header("Location: DMS_student_home.php?user_id=$user_id&message=2");
+		die();
 	}
 	elseif (isset($_POST['decline']))
 	{
@@ -18,7 +19,8 @@
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		
-		echo "offer sccessfully declined";
+		header("Location: DMS_student_home.php?user_id=$user_id&message=3");
+		die();
 	}
 
 
