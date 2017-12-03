@@ -42,7 +42,7 @@ if ($_GET['action'] == 'Close') {
 		$stmt->execute();
 		$application = $stmt->fetch();
 		
-		$stmt = $dbc-> prepare('UPDATE applications SET archived="TRUE" WHERE application_id=:application_id');
+		$stmt = $dbc-> prepare('UPDATE applications SET archived="TRUE", application_closed="1" WHERE application_id=:application_id');
 		$stmt->execute(array('application_id' => $value));
 		
 		header('Location: DMS_View_All_Applications.php');

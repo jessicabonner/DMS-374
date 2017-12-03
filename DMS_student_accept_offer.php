@@ -1,15 +1,17 @@
 <?php
 
+
+
 	require "DMS_student_functionality.php";
 	require "DMS_general_functions.php";
 
 	$user_id=$_GET['user_id'];
 	$application_id=$_GET['application_id'];
 	
-	$date= get_application_submit_time($user_id, $application_id);
+	$date= get_application_accept_date_not_formatted($user_id, $application_id);
 	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));	
 	
-	$current_date=date('m/d/Y');
+	$current_date=date('Y-m-d');
 	
 	
 	if ($current_date > $deadline) 
@@ -167,8 +169,8 @@
 	<br>
 	<b><u>You have until 
 		<?php 
-			$date= get_application_submit_time($user_id, $application_id);
-			echo date('Y-m-d', strtotime($date. ' + 7 days'));	
+			echo date("m-d-Y", strtotime($deadline));
+			
 		?> 
 	to acccept your offer</u></b>
 	<br>

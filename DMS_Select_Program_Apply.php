@@ -24,7 +24,7 @@
 	
 	
 	//call function from DMS_general_functions to get a list of all applications
-	$applications=get_all_applications();
+	$applications=get_all_applications_open();
 	
 	//get the user id that was passed through the url
 	$user_id=$_GET['user_id'];

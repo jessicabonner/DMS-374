@@ -1,5 +1,6 @@
 <?php 
-	$user_id = '30';
+
+	$user_id = $_GET['user_id'];
 	require "DMS_student_functionality.php";
 	require "DMS_general_functions.php";
 	
@@ -196,7 +197,7 @@
 					echo '<tr><td>'.get_program($row['program_id']).'</td>
 						<td>'.$row['term'].'</td>
 						<td>'.$row['year'].'</td>
-						<td>'.get_application_submit_time($user_id, $row['application_id']).'</td>';
+						<td>'.get_application_submit_date($user_id, $row['application_id']).'</td>';
 						
 						if (get_accepted_declined_offer($user_id, $row['application_id'])=="0")
 						{

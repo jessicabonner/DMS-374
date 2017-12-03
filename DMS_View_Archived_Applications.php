@@ -375,7 +375,7 @@ if (!$query) {
 				<th>Term</th>
 				<th>Year</th>
 				<th>Applicants</th>
-				<th>Open?</th>
+				
 			</tr>
 		</thead>
 
@@ -388,14 +388,7 @@ if (!$query) {
 				$id = $row['application_id'];
 
 
-				if ($row['application_closed']==0)
-				{
-					$application_closed="Yes";
-				}
-				else{
-					$application_closed="No";
-				}
-
+				
 
 				$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
 				$stmt=$dbc->prepare($sql);
@@ -423,7 +416,7 @@ if (!$query) {
 						<td>'.$row['term'].'</td>
 						<td>'.$row['year'].'</td>
 						<td>'.$application['number_of_applicants'].'</td>
-						<td>'.$application_closed.'</td>
+						
 
 					</tr>';
 

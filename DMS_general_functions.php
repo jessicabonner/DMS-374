@@ -41,6 +41,19 @@
 		return $applications;
 	}
 	
+	//pulling a list of all applications from the database
+	function get_all_applications_open()
+	{	
+		require 'DMS_db.php';
+		
+		$sql="SELECT * FROM applications WHERE application_closed='0'";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$applications= $stmt->fetchAll();
+		
+		return $applications;
+	}
+	
 	//return a particular application's table name when given only the application_id
 	function get_application_table_name($application_id)
 	{

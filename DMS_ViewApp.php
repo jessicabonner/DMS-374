@@ -256,19 +256,15 @@ require 'DMS_general_functions.php';
 		echo "<th>Major</th>";
 		echo "<td>" . $row['major'] .  "</td>";
 		echo "</tr>";
-		// Check if the applicant has a Second Major
-		if ($row['major_2']=='')
-		{
-			$major_2="None";
-		}
-		// Display applicants's Second Major
+		
 		echo "<tr>";
 		echo "<th>Second Major</th>";
 
-		if (isset($major_2))
+		if (isset($row['major_2']))
 		{
-			echo "<td>$major_2</td>";}
+			echo "<td>".$row['major_2']."</td>";
 			echo "</tr>";
+		}
 			
 		
 		// Display applicants's GPA

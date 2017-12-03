@@ -289,7 +289,7 @@
 				<tr><td></td>
 					<td></td>
 					<td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
-						<input type='hidden' name='application_id' value=$id><br /></td></tr>
+						<input type='hidden' name='application_id' value=$application_id><br /></td></tr>
 				<tr>
 					<td></td>
 					<td></td>

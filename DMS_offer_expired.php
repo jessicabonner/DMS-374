@@ -147,9 +147,10 @@
 	<br>
 	<b><u>Your offer expired on
 		<?php 
-			$date= get_application_submit_time_not_formatted($user_id, $application_id);
+			$date= get_application_accept_date_not_formatted($user_id, $application_id);
 			
-			echo date('Y-m-d', strtotime($date. ' + 7 days'));	
+			$deadline=date('Y-m-d', strtotime($date. ' + 7 days'));	
+			echo date("m-d-Y", strtotime($deadline));
 		?> </u></b>
 	<br>
 	<br>

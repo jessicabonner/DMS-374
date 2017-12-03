@@ -25,7 +25,7 @@ function get_applications_student_applied_to($user_id)
 }
 
 
-function get_application_submit_time($user_id, $application_id)
+function get_application_submit_date($user_id, $application_id)
 {
 	require 'DMS_db.php';
 	//select all the applications that are active
@@ -40,16 +40,16 @@ function get_application_submit_time($user_id, $application_id)
 	return date('m-d-Y',strtotime($date));
 }
 
-function get_application_submit_time_not_formatted($user_id, $application_id)
+function get_application_accept_date_not_formatted($user_id, $application_id)
 {
 	require 'DMS_db.php';
 	//select all the applications that are active
-	$sql="SELECT application_submit_time FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$sql="SELECT application_accept_date FROM review WHERE user_id= $user_id AND application_id=$application_id";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$review= $stmt->fetch();
 	
-	$date= $review['application_submit_time'];
+	$date= $review['application_accept_date'];
 	
 	
 	return date('Y-m-d',strtotime($date));
