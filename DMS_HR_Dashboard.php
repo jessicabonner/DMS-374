@@ -366,9 +366,9 @@
 				<th>Hours Working</th>
 				<th>Hourly Rate</th>
 				<th>Biographical Data Form</th>
-				<th>I9</th>
-				<th>Background Check</th>
+				<th>I-9 Form</th>
 				<th>Seton Forms</th>
+				<th>Background Check</th>
 				
 			</tr>
 		</thead>
@@ -398,8 +398,9 @@
 				<td>'.$row['GPA'].'</td>
 				<td>'.$row['hours_working_week'].' hours</td>
 				<td>$'.$row['hourly_rate'].'/hr</td>
-				<td>'.$row['bio_data_form'].'</td>
-				<td>'.$row['i9'].'</td>';
+				<td><input type="checkbox" name="bio_data_form_list[]" value='.$id.' id='.$id.' ></td>
+				<td><input type="checkbox" name="i9_list[]" value='.$id.' id='.$id.'></td>
+				<td><input type="checkbox" name="seton_forms_list[]" value='.$id.' id='.$id.'></td>';
 				
 			//call function select_student from DMS_HR.php
 			//to pull the value of the background_check field in table student_info
@@ -408,7 +409,7 @@
 
 			if ($x['background_check']=="2") //if background_check = 2 (Fail) in the db, show the correct selected value
 			{
-				echo '<td><select name="application_background_check_list[]">
+				echo '<td><select name="background_check_list[]">
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Fail</option>
@@ -416,7 +417,7 @@
 			}
 			elseif ($x['background_check']=="1") //if background_check = 1 (Pass) in the db, show the correct selected value
 			{
-				echo'<td><select name="application_background_check_list[]">
+				echo'<td><select name="background_check_list[]">
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
@@ -424,18 +425,14 @@
 			}
 			else
 			{ //if background_check = 0 (N/A) in the db, show the correct selected value
-				echo '<td><select name="application_background_check_list[]">
+				echo '<td><select name="background_check_list[]">
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
 					</select></td>';
 			}
-
-			echo '	
-				<td>'.$row['seton_forms'].'</td>
-				</tr>';
-			}
-		?>
+		}
+?>
 		</tbody>
 	</table>
 				
