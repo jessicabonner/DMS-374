@@ -109,7 +109,7 @@
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
-        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+        <a href="DMS_Edit_Profile_Information.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
           </div>
               </li>
                 <li class="nav-item" role="menuitem">

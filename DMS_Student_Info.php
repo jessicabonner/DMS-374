@@ -125,12 +125,12 @@ require 'DMS_doctor_functionality.php';
         <nav>
         <ul class="nav" id="main-nav" role="menu">
         <li class="nav-item" role="menuitem">
-        	<a href="" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+        	<a href="DMS_student_home.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper">
             </div>
         </li>
         <li class="nav-item" role="menuitem">
-        	<a href="" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+        	<a href="DMS_Edit_Profile_Information.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
           	</div>
         </li>
         <li class="nav-item" role="menuitem">
