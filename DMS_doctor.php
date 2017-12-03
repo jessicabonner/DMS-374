@@ -1,5 +1,7 @@
 <?php
 
+	
+
 	//require file containing all doctor functions
 	require 'DMS_doctor_functionality.php';
 	require 'DMS_general_functions.php';
@@ -470,7 +472,9 @@
 				$id = $row['user_id'];
 				$working_for_dms = $row['working_for_dms'];
 				$review_array = array('1', '0');
-
+				
+				
+ 
 				
 
 				echo "<td> <a href='DMS_ViewApp.php?id= $id &selected_application=$selected_application_id'>" .$row['user_id'] . "</a> </td>";

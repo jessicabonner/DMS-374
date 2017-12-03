@@ -279,7 +279,8 @@
 			OR email LIKE '%$search_criteria%'
 			OR degree_type LIKE '%$search_criteria%'
 			OR major LIKE '%$search_criteria%'
-			OR major_2 LIKE '%$search_criteria%')";
+			OR major_2 LIKE '%$search_criteria%'
+			OR bilingual LIKE '%$search_criteria%')";
 
 
 		$query= $dbc->query($sql);;
