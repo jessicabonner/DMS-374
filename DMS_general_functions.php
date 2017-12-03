@@ -55,4 +55,21 @@
 		return $name_of_table;
 	}
 	
+	function get_program_from_app_id($application_id)
+	{
+		require 'DMS_db.php';
+		
+		$sql="SELECT program_id FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+		$program_id=$application['program_id'];
+		
+		$sql="SELECT name_of_program FROM programs WHERE program_id=$program_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$program= $stmt->fetch();
+		return $program['name_of_program'];
+	}
+	
 ?>

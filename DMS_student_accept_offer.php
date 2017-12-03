@@ -1,25 +1,38 @@
-<?php 
-	$user_id = '30';
+<?php
+
 	require "DMS_student_functionality.php";
 	require "DMS_general_functions.php";
-?>
 
+	$user_id=$_GET['user_id'];
+	$application_id=$_GET['application_id'];
+	
+	$date= get_application_submit_time($user_id, $application_id);
+	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));	
+	
+	
+	
+	if (new DateTime() > new DateTime($deadline)) 
+	{
+		echo"this is working";
+	}
+
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
+	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
-	<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
-	<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
-	<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
-	<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
-	<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
-	<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
-	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-	<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
+<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
+<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
+<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
 <meta name="msapplication-TileColor" content="#bf5700" />
 <link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-120x120.png" />
 <link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-76x76.png" />
@@ -38,8 +51,6 @@
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
-<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
-<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
 <style type="text/css" media="all">
 /*--><![CDATA[/*><!--*/
 #main-nav li a{font-family:open_sans;}
@@ -86,10 +97,12 @@
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
                 </h2>
                               </div>
+
               <div class="hide-for-large-up">
                 <div class="parent-links" id="parents">
                   <a href="http://www.utexas.edu">The University of Texas at Austin</a>
                                   </div>
+
                                   <a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
                               </div>
                       <br>
@@ -98,86 +111,86 @@
             </div>
           </div>
         </div>
-      </div>
-<!-- container-topnav -->
-		<div class="container container-nav container-nav-phase2">
+      </div> <!-- container-topnav -->
+
+      <div class="container container-nav container-nav-phase2">
         <div class="row">
-        <div class="column small-12">
-        <nav>
-        <ul class="nav" id="main-nav" role="menu">
-        <li class="nav-item" role="menuitem">
-        	<a href="DMS_student_home.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
-			<div class="sub-nav-wrapper">
+          <div class="column small-12">
+            <nav>
+              <ul class="nav" id="main-nav" role="menu">
+            <li class="nav-item" role="menuitem">
+        <a href="DMS_student_home.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+        <a href="DMS_Edit_Profile_Information.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+        <a href="DMS_Student_Info.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
             </div>
-        </li>
-        <li class="nav-item" role="menuitem">
-        	<a href="DMS_Edit_Profile_Information.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
-          	</div>
-        </li>
-        <li class="nav-item" role="menuitem">
-        	<a href="DMS_Student_Info.php?user_id=<?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
-          	</div>
-        </li>
-        <li class="nav-item" role="menuitem">
-            </div>
-            </div>
-        </li>
-        </ul>
-        </nav>
+          </div>
+              </li>
+                  </ul>
+            </nav>
+          </div>
         </div>
-        </div>
-  		</div> <!-- container-nav-phase2 -->
-    	</div> <!-- nav-wrapper -->
+      </div> <!-- container-nav-phase2 -->
 
-		<!-- !PAGE CONTENT! -->
-		<div class="w3-main" style="margin-left:40px;margin-right:450px">
+    </div> <!-- nav-wrapper -->
 
-  		<!-- Header -->
-		<div class="w3-container" style="margin-top:40px" id="showcase">
-			<h1 class="w3-jumbo">
-				<b>Welcome!</b>
-			</h1>
-		<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
-		
-		
-		<br>
-			<b>You have applied to the following programs. If you would like to apply to another program, click the "New Application" tab on the navigation bar.
-			</b>
-		<br>
-		</div>
-		
-		
-		
-		<table class="data-table">
-			<caption class="title">Programs</caption>
-			<thead>
-				<tr>
-					
-					<th>Program</th>
-					<th>Term</th>
-					<th>Year</th>
-					<th>Application Submit Date</th>
-					<th>Status</th>
-				</tr>
-			</thead>
-			
-			
-		<?php
-		
-			$application_array=get_applications_student_applied_to($user_id);
-			
-			foreach($application_array as $row)
-				{
-					//call function get_program from DMS_general_functions to get the program name
-					echo '<tr><td>'.get_program($row['program_id']).'</td>
-						<td>'.$row['term'].'</td>
-						<td>'.$row['year'].'</td>
-						<td>'.get_application_submit_time($user_id, $row['application_id']).'</td>
-						<td><a href="DMS_student_accept_offer.php?user_id='. $user_id .'&application_id='.$row['application_id'].'">'.get_accepted($user_id, $row['application_id']).'</a></td>
-						</tr>';
-		
-				}
-		
-		?>
-		
-		</table>
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:40px;margin-right:450px">
+
+  <!-- Header -->
+<div class="w3-container" style="margin-top:40px" id="showcase">
+	<h1 class="w3-jumbo">
+		<b>Accept your offer </b>
+	</h1>
+
+
+	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<br>
+	<b><u>You have until 
+		<?php 
+			$date= get_application_submit_time($user_id, $application_id);
+			echo date('Y-m-d', strtotime($date. ' + 7 days'));	
+		?> 
+	to acccept your offer</u></b>
+	<br>
+	<br>
+</div>
+
+<div class="w3-container" id="application" style="margin-top:10px">
+
+<body>
+<p>You are being offered an internship position with the <?php echo get_program_from_app_id($application_id) ?> program. 
+This is/is not a paid position. Please accept of decline your offer below.</p>
+
+
+<form name="DMS_accept_decline_offer.php" action="DMS_accept_decline_offer.php" method="post">
+	<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
+	<input type="hidden" name="application_id" value="<?php echo $application_id?>"/>
+	
+	<input type="submit" name="accept" value="Accept" onclick="return confirm('Are you sure you want to ACCEPT this offer?')">
+	<input type="submit" name="decline" value="Decline" onclick="return confirm('Are you sure you want to DECLINE this offer?')">
+</form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
