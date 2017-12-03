@@ -5,7 +5,9 @@
 	if (isset($_POST['save'])) 
 	{	
 		//Set all checkboxes to 0 (unchecked)
-		$sql2 = "UPDATE student_info SET bio_data_form = '0', i9 = '0', seton_forms = '0'";
+		$sql = "UPDATE student_info SET bio_data_form = '0', i9 = '0', seton_forms = '0'";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
 		
 	    # Save Changes-button was clicked
 		$background_check= $_POST['background_check_list'];
@@ -29,7 +31,7 @@
 		}	
 
 		
-		if(!empty($_POST['bio_data_form']))
+		if(!empty($_POST['bio_data_form_list']))
 		{
 			foreach($bio_data_form as $value)
 			{
@@ -42,7 +44,7 @@
 			}	
 		}
 		
-		if(!empty($_POST['i9']))
+		if(!empty($_POST['i9_list']))
 		{
 			foreach($i9 as $value)
 			{
@@ -54,7 +56,7 @@
 			}
 		}
 		
-		if(!empty($_POST['seton_forms']))
+		if(!empty($_POST['seton_forms_list']))
 		{
 			foreach($seton_forms as $value)
 			{
