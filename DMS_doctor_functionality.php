@@ -221,6 +221,21 @@
 		echo "Displaying students where $filter_criteria_sql";
 		return $query;
 	}
+	
+	//return query based on the filter the user specified IF GPA INCLUDED
+	function filter_with_both_gpa($filter_criteria, $and_or, $GPA_greater, $GPA_less, $selected_application_id)
+	{
+		require 'DMS_db.php';
+		// filter applicants with gpa
+		$filter_criteria_sql=implode($and_or,$filter_criteria);
+		$filter_criteria_sql=$filter_criteria_sql." ".$and_or." GPA > ".$GPA_greater." ".$and_or." GPA < ".$GPA_less;
+		$name_of_table=get_application_table_name($selected_application_id);
+		$applicant_id_array= get_id_array($name_of_table);
+		$sql="SELECT * FROM student_info WHERE ( $filter_criteria_sql) AND user_id IN ($applicant_id_array)";
+		$query= $dbc->query($sql);;
+		echo "Displaying students where $filter_criteria_sql";
+		return $query;
+	}
 
 	//return query based on filter given when filter only includes gpa
 	function filter_only_gpa($GPA, $greater_less, $selected_application_id)
@@ -240,6 +255,25 @@
 		echo "Displaying students with GPA".$greater_less.$GPA;
 		return $query;
 	}
+	
+	function filter_both_gpa($GPA_greater,$GPA_less,$selected_application_id,$and_or)
+	{
+		require 'DMS_db.php';
+		// filter applicants by gpa greater and gpa less
+		$filter_criteria_sql="GPA >".$GPA_greater." ".$and_or." GPA <".$GPA_less;
+		
+
+		$name_of_table=get_application_table_name($selected_application_id);
+		$applicant_id_array= get_id_array($name_of_table);
+
+		$sql="SELECT * FROM student_info WHERE ($filter_criteria_sql) AND user_id IN ($applicant_id_array)";
+
+		$query= $dbc->query($sql);;
+
+		echo "Displaying students with GPA < ".$GPA_less." <b>$and_or</b> GPA > ".$GPA_greater;
+		return $query;
+	}
+	
 	
 	//return query based on how user specified they want applicants to be sorted
 	function doctor_sort($sort_criteria, $selected_application_id)
