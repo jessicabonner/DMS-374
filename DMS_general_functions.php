@@ -55,5 +55,4 @@
 		return $name_of_table;
 	}
 	
-	
 ?>

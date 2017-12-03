@@ -251,11 +251,16 @@ echo "<td>" . $row['classification'] .  "</td>";
 echo "</tr>";
 
 echo "<tr>";
+echo "<th>Student Type</th>";
+echo "<td>" . $row['student_type'] .  "</td>";
+echo "</tr>";
+
+echo "<tr>";
 echo "<th>Degree Type</th>";
 echo "<td>" . $row['degree_type'] .  "</td>";
 echo "</tr>";
 
-echo "<tr>";
+/*echo "<tr>";
 echo "<th>Major</th>";
 echo "<td>" . $row['major'] .  "</td>";
 echo "</tr>";
@@ -270,6 +275,12 @@ echo "<th>Second Major</th>";
 //echo "<td>" . $row['major_2'] .  "</td>";
 if (isset($major_2)){
 echo "<td>$major_2</td>";}
+echo "</tr>";
+*/
+
+echo "<tr>";
+echo "<th>Credit Hours Enrollment</th>";
+echo "<td>" . $row['credit_hours'] .  " credit hours</td>";
 echo "</tr>";
 
 if ($row['worked_at_dms']==0)
@@ -315,8 +326,13 @@ echo "<td>$car</td>";
 echo "</tr>";
 
 echo "<tr>";
-echo "<th>Credit Hours Enrollment</th>";
-echo "<td>" . $row['credit_hours'] .  " credit hours</td>";
+echo "<th>Hours Working</th>";
+echo "<td>" . $row['hours_working_week'] .  " hours/week</td>";
+echo "</tr>";
+
+echo "<tr>";
+echo "<th>Hourly Rate</th>";
+echo "<td>$" . $row['hourly_rate'] .  "/hour</td>";
 echo "</tr>";
 
 /* echo "<tr>";

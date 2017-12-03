@@ -79,13 +79,21 @@ function search($search_criteria)
 
 function view_all(){
 	require 'DMS_db.php';
+	
 	$sql="SELECT * FROM student_info WHERE working_for_dms='1'";
 	$query= $dbc->query($sql);;
 	return $query;
 }
 
-	/* if (!$query)
+	function select_student($user_id)
 	{
-		die ('SQL Error: ' . mysqli_error($dbc));
-	} */
+		require 'DMS_db.php';
+		
+		$sql="SELECT * FROM student_info WHERE user_id=$user_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$student= $stmt->fetch();
+		
+		return $student;
+	}
 ?>

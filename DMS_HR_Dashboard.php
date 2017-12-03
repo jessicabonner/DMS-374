@@ -345,25 +345,30 @@
 	}
 	?>
 
+	<form action='DMS_HR_background_check.php' method='post'>
+	
 	<!--Displays all of the students who have been accepted, unless given specific criteria -->
 	<table class="data-table">
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
 			<tr>
 				<th>ID</th>
+				<th>Position ID</th>
 				<th>First Name</th>
 				<th>Middle Name</th>
 				<th>Last Name</th>
-				<th>Address</th>
-				<th>City</th>
-				<th>State</th>
-				<th>Zip</th>
 				<th>EID</th>
 				<th>Email</th>
 				<th>Classification</th>
-				<th>Major</th>
-				<th>2nd Major</th>
+				<th>Student Type</th>
+				<th>Credit Hours</th>
 				<th>GPA</th>
+				<th>Hours Working</th>
+				<th>Hourly Rate</th>
+				<th>Biographical Data Form</th>
+				<th>I9</th>
+				<th>Background Check</th>
+				<th>Seton Forms</th>
 				
 			</tr>
 		</thead>
@@ -381,23 +386,63 @@
 			//display all student info in the table
 			echo "<td> <a href='DMS_HR_View_Student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
 			echo '
+				<td>Blank</td>
 				<td>'.$row['first_name'].'</td>
 				<td>'.$row['middle_name'].'</td>
 				<td>'.$row['last_name'].'</td>
-				<td>'.$row['address'].'</td>
-				<td>'.$row['city'].'</td>
-				<td>'.$row['state'].'</td>
-				<td>'.$row['zip_code'].'</td>
 				<td>'.$row['EID'].'</td>
 				<td>'.$row['email'].'</td>
 				<td>'.$row['classification'].'</td>
-				<td>'.$row['major'].'</td>
-				<td>'.$row['major_2'].'</td>
+				<td>'.$row['student_type'].'</td>
+				<td>'.$row['credit_hours'].'</td>
 				<td>'.$row['GPA'].'</td>
+				<td>'.$row['hours_working_week'].' hours</td>
+				<td>$'.$row['hourly_rate'].'/hr</td>
+				<td>'.$row['bio_data_form'].'</td>
+				<td>'.$row['i9'].'</td>';
+				
+			//call function select_student from DMS_HR.php
+			//to pull the value of the background_check field in table student_info
+			$x = select_student($id);
+			
+
+			if ($x['background_check']=="2") //if background_check = 2 (Fail) in the db, show the correct selected value
+			{
+				echo '<td><select name="application_background_check_list[]">
+					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
+					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Fail</option>
+					</select></td>';
+			}
+			elseif ($x['background_check']=="1") //if background_check = 1 (Pass) in the db, show the correct selected value
+			{
+				echo'<td><select name="application_background_check_list[]">
+					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
+					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Pass</option>
+					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
+					</select></td>';
+			}
+			else
+			{ //if background_check = 0 (N/A) in the db, show the correct selected value
+				echo '<td><select name="application_background_check_list[]">
+					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
+					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
+					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
+					</select></td>';
+			}
+
+			echo '	
+				<td>'.$row['seton_forms'].'</td>
 				</tr>';
 			}
 		?>
 		</tbody>
 	</table>
+				
+		<tr><td><br></td>
+				<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+		<tr>
+			
+		</form>
 </body>
 </html>

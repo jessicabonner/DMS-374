@@ -496,7 +496,8 @@
 								</select></td>';
 						}
 
-							echo ' 	<td>'.$row['EID'].'</td>
+							echo ' 	
+								<td>'.$row['EID'].'</td>
 								<td>'.$row['GPA'].'</td>
 								<td>'.$row['email'].'</td>
 								<td>'.$row['classification'].'</td>
