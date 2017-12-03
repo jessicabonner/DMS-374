@@ -378,7 +378,7 @@ require 'DMS_doctor_functionality.php';
 				<td>How many credit hours do you expect to be enrolled in during the semester for this position?</td>
 			</tr>
 			<tr>
-				<td><input type="text" placeholder="ex: 15" name="credit_hours" size="20" maxlength="2" required pattern="^[0-20]*$"/></td>
+				<td><input type="text" placeholder="ex: 15" name="credit_hours" size="20" maxlength="2" required pattern="^([0-1]?[0-9]|25)$"/></td>
 			</tr>
 			<!--Radio buttons for if they have worked at dell med school before-->
 			<tr>
