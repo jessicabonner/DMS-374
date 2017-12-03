@@ -203,7 +203,7 @@
 		$applicant_id_array= get_id_array($name_of_table);
 		$sql="SELECT * FROM student_info WHERE ($filter_criteria_sql) AND user_id IN ($applicant_id_array)";
 		$query= $dbc->query($sql);;
-		echo "Displaying students where $filter_criteria_sql";
+		//echo "Displaying students where $filter_criteria_sql";
 		return $query;
 	}
 
@@ -218,7 +218,7 @@
 		$applicant_id_array= get_id_array($name_of_table);
 		$sql="SELECT * FROM student_info WHERE ( $filter_criteria_sql) AND user_id IN ($applicant_id_array)";
 		$query= $dbc->query($sql);;
-		echo "Displaying students where $filter_criteria_sql";
+		//echo "Displaying students where $filter_criteria_sql";
 		return $query;
 	}
 	
@@ -233,7 +233,7 @@
 		$applicant_id_array= get_id_array($name_of_table);
 		$sql="SELECT * FROM student_info WHERE ( $filter_criteria_sql) AND user_id IN ($applicant_id_array)";
 		$query= $dbc->query($sql);;
-		echo "Displaying students where $filter_criteria_sql";
+		//echo "Displaying students where $filter_criteria_sql";
 		return $query;
 	}
 
@@ -252,7 +252,7 @@
 
 		$query= $dbc->query($sql);;
 
-		echo "Displaying students with GPA".$greater_less.$GPA;
+		//echo "Displaying students with GPA".$greater_less.$GPA;
 		return $query;
 	}
 	
@@ -270,7 +270,7 @@
 
 		$query= $dbc->query($sql);;
 
-		echo "Displaying students with GPA < ".$GPA_less." <b>$and_or</b> GPA > ".$GPA_greater;
+		//echo "Displaying students with GPA < ".$GPA_less." <b>$and_or</b> GPA > ".$GPA_greater;
 		return $query;
 	}
 	
@@ -319,7 +319,7 @@
 
 		$query= $dbc->query($sql);;
 
-		echo "Displaying students containing '$search_criteria'";
+		//echo "Displaying students containing '$search_criteria'";
 		return $query;
 	if (!$query) {
 		die ('SQL Error: ' . mysqli_error($dbc));

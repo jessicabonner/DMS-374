@@ -167,6 +167,8 @@
 	<br>
 	<b>Please select which program you would like to apply to. </b>
 	<br>
+	<br>
+	<small>**Be aware that applying to too many programs does not reflect well on a student. Choose the programs you apply to wisely.</small>
 	</div>
 	<div class="w3-container" id="application" style="margin-top:10px">
 	<body>

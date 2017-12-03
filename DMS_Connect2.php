@@ -1,4 +1,5 @@
 <?php
+try{
 //THIS FILE PULLS TAKES THE DATA SUBMITTED THROUGH DMS_Student_Info.php AND ADDS IT TO THE student_info TABLE ON THE DATABASE
 //THIS RECORD WILL BE LINKED TO THE USERS PROFILE 
 
@@ -68,6 +69,12 @@
 	//direct to page to let student select which program to apply to
 	header('Location: DMS_Select_Program_Apply.php?user_id='.$user_id);
 	die();
+}
+
+catch (Exception $e)
+{
+	echo "there was an error". $e;
+}
 
 
 ?>
