@@ -380,6 +380,43 @@
 
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
+			$bio_data_form = $row['bio_data_form'];
+			if($bio_data_form == 1)
+			{
+				$checked_bio = 1;
+				$check_bio = 'checked=';
+			}
+			else
+			{
+				$checked_bio = 0;
+				$check_bio = '';
+			}
+			
+			$i9 = $row['i9'];
+			if($i9 == 1)
+			{
+				$checked_i9 = 1;
+				$check_i9 = 'checked=';
+			}
+			else
+			{
+				$checked_i9 = 0;
+				$check_i9 = '';
+			}
+			
+			$seton_forms = $row['seton_forms'];
+			if($seton_forms == 1)
+			{
+				$checked_seton = 1;
+				$check_seton= 'checked=';
+			}
+			else
+			{
+				$checked_seton = 0;
+				$check_seton = '';
+			}
+			
+			
 			$id = $row['user_id'];
 
 
@@ -398,9 +435,9 @@
 				<td>'.$row['GPA'].'</td>
 				<td>'.$row['hours_working_week'].' hours</td>
 				<td>$'.$row['hourly_rate'].'/hr</td>
-				<td><input type="checkbox" name="bio_data_form_list[]" value='.$id.' id='.$id.' ></td>
-				<td><input type="checkbox" name="i9_list[]" value='.$id.' id='.$id.'></td>
-				<td><input type="checkbox" name="seton_forms_list[]" value='.$id.' id='.$id.'></td>';
+				<td><input type="checkbox" name="bio_data_form_list[]" value='.$id.' id='.$id.' <?php if ($checked_bio == 1) { echo '.$check_bio.'; } ?></td>
+				<td><input type="checkbox" name="i9_list[]" value='.$id.' id='.$id.' <?php if ($checked_i9 == 1) { echo '.$check_i9.'; } ?></td>
+				<td><input type="checkbox" name="seton_forms_list[]" value='.$id.' id='.$id.' <?php if ($checked_seton == 1) { echo '.$check_seton.'; } ?></td>';
 				
 			//call function select_student from DMS_HR.php
 			//to pull the value of the background_check field in table student_info
