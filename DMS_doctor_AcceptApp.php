@@ -17,7 +17,7 @@
 		$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
 
 		//check if student is already accepted in the database
-		$stmt = $dbc->query("SELECT * FROM review WHERE application_id=". $_POST['application_id']." AND user_id=".$user_id);
+		$stmt = $dbc->query("SELECT * FROM review WHERE accepted_by_dms='1' AND application_id=". $_POST['application_id']." AND user_id=".$user_id);
 		$x = $stmt->fetch();
 		
 		//if the student is already accepted, redirect back to the DMS_doctor.php page along with an indication that there was an error

@@ -169,11 +169,15 @@
 			foreach($application_array as $row)
 				{
 					//call function get_program from DMS_general_functions to get the program name
-					echo '<td>'.get_program($row['program_id']).'</td>
+					echo '<tr><td>'.get_program($row['program_id']).'</td>
 						<td>'.$row['term'].'</td>
 						<td>'.$row['year'].'</td>
-						<td>'.get_application_submit_time($user_id, $row['application_id']).'</td>';
+						<td>'.get_application_submit_time($user_id, $row['application_id']).'</td>
+						<td>'.get_accepted($user_id, $row['application_id']).'</td>
+						</tr>';
 		
 				}
 		
 		?>
+		
+		</table>

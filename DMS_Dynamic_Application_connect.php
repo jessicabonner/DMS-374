@@ -75,7 +75,7 @@
 	$stmt = $dbc-> prepare('INSERT INTO review (user_id, application_id) VALUES (:user_id, :application_id)');
 	$stmt->execute(array('user_id' => $user_id, 'application_id' => $application_id));
 
-	echo "Thanks for applying! :)";
-
+	header("Location: DMS_student_home.php?user_id=$user_id");
+	die();
 
 ?>

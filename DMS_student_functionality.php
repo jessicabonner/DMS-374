@@ -41,6 +41,26 @@ function get_application_submit_time($user_id, $application_id)
 }
 
 
+function get_accepted($user_id, $application_id)
+{
+	require 'DMS_db.php';
+	//select all the applications that are active
+	$sql="SELECT accepted_by_dms FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$review= $stmt->fetch();
+	
+	if ($review['accepted_by_dms'] == '1')
+	{
+		return "Accepted";
+	}
+	else
+	{
+		return "";
+	}
+}
+
+
 
 
 
