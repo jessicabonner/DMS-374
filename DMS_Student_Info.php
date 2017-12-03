@@ -368,7 +368,7 @@ require 'DMS_doctor_functionality.php';
 			</tr>
 			<!--text box for student's GPA-->
 			<tr>
-				<td>What is your GPA?</td>
+				<td>What is your GPA? (Round to two decimal places)</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="GPA" size="20" required pattern="^[0]|[0-3]\.(\d\d)|[4].[0][0]?$"/></td>
