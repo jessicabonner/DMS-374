@@ -150,7 +150,9 @@
 </div>
 </html>
 
-<form action='DMS_doctor_AcceptApp.php' method='POST'>
+
+   
+
 
 <?php
 require 'DMS_doctor_functionality.php';
@@ -171,6 +173,12 @@ require 'DMS_general_functions.php';
 	
 	
 	$number_unique_questions=get_number_questions($application_id);
+	
+	//TODO add if user is supervisor, redirect to potential_student_list
+	echo "<form action='DMS_doctor.php' method='get'>
+		 <input type='submit' value='Return to list' />
+		 <input type='hidden' name=select_application value=$application_id>
+		</form>"
 	
 
 ?>

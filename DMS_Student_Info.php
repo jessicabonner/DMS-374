@@ -370,7 +370,7 @@ require 'DMS_doctor_functionality.php';
 				<td>What is your GPA?</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="GPA" size="20" required pattern="^[0]|[0-3]\.(\d?\d?)|[4].[0]$"/></td>
+				<td><input type="text" name="GPA" size="20" required pattern="^[0]|[0-3]\.(\d\d)|[4].[0][0]?$"/></td>
 			</tr>
 			<!--text box for how many credit hours they plan to be enrolled in-->
 			<tr>
@@ -433,7 +433,7 @@ require 'DMS_doctor_functionality.php';
 			</tr>
 			<!--text box for other programs student has applied for-->
 			<tr>
-				<td>Specify which DMS Programs you have already applied to: (Enter N/A if this doens't apply) </td>
+				<td>Specify which DMS Programs you have already applied to: (Enter N/A if this doesn't apply) </td>
 			</tr>
 			<tr>
 				<td><input type="text" name="other_programs" size="20" maxlength="10" required/></td>
