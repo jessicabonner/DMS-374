@@ -426,7 +426,7 @@ require 'DMS_doctor_functionality.php';
 				<td>Specify which language(s) you are fluent in: </td>
 			</tr>
 			<tr>
-				<td><input type="text" name="bilingual" size="20" maxlength="10" required/></td>
+				<td><input type="text" name="bilingual" size="20" maxlength="100" required/></td>
 			</tr>
 			<!--text box for how many semesters they plan to commit-->
 			<tr>
