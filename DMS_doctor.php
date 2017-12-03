@@ -483,6 +483,8 @@
 			//Use the query to get each record and display the applicant's student info in a table
 			while ($row=$query->fetch(PDO::FETCH_ASSOC))
 			{
+				
+				
 				$id = $row['user_id'];
 				$working_for_dms = $row['working_for_dms'];
 				$review_array = array('1', '0');

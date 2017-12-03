@@ -1,3 +1,8 @@
+<?php
+	$user_id=$_GET['user_id'];
+?>
+
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -100,7 +105,7 @@
             <nav>
               <ul class="nav" id="main-nav" role="menu">
             <li class="nav-item" role="menuitem">
-        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
+        <a href="DMS_student_home.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
           </div>
               </li>
                 <li class="nav-item" role="menuitem">
@@ -129,7 +134,7 @@
   <!-- Header -->
 <div class="w3-container" style="margin-top:40px" id="showcase">
 	<h1 class="w3-jumbo">
-		<b>Confirmation</b>
+		<b>Confirm</b>
 	</h1>
 
 
@@ -197,7 +202,7 @@
 	$semester_commitment=$row['semester_commitment'];
 	$other_programs=$row['other_programs'];
 
-		echo "Please confirm your profile information<br></br>";
+		echo "Before you apply, please confirm your profile information<br></br>";
 
 		echo "<tr><td><b>First Name</b></td> <td>$first_name</td></tr><br>";
 		echo "<tr><td><b>Middle Name</b></td> <td>$middle_name</td></tr><br>";
