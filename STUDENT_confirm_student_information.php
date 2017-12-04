@@ -138,7 +138,7 @@
 	</h1>
 
 
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 </div>
 
 <?php

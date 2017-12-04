@@ -146,7 +146,7 @@
 	</h1>
 
 
-	<hr style="min-width:100%;border:5px solid #BF5700" class="w3-round">
+	<hr style="min-width:100%;border:5px solid #BF5700" align="left" class="w3-round">
 	<br>
 	<b> </b>
 	<br>
@@ -165,7 +165,7 @@ require 'DMS_db.php';
 	$result = "SELECT * FROM applications WHERE application_id = '$id'";
 	$query= $dbc->query($result);
 
-	if (!$query) 
+	if (!$query)
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
@@ -205,7 +205,7 @@ require 'DMS_general_functions.php';
 		$query_program = $dbc->query($sql);
 
 		while ($row=$query_program->fetch(PDO::FETCH_ASSOC))
-		{	
+		{
 			$program_id = $row['program_id'];
 		}
 

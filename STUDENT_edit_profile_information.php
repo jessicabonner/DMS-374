@@ -153,7 +153,7 @@
 	</h1>
 
 
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 	<br>
 	<b>Edit any information you would like to link to all applications.</b>
 	<br>
@@ -374,13 +374,13 @@
 			<tr>
 				<td><input type="radio" name="car" value="0" <?php if($row['car'] == 0) echo 'checked="checked"'?>>No<br></td>
 			</tr>
-			
+
 			Language(s)
             <input type="text" name="bilingual" value="<?php echo $row ['bilingual']; ?> " size=10>
 
 			Semester Commitment
             <input type="text" name="semester_commitment" value="<?php echo $row ['semester_commitment']; ?> " size=10>
-			
+
 			DMS Program(s) already applied to
 			<input type="text" name"other_programs" value= "<?php echo $row ['other_programs']; ?> " size=10>>
 

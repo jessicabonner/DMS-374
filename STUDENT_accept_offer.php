@@ -7,27 +7,27 @@
 
 	$user_id=$_GET['user_id'];
 	$application_id=$_GET['application_id'];
-	
+
 	$date= get_application_accept_date_not_formatted($user_id, $application_id);
-	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));	
-	
+	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));
+
 	$current_date=date('Y-m-d');
-	
-	
-	if ($current_date > $deadline) 
+
+
+	if ($current_date > $deadline)
 	{
-		
-		
-		
+
+
+
 		header("Location: STUDENT_offer_expired.php?user_id=$user_id&application_id=$application_id");
 		die();
 	}
-	
+
 	elseif(get_accepted_offer($user_id, $application_id)=="1")
 	{
 		header("Location: STUDENT_dashboard.php?user_id=$user_id&message=1");
 		die();
-	} 
+	}
 
 ?>
 <!doctype html>
@@ -165,13 +165,13 @@
 	</h1>
 
 
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 	<br>
-	<b><u>You have until 
-		<?php 
+	<b><u>You have until
+		<?php
 			echo date("m-d-Y", strtotime($deadline));
-			
-		?> 
+
+		?>
 	to acccept your offer</u></b>
 	<br>
 	<br>
@@ -180,30 +180,14 @@
 <div class="w3-container" id="application" style="margin-top:10px">
 
 <body>
-<p>You are being offered an internship position with the <?php echo get_program_from_app_id($application_id) ?> program. 
+<p>You are being offered an internship position with the <?php echo get_program_from_app_id($application_id) ?> program.
 This is/is not a paid position. Please accept of decline your offer below.</p>
 
 
 <form name="STUDENT_accept_decline_offer.php" action="STUDENT_accept_decline_offer.php" method="post">
 	<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
 	<input type="hidden" name="application_id" value="<?php echo $application_id?>"/>
-	
+
 	<input type="submit" name="accept" value="Accept" onclick="return confirm('Are you sure you want to ACCEPT this offer?')">
 	<input type="submit" name="decline" value="Decline" onclick="return confirm('Are you sure you want to DECLINE this offer?')">
 </form>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

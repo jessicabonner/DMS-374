@@ -1,6 +1,6 @@
 <?php
-	require "DMS_general_functions.php"; 
-	
+	require "DMS_general_functions.php";
+
 	//if an error is passed on redirect, display error message
 	if (isset($_GET['error']))
 	{
@@ -11,7 +11,7 @@
 			echo 'alert("You have already applied to this program")';
 			echo '</script>';
 		}
-		
+
 		//error message if user is trying to resubmit their student info page and is redirected to the STUDENT_select_program_apply.php
 		elseif($_GET['error']=="0")
 		{
@@ -21,11 +21,11 @@
 
 		}
 	}
-	
-	
+
+
 	//call function from DMS_general_functions to get a list of all applications
 	$applications=get_all_applications_open();
-	
+
 	//get the user id that was passed through the url
 	$user_id=$_GET['user_id'];
 
@@ -163,7 +163,7 @@
 	<h1 class="w3-jumbo">
 		<b>Dell Medical Undergraduate Programs</b>
 	</h1>
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 	<br>
 	<b>Please select which program you would like to apply to. </b>
 	<br>
