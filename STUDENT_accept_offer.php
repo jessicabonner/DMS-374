@@ -11,22 +11,24 @@
 	$application_id=$_GET['application_id'];
 
 	$date= get_application_accept_date_not_formatted($user_id, $application_id);
-<<<<<<< HEAD
+
 	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));	
 	
 	/* $current_date = date('m/d/Y h:i:s a', time());
 	echo $current_date; */
 	
+	$current_date=date('Y-m-d');
+	
 	
 	if ($current_date > $deadline) 
-=======
+
 	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));
 
 	$current_date=date('Y-m-d');
 
 
 	if ($current_date > $deadline)
->>>>>>> 8ca3f056c34223a64b1cb695db78f74641c0b3a5
+
 	{
 
 
