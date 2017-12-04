@@ -175,7 +175,7 @@
 						<b>Welcome to the Admin Dashboard</b>
 					</h1>
 
-					<hr style="width:100%;border:5px solid #BF5700" class="w3-round">
+					<hr style="width:100%;border:5px solid #BF5700" align="left" class="w3-round">
 				</div>
 
 
@@ -203,18 +203,18 @@
 
 					<?php
 						$query=get_application_info();
-	
+
 						require 'DMS_db.php';
 
 						//if the query fails show an error
-						if (!$query) 
+						if (!$query)
 						{
 							//TODO
 							die ('SQL Error: ' . mysqli_error($dbc));
-							
+
 							//die("There was an error");
 						}
-		
+
 						while ($row=$query->fetch(PDO::FETCH_ASSOC))
 						{
 							$id = $row['application_id'];
@@ -225,9 +225,9 @@
 							$name_of_table= $id."_".str_replace(' ', '_', $name_of_program)."_".$row['term']."_".$row['year'];
 
 							//get a count of all applicants in the table
-			
+
 							$application=count_applicants($name_of_table);
-							
+
 							//Display application info
 							echo "<td> <a href='ADMIN_view_application_information.php?id= $id '>" .$row['application_id'] . "</a> </td>";
 

@@ -1,6 +1,6 @@
 <?php
 
-	
+
 
 	//require file containing all doctor functions
 	require 'DOCTOR_functionality.php';
@@ -123,7 +123,7 @@
 		<b>Student Applicants</b>
 	</h1>
 
-	<hr style="min-width:100%;border:5px solid #BF5700" class="w3-round">
+	<hr style="min-width:100%;border:5px solid #BF5700" align="left" class="w3-round">
 	<br>
 	<b> </b>
 </div>
@@ -374,7 +374,7 @@
 			<caption class="title"><?php echo $name_of_program.' '.$selected_application['term'].' '.$selected_application['year']; ?></caption>
 			<thead>
 				<tr>
-					
+
 					<th>ID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
@@ -389,23 +389,23 @@
 			</thead>
 
 <?php
-			
-			
-			
-			
+
+
+
+
 			//if user is trying to sort
 			if (isset($_GET['sort']))
 			{
 				$query=doctor_sort($_GET['sort'], $selected_application_id);
-				
-				
+
+
 			}
 			//if user is trying to sort
 			elseif(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
 			{
 				//call search_criteria function
 				$query=search($_GET['search_criteria'],$selected_application_id);
-				
+
 			}
 			//if user wants to filter by gpa only
 			elseif(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
@@ -413,31 +413,31 @@
 				if (($_GET['GPA_greater'] !="")&&($_GET['GPA_less'] !=""))
 				{
 					$query=filter_both_gpa($_GET['GPA_greater'],$_GET['GPA_less'],$selected_application_id,$_GET['and_or']);
-	
+
 				}
 				elseif($_GET['GPA_greater']!="")
 				{
 					$query=filter_only_gpa($_GET['GPA_greater'],'>',$selected_application_id);
-					
+
 				}
 
 				elseif($_GET['GPA_less']!="")
 				{
 					$query=filter_only_gpa($_GET['GPA_less'],'<',$selected_application_id);
-					
+
 				}
 			}
 			//if user wants to filter by "gpa greater than" along with other filter criteria
 			elseif (isset($_GET['GPA_greater']) && $_GET['GPA_greater']!="" && $_GET['GPA_less']=="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>',$selected_application_id);
-				
+
 			}
 			//if user wants to filter by "gpa less than" along with other filter criteria
 			elseif(isset($_GET['GPA_greater']) && $_GET['GPA_less']!="" && $_GET['GPA_greater']=="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<',$selected_application_id);
-				
+
 			}
 			elseif((isset($_GET['GPA_greater'])&&isset($_GET['GPA_less']))&&isset($_GET['filter_criteria']))
 			{
@@ -450,14 +450,14 @@
 					$query=filter($_GET['filter_criteria'], $_GET['and_or'],$selected_application_id); //call filter_criteria function
 				}
 			}
-				
-			
+
+
 			//if user wants to filter by anything other than gpa
 			elseif(isset($_GET['filter_criteria']))
 			{
-				
+
 				$query=filter($_GET['filter_criteria'], $_GET['and_or'],$selected_application_id); //call filter_criteria function
-				
+
 			}
 			//if no filter, sort, or search
 			elseif (isset($student_applicants))
@@ -472,7 +472,7 @@
 					echo "No students have applied yet";
 					die();
 				}
-				
+
 			}
 
 			//if there is an error in the query, display error
@@ -487,15 +487,15 @@
 			//Use the query to get each record and display the applicant's student info in a table
 			while ($row=$query->fetch(PDO::FETCH_ASSOC))
 			{
-				
-				
+
+
 				$id = $row['user_id'];
 				$working_for_dms = $row['working_for_dms'];
 				$review_array = array('1', '0');
-				
-				
- 
-				
+
+
+
+
 
 				echo "<td> <a href='DOCTOR_view_detailed_student_info.php?id= $id &selected_application=$selected_application_id'>" .$row['user_id'] . "</a> </td>";
 
@@ -506,7 +506,7 @@
 						//call function select_student from SMD_doctor_functionality.php
 						//to pull the value of the competitive field in table 'review'
 						$x=select_student_review($id, $_GET['select_application']);
-						
+
 
 						if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
 						{
@@ -533,7 +533,7 @@
 								</select></td>';
 						}
 
-							echo ' 	
+							echo '
 								<td>'.$row['EID'].'</td>
 								<td>'.$row['GPA'].'</td>
 								<td>'.$row['email'].'</td>
@@ -550,8 +550,8 @@
 
 				echo '  <td>'.$working_for_dms.'</td>
 					</tr>';
-					
-					
+
+
 			}
 		?>
 
@@ -560,7 +560,7 @@
 		<!--Page Break-->
 		<tr>
 			<td><br></td>
-			
+
 			<input type='hidden' name='application_id' value=<?php echo $selected_application_id ?>>
 			<td><input type='submit' name= "save" value='Save Changes' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
 		<tr>
