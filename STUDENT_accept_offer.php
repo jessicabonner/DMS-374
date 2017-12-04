@@ -20,6 +20,12 @@
 	
 	if ($current_date > $deadline) 
 =======
+	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));
+
+	$current_date=date('Y-m-d');
+
+
+	if ($current_date > $deadline)
 >>>>>>> 8ca3f056c34223a64b1cb695db78f74641c0b3a5
 	{
 
@@ -171,10 +177,10 @@
 	</h1>
 
 
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 	<br>
-	<b><u>You have until 
-		<?php 
+	<b><u>You have until
+		<?php
 			echo date("m-d-Y", strtotime($deadline));
 
 		?>
@@ -186,7 +192,7 @@
 <div class="w3-container" id="application" style="margin-top:10px">
 
 <body>
-<p>You are being offered an internship position with the <?php echo get_program_from_app_id($application_id) ?> program. 
+<p>You are being offered an internship position with the <?php echo get_program_from_app_id($application_id) ?> program.
 This is/is not a paid position. Please accept of decline your offer below.</p>
 
 
