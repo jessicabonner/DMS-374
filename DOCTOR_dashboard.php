@@ -410,7 +410,7 @@
 			//if user wants to filter by gpa only
 			elseif(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
 			{
-				if (isset($_GET['GPA_greater'])&&isset($_GET['GPA_less']))
+				if (($_GET['GPA_greater'] !="")&&($_GET['GPA_less'] !=""))
 				{
 					$query=filter_both_gpa($_GET['GPA_greater'],$_GET['GPA_less'],$selected_application_id,$_GET['and_or']);
 	
@@ -427,32 +427,36 @@
 					
 				}
 			}
-			elseif((isset($_GET['GPA_greater'])&&isset($_GET['GPA_less']))&&isset($_GET['filter_criteria']))
-			{
-				$query=filter_with_both_gpa($_GET['filter_criteria'], $_GET['and_or'], $_GET['GPA_greater'], $_GET['GPA_less'], $selected_application_id);
-			}
-				
 			//if user wants to filter by "gpa greater than" along with other filter criteria
-			elseif (isset($_GET['GPA_greater']) && $_GET['GPA_greater']!="")
+			elseif (isset($_GET['GPA_greater']) && $_GET['GPA_greater']!="" && $_GET['GPA_less']=="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>',$selected_application_id);
 				
 			}
 			//if user wants to filter by "gpa less than" along with other filter criteria
-			elseif(isset($_GET['GPA_greater']) && $_GET['GPA_less']!="")
+			elseif(isset($_GET['GPA_greater']) && $_GET['GPA_less']!="" && $_GET['GPA_greater']=="")
 			{
 				$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<',$selected_application_id);
 				
 			}
+			elseif((isset($_GET['GPA_greater'])&&isset($_GET['GPA_less']))&&isset($_GET['filter_criteria']))
+			{
+				if (($_GET['GPA_greater'] !="")&&($_GET['GPA_less'] !=""))
+				{
+					$query=filter_with_both_gpa($_GET['filter_criteria'], $_GET['and_or'], $_GET['GPA_greater'], $_GET['GPA_less'], $selected_application_id);
+				}
+				else
+				{
+					$query=filter($_GET['filter_criteria'], $_GET['and_or'],$selected_application_id); //call filter_criteria function
+				}
+			}
+				
 			
-			
-
 			//if user wants to filter by anything other than gpa
 			elseif(isset($_GET['filter_criteria']))
 			{
 				
-				
-					$query=filter($_GET['filter_criteria'], $_GET['and_or'],$selected_application_id); //call filter_criteria function
+				$query=filter($_GET['filter_criteria'], $_GET['and_or'],$selected_application_id); //call filter_criteria function
 				
 			}
 			//if no filter, sort, or search
