@@ -1,5 +1,7 @@
 <?php 
 
+	date_default_timezone_set('America/Chicago');
+
 	$user_id = $_GET['user_id'];
 	require "STUDENT_functionality.php";
 	require "DMS_general_functions.php";
