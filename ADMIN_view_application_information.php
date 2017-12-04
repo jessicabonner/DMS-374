@@ -150,7 +150,7 @@
 					<h1 class="w3-jumbo">
 						<b>Application Information</b>
 					</h1>
-					<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+					<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 				</div>
 				<div class="w3-container" id="application" style="margin-top:10px"></div>
 <body>
@@ -175,7 +175,7 @@
 	while ($row=$query->fetch(PDO::FETCH_ASSOC))
 	{
 		$program_id = $row['program_id'];
-		
+
 		//Calls get_program function from DMS_general_functions.php
 		$name_of_program = get_program($program_id);
 
@@ -193,25 +193,25 @@
 			{
 				$application_closed="No";
 			}
-			
+
 		// Display application's ID
 		echo "<tr>";
 		echo "<th>ID</th>";
 		echo "<td>" . $row['application_id'] .  "</td>";
 		echo "</tr>";
-		
+
 		// Display appliction's Name
 		echo "<tr>";
 		echo "<th>Program</th>";
 		echo "<td>" . $name_of_program .  "</td>";
 		echo "</tr>";
-		
+
 		// Display applications's Term
 		echo "<tr>";
 		echo "<th>Term</th>";
 		echo "<td>" . $row['term'] .  "</td>";
 		echo "</tr>";
-		
+
 		// Display applications's Year
 		echo "<tr>";
 		echo "<th>Year</th>";
@@ -277,7 +277,7 @@
 						<td></td>
 						<td><input type='submit' value=' Enter '></td></tr>
 					</form>";
-					
+
 				echo "</table>";
 			}
 

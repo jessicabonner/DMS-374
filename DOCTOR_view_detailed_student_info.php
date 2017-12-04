@@ -146,12 +146,12 @@
 	</h1>
 
 
-	<hr style="min-width:100%;border:5px solid #BF5700" class="w3-round">
+	<hr style="min-width:100%;border:5px solid #BF5700" align="left" class="w3-round">
 </div>
 </html>
 
 
-   
+
 
 
 <?php
@@ -166,20 +166,20 @@ require 'DMS_general_functions.php';
 	$query = select_student2($id);
 
 	//TODO: DeleteThis Later
-	if (!$query) 
+	if (!$query)
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
-	
-	
+
+
 	$number_unique_questions=get_number_questions($application_id);
-	
+
 	//TODO add if user is supervisor, redirect to potential_student_list
 	echo "<form action='DOCTOR_dashboard.php' method='get'>
 		 <input type='submit' value='Return to list' />
 		 <input type='hidden' name=select_application value=$application_id>
 		</form>"
-	
+
 
 ?>
 <form action='DOCTOR_update_review.php' method='POST'>
@@ -256,7 +256,7 @@ require 'DMS_general_functions.php';
 		echo "<th>Major</th>";
 		echo "<td>" . $row['major'] .  "</td>";
 		echo "</tr>";
-		
+
 		echo "<tr>";
 		echo "<th>Second Major</th>";
 
@@ -265,8 +265,8 @@ require 'DMS_general_functions.php';
 			echo "<td>".$row['major_2']."</td>";
 			echo "</tr>";
 		}
-			
-		
+
+
 		// Display applicants's GPA
 		echo "<tr>";
 		echo "<th>GPA</th>";
@@ -334,21 +334,21 @@ require 'DMS_general_functions.php';
 		echo "<th>Programs they applied to:</th>";
 		echo "<td>" . $row['other_programs'] .  "</td>";
 		echo "</tr>";
-		
-		
+
+
 		$availability_array=explode(',',$row['availability']);
 		?>
-		
+
 			<br></br>
 			<th>Availability for the upcoming semester</th>
 			<td><input type='checkbox' name='availability_list[]' value='NA' <?php if (in_array('NA',$availability_array))echo 'checked="checked"'?>disabled>Unknown</td>
 			<tr class="blankrow">
-				
-		
-			
-				
-			
-		
+
+
+
+
+
+
 			<tr>
 				<td></td>
 				<td>Monday</td>
@@ -446,11 +446,11 @@ require 'DMS_general_functions.php';
 			<tr>
 				<td><br></td>
 			</tr>
-		
-		
+
+
 		<?php
-		
-		
+
+
 		// Display applicants's review status
 		echo "<tr>";
 		echo "<th>Review</th>";
@@ -482,9 +482,9 @@ require 'DMS_general_functions.php';
 				<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
 			</select></td>';
 		}
-			
+
 		echo "</tr>";
-			
+
 		echo "<tr>
 			<th>Potential Candidate?</th>";
 			if ($x['potential']=="1")
@@ -495,7 +495,7 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="potential" value="1"></td>';
 			}
-				
+
 		echo "<tr>
 			<th>Interview Candidate?</th>";
 			if ($x['interview']=="1")
@@ -506,12 +506,12 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="interview" value="1"></td>';
 			}
-				
-				
-		
-			
+
+
+
+
 		while ($number_unique_questions>0)
-		{	
+		{
 			$number_unique_questions-=1;
 			$question=question_unique_question($application_id, $number_unique_questions);
 			$answer=answer_unique_question($number_unique_questions, $application_id, $id);
@@ -519,11 +519,11 @@ require 'DMS_general_functions.php';
 			<th>".$question."</th>
 			<td>".$answer."</td>
 			</tr>";
-				
+
 		}
-			
+
 	}
-	
+
 
 		//echo "<form action='DOCTOR_update_review.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
 

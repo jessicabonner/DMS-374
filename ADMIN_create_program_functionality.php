@@ -15,11 +15,11 @@
 			$doctor_EID=$_POST['doctor_EID'];
 
 			//prepare SQL statement to prevent SQL injection
-			$stmt = $dbc-> prepare('INSERT INTO programs(name_of_program, doctor_EID, parent_program_id)
-			VALUES (:name_of_program, :doctor_EID, :parent_program_id)');
+			$stmt = $dbc-> prepare('INSERT INTO programs(name_of_program, doctor_EID)
+			VALUES (:name_of_program, :doctor_EID)');
 
 			//bind variables to prepared statement and execute
-			$stmt->execute(array('name_of_program' => $name_of_program, 'doctor_EID' => $doctor_EID, 'parent_program_id'=>$parent_program_id));
+			$stmt->execute(array('name_of_program' => $name_of_program, 'doctor_EID' => $doctor_EID));
 
 			//direct back to admin dashboard with a message that the program has been successfully created
 			header('Location: ADMIN_dashboard.php?message=0');
@@ -31,6 +31,7 @@
 		{
 			echo "There was an error";
 			//echo 'Caught exception: ',  $e->getMessage(), "\n";
+			//echo $e;
 		}
 	}
 ?>
