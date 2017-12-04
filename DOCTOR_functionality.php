@@ -64,7 +64,7 @@
 		require 'DMS_db.php';
 		// select a specific application using application_id
 		$result = "SELECT * FROM applications WHERE application_id = '$application_id'";
-		$query= $dbc->query($result);;
+		$query= $dbc->query($result);
 
 		if (!$query)
 		{

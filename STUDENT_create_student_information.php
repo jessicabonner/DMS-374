@@ -11,7 +11,7 @@ require 'DOCTOR_functionality.php';
 	$user_id=$_GET['user_id'];
 
 	$x = select_student($user_id);
-	
+
 
 	//if the application already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
 	if (count($x['user_id'])>0)
@@ -22,7 +22,7 @@ require 'DOCTOR_functionality.php';
 	}
 
 
-	
+
 
 ?>
 <!doctype html>
@@ -153,7 +153,7 @@ require 'DOCTOR_functionality.php';
 			<h1 class="w3-jumbo">
 				<b>Profile Information</b>
 			</h1>
-		<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+		<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 		<br>
 			<b>Before you apply, please enter your basic profile information.
 			</b>

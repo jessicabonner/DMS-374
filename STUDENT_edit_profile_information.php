@@ -153,7 +153,7 @@
 	</h1>
 
 
-	<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+	<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 	<br>
 	<b>Edit any information you would like to link to all applications.</b>
 	<br>
@@ -168,7 +168,7 @@
 			<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 		</head>
 
-        <form action="STUDENT_Edit_Profile_Information_Connect.php" method="post">
+        <form action="STUDENT_edit_profile_information_connect.php" method="post">
 			<input type="hidden" name="user_id" value=<?php echo $user_id ?>>
 
             First Name
@@ -374,15 +374,15 @@
 			<tr>
 				<td><input type="radio" name="car" value="0" <?php if($row['car'] == 0) echo 'checked="checked"'?>>No<br></td>
 			</tr>
-			
+
 			Language(s)
             <input type="text" name="bilingual" value="<?php echo $row ['bilingual']; ?> " size=10>
 
 			Semester Commitment
             <input type="text" name="semester_commitment" value="<?php echo $row ['semester_commitment']; ?> " size=10>
-			
+
 			DMS Program(s) already applied to
-			<input type="text" name"other_programs" value= "<?php echo $row ['other_programs']; ?> " size=10>>
+			<input type="text" name"other_programs" value= "<?php echo $row ['other_programs']; ?> " size=10>
 
 			<table>
 			<tr>What is your availability for the upcoming semester?</tr>

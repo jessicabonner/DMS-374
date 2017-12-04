@@ -246,7 +246,7 @@
 
 
 
-					<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+					<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 				</div>
 
 
@@ -375,7 +375,7 @@ if (!$query) {
 				<th>Term</th>
 				<th>Year</th>
 				<th>Applicants</th>
-				
+
 			</tr>
 		</thead>
 
@@ -388,7 +388,7 @@ if (!$query) {
 				$id = $row['application_id'];
 
 
-				
+
 
 				$sql="SELECT name_of_program FROM programs WHERE program_id=$row[program_id]";
 				$stmt=$dbc->prepare($sql);
@@ -416,7 +416,7 @@ if (!$query) {
 						<td>'.$row['term'].'</td>
 						<td>'.$row['year'].'</td>
 						<td>'.$application['number_of_applicants'].'</td>
-						
+
 
 					</tr>';
 
