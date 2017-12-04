@@ -67,7 +67,7 @@ try{
 	
 
 	//direct to page to let student select which program to apply to
-	header('Location: STUDENT_select_program_apply.php?user_id='.$user_id);
+	header('Location: STUDENT_select_program_apply.php?user_id='.$user_id); 
 	die();
 }
 
