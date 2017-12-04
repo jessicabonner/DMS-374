@@ -486,6 +486,10 @@
 				<td><input type="checkbox" name="bio_data_form_list[]" value='.$id.' id='.$id.' <?php if ($checked_bio == 1) { echo '.$check_bio.'; } ?></td>
 				<td><input type="checkbox" name="i9_list[]" value='.$id.' id='.$id.' <?php if ($checked_i9 == 1) { echo '.$check_i9.'; } ?></td>
 				<td><input type="checkbox" name="seton_forms_list[]" value='.$id.' id='.$id.' <?php if ($checked_seton == 1) { echo '.$check_seton.'; } ?></td>';
+				//<td><input type="checkbox" name="bio_data_form_list[]" value='.$id.' id='.$id.' <?php if ($checked_bio == 1) { echo '.$check_bio.'; } ?></td>
+				//<td><input type="checkbox" name="i9_list[]" value='.$id.' id='.$id.' <?php if ($checked_i9 == 1) { echo '.$check_i9.'; } ?></td>
+				//<td><input type="checkbox" name="seton_forms_list[]" value='.$id.' id='.$id.' <?php if ($checked_seton == 1) { echo '.$check_seton.'; } ?></td>';
+
 				
 			//call function select_student from HR_functionality.php
 			//to pull the value of the background_check field in table student_info
