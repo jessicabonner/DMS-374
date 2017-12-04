@@ -1,5 +1,7 @@
 <?php
-
+	
+	date_default_timezone_set('America/Chicago');
+	
 	//THIS FOR WILL BE LINKED TO DOCTOR_view_detailed_student_info.php TO Change accepted_by_dms
 
 	require 'DMS_db.php';

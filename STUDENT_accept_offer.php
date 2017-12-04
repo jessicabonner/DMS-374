@@ -1,6 +1,8 @@
 <?php
 
-
+	date_default_timezone_set('America/Chicago');
+	
+	
 
 	require "STUDENT_functionality.php";
 	require "DMS_general_functions.php";
@@ -11,7 +13,8 @@
 	$date= get_application_accept_date_not_formatted($user_id, $application_id);
 	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));	
 	
-	$current_date=date('Y-m-d');
+	/* $current_date = date('m/d/Y h:i:s a', time());
+	echo $current_date; */
 	
 	
 	if ($current_date > $deadline) 
