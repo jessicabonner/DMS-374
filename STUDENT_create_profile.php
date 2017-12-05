@@ -1,3 +1,20 @@
+<?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "The passwords you entered do not match";
+		}
+		elseif ($_GET['error']=="2")
+		{
+			echo "This email already exists in our system";
+		}
+		
+	}
+
+
+?>
+
 <!--Form to allow students to apply to dell med school internship programs-->
 <!DOCTYPE html>
 <html>
@@ -16,10 +33,10 @@
 
 			<!--text box for students first name-->
 			<tr>
-				<td>Username</td>
+				<td>Email address</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="username" size="20" maxlength="30" required/></td>
+				<td><input type="text" name="username" size="20" maxlength="30" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/></td>
 			</tr>
 
 		
@@ -29,6 +46,14 @@
 			</tr>
 			<tr>
 				<td><input type="text" name="password" size="20" maxlength="30" required/></td>
+			</tr>
+			
+			<!--text box for students middle name-->
+			<tr>
+				<td>Re-enter your password</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="password_2" size="20" maxlength="30" required/></td>
 			</tr>
 			
 			
