@@ -154,7 +154,6 @@
 </div>
 </html>
 
-<form action='HR_working_for_dms.php' method='post'>
 
 <?php
 require 'DMS_db.php';
@@ -178,8 +177,13 @@ if (!$query) {
 	die ('SQL Error: ' . mysqli_error($dbc));
 }
 
-?>
+echo "<form action='HR_dashboard.php' method='get'>
+	 <input type='submit' value='Return to list' />
+	 <input type='hidden' name=user_id value=$id>
+	</form>"
 
+?>
+<form action='HR_working_for_dms.php' method='post'>
 <table width=100% table border>
 <tr>
 
@@ -336,6 +340,7 @@ echo "<th>Hourly Rate</th>";
 echo "<td>$" . $row['hourly_rate'] .  "/hour</td>";
 echo "</tr>";
 
+//This will allow the checkbox to be checked if the value =1 and unchecked if the value = 0
 $working_for_dms = $row['working_for_dms'];
 if($working_for_dms == 1)
 {
