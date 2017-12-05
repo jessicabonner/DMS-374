@@ -144,7 +144,7 @@
 					<!-- Secondary Text -->
 					<hr style="align:left;width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 					<br>
-					<b>Please enter the name of the program and its associated doctor </b>
+					<b>Please enter the name of the program and the following information: </b>
 					<br>
 					<br>
 				</div>
@@ -164,14 +164,167 @@
 								<tr>
 									<td><input type="text" name="name_of_program" size="64" pattern="^([a-zA-Z0-9_\s\-]*)$" required/></td>
 								</tr>
+								
+								<!--text box for first name-->
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+									<td>Supervisor's First Name</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="supervisor_first_name" size="20" maxlength="30" required/></td>
+								</tr>
 
-								<!--text box for doctor eid-->
+								<!--text box for middle name-->
 								<tr>
-									<td><p>Doctor EID</p></td>
+									<td>Supervisor's Middle Name (if applicable)</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="supervisor_middle_name" size="20" maxlength="30"/></td>
+								</tr>
+
+								<!--text box for last name-->
+								<tr>
+									<td>Supervisor's Last Name</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="supervisor_last_name" size="20" maxlength="30" required/></td>
+								</tr>
+
+								<!--text box for eid-->
+								<tr>
+									<td>Supervisor's EID</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="doctor_EID" size="20" maxlength="10" required/></td>
+								</tr>
+
+								<!--drop-down menu for assignment_length-->
+								<tr>
+									<td>Assignment Length</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<!--populates the drop-down menu with different opttions-->
+								<tr>
+									<td><select name="assignment_length" required>
+										<option value="AL">Summer</option>
+										<option value="AK">Semester</option>
+										<option value="AZ">School Year</option>
+										<option value="AR">Other</option>
+									</select></td>
+								</tr>
+
+								<!--text boxes for dates-->
+								<tr>
+									<td>Start Date:</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<!--allows the user to select the start date from a calendar-->
+								<tr>
+									<td><input type="date" name="start_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required/></td>
+								</tr>
+								<!--text boxes for dates-->
+								<tr>
+									<td>End Date:</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<!--allows the user to select the end date from a calendar-->
+								<tr>
+									<td><input type="date" name="end_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required pattern="^\d{2}/\d{2}/\d{4}$"/></td>
+								</tr>
+								<!--drop-down menu to specify if the postions is renewable-->
+								<tr>
+									<td>Renewable position:</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><select name="renew" required>
+										<option value="1">Yes</option>
+										<option value="0">No</option>
+									</select></td>
+								</tr>
+								<!--drop-down menu to specify the classification for which students need to be-->
+								<tr>
+									<td>Student Type:</td>
+								<tr>
+									<tr class="blankrow">
+										<td><br></td>
+									<tr>
+								<tr>
+									<td><select name="student_type" required>
+										<option value="undergrad">Undergraduate</option>
+										<option value="graduate">Graduate</option>
+										<option value="other">Other</option>
+									</select></td>
+								</tr>
+
+								<!--text box for IT Equipment-->
+								<tr>
+									<td>IT Equipment:</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="it_equipment" size="20" maxlength="30" required/></td>
+								</tr>
+
+								<!--text box for Work Location-->
+								<tr>
+									<td>Specify the Student's Work Location:</td>
 								</tr>
 								<tr>
-									<td><input type="text" name="doctor_EID" size="64" maxlength="10" required/></td>
+									<td>(For students working remotely, specify the supervisor's work location.)</td>
 								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="work_location" placeholder="ex. station #, seat #" size="20" maxlength="30" required/></td>
+								</tr>
+
+								<!--text box for Hours Per Week-->
+								<tr>
+									<td>Maximum expected Hours Per Week:</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="hours_per_week" placeholder="ex. 20" size="20" maxlength="30" required/></td>
+								</tr>
+
+								<!--text box for hourly rate-->
+								<tr>
+									<td>Maximum expected Hourly Rate:</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" required/></td>
+								</tr>
+							</table>
 
 								<!--submit button. Will post info.-->
 								<td colspan="1"> <input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
