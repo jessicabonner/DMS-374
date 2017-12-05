@@ -248,7 +248,7 @@
 
 				echo "</tr>";
 				echo "</tr>";
-
+				
 				//break
 				echo "<tr><td><br></td></tr>";
 
@@ -271,11 +271,15 @@
 						<td></td>
 						<td></td>
 						<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
-						<input type='hidden' name='application_id' value=$application_id><br /></td></tr>
+						<input type='hidden' name='application_id' value=$application_id><br /></td>
+						<td><input type='checkbox' name='new_archive_application' value=$value> Check to Archive Application<br />
+					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><input type='submit' value=' Enter '></td></tr>
+						<td><input type='submit' value=' Enter '></td>
+						<td><input type='submit' value=' Archive '></td>
+					</tr>
 					</form>";
 
 				echo "</table>";

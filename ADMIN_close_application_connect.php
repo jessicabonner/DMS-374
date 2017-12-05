@@ -30,6 +30,30 @@ if( isset($_POST['new_close_application']))
 	
 }
 
+//if the user has indicated that they want to archive an application
+elseif(isset($_POST['new_archive_application']))
+{
+	$new_archive_application = $_POST['new_archive_application'];
+	$application_id = $_POST['application_id'];
+	
+	
+	//update the application's "archived" field to ture
+	$sql = "UPDATE applications SET archived= 'TRUE' WHERE application_id ='".$application_id."'";	
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+
+	
+	//if statement fails, display error
+	if (!$stmt) {
+		die ('SQL Error: ' . mysqli_error($dbc));
+	}
+	//if statement does not fail, redirect back to DMS_view_application and pass the application id through the url
+	else{
+		header('Location: ADMIN_view_application_information.php?id='.$application_id);
+		die();
+	}
+}
+
 //if the user has indicated that they want to unarchive an application
 elseif(isset($_POST['unarchive_application']))
 {
