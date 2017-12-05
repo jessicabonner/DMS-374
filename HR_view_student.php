@@ -154,7 +154,7 @@
 </div>
 </html>
 
-<form action='DOCTOR_update_review.php' method='POST'>
+<form action='HR_working_for_dms.php' method='post'>
 
 <?php
 require 'DMS_db.php';
@@ -179,6 +179,7 @@ if (!$query) {
 }
 
 ?>
+
 <table width=100% table border>
 <tr>
 
@@ -335,6 +336,27 @@ echo "<th>Hourly Rate</th>";
 echo "<td>$" . $row['hourly_rate'] .  "/hour</td>";
 echo "</tr>";
 
+$working_for_dms = $row['working_for_dms'];
+if($working_for_dms == 1)
+{
+	$checked = 1;
+	$check= "checked=";
+}
+else
+{
+	$checked = 0;
+	$check= '';
+}
+
+echo "<tr>";
+echo "<th>Working for DMS?</th>";
+echo '<td><input type="checkbox" name="new_working_for_dms" value="1" <?php if ($checked == 1) { echo '.$check.'; } ?></td>';
+echo '<td><input type="hidden" name="user_id" value='.$row['user_id'].'></td>';
+//echo "</tr>"Check<br/>;
+
+//
+
+
 /* echo "<tr>";
 echo "<th>Review</th>";
 
@@ -400,10 +422,10 @@ echo "</table>"; */
 
 ?>
 </table>
-<!-- <tr><td><br></td>
-<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"></td>
-<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
-<tr> -->
+<tr><td><br></td>
+
+<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td><tr>
+
 
 <td><br></td>
 <td><br></td>
