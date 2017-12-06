@@ -1,5 +1,7 @@
 <?php
-	$user_id=$_GET['user_id'];
+	$role_id="5";
+	require "DMS_authenticate.php";
+	$user_id=$_SESSION['user_id'];
 ?>
 
 
@@ -145,8 +147,7 @@
 
 	require "DMS_db.php";
 
-	$user_id=$_GET['user_id'];
-
+	
 
 
 	$statement = $dbc->prepare("SELECT * FROM student_info WHERE user_id = :user_id");
@@ -340,11 +341,11 @@
 		</table>
 
 		<form action="STUDENT_edit_profile_information.php" method="get">
-			<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
+			
 			<input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Edit"/>
 		</form>
 
 		<form action="STUDENT_select_program_apply.php" method="get">
-		<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
+		
 			<input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Confirm"/>
 		</form>

@@ -1,10 +1,12 @@
 <?php
+	$role_id="5";
+	require "DMS_authenticate.php";
 
 	date_default_timezone_set('America/Chicago');
 	//link to file containing database connection string
 	require 'DMS_db.php';
 
-	$user_id=$_POST['user_id'];
+	$user_id=$_SESSION['user_id'];
 
 	$application_id= $_POST['application_id'];
 	//echo $_POST['question_0'];
@@ -81,7 +83,7 @@
 	$stmt = $dbc-> prepare('INSERT INTO review (user_id, application_id, application_submit_time) VALUES (:user_id, :application_id, :application_submit_time)');
 	$stmt->execute(array('user_id' => $user_id, 'application_id' => $application_id, 'application_submit_time'=>$current_date));
 
-	header("Location: STUDENT_dashboard.php?user_id=$user_id");
+	header("Location: STUDENT_dashboard.php");
 	die();
 
 ?>

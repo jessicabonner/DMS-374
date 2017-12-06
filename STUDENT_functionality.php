@@ -1,5 +1,7 @@
 <?php
 
+$user_id=$_SESSION['user_id'];
+
 function get_applications_student_applied_to($user_id)
 {
 	require 'DMS_db.php';

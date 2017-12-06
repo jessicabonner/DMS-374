@@ -1,12 +1,16 @@
 <?php
+
 //THIS FILE PULLS TAKES THE DATA SUBMITTED THROUGH STUDENT_create_student_information.php AND ADDS IT TO THE student_info TABLE ON THE DATABASE
 //THIS RECORD WILL BE LINKED TO THE USERS PROFILE 
+
+	$role_id="5";
+	require "DMS_authenticate.php";
 
 	//link to file containing database connection string
 	require 'DMS_db.php';
 
 	//get the user id which was passed through the url when student logged in/created a profile
-	$user_id = $_POST['user_id'];
+	$user_id=$_SESSION['user_id'];
 	
 	
 	
@@ -81,7 +85,7 @@
 	
 
 	//direct to page to let student select which program to apply to
-	header('Location: STUDENT_select_program_apply.php?user_id='.$user_id);
+	header('Location: STUDENT_select_program_apply.php');
 	die();
 
 

@@ -48,6 +48,11 @@ try{
 	$stmt->execute(array('username' => $username,'password' => $password_hash));
 
 	$user_id=$dbc->lastInsertId();
+	
+	session_start();
+	$_SESSION["user_id"] = $user_id;
+	$_SESSION["username"] = $username;
+	$_SESSION["password_hash"]=$password_hash;
 
 	header('Location: STUDENT_create_student_information.php?user_id='.$user_id);
 	die();

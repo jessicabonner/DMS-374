@@ -1,8 +1,10 @@
 <?php
+	$role_id="5";
+	require "DMS_authenticate.php";
 
 	require "DMS_db.php";
 
-	$user_id=$_GET['user_id'];
+	$user_id=$_SESSION['user_id'];
 
 
 		/*
@@ -169,7 +171,7 @@
 		</head>
 
         <form action="STUDENT_edit_profile_information_connect.php" method="post">
-			<input type="hidden" name="user_id" value=<?php echo $user_id ?>>
+			
 
             First Name
             <input type="text" name="first_name" value="<?php echo $row ['first_name']; ?> " size=10>

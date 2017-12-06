@@ -1,4 +1,7 @@
 <?php
+	$role_id="5";
+	require "DMS_authenticate.php";
+
 	require "DMS_general_functions.php";
 
 	//if an error is passed on redirect, display error message
@@ -27,7 +30,7 @@
 	$applications=get_all_applications_open();
 
 	//get the user id that was passed through the url
-	$user_id=$_GET['user_id'];
+	$user_id=$_SESSION['user_id'];
 
 ?>
 
@@ -175,8 +178,6 @@
 
 <!--Calls on the function to display all applications -->
 	<form name="apply_form" action = "STUDENT_dynamic_application.php" method= "post">
-<!--Calls on the function to display all applications for that specific doctor -->
-	<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
 <table>
 
 				<?php
