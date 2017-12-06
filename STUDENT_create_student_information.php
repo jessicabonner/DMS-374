@@ -437,7 +437,7 @@ require 'DOCTOR_functionality.php';
 				<td>Specify which DMS Programs you have already applied to: (Enter N/A if this doesn't apply) </td>
 			</tr>
 			<tr>
-				<td><input type="text" name="other_programs" size="20" maxlength="10" required/></td>
+				<td><input type="text" name="other_programs" size="20" maxlength="100" required/></td>
 			</tr>
 			</table>
 			<!--break-->
