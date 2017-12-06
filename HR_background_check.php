@@ -1,25 +1,24 @@
 <?php	
 	//require file containing db string
 	require 'DMS_db.php';
-
+	
+	# Save Changes-button was clicked
 	if (isset($_POST['save'])) 
 	{	
 		//Set all checkboxes to 0 (unchecked)
 		$sql = "UPDATE student_info SET bio_data_form = '0', i9 = '0', seton_forms = '0'";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
-		
-	    # Save Changes-button was clicked
+	    
 		$background_check= $_POST['background_check_list'];
-		
 		$bio_data_form= $_POST['bio_data_form_list'];
 		$i9= $_POST['i9_list'];
 		$seton_forms= $_POST['seton_forms_list'];
 		
-		$bio_data_form_list=implode(',',$bio_data_form);
-		$i9_list=implode(',',$i9);
-		$seton_forms_list=implode(',',$seton_forms);
-		
+		//$background_check_list=implode(',',$background_check_list);
+		$bio_data_form_list=implode(',',(array)$bio_data_form);
+		$i9_list=implode(',',(array)$i9);
+		$seton_forms_list=implode(',',(array)$seton_forms);
 		
 		foreach($background_check as $value)
 		{
@@ -28,6 +27,10 @@
 			$sql="UPDATE student_info SET $value";
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
+			//$background = $stmt->fetch();
+			
+			//$stmt = $dbc-> prepare('UPDATE student_info SET "'.$value.'"');
+			//$stmt->execute(array());
 	
 		}	
 		
@@ -40,6 +43,8 @@
 				$sql="UPDATE student_info SET bio_data_form = 1 WHERE user_id = $value";
 				$stmt=$dbc->prepare($sql);
 				$stmt->execute();
+				
+				
 	
 			}	
 		}
