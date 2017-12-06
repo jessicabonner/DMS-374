@@ -184,6 +184,7 @@ echo "<form action='HR_dashboard.php' method='get'>
 
 ?>
 <form action='HR_working_for_dms.php' method='post'>
+<input type="hidden" name="user_id" value=<?php echo $id ?>>
 <table width=100% table border>
 <tr>
 
@@ -332,12 +333,15 @@ echo "</tr>";
 
 echo "<tr>";
 echo "<th>Hours Working</th>";
-echo "<td>" . $row['hours_working_week'] .  " hours/week</td>";
+//echo "<td>" . $row['hours_working_week'] .  " hours/week</td>";
+//echo "<td><input type='text' name='hours_working_week' value='$row['hours_working_week']'</td>";
+echo '<td><input type="text" name="hours_working_week" value="'.$row['hours_working_week'].'"; ></td>';
 echo "</tr>";
 
 echo "<tr>";
 echo "<th>Hourly Rate</th>";
-echo "<td>$" . $row['hourly_rate'] .  "/hour</td>";
+//echo "<td>$" . $row['hourly_rate'] .  "/hour</td>";
+echo '<td><input type="text" name="hourly_rate" value="'.$row['hourly_rate'].'"; ></td>';
 echo "</tr>";
 
 //This will allow the checkbox to be checked if the value =1 and unchecked if the value = 0

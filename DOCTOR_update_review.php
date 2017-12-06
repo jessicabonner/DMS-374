@@ -41,12 +41,15 @@
 		}
 	}
 	
-	//if user clicked submit button named save to save the updated review field
+	//if user clicked submit button named update to save the review field
 	elseif(isset($_POST['update']))
 		{
 			
 			$new_review = $_POST['new_review'];
 			$user_id=$_POST['user_id'];
+			
+			$hours_working_week=$_POST['hours_working_week'];
+			$hourly_rate =$_POST['hourly_rate'];
 
 			// if $new_review exists, update database to set student's review to the new value
 			if( ($_POST['new_review'])!== null)
@@ -84,6 +87,12 @@
 					$stmt=$dbc->prepare($sql);
 					$stmt->execute();
 			}
+			
+			$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week=:hours_working_week, hourly_rate=:hourly_rate
+			WHERE user_id= :user_id');
+		
+			$stmt2->execute(array('hours_working_week' => $hours_working_week, 'user_id' => $user_id , 'hourly_rate' => $hourly_rate));
+			
 			}
 			
 			

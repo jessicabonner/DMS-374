@@ -57,7 +57,7 @@
 		//go through the array of questions to create the sql code that will make each question field in the table
 		foreach ($array_unique_questions as $x=>$value)
 		{
-			$sql_table_fields .= ", question_".$x." VARCHAR(30) NOT NULL";
+			$sql_table_fields .= ", question_".$x." VARCHAR(8000) NOT NULL";
 			
 		}
 		
@@ -77,8 +77,7 @@
 		try {
 			//create the new table
 			$sql="CREATE TABLE $name_of_table (
-			user_id INT(11),
-			competitive VARCHAR(1)
+			user_id INT(11)
 			$sql_table_fields
 			,PRIMARY KEY(user_id)
 			,FOREIGN KEY (user_id) REFERENCES user(user_id))";

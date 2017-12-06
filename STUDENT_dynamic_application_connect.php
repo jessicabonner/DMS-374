@@ -1,5 +1,6 @@
 <?php
 
+	date_default_timezone_set('America/Chicago');
 	//link to file containing database connection string
 	require 'DMS_db.php';
 
@@ -61,6 +62,9 @@
 	$sql_fields=$sql_fields.", user_id";
 	$sql_values=$sql_values.",?";
 	$sql_array[]=$user_id;
+	
+	
+		
 
 	//prepare SQL statement to prevent SQL injection
 	$stmt = $dbc-> prepare("INSERT INTO $name_of_table ($sql_fields)VALUES ($sql_values)");
@@ -72,8 +76,10 @@
 		echo "error";
 	}
 	
-	$stmt = $dbc-> prepare('INSERT INTO review (user_id, application_id) VALUES (:user_id, :application_id)');
-	$stmt->execute(array('user_id' => $user_id, 'application_id' => $application_id));
+	$current_date= date('Y-m-d h:i:s a', time());
+	
+	$stmt = $dbc-> prepare('INSERT INTO review (user_id, application_id, application_submit_time) VALUES (:user_id, :application_id, :application_submit_time)');
+	$stmt->execute(array('user_id' => $user_id, 'application_id' => $application_id, 'application_submit_time'=>$current_date));
 
 	header("Location: STUDENT_dashboard.php?user_id=$user_id");
 	die();

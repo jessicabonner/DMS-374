@@ -295,9 +295,6 @@
 	<?php
 	
 	require"HR_functionality.php";
-	
-	//$selected_application = select_application($_GET['select_application']);
-	//$selected_application_id=$selected_application['application_id'];
 
 	if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
 	{
@@ -356,7 +353,6 @@
 		<thead>
 			<tr>
 				<th>ID</th>
-				<th>Program</th>
 				<th>First Name</th>
 				<th>Middle Name</th>
 				<th>Last Name</th>
@@ -394,7 +390,7 @@
 				$checked_bio = 0;
 				$check_bio = '';
 			}
-		
+			
 			$i9 = $row['i9'];
 			if($i9 == 1)
 			{
@@ -406,7 +402,7 @@
 				$checked_i9 = 0;
 				$check_i9 = '';
 			}
-		
+			
 			$seton_forms = $row['seton_forms'];
 			if($seton_forms == 1)
 			{
@@ -419,76 +415,29 @@
 				$check_seton = '';
 			}
 			
-			$id = $row['user_id'];
-			$first_name = $row['first_name'];
-			$middle_name = $row['middle_name'];
-			$middle_name = $row['middle_name'];
-			$last_name = $row['last_name'];
-			$EID = $row['EID'];
-			$email = $row['email'];
-			$classification = $row['classification'];
-			$student_type = $row['student_type'];
-			$credit_hours = $row['credit_hours'];
-			$GPA = $row['GPA'];
-			$hours_working_week = $row['hours_working_week'];
-			$hourly_rate = $row['hourly_rate'];
 			
+			$id = $row['user_id'];
+
 
 			//display all student info in the table
 			echo "<td> <a href='HR_view_student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
-			
-			// select a specific application using  user_id
-			$sql="SELECT application_id FROM review WHERE user_id=$id";
-			$query_application = $dbc->query($sql);
-
-			while ($row=$query_application->fetch(PDO::FETCH_ASSOC))
-			{
-				$application_id = $row['application_id'];
-			}
-			
-			// select a specific program_id using application_id
-			$sql="SELECT program_id FROM applications WHERE application_id=$application_id";
-			$query_program = $dbc->query($sql);
-
-			while ($row=$query_program->fetch(PDO::FETCH_ASSOC))
-			{	
-				$program_id = $row['program_id'];
-			}
-
-
-			// select specific program info using program_id
-			$sql="SELECT * FROM programs WHERE program_id=$program_id";
-			$query_programinfo = $dbc->query($sql);
-
-			while ($row=$query_programinfo->fetch(PDO::FETCH_ASSOC))
-			{
-				$name_of_program = $row['name_of_program'];
-				$doctor_EID = $row['doctor_EID'];
-			}
-			
-			//display all student info in the table
-			echo "<td> <a href='HR_view_application_info.php?id= $application_id '>" .$name_of_program. "</a> </td>";
-			
-			//echo '<td>'.$application_id.'</td>';
-	
 			echo '
-				<td>'.$first_name.'</td>
-				<td>'.$middle_name.'</td>
-				<td>'.$last_name.'</td>
-				<td>'.$EID.'</td>
-				<td>'.$email.'</td>
-				<td>'.$classification.'</td>
-				<td>'.$student_type.'</td>
-				<td>'.$credit_hours.'</td>
-				<td>'.$GPA.'</td>
-				<td>'.$hours_working_week.' hours</td>
-				<td>$'.$hourly_rate.'/hr</td>
+				<td>'.$row['first_name'].'</td>
+				<td>'.$row['middle_name'].'</td>
+				<td>'.$row['last_name'].'</td>
+				<td>'.$row['EID'].'</td>
+				<td>'.$row['email'].'</td>
+				<td>'.$row['classification'].'</td>
+				<td>'.$row['student_type'].'</td>
+				<td>'.$row['credit_hours'].'</td>
+				<td>'.$row['GPA'].'</td>
+				<td>'.$row['hours_working_week'].' hours</td>
+				<td>$'.$row['hourly_rate'].'/hr</td>
 				<td><input type="checkbox" name="bio_data_form_list[]" value='.$id.' id='.$id.' <?php if ($checked_bio == 1) { echo '.$check_bio.'; } ?></td>
 				<td><input type="checkbox" name="i9_list[]" value='.$id.' id='.$id.' <?php if ($checked_i9 == 1) { echo '.$check_i9.'; } ?></td>
 				<td><input type="checkbox" name="seton_forms_list[]" value='.$id.' id='.$id.' <?php if ($checked_seton == 1) { echo '.$check_seton.'; } ?></td>';
-
 				
-			//call function select_student from HR_functionality.php
+			//call function select_student from DMS_HR.php
 			//to pull the value of the background_check field in table student_info
 			$x = select_student($id);
 			
@@ -499,7 +448,7 @@
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Fail</option>
-					</select></td> </tr>';
+					</select></td></tr>';
 			}
 			elseif ($x['background_check']=="1") //if background_check = 1 (Pass) in the db, show the correct selected value
 			{
@@ -507,7 +456,7 @@
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
-					</select></td> </tr>';
+					</select></td></tr>';
 			}
 			else
 			{ //if background_check = 0 (N/A) in the db, show the correct selected value
@@ -515,11 +464,8 @@
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
-					</select></td> </tr>';
+					</select></td></tr>';
 			}
-		
-			
-
 		}
 ?>
 		</tbody>

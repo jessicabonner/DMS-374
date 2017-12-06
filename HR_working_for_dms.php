@@ -12,12 +12,20 @@ require 'DMS_db.php';
 		$id=$_POST['user_id'];
 		
 		$new_working_for_dms = $_POST['new_working_for_dms'];
+		$hours_working_week=$_POST['hours_working_week'];
+		$hourly_rate =$_POST['hourly_rate'];
 		
 		
 		//Set all checkboxes to 0 (unchecked)
 		$sql = "UPDATE student_info SET working_for_dms = '0'";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
+		
+		
+		$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week=:hours_working_week, hourly_rate=:hourly_rate
+		WHERE user_id= :user_id');
+		
+		$stmt2->execute(array('hours_working_week' => $hours_working_week, 'user_id' => $id , 'hourly_rate' => $hourly_rate));
 		
 		/*
 		//check if student is already accepted in the database
