@@ -170,7 +170,7 @@ require 'DMS_general_functions.php';
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
-
+	
 
 	$number_unique_questions=get_number_questions($application_id);
 
@@ -183,7 +183,8 @@ require 'DMS_general_functions.php';
 
 ?>
 <form action='DOCTOR_update_review.php' method='POST'>
-<table width=100% table style>
+	<table width=100% table style>
+
 <tr>
 
 </tr>
@@ -194,6 +195,7 @@ require 'DMS_general_functions.php';
 		// Display applicants's ID
 		echo "<tr>";
 		echo "<th>ID</th>";
+		//echo "<td width='50%'>" . $row['user_id'] .  "</td>";
 		echo "<td>" . $row['user_id'] .  "</td>";
 		echo "</tr>";
 		// Display applicants's First Name
@@ -334,11 +336,21 @@ require 'DMS_general_functions.php';
 		echo "<th>Programs they applied to:</th>";
 		echo "<td>" . $row['other_programs'] .  "</td>";
 		echo "</tr>";
+		
+		echo "<tr>";
+		echo "<th>Hours Working</th>";
+		echo '<td><input type="text" name="hours_working_week" value="'.$row['hours_working_week'].'"; ></td>';
+		echo "</tr>";
+		
+		echo "<tr>";
+		echo "<th>Hourly Rate</th>";
+		echo '<td><input type="text" name="hourly_rate" value="'.$row['hourly_rate'].'"; ></td>';
+		echo "</tr>";
 
 
 		$availability_array=explode(',',$row['availability']);
 		?>
-
+</table>
 			<br></br>
 			<th>Availability for the upcoming semester</th>
 			<td><input type='checkbox' name='availability_list[]' value='NA' <?php if (in_array('NA',$availability_array))echo 'checked="checked"'?>disabled>Unknown</td>
@@ -346,7 +358,7 @@ require 'DMS_general_functions.php';
 
 
 
-
+<table width=100% table style>
 
 
 			<tr>
@@ -446,8 +458,8 @@ require 'DMS_general_functions.php';
 			<tr>
 				<td><br></td>
 			</tr>
-
-
+</table>
+<table width=100% table style>
 		<?php
 
 
@@ -460,7 +472,8 @@ require 'DMS_general_functions.php';
 
 		if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
 		{
-			echo '<td><select name="new_review">
+			echo '
+				<td><select name="new_review">
 				<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 				<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
 				<option value="competitive = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
@@ -468,7 +481,8 @@ require 'DMS_general_functions.php';
 		}
 		elseif ($x['competitive']=="1") //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
 		{
-			echo'<td><select name="new_review">
+			echo'
+				<td><select name="new_review">
 				<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 				<option value="competitive = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
 				<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
@@ -476,7 +490,8 @@ require 'DMS_general_functions.php';
 		}
 		else //if competitive = 0 (N/A) in the db, show the correct selected value
 		{
-			echo '<td><select name="new_review">
+			echo '
+				<td><select name="new_review">
 				<option value="competitive = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
 				<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
 				<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
@@ -484,9 +499,24 @@ require 'DMS_general_functions.php';
 		}
 
 		echo "</tr>";
+		
+		echo "
+			<tr><td><br></td>
+			<tr>
+			<th>Accept Candidate</th>";
+			if ($x['accepted_by_dms']=="1")
+			{
+				echo '<td><input type="checkbox" name="accepted_by_dms" value="1" checked="checked"></td>';
+			}
+			else
+			{
+				echo '<td><input type="checkbox" name="accepted_by_dms" value="1"></td>';
+			}
 
-		echo "<tr>
-			<th>Potential Candidate?</th>";
+		echo "
+			<tr><td><br></td>
+			<tr>
+			<th>Potential Candidate</th>";
 			if ($x['potential']=="1")
 			{
 				echo '<td><input type="checkbox" name="potential" value="1" checked="checked"></td>';
@@ -496,8 +526,9 @@ require 'DMS_general_functions.php';
 				echo '<td><input type="checkbox" name="potential" value="1"></td>';
 			}
 
-		echo "<tr>
-			<th>Interview Candidate?</th>";
+		echo "<tr><td><br></td>
+			<tr>
+			<th>Interview Candidate</th>";
 			if ($x['interview']=="1")
 			{
 				echo '<td><input type="checkbox" name="interview" value="1" checked="checked"></td>';
@@ -506,6 +537,8 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="interview" value="1"></td>';
 			}
+			
+
 
 
 
@@ -515,7 +548,20 @@ require 'DMS_general_functions.php';
 			$number_unique_questions-=1;
 			$question=question_unique_question($application_id, $number_unique_questions);
 			$answer=answer_unique_question($number_unique_questions, $application_id, $id);
-			echo "<tr>
+			
+			echo "
+				<tr><td><br></td>
+				<tr><td><br></td>
+				<tr><td><br></td>
+				<tr><td><br></td>
+				<tr><td><br></td>
+				<tr><td><br></td>
+				<tr>
+				<tr><th>Application Questions:</th></tr>";
+			echo "
+				<tr><td><br></td>
+				<tr><td><br></td>
+				<tr>
 			<th>".$question."</th>
 			<td>".$answer."</td>
 			</tr>";
@@ -528,12 +574,11 @@ require 'DMS_general_functions.php';
 		//echo "<form action='DOCTOR_update_review.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
 
 		echo "
-			<td><br></td>
-			<td><br></td>
+			<tr><td><br></td>
+			<tr><td><br></td>
+			<tr><td><br></td>
 			<tr>
-				<td></td>
-				<td></td>
-				<td><input type='checkbox' name='new_accepted_by_DMS' value=1> Check to Accept Applicant<br />
+				<td><input type='checkbox' name='new_accepted_by_DMS' value=1 > Check to Accept Applicant<br />
 				<input type='hidden' name='user_id' value=$id><br /></td>
 				<input type='hidden' name='application_id' value=$application_id>
 			</tr>";
@@ -544,4 +589,7 @@ require 'DMS_general_functions.php';
 		<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 		<td><input type='submit' name= "update" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<tr>
+		<tr><td><br></td>
+		<tr><td><br></td>
+		<tr><td><br></td>
 </form>
