@@ -11,12 +11,8 @@ try{
 	//link to file containing database connection string
 	require 'DMS_db.php';
 
-<<<<<<< HEAD
-	
-=======
-	//get the user id which was passed through the url when student logged in/created a profile
-	$user_id = $_POST['user_id'];
->>>>>>> 0bab21be9209112a1cb2f03350b22b84c180474c
+
+
 	
 	//check if the student info already exists in the database
 	$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$user_id");
