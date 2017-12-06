@@ -1,8 +1,9 @@
 <?php
-
+	$role_id="5";
+	require "DMS_authenticate.php";
 	require 'DMS_db.php';
 
-	$user_id=$_POST['user_id'];
+	$user_id=$_SESSION['user_id'];
 
 	$application_id=$_POST['application_id'];
 
@@ -34,7 +35,7 @@
 
 	if (count($student['user_id'])>0)
 	{
-		header("Location: STUDENT_select_program_apply.php?user_id=$user_id&error=1");
+		header("Location: STUDENT_select_program_apply.php?error=1");
 		die();
 	}
 

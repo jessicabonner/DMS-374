@@ -1,4 +1,7 @@
 <?php
+	$role_id="5";
+	require "DMS_authenticate.php";
+	$user_id=$_SESSION['user_id'];
 
 	date_default_timezone_set('America/Chicago');
 	
@@ -7,7 +10,7 @@
 	require "STUDENT_functionality.php";
 	require "DMS_general_functions.php";
 
-	$user_id=$_GET['user_id'];
+	
 	$application_id=$_GET['application_id'];
 
 	$date= get_application_accept_date_not_formatted($user_id, $application_id);
@@ -33,13 +36,13 @@
 
 
 
-		header("Location: STUDENT_offer_expired.php?user_id=$user_id&application_id=$application_id");
+		header("Location: STUDENT_offer_expired.php?application_id=$application_id");
 		die();
 	}
 
 	elseif(get_accepted_offer($user_id, $application_id)=="1")
 	{
-		header("Location: STUDENT_dashboard.php?user_id=$user_id&message=1");
+		header("Location: STUDENT_dashboard.php?message=1");
 		die();
 	}
 

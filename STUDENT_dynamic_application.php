@@ -1,5 +1,10 @@
 <?php
+	
+	$role_id="5";
+	require "DMS_authenticate.php";
 	require 'STUDENT_dynamic_application_functionality.php';
+	
+	$user_id=$_SESSION['user_id'];
 ?>
 
 <html lang="en" dir="ltr">
@@ -144,7 +149,7 @@
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "STUDENT_dynamic_application_connect.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
 		<input type="hidden" name="application_id" value="<?php echo $application_id?>"/>
-		<input type="hidden" name="user_id" value="<?php echo $user_id?>"/>
+		
 		<table>
 
 <?php

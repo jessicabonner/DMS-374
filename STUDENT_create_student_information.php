@@ -1,5 +1,8 @@
 <?php
-require 'DOCTOR_functionality.php';
+	
+	$role_id="5";
+	require "DMS_authenticate.php";
+	require 'DOCTOR_functionality.php';
 
 	if (isset($_GET['error']))
 	{
@@ -8,7 +11,7 @@ require 'DOCTOR_functionality.php';
 		echo '</script>';
 	}
 
-	$user_id=$_GET['user_id'];
+	$user_id=$_SESSION['user_id'];
 
 	$x = select_student($user_id);
 
@@ -17,7 +20,7 @@ require 'DOCTOR_functionality.php';
 	if (count($x['user_id'])>0)
 	{
 
-		header("Location: STUDENT_confirm_student_information.php?user_id=$user_id");
+		header("Location: STUDENT_confirm_student_information.php");
 		die();
 	}
 
@@ -164,7 +167,7 @@ require 'DOCTOR_functionality.php';
 	<body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "STUDENT_create_student_information_connect.php" method= "post">
-	<input type="hidden" name="user_id" value="<?php echo $_GET['user_id']?>"/>
+	
 		<table>
 			<!--text box for students first name-->
 			<tr>

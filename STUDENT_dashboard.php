@@ -1,8 +1,10 @@
 <?php 
-
+	$role_id="5";
+	require "DMS_authenticate.php";
+	
 	date_default_timezone_set('America/Chicago');
 
-	$user_id = $_GET['user_id'];
+	$user_id = $_SESSION['user_id'];
 	require "STUDENT_functionality.php";
 	require "DMS_general_functions.php";
 	
@@ -133,16 +135,20 @@
         <nav>
         <ul class="nav" id="main-nav" role="menu">
         <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_dashboard.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+        	<a href="STUDENT_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper">
             </div>
         </li>
         <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_edit_profile_information.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+        	<a href="STUDENT_edit_profile_information.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
           	</div>
         </li>
         <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_create_student_information.php?user_id=<?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+        	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+          	</div>
+        </li>
+		 <li class="nav-item" role="menuitem">
+        	<a href="DMS_logout.php" onclick="w3_close()" class="nav-link has-child nolink">Logout</a>                  <div class="sub-nav-wrapper">
           	</div>
         </li>
         <li class="nav-item" role="menuitem">
@@ -213,7 +219,7 @@
 						}
 						else
 						{
-							echo '<td><a href="STUDENT_accept_offer.php?user_id='. $user_id .'&application_id='.$row['application_id'].'">'.get_accepted($user_id, $row['application_id']).'</a></td>
+							echo '<td><a href="STUDENT_accept_offer.php?&application_id='.$row['application_id'].'">'.get_accepted($user_id, $row['application_id']).'</a></td>
 							</tr>';
 						}
 						
