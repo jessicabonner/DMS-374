@@ -184,6 +184,7 @@ require 'DMS_general_functions.php';
 ?>
 <form action='DOCTOR_update_review.php' method='POST'>
 	<table width=100% table style>
+	<!--<table class='data-table'>-->
 
 <tr>
 
@@ -361,6 +362,7 @@ require 'DMS_general_functions.php';
 
 
 <table width=100% table style>
+<!--<table class='data-table'>-->
 
 
 			<tr>
@@ -462,6 +464,7 @@ require 'DMS_general_functions.php';
 			</tr>
 </table>
 <table width=100% table style>
+<!--<table class='data-table'>-->
 		<?php
 
 

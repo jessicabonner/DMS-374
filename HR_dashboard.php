@@ -106,12 +106,10 @@
 			<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
+          
+          
           <li class="nav-item" role="menuitem">
-			<a href="" onclick="w3_close()" class="nav-link has-child nolink">HR Forms</a>
-			<div class="sub-nav-wrapper"></div>
-          </li>
-          <li class="nav-item" role="menuitem">
-			<a href="" onclick="w3_close()" class="nav-link has-child nolink">Biographical Forms</a>
+			<a href="HR_view_all_applications.php" onclick="w3_close()" class="nav-link has-child nolink">All Applications</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
           <li class="nav-item" role="menuitem">
