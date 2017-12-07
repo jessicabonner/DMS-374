@@ -346,6 +346,27 @@
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='2' ">Competitive<br></td>
 				</tr>
+				
+				<!--Page Break-->
+				
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" interview='1' ">Interview?<br></td>
+				</tr>
+				
+				
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" potential='1' ">Potential Candidate?<br></td>
+				</tr>
+				
+			
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" accepted_by_dms='1' ">Accepted?<br></td>
+				</tr>
+				
+				
+				
 
 				<!--break-->
 				<tr>
