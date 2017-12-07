@@ -526,20 +526,6 @@ require 'DMS_general_functions.php';
 		}
 
 		echo "</tr>";
-		/*
-		echo "
-			<tr><td><br></td>
-			<tr>
-			<th>Accept Candidate</th>";
-			if ($x['accepted_by_dms']=="1")
-			{
-				echo '<td><input type="checkbox" name="accepted_by_dms" value="1" checked="checked"></td>';
-			}
-			else
-			{
-				echo '<td><input type="checkbox" name="accepted_by_dms" value="1"></td>';
-			}
-		*/
 
 		echo "
 			<tr><td><br></td>
@@ -565,25 +551,6 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="interview" value="1"></td>';
 			}
-<<<<<<< HEAD
-=======
-			/* echo "<tr><td><br></td>
-			<tr>
-			<th>Accepted?</th>";
-			if ($x['accepted_by_dms']=="1")
-			{
-				echo '<td><input type="checkbox" name="accepted_by_dms" value="1" checked="checked" disabled></td>';
-			}
-			else
-			{
-				echo '<td><input type="checkbox" name="accepted_by_dms" value="1" disabled></td>';
-			} */
-			
-
-
-
-
->>>>>>> b60f1e29e1a584ef139563f16887ef8679c0167a
 
 		while ($number_unique_questions>0)
 		{
