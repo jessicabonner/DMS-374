@@ -208,6 +208,8 @@ require 'DMS_general_functions.php';
 		echo "<th>Last Name</th>";
 		echo "<td>" . $row['last_name'] .  "</td>";
 		echo "</tr>";
+		
+		
 		// Display applicants's Email
 		echo "<tr>";
 		echo "<th>Email</th>";
@@ -537,6 +539,17 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="interview" value="1"></td>';
 			}
+			/* echo "<tr><td><br></td>
+			<tr>
+			<th>Accepted?</th>";
+			if ($x['accepted_by_dms']=="1")
+			{
+				echo '<td><input type="checkbox" name="accepted_by_dms" value="1" checked="checked" disabled></td>';
+			}
+			else
+			{
+				echo '<td><input type="checkbox" name="accepted_by_dms" value="1" disabled></td>';
+			} */
 			
 
 
@@ -565,6 +578,7 @@ require 'DMS_general_functions.php';
 			<th>".$question."</th>
 			<td>".$answer."</td>
 			</tr>";
+			
 
 		}
 
