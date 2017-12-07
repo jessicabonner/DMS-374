@@ -1,5 +1,5 @@
 <?php
-
+/*
 	//this will display an error message if the user tries to accept a student already accepted in the database
 	if (isset($_GET['error']))
 	{
@@ -8,6 +8,7 @@
 		echo '</script>';
 
 	}
+	*/
 ?>
 
 <!doctype html>
@@ -308,7 +309,7 @@ require 'DMS_general_functions.php';
 		echo "<td>$volunteered_at_seton</td>";
 		echo "</tr>";
 		// Check if the applicant owns a car
-		if ($row['car']==0)
+		if ($row['car']=='0')
 		{
 			$car="No";
 		}
@@ -461,10 +462,31 @@ require 'DMS_general_functions.php';
 </table>
 <table width=100% table style>
 		<?php
+		while ($number_unique_questions>0)
+		{
+			$number_unique_questions-=1;
+			$question=question_unique_question($application_id, $number_unique_questions);
+			$answer=answer_unique_question($number_unique_questions, $application_id, $id);
+			
+			echo "
+				<tr><td><br></td>
+				<tr><td><br></td>
+				<tr><td><br></td>
+				<tr>
+				</tr>";
+			
 
+				
+			echo "
+				<tr>
+					<th>".$question."</th>
+					<td>".$answer."</td>
+				</tr>";
+
+		}
 
 		// Display applicants's review status
-		echo "<tr>";
+		//echo "<tr>";
 		echo "<th>Review</th>";
 
 		$stmt = $dbc->query("SELECT * FROM review WHERE user_id=$id AND application_id=$application_id;");
@@ -499,7 +521,7 @@ require 'DMS_general_functions.php';
 		}
 
 		echo "</tr>";
-		
+		/*
 		echo "
 			<tr><td><br></td>
 			<tr>
@@ -512,6 +534,7 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="accepted_by_dms" value="1"></td>';
 			}
+		*/
 
 		echo "
 			<tr><td><br></td>
@@ -537,11 +560,6 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="interview" value="1"></td>';
 			}
-			
-
-
-
-
 
 		while ($number_unique_questions>0)
 		{
@@ -564,30 +582,43 @@ require 'DMS_general_functions.php';
 				<tr>
 			<th>".$question."</th>
 			<td>".$answer."</td>
-			</tr>";
+			<td><br></td></tr>
+			<td><br></td></tr>";
 
 		}
+		
+		$accepted_by_dms = $x['accepted_by_dms'];
+		
+		//set variable to change whether doctors can accept or unaccept an applicant
+		//0 is false 1 is true
+		
+		//$application_id = $row['application_id'];
+		if ($accepted_by_dms=='0')
+		{
+			$accept_unaccept='Accept';
+			$value="1";
+		}
+		else
+		{
+			$accept_unaccept='Unaccept';
+			$value="0";
+		}
+		
+		echo "<tr><td><br></td>
+			<tr><th>$accept_unaccept Candidate</th></td>
+			<td><input type='checkbox' name='new_accepted_by_DMS' value=$value >
+			<input type='hidden' name='user_id' value=$id><br /></td>
+			<input type='hidden' name='application_id' value=$application_id>
+			</tr>";
 
 	}
 
-
-		//echo "<form action='DOCTOR_update_review.php' method='POST' onsubmit= return confirm('Are you sure you want to submit changes?');>";
-
-		echo "
-			<tr><td><br></td>
-			<tr><td><br></td>
-			<tr><td><br></td>
-			<tr>
-				<td><input type='checkbox' name='new_accepted_by_DMS' value=1 > Check to Accept Applicant<br />
-				<input type='hidden' name='user_id' value=$id><br /></td>
-				<input type='hidden' name='application_id' value=$application_id>
-			</tr>";
-
 ?>
+
 </table>
 	<tr><td><br></td>
-		<td><input type='submit' name= "accept" value='Accept Student' onclick="return confirm('Are you sure you want to ACCEPT this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
-		<td><input type='submit' name= "update" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+		<td><input type='submit' name= "accept" value= '  <?php echo $accept_unaccept ?>  ' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+		<td><input type='submit' name= "update" value='  Save Changes  ' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<tr>
 		<tr><td><br></td>
 		<tr><td><br></td>
