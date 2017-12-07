@@ -42,6 +42,7 @@
 	$email=$_POST['email'];
 	$employment=$_POST['employment'];
 	$classification=$_POST['classification'];
+	$student_type=$_POST['student_type'];
 	$degree_type=$_POST['degree_type'];
 	$major=$_POST['major'];
 	$major_2=$_POST['major_2'];
@@ -63,7 +64,7 @@
 	//prepare SQL statement to prevent SQL injection
 	$stmt = $dbc-> prepare('UPDATE student_info SET first_name=:first_name, middle_name=:middle_name, last_name=:last_name, 
 	address=:address, city=:city, state=:state, zip_code=:zip_code, phone=:phone, email=:email, employment=:employment,
-	classification=:classification, degree_type=:degree_type, major=:major, major_2=:major_2, GPA=:GPA, credit_hours=:credit_hours, worked_at_dms=:worked_at_dms, 
+	classification=:classification, student_type=:student_type, degree_type=:degree_type, major=:major, major_2=:major_2, GPA=:GPA, credit_hours=:credit_hours, worked_at_dms=:worked_at_dms, 
 	volunteered_at_seton=:volunteered_at_seton, car=:car, bilingual=:bilingual, other_programs=:other_programs, semester_commitment=:semester_commitment, availability=:availability 
 	WHERE user_id= :user_id');
 	
@@ -77,7 +78,7 @@
 
 	//bind variables to prepared statement and execute
 	$stmt->execute(array('first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'address' => $address,'city' => $city,
-	'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'classification' => $classification,
+	'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'classification' => $classification, 'student_type'=>$student_type,
 	'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2, 'GPA'=>$GPA, 'credit_hours'=>$credit_hours ,'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
 	'car'=>$car, 'bilingual' => $bilingual, 'other_programs' => $other_programs, 'semester_commitment' => $semester_commitment,'availability' => $availability, 'user_id' => $user_id, ));
 

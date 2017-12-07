@@ -82,11 +82,11 @@
 									<div class="parent-links" id="parents">
 										<a href="http://www.utexas.edu">The University of Texas at Austin</a>
 									</div>
-										<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
+									<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
 								</div>
-								<br>
-								<br>
-								<br>
+									<br>
+									<br>
+									<br>
 							</div>
 						</div>
 					</div>
@@ -98,37 +98,7 @@
 							<nav>
 								<ul class="nav" id="main-nav" role="menu">
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_application.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Delete Applications</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
@@ -139,168 +109,108 @@
 						</div>
 					</div>
 				</div> <!-- container-nav-phase2 -->
-			</div> <!-- nav-wrapper -->
 
+			</div> <!-- nav-wrapper -->
 
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
 				<!-- Header -->
-				<div class="w3-container" style="margin-top:40px" id="showcase">
+				<div class="w3-container" id="showcase">
 					<h1 class="w3-jumbo">
-						<b>Application Information</b>
+						<b>All Active Applications (Closed and Open)</b>
 					</h1>
+
 					<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 				</div>
 				<div class="w3-container" id="application" style="margin-top:10px"></div>
-<body>
-
 
 <?php
 
-	require 'DOCTOR_functionality.php';
-	require 'DMS_general_functions.php';
+	require 'DMS_db.php';
+	$program_id = $_GET['program_id'];
+	$sql = "SELECT *
+	FROM programs WHERE program_id=$program_id";
 
-	// Get ID from the URL
-	$application_id = $_GET['id'];
 
-	//Calls select_application2 function from DOCTOR_functionality.php
-	$query=select_application2($application_id);
-
-	//echo "<table class='data-table'>
-	echo "<table width=100%>
+	$query= $dbc->query($sql);;
+	$program=$query->fetch();
 	
-	<tr>
-	</tr>";
-	//while($row = mysqli_fetch_array($result))
-	while ($row=$query->fetch(PDO::FETCH_ASSOC))
+	if (!$query)
 	{
-		$program_id = $row['program_id'];
-
-		//Calls get_program function from DMS_general_functions.php
-		$name_of_program = get_program($program_id);
-
-		//get the list of questions and turn into an array
-		$list_unique_questions = $row['list_unique_questions'];
-		$array_unique_questions=explode('(#!BREAK!#)', $list_unique_questions);
-
-		//convert applcation closed value to words
-		//0 is false 1 is true
-		if ($row['application_closed']==0)
-			{
-				$application_closed="Yes";
-			}
-		else
-			{
-				$application_closed="No";
-			}
-
-		// Display application's ID
-		echo "<tr>";
-		echo "<th>ID</th>";
-		echo "<td>" . $row['application_id'] .  "</td>";
-		echo "</tr>";
-
-		// Display appliction's Name
-		echo "<tr>";
-		echo "<th>Program</th>";
-		echo "<td>" . $name_of_program .  "</td>";
-		echo "</tr>";
-
-		// Display applications's Term
-		echo "<tr>";
-		echo "<th>Term</th>";
-		echo "<td>" . $row['term'] .  "</td>";
-		echo "</tr>";
-
-		// Display applications's Year
-		echo "<tr>";
-		echo "<th>Year</th>";
-		echo "<td>" . $row['year'] .  "</td>";
-		echo "</tr>";
-
-		//loop through the array of questions and display all unique questions
-		echo "<tr>";
-		echo "<th>Questions</th>";
-
-		foreach($array_unique_questions as $key=>$value)
-		{
-			if ($key==0)
-				{
-					echo "<td>$value</td>";
-				}
-			else
-				{
-					echo "<tr><td></td>";
-					echo "<td>$value</td></tr>";
-				}
-		}
-		echo "</tr>";
-
-
-		//break
-		echo "<tr><td><br></td></tr>";
-		if ($row['archived']=="FALSE")
-			{
-				// Display whether or not the applications is open or closed
-				echo "<tr>";
-				echo "<th>Open?</th>";
-				echo "<td>" . $application_closed.  "</td>";
-
-				echo "</tr>";
-				echo "</tr>";
-				
-				//break
-				echo "<tr><td><br></td></tr>";
-
-				//set variable to change whether she can close or open an application
-				//0 is false 1 is true
-				if ($application_closed=="No")
-				{
-					$close_open="Open";
-					$value="0";
-				}
-				else
-				{
-					$close_open="Close";
-					$value="1";
-				}
-
-				echo "<form action='ADMIN_close_application_connect.php' method='POST'>
-
-					<tr>
-						<td></td>
-						<td></td>
-						<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
-						<input type='hidden' name='application_id' value=$application_id><br /></td>
-						<td><input type='checkbox' name='new_archive_application' value=$value> Check to Archive Application<br />
-					</tr>
-					<tr>
-						<td></td>
-						<td></td>
-						<td><input type='submit' value=' Enter '></td>
-						<td><input type='submit' value=' Archive '></td>
-					</tr>
-					</form>";
-
-				echo "</table>";
-			}
-
-	else
-		{
-			echo "This application is archived";
-			echo "<form action='ADMIN_close_application_connect.php' method='POST'>
-
-				<tr><td></td>
-					<td></td>
-					<td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
-						<input type='hidden' name='application_id' value=$application_id><br /></td></tr>
-				<tr>
-					<td></td>
-					<td></td>
-					<td><input type='submit' value=' Enter '></td></tr>
-				</form>";
-		}
+		die ('SQL Error: ' . mysqli_error($dbc));
 	}
 
+
 ?>
+<html>
+<body>
+
+	<!--<h1>Applications</h1>-->
+	<table class="data-table">
+		<tr>
+			<th>Program Name</th>
+			<td><?php echo $program['name_of_program'] ?></td>
+		</tr>
+		<tr>
+			<th>Doctor EID</th>
+			<td><?php echo $program['doctor_EID'] ?></td>
+		</tr>
+		<tr>
+			<th>Supervisor Name</th>
+			<td><?php echo $program['supervisor_last_name'].', '.$program['supervisor_first_name'].' '.$program['supervisor_middle_name'] ?></td>
+		</tr>
+		<tr>
+			<th>Assignment Length</th>
+			<td><?php echo $program['assignment_length'] ?></td>
+		</tr>
+		<tr>
+			<th>Stare Date</th>
+			<td><?php echo $program['start_date'] ?></td>
+		</tr>
+		<tr>
+			<th>End Date</th>
+			<td><?php echo $program['end_date'] ?></td>
+		</tr>
+		<tr>
+			<th>Renew?</th>
+			<td><?php 
+			if ($program['renew']="0")
+			{
+				echo "Yes";
+			}				
+			else
+			{
+				echo"No";
+			}
+			?></td>
+		</tr>
+		<tr>
+			<th>Student Type</th>
+			<td><?php echo $program['student_type'] ?></td>
+		</tr>
+		<tr>
+			<th>IT equipment?</th>
+			<td><?php echo $program['it_equipment'] ?></td>
+		</tr>
+		<tr>
+			<th>Work Location</th>
+			<td><?php echo $program['work_location'] ?></td>
+		</tr>
+		<tr>
+			<th>Hours per week</th>
+			<td><?php echo $program['hours_per_week'] ?></td>
+		</tr>
+		<tr>
+			<th>Hourly rate</th>
+			<td><?php echo $program['hourly_rate'] ?></td>
+		</tr>
+
+
+
+	</tbody>
+	</table>
+	
+
+</body>
+</html>

@@ -106,12 +106,10 @@
 			<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
+          
+          
           <li class="nav-item" role="menuitem">
-			<a href="" onclick="w3_close()" class="nav-link has-child nolink">HR Forms</a>
-			<div class="sub-nav-wrapper"></div>
-          </li>
-          <li class="nav-item" role="menuitem">
-			<a href="" onclick="w3_close()" class="nav-link has-child nolink">Biographical Forms</a>
+			<a href="HR_view_all_applications.php" onclick="w3_close()" class="nav-link has-child nolink">All Applications</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
           <li class="nav-item" role="menuitem">
@@ -197,33 +195,52 @@
 			<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
 		</tr>
 			<!--checkbox buttons for student's classification-->
-			<td>Classification</td>
-		</tr>
-		<tr class="blankrow">
-		<td><br></td>
-		<tr class="blankrow">
-			<td><br></td>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year Undergrad<br></td>
-		</tr>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year Undergrad<br></td>
-		</tr>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year Undergrad<br></td>
-		</tr>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year Undergrad<br></td>
-		</tr>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year Undergrad<br></td>
-		</tr>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
-		</tr>
-		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" classification='Other' ">Other<br></td>
-		</tr>
+				<tr>
+					<!--Page Break-->
+					<td><br></td>
+					<td>Classification</td>
+				</tr>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year<br></td>
+				</tr>
+				
+				<tr>
+					<!--Page Break-->
+					<td><br></td>
+					<td>Type of Student</td>
+				</tr>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Undergraduate' " >Undergraduate<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Graduate' ">Graduate<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='PhD' ">PhD<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Other' ">Other<br></td>
+				</tr>
 		<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
 		<tr>
 			<td><br></td>

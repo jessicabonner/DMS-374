@@ -201,7 +201,8 @@
 		$filter_criteria_sql=implode($and_or,$filter_criteria);
 		$name_of_table=get_application_table_name($selected_application_id);
 		$applicant_id_array= get_id_array($name_of_table);
-		$sql="SELECT * FROM student_info WHERE ($filter_criteria_sql) AND user_id IN ($applicant_id_array)";
+		//$sql="SELECT * FROM student_info WHERE ($filter_criteria_sql) AND user_id IN ($applicant_id_array)";
+		$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id AND review.application_id=$selected_application_id WHERE ($filter_criteria_sql) AND student_info.user_id IN ($applicant_id_array)";
 		$query= $dbc->query($sql);;
 		//echo "Displaying students where $filter_criteria_sql";
 		return $query;
@@ -216,7 +217,7 @@
 		$filter_criteria_sql=$filter_criteria_sql." ".$and_or." GPA".$greater_less.$GPA;
 		$name_of_table=get_application_table_name($selected_application_id);
 		$applicant_id_array= get_id_array($name_of_table);
-		$sql="SELECT * FROM student_info WHERE ( $filter_criteria_sql) AND user_id IN ($applicant_id_array)";
+		$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id AND review.application_id=$selected_application_id  WHERE ( $filter_criteria_sql) AND student_info.user_id IN ($applicant_id_array)";
 		$query= $dbc->query($sql);;
 		//echo "Displaying students where $filter_criteria_sql";
 		return $query;
@@ -231,7 +232,7 @@
 		$filter_criteria_sql=$filter_criteria_sql." ".$and_or." GPA > ".$GPA_greater." ".$and_or." GPA < ".$GPA_less;
 		$name_of_table=get_application_table_name($selected_application_id);
 		$applicant_id_array= get_id_array($name_of_table);
-		$sql="SELECT * FROM student_info WHERE ( $filter_criteria_sql) AND user_id IN ($applicant_id_array)";
+		$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id AND review.application_id=$selected_application_id  WHERE ( $filter_criteria_sql) AND student_info.user_id IN ($applicant_id_array)";
 		$query= $dbc->query($sql);;
 		//echo "Displaying students where $filter_criteria_sql";
 		return $query;

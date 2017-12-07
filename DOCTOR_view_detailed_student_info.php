@@ -185,6 +185,7 @@ require 'DMS_general_functions.php';
 ?>
 <form action='DOCTOR_update_review.php' method='POST'>
 	<table width=100% table style>
+	<!--<table class='data-table'>-->
 
 <tr>
 
@@ -209,6 +210,8 @@ require 'DMS_general_functions.php';
 		echo "<th>Last Name</th>";
 		echo "<td>" . $row['last_name'] .  "</td>";
 		echo "</tr>";
+		
+		
 		// Display applicants's Email
 		echo "<tr>";
 		echo "<th>Email</th>";
@@ -360,6 +363,7 @@ require 'DMS_general_functions.php';
 
 
 <table width=100% table style>
+<!--<table class='data-table'>-->
 
 
 			<tr>
@@ -461,6 +465,7 @@ require 'DMS_general_functions.php';
 			</tr>
 </table>
 <table width=100% table style>
+<!--<table class='data-table'>-->
 		<?php
 		while ($number_unique_questions>0)
 		{
@@ -560,6 +565,25 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="interview" value="1"></td>';
 			}
+<<<<<<< HEAD
+=======
+			/* echo "<tr><td><br></td>
+			<tr>
+			<th>Accepted?</th>";
+			if ($x['accepted_by_dms']=="1")
+			{
+				echo '<td><input type="checkbox" name="accepted_by_dms" value="1" checked="checked" disabled></td>';
+			}
+			else
+			{
+				echo '<td><input type="checkbox" name="accepted_by_dms" value="1" disabled></td>';
+			} */
+			
+
+
+
+
+>>>>>>> b60f1e29e1a584ef139563f16887ef8679c0167a
 
 		while ($number_unique_questions>0)
 		{
@@ -582,8 +606,13 @@ require 'DMS_general_functions.php';
 				<tr>
 			<th>".$question."</th>
 			<td>".$answer."</td>
+<<<<<<< HEAD
 			<td><br></td></tr>
 			<td><br></td></tr>";
+=======
+			</tr>";
+			
+>>>>>>> b60f1e29e1a584ef139563f16887ef8679c0167a
 
 		}
 		

@@ -212,25 +212,41 @@
 				<tr class="blankrow">
 					<td><br></td>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year Undergrad<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year Undergrad<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year Undergrad<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year Undergrad<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year Undergrad<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year<br></td>
+				</tr>
+				
+				<tr>
+					<!--Page Break-->
+					<td><br></td>
+					<td>Type of Student</td>
+				</tr>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Undergraduate' " >Undergraduate<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='Grad' ">Graduate Student<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Graduate' ">Graduate<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='Other' ">Other<br></td>
+					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='PhD' ">PhD<br></td>
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Other' ">Other<br></td>
 				</tr>
 
 				<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
@@ -330,6 +346,27 @@
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='2' ">Competitive<br></td>
 				</tr>
+				
+				<!--Page Break-->
+				
+				<tr class="blankrow">
+					<td><br></td>
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" interview='1' ">Interview?<br></td>
+				</tr>
+				
+				
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" potential='1' ">Potential Candidate?<br></td>
+				</tr>
+				
+			
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" accepted_by_dms='1' ">Accepted?<br></td>
+				</tr>
+				
+				
+				
 
 				<!--break-->
 				<tr>
@@ -382,9 +419,15 @@
 					<th>EID</th>
 					<th>GPA</th>
 					<th>Email</th>
+					<th>Type</th>
 					<th>Classification</th>
 					<th>Major</th>
-					<th>Already Accepted?</th>
+					<th>Interview?</th>
+					<th>Potential Candidate?</th>
+					<th>Accepted?</th>
+					<th>Student accepted Offer?</th>
+					
+					
 				</tr>
 			</thead>
 
@@ -537,19 +580,66 @@
 								<td>'.$row['EID'].'</td>
 								<td>'.$row['GPA'].'</td>
 								<td>'.$row['email'].'</td>
+								<td>'.$row['student_type'].'</td>
 								<td>'.$row['classification'].'</td>
 								<td>'.$row['major'].'</td>';
 
-						if ($row['working_for_dms']==0)
+						/* if ($row['working_for_dms']==0)
 						{
 							$working_for_dms="No";
 						}
 						else{
 							$working_for_dms="Yes";
-						}
+						} 
 
 				echo '  <td>'.$working_for_dms.'</td>
-					</tr>';
+					</tr>';*/
+					
+					
+					if($x['interview']=="1")
+					{
+						//echo '<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" checked="checked"disabled></td>';
+						echo "<td>&#10004;</td>";
+					}
+					else
+					{
+						echo "<td></td>";
+					}
+					if($x['potential']=="1")
+					{
+						//echo '<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" checked="checked"disabled></td>';
+						echo "<td>&#10004;</td>";
+					}
+					else
+					{
+						echo "<td></td>";
+					}
+					if($x['accepted_by_dms']=="1")
+					{
+						//echo '<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" checked="checked"disabled></td>';
+						echo "<td>&#10004;</td>";
+					}
+					else
+					{
+						echo "<td></td>";
+					}
+					if($x['student_accept_offer']=="1")
+					{
+						//echo '<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" checked="checked"disabled></td>';
+						//echo "<td>&#10004;</td>";
+						echo "<td><b>Yes</b></td>";
+					}
+					elseif($x['student_accept_offer']=="0")
+					{
+						//echo "<td>&#x2717;</td>";
+						echo "<td><b>No</b></td>";
+					}
+					else
+					{
+						echo "<td></td>";
+					}
+					
+				echo "</tr>";
 
 
 			}

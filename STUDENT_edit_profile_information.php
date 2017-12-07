@@ -283,26 +283,42 @@
 			<tr class="blankrow">
 				<td><br></td>
 			<tr>
-				<td><input type="radio" name="classification" value="1st year" <?php if($row['classification'] == "1st year") echo 'checked="checked"'?> required>1st year undergrad<br></td>
+				<td><input type="radio" name="classification" value="1st year" <?php if($row['classification'] == "1st year") echo 'checked="checked"'?> required>1st year<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="classification" value="2nd year" <?php if($row['classification'] == "2nd year") echo 'checked="checked"'?>>2nd year undergrad<br></td>
+				<td><input type="radio" name="classification" value="2nd year" <?php if($row['classification'] == "2nd year") echo 'checked="checked"'?>>2nd year<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="classification" value="3rd year" <?php if($row['classification'] == "3rd year") echo 'checked="checked"'?>>3rd year undergrad<br></td>
+				<td><input type="radio" name="classification" value="3rd year" <?php if($row['classification'] == "3rd year") echo 'checked="checked"'?>>3rd year<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="classification" value="4th year" <?php if($row['classification'] == "4th year") echo 'checked="checked"'?>>4th year undergrad<br></td>
+				<td><input type="radio" name="classification" value="4th year" <?php if($row['classification'] == "4th year") echo 'checked="checked"'?>>4th year<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="classification" value="5th year" <?php if($row['classification'] == "5th year") echo 'checked="checked"'?>>5th year undergrad<br></td>
+				<td><input type="radio" name="classification" value="5th year" <?php if($row['classification'] == "5th year") echo 'checked="checked"'?>>5th year<br></td>
+			</tr>
+			
+			<tr>
+				<td>What type of student are you?</td>
+			</tr>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr class="blankrow">
+				<td><br></td>
+			<tr>
+				<td><input type="radio" name="student_type" value="Undergraduate" <?php if($row['student_type'] == "Undergraduate") echo 'checked="checked"'?> required>Undergraduate<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="classification" value="Grad" <?php if($row['classification'] == "Grad") echo 'checked="checked"'?>>Graduate Student<br></td>
+				<td><input type="radio" name="student_type" value="Graduate" <?php if($row['student_type'] == "Graduate") echo 'checked="checked"'?>>Graduate<br></td>
 			</tr>
 			<tr>
-				<td><input type="radio" name="classification" value="Other" <?php if($row['classification'] == "Other") echo 'checked="checked"'?>>Other<br></td>
+				<td><input type="radio" name="student_type" value="PhD" <?php if($row['student_type'] == "PhD") echo 'checked="checked"'?>>PhD<br></td>
 			</tr>
+			<tr>
+				<td><input type="radio" name="student_type" value="Other" <?php if($row['student_type'] == "Other") echo 'checked="checked"'?>>Other<br></td>
+			</tr>
+			
+			
 
 			Degree Type
             <input type="text" name="degree_type" value="<?php echo $row ['degree_type']; ?> " size=10>
