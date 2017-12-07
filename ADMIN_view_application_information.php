@@ -166,6 +166,8 @@
 
 	//Calls select_application2 function from DOCTOR_functionality.php
 	$query=select_application2($application_id);
+	
+	
 
 	//echo "<table class='data-table'>
 	echo "<table width=100%>
