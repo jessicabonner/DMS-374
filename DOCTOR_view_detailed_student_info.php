@@ -577,7 +577,7 @@ require 'DMS_general_functions.php';
 			<td><br></td></tr>
 			<td><br></td></tr>";
 
-			</tr>";
+			echo "</tr>";
 			
 
 		}
