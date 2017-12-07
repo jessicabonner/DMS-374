@@ -168,8 +168,8 @@
 	$query=select_application2($application_id);
 
 	//echo "<table class='data-table'>
-	echo "<table width=100%>
-	
+	echo "<table class=view-table>
+
 	<tr>
 	</tr>";
 	//while($row = mysqli_fetch_array($result))
@@ -239,7 +239,6 @@
 
 
 		//break
-		echo "<tr><td><br></td></tr>";
 		if ($row['archived']=="FALSE")
 			{
 				// Display whether or not the applications is open or closed
@@ -248,10 +247,7 @@
 				echo "<td>" . $application_closed.  "</td>";
 
 				echo "</tr>";
-				echo "</tr>";
-				
-				//break
-				echo "<tr><td><br></td></tr>";
+				echo "</tr></table>";
 
 				//set variable to change whether she can close or open an application
 				//0 is false 1 is true
@@ -271,15 +267,16 @@
 					<tr>
 						<td></td>
 						<td></td>
-						<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application<br />
-						<input type='hidden' name='application_id' value=$application_id><br /></td>
-						<td><input type='checkbox' name='new_archive_application' value=$value> Check to Archive Application<br />
+						</br>
+						<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application
+						<input type='hidden' name='application_id' value=$application_id></td>
+						<td>&nbsp&nbsp&nbsp&nbsp&nbsp<input type='checkbox' name='new_archive_application' value=$value> Check to Archive Application<br />
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><input type='submit' value=' Enter '></td>
-						<td><input type='submit' value=' Archive '></td>
+						<td><input type='submit' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' value=' Enter '></td>
+						<td><input type='submit' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' value=' Archive '></td>
 					</tr>
 					</form>";
 

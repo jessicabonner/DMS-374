@@ -69,8 +69,8 @@ table td {
 /* Every other row is a light grey for readability! */
 .data-table tbody tr:nth-child(odd) td {
   background-color: #f4fbff;
-/* Makes the row the cursor is over a different color to highlight it */
 }
+/* Makes the row the cursor is over a different color to highlight it */
 .data-table tbody tr:hover td {
   background-color: #ffd1b3;
   border-color: #ffd1b3;
