@@ -606,13 +606,12 @@ require 'DMS_general_functions.php';
 				<tr>
 			<th>".$question."</th>
 			<td>".$answer."</td>
-<<<<<<< HEAD
+
 			<td><br></td></tr>
 			<td><br></td></tr>";
-=======
+
 			</tr>";
 			
->>>>>>> b60f1e29e1a584ef139563f16887ef8679c0167a
 
 		}
 		
