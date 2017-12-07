@@ -13,14 +13,13 @@
 	//if user clicked submit button named accept to accept a student
 	if(isset($_POST['accept']))
 	{
-		
 
 		$user_id=$_POST['user_id'];
 	
 		$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
 
 		//check if student is already accepted in the database
-		$stmt = $dbc->query("SELECT * FROM review WHERE accepted_by_dms='1' AND application_id=". $_POST['application_id']." AND user_id=".$user_id);
+		$stmt = $dbc->query("SELECT * FROM review WHERE accepted_by_dms=$new_accepted_by_DMS AND application_id=". $_POST['application_id']." AND user_id=".$user_id);
 		$x = $stmt->fetch();
 		
 		//if the student is already accepted, redirect back to the DOCTOR_dashboard.php page along with an indication that there was an error
@@ -39,7 +38,8 @@
 			$stmt->execute();
 			
 		}
-	}
+		}
+	
 	
 	//if user clicked submit button named update to save the review field
 	elseif(isset($_POST['update']))
