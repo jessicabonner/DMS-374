@@ -201,6 +201,10 @@
 			<td><?php echo $program['work_location'] ?></td>
 		</tr>
 		<tr>
+			<th>Position Type</th>
+			<td><?php echo $program['position_type'] ?></td>
+		</tr>
+		<tr>
 			<th>Hours per week</th>
 			<td><?php echo $program['hours_per_week'] ?></td>
 		</tr>

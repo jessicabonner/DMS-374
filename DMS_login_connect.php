@@ -64,15 +64,15 @@ require 'DMS_db.php';
 		die();
 	}
 */
-require 'DMS_ldap_functionality.php';
 
+require 'DMS_ldap_functionality.php';
 
 $username=$_GET['username'];
 $password=$_GET['password'];
 
 //$file=file_get_contents('DMS_ldap_config.php');
 
-$ldap= new ldap((".\DMS_ldap_config.php"));
+$ldap= new ldap(("DMS_ldap_config.php"));
 
 $x= $ldap->login($username, $password);
 echo $x;
