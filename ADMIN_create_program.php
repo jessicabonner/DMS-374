@@ -165,6 +165,33 @@
 									<td><input type="text" name="name_of_program" size="64" pattern="^([a-zA-Z0-9_\s\-]*)$" required/></td>
 								</tr>
 								
+								<!--text box for program description-->
+								<tr>
+									<td>Program Description (if applicable)</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<tr>
+									<td><input type="text" name="program_description" size="40"	
+								</tr>
+								<!--maxlength="4000"/></td -->
+								
+								<!--drop-down menu for postion_type-->
+								<tr>
+									<td>Position Type</td>
+								</tr>
+								<tr class="blankrow">
+									<td><br></td>
+								<tr>
+								<!--populates the drop-down menu with different opttions-->
+								<tr>
+									<td><select name="position_type" required>
+										<option value="Paid">Paid</option>
+										<option value="Non-Paid">Non-Paid</option>
+									</select></td>
+								</tr>
+								
 								<!--text box for first name-->
 								<tr class="blankrow">
 									<td><br></td>
@@ -221,10 +248,10 @@
 								<!--populates the drop-down menu with different opttions-->
 								<tr>
 									<td><select name="assignment_length" required>
-										<option value="AL">Summer</option>
-										<option value="AK">Semester</option>
-										<option value="AZ">School Year</option>
-										<option value="AR">Other</option>
+										<option value="Summer">Summer</option>
+										<option value="Semester">Semester</option>
+										<option value="School">School Year</option>
+										<option value="Other">Other</option>
 									</select></td>
 								</tr>
 

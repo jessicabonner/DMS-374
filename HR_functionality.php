@@ -85,6 +85,15 @@ function view_all(){
 	return $query;
 }
 
+function get_position_type($program_id)
+	{
+		require 'DMS_db.php';
+	
+		$sql="SELECT position_type FROM programs WHERE program_id=$program_id";
+		$query= $dbc->query($sql);
+		return $query;
+	}
+
 	function select_student($user_id)
 	{
 		require 'DMS_db.php';

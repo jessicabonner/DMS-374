@@ -390,7 +390,7 @@
 		</thead>
 
 		<tbody>
-		<?php
+<?php 
 		//this will run the user-created query and return all applicants that came out of that query
 		require 'DMS_db.php';
 
@@ -434,7 +434,7 @@
 			
 			
 			$id = $row['user_id'];
-
+			
 
 			//display all student info in the table
 			echo "<td> <a href='HR_view_student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
@@ -484,6 +484,7 @@
 					</select></td></tr>';
 			}
 		}
+	
 ?>
 		</tbody>
 	</table>

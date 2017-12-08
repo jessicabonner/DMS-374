@@ -25,14 +25,16 @@
 		    $work_location=$_POST['work_location'];
 		    $hours_per_week=$_POST['hours_per_week'];
 		    $hourly_rate=$_POST['hourly_rate'];
+			$position_type=$POST['position_type'];
+			$program_description=$POST['program_description'];
 			
 			//prepare SQL statement to prevent SQL injection		
-		    $stmt = $dbc-> prepare('INSERT INTO programs (name_of_program, supervisor_first_name, supervisor_middle_name, supervisor_last_name, doctor_EID, assignment_length, start_date, end_date, renew, student_type, it_equipment, work_location, hours_per_week, hourly_rate) 
-		    VALUES (:name_of_program, :supervisor_first_name, :supervisor_middle_name, :supervisor_last_name, :doctor_EID, :assignment_length, :start_date, :end_date, :renew, :student_type,
+		    $stmt = $dbc-> prepare('INSERT INTO programs (name_of_program, program_description, position_type, supervisor_first_name, supervisor_middle_name, supervisor_last_name, doctor_EID, assignment_length, start_date, end_date, renew, student_type, it_equipment, work_location, hours_per_week, hourly_rate) 
+		    VALUES (:name_of_program, :program_description, :position_type, :supervisor_first_name, :supervisor_middle_name, :supervisor_last_name, :doctor_EID, :assignment_length, :start_date, :end_date, :renew, :student_type,
 		  :it_equipment, :work_location, :hours_per_week, :hourly_rate)');
 
 			//bind variables to prepared statement and execute
-			$stmt->execute(array('name_of_program' => $name_of_program, 'supervisor_first_name' => $supervisor_first_name, 'supervisor_middle_name' => $supervisor_middle_name, 'supervisor_last_name' => $supervisor_last_name,'doctor_EID' => $doctor_EID,'assignment_length' => $assignment_length,'start_date' => $start_date,'end_date' => $end_date,'renew' => $renew,'student_type' => $student_type,'it_equipment' => $it_equipment,'work_location' => $work_location,'hours_per_week' => $hours_per_week,'hourly_rate' => $hourly_rate ));
+			$stmt->execute(array('name_of_program' => $name_of_program, 'program_description' => $program_description, 'position_type' => $position_type, 'supervisor_first_name' => $supervisor_first_name, 'supervisor_middle_name' => $supervisor_middle_name, 'supervisor_last_name' => $supervisor_last_name,'doctor_EID' => $doctor_EID,'assignment_length' => $assignment_length,'start_date' => $start_date,'end_date' => $end_date,'renew' => $renew,'student_type' => $student_type,'it_equipment' => $it_equipment,'work_location' => $work_location,'hours_per_week' => $hours_per_week,'hourly_rate' => $hourly_rate ));
 
 			//direct back to admin dashboard with a message that the program has been successfully created
 			header('Location: ADMIN_dashboard.php?message=0');
