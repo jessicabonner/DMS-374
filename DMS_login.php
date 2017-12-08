@@ -30,7 +30,7 @@
 				<td>Email address</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="username" size="20" maxlength="30" required pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"/></td>
+				<td><input type="text" name="username" size="20" maxlength="30" required/></td>
 			</tr>
 
 			<!--text box for students middle name-->

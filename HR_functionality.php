@@ -80,7 +80,7 @@ function search($search_criteria)
 function view_all(){
 	require 'DMS_db.php';
 	
-	$sql="SELECT * FROM student_info WHERE working_for_dms='1'";
+	$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id WHERE student_accept_offer='1'";
 	$query= $dbc->query($sql);;
 	return $query;
 }
@@ -96,4 +96,15 @@ function view_all(){
 		
 		return $student;
 	}
+	
+function get_review_entry($user_id)
+{
+	require 'DMS_db.php';
+	$sql="SELECT * FROM review WHERE user_id=$user_id AND accepted_by_dms='1' AND student_accept_offer='1'";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$review= $stmt->fetch();
+		
+	return $review;
+}
 ?>

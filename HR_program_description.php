@@ -118,7 +118,7 @@
 				<!-- Header -->
 				<div class="w3-container" id="showcase">
 					<h1 class="w3-jumbo">
-						<b>All Active Applications (Closed and Open)</b>
+						<b></b>
 					</h1>
 
 					<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
