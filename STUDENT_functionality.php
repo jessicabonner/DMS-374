@@ -118,6 +118,29 @@ function get_accepted_declined_offer($user_id, $application_id)
 	}
 }
 
+function check_student_accepted_offer()
+
+{
+	$user_id=$_SESSION['user_id'];
+	
+	require 'DMS_db.php';
+	//select all the applications that are active
+	$sql="SELECT * FROM review WHERE user_id= $user_id AND student_accept_offer=1";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$review= $stmt->fetch();
+	
+	if(!isset($review['user_id']))
+	{
+		return"FALSE";
+	}
+	elseif (count($review['user_id'])>0)
+	{
+		return "TRUE";
+	}
+	
+}
+
 
 
 

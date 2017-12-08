@@ -412,11 +412,11 @@
 			<thead>
 				<tr>
 
-					<th>ID</th>
+					<th>EID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Review</th>
-					<th>EID</th>
+					
 					<th>GPA</th>
 					<th>Email</th>
 					<th>Type</th>
@@ -540,7 +540,7 @@
 
 
 
-				echo "<td> <a href='DOCTOR_view_detailed_student_info.php?id= $id &selected_application=$selected_application_id'>" .$row['user_id'] . "</a> </td>";
+				echo "<td> <a href='DOCTOR_view_detailed_student_info.php?id= $id &selected_application=$selected_application_id'>" .$row['EID'] . "</a> </td>";
 
 				echo '
 						<td>'.$row['first_name'].'</td>
@@ -577,7 +577,7 @@
 						}
 
 							echo '
-								<td>'.$row['EID'].'</td>
+								
 								<td>'.$row['GPA'].'</td>
 								<td>'.$row['email'].'</td>
 								<td>'.$row['student_type'].'</td>

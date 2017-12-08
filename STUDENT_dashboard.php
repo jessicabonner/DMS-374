@@ -198,6 +198,7 @@
 		<?php
 		
 			$application_array=get_applications_student_applied_to($user_id);
+			$already_accepted_offer=check_student_accepted_offer();
 			
 			foreach($application_array as $row)
 				{
@@ -216,11 +217,25 @@
 						{
 							echo '<td>Offer Accepted</td>
 							</tr>';
+							
 						}
 						else
 						{
-							echo '<td><a href="STUDENT_accept_offer.php?&application_id='.$row['application_id'].'">'.get_accepted($user_id, $row['application_id']).'</a></td>
-							</tr>';
+							if ($already_accepted_offer=="FALSE")
+							{
+								echo '<td><a href="STUDENT_accept_offer.php?&application_id='.$row['application_id'].'">'.get_accepted($user_id, $row['application_id']).'</a></td>
+								</tr>';
+							}
+							elseif($already_accepted_offer=="TRUE")
+							{
+								echo '<td>'.get_accepted($user_id, $row['application_id']).'</td>
+								</tr>';
+							}
+							else
+							{
+								echo "<td>$already_accepted_offer</td>";
+							}
+							
 						}
 						
 		

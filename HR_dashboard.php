@@ -312,6 +312,7 @@
 	<?php
 	
 	require"HR_functionality.php";
+	require 'DMS_general_functions.php';
 
 	if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
 	{
@@ -369,11 +370,10 @@
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
 			<tr>
-				<th>ID</th>
+				<th>EID</th>
 				<th>First Name</th>
 				<th>Middle Name</th>
 				<th>Last Name</th>
-				<th>EID</th>
 				<th>Email</th>
 				<th>Classification</th>
 				<th>Student Type</th>
@@ -385,6 +385,9 @@
 				<th>I-9 Form</th>
 				<th>Seton Forms</th>
 				<th>Background Check</th>
+				<!--<th>Working for DMS?</th>-->
+				<th>Program</th>
+				
 				
 			</tr>
 		</thead>
@@ -396,6 +399,24 @@
 
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
+			$id = $row['user_id'];
+			
+			
+			
+			$review=get_review_entry($id);
+			if(isset($review['application_id']))
+			{
+				//Calls get_program function from DMS_general_functions.php
+				//$name_of_program =get_program_from_app_id($review['application_id']);
+				$program_id=get_program_id_from_app_id($review['application_id']);
+				$name_of_program =get_program($program_id);
+				
+			}
+			else
+			{
+				$name_of_program="";
+				$program_id="";
+			}
 			$bio_data_form = $row['bio_data_form'];
 			if($bio_data_form == 1)
 			{
@@ -434,15 +455,13 @@
 			
 			
 			$id = $row['user_id'];
-			
 
 			//display all student info in the table
-			echo "<td> <a href='HR_view_student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
+			echo "<td> <a href='HR_view_student.php?id= $id '>" .$row['EID'] . "</a> </td>";
 			echo '
 				<td>'.$row['first_name'].'</td>
 				<td>'.$row['middle_name'].'</td>
 				<td>'.$row['last_name'].'</td>
-				<td>'.$row['EID'].'</td>
 				<td>'.$row['email'].'</td>
 				<td>'.$row['classification'].'</td>
 				<td>'.$row['student_type'].'</td>
@@ -465,7 +484,7 @@
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Fail</option>
-					</select></td></tr>';
+					</select></td>';
 			}
 			elseif ($x['background_check']=="1") //if background_check = 1 (Pass) in the db, show the correct selected value
 			{
@@ -473,7 +492,7 @@
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
-					</select></td></tr>';
+					</select></td>';
 			}
 			else
 			{ //if background_check = 0 (N/A) in the db, show the correct selected value
@@ -481,8 +500,11 @@
 					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
-					</select></td></tr>';
+					</select></td>';
 			}
+			
+			//echo "<td></td>"
+			echo "<td> <a href='HR_program_description.php?program_id= $program_id '>" .$name_of_program . "</a> </td></tr>";
 		}
 	
 ?>
