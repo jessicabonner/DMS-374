@@ -1,5 +1,5 @@
 <?php
-/*
+
 //link to file containing database connection string
 require 'DMS_db.php';
 	
@@ -63,7 +63,7 @@ require 'DMS_db.php';
 		echo "error";
 		die();
 	}
-*/
+/*
 
 require 'DMS_ldap_functionality.php';
 
@@ -76,7 +76,7 @@ $ldap= new ldap(("DMS_ldap_config.php"));
 
 $x= $ldap->login($username, $password);
 echo $x;
-
+*/
 
  
 
