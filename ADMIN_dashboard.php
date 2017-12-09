@@ -92,18 +92,10 @@
 					<div class="row">
 						<div class="column small-12">
 							<div class="topnav">
-								<div class="hide-for-large-up">
-									<ul class="topnav-constituents" role="menu">
-										<li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
-										<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
-										<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
-										<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-									</ul>
-								</div>
 								<div class="parent-banner-links">
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-										<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
 									</h2>
 								</div>
 
@@ -121,6 +113,7 @@
 						</div>
 					</div>
 				</div> <!-- container-topnav -->
+
 				<!-- Admin Dashboard Tabs -->
 				<div class="container container-nav container-nav-phase2">
 					<div class="row">
@@ -128,44 +121,35 @@
 							<nav>
 								<ul class="nav" id="main-nav" role="menu">
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link">Home</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="ADMIN_create_profile.php" onclick="w3_close()" class="nav-link">New Profile</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link">New Program</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="#" class="nav-link has-child nolink">Applications</a>
 										<div class="sub-nav-wrapper">
+											<div class="sub-nav-row">
+					                                          <ul class="sub-nav">
+					                                                      <li class="sub-nav-item">
+					                      <a href="ADMIN_create_application.php" onclick="w3_close()"  class="sub-nav-link"><span>New Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Edit Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Delete Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                                                                                                                    </ul>
+					            </div>
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_profile.php" onclick="w3_close()" class="nav-link has-child nolink">New Profile</a>
-										<div class="sub-nav-wrapper">
-										</div>
+										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_application.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Delete Applications</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>
-										<div class="sub-nav-wrapper">
-										</div>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Accepted Students</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>
@@ -253,3 +237,33 @@
 					?>
 					</tbody>
 				</table>
+
+				<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+			<script type="text/javascript">
+			<!--//--><![CDATA[//><!--
+			window.jQuery || document.write("<script src='/sites/all/modules/custom/utexas_admin/js/replace/backup/jquery.min.js'>\x3C/script>")
+			//--><!]]>
+			</script>
+			<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_V1ZuwJK9uzfm6fFffOcHHubfxnimoxnbgG58pvTQdpY.js"></script>
+			<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_i8ZDNK9FSclaojQobXVjwcDgllxkCNEBi7F9dR3cyG4.js"></script>
+			<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_OQYJ-u6vDcK-675deS5Xo9mquqU3gecqRovKlzqWxgo.js"></script>
+			<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_RrQc6CubqbOf8B1FDFLiOZd89DCZo5HaON0Jzve9S38.js"></script>
+			<script type="text/javascript">
+			<!--//--><![CDATA[//><!--
+			jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"dms","theme_token":"ldwKYvqbNm9QvvSHqmM1baDbR7Wu4H0dVqepI3Y2hxU","js":{"https:\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.10.2\/jquery.min.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/magnific-popup\/dist\/jquery.magnific-popup.js":1,"sites\/all\/modules\/contrib\/magnific_popup\/js\/behaviors.mfp-formatter.js":1,"sites\/all\/modules\/custom\/utexas_google_cse\/js\/utexas_google_cse.js":1,"sites\/all\/themes\/phase2_theme1\/js\/custom.js":1,"sites\/all\/themes\/dms\/js\/fitvids.js":1,"sites\/all\/themes\/dms\/js\/dmscustom.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/libraries\/magnific-popup\/dist\/magnific-popup.css":1,"sites\/all\/modules\/contrib\/magnific_popup\/css\/mfp-formatter.css":1,"sites\/all\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/custom\/features\/content_types\/content_type_twitter_widget\/theme\/twitter-widget.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/custom\/features\/bundles\/featured_media\/theme\/featured_media.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/custom\/localist_integration\/css\/localist.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/custom\/utexas_fonts\/css\/fonts.css":1,"sites\/all\/modules\/custom\/utexas_google_cse\/css\/utexas_google_cse.css":1,"sites\/all\/modules\/custom\/features\/views\/views_core_home_featured_stories\/theme\/core-home-featured-stories.css":1,"sites\/all\/modules\/custom\/features\/views\/views_utexas_localist_widget\/theme\/utexas-localist-widget.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/oembed\/oembed.base.css":1,"sites\/all\/modules\/contrib\/oembed\/oembed.theme.css":1,"0":1,"1":1,"sites\/all\/themes\/phase2_theme1\/css\/base.css":1,"sites\/all\/themes\/phase2_theme1\/css\/phase2_pages.css":1,"sites\/all\/themes\/phase2_theme1\/css\/phase2_theme1.css":1,"sites\/all\/themes\/dms\/css\/custom.css":1,"sites\/all\/themes\/dms\/css\/overrides.css":1}},"cseId":"015663220751118638721:x0c8u6cfbrm","magnific_popup_api":{"iframe_patterns":{"youtube":{"index":"youtube.com\/","id":"v=","src":"\/\/www.youtube.com\/embed\/%id%?rel=0\u0026modestbranding=1\u0026playerapiid=mfp-iframe\u0026controls=2\u0026autoplay=1"}}}});
+			//--><!]]>
+			</script>
+			  <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_9xSy2jfgzGVpfqWMRbersAVIjfBizP0C9bnfdzuyJPo.js"></script>
+			<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
+			    <div class="region region-page-bottom">
+			    <!-- Google Tag Manager -->
+			<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-59NMNV"
+			height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+			<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+			})(window,document,'script','dataLayer','GTM-59NMNV');</script>
+			<!-- End Google Tag Manager -->  </div>
+			</body>
+			</html>
