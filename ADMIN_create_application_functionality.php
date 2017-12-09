@@ -14,6 +14,8 @@
 		$term=$_POST['term'];
 		$year=$_POST['year'];
 		$program_id=$_POST['program_id'];
+		
+		
 		$array_unique_questions=$_POST['list_unique_questions'];
 		
 		//turn the array of questions into a string

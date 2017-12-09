@@ -262,7 +262,6 @@
 								<tr class="blankrow">
 									<td><br></td>
 								<tr>
-								<!--allows the user to select the start date from a calendar-->
 								<tr>
 									<td><input type="date" name="start_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required/></td>
 								</tr>
@@ -273,10 +272,11 @@
 								<tr class="blankrow">
 									<td><br></td>
 								<tr>
-								<!--allows the user to select the end date from a calendar-->
 								<tr>
 									<td><input type="date" name="end_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required pattern="^\d{2}/\d{2}/\d{4}$"/></td>
 								</tr>
+									
+									
 								<!--drop-down menu to specify if the postions is renewable-->
 								<tr>
 									<td>Renewable position:</td>
@@ -290,6 +290,8 @@
 										<option value="0">No</option>
 									</select></td>
 								</tr>
+								
+								
 								<!--drop-down menu to specify the classification for which students need to be-->
 								<tr>
 									<td>Student Type:</td>
