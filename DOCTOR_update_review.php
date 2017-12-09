@@ -116,8 +116,8 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 			    	$mail->IsSMTP();
 			    	$mail->Host = 'smtp.gmail.com'; 
 			    	$mail->SMTPAuth = true;
-			    	$mail->Username = 'example@utexas.edu';  // Sender's gmail address
-			    	$mail->Password = 'Password';  // Sender's gmail password
+			    	$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
+			    	$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
 				    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 				    $mail->Port = 587; 
 			    	$mail->From = "$from";  // Sender's email address
