@@ -84,6 +84,8 @@
 		$program= $stmt->fetch();
 		return $program['name_of_program'];
 	}
+	
+	//Get the program id given the app id 
 	function get_program_id_from_app_id($application_id)
 	{
 		require 'DMS_db.php';
@@ -95,6 +97,19 @@
 		$program_id=$application['program_id'];
 		
 		return $program_id;
+	}
+	
+	//gets the information on all programs listed in the "programs" table of the database
+	function get_all_roles()
+	{
+		require 'DMS_db.php';
+		
+		$sql="SELECT * FROM roles";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$roles= $stmt->fetchAll();
+		
+		return $roles;
 	}
 	
 ?>
