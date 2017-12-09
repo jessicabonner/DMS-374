@@ -134,7 +134,26 @@
 		$student_applicant_id_array=array();
 		foreach($student_applicants as $key=>$value)
 		{
-			$student_applicant_id_array[]=$value["user_id"];
+			$sql='SELECT * FROM review WHERE user_id='.$value['user_id'].' AND application_id ='.$application_id;
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+			$review= $stmt->fetch();
+			
+			if ($review['accepted_by_dms']=='1')
+			{
+				$student_applicant_id_array[]=$value["user_id"];
+			}
+			
+			$sql='SELECT * FROM review WHERE user_id='.$value['user_id'].' AND application_id !='.$application_id.' AND student_accept_offer=1';
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+			$review= $stmt->fetch();
+			
+			if (count($review['user_id']) ==0)
+			{
+				$student_applicant_id_array[]=$value["user_id"];
+			}
+			
 			//echo $value['user_id'];
 		}
 		return $student_applicant_id_array;

@@ -1,17 +1,7 @@
-<?php
-	//this will display an error message if the user tries to create an application that already exists in the database
-	if (isset($_GET['error']))
-	{
-		echo '<script language="javascript">';
-		echo 'alert("The application already exists")';
-		echo '</script>';
-
-	}
-?>
-
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
+	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
@@ -21,8 +11,7 @@
 	<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
 	<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
 	<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
-	<![endif]-->
-	<meta name="apple-mobile-web-app-title" content="UT Austin" />
+	<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
 	<meta name="msapplication-TileColor" content="#bf5700" />
@@ -43,28 +32,28 @@
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
 	<style type="text/css" media="all">
 		/*--><![CDATA[/*><!--*/
 		#main-nav li a{font-family:open_sans;}
 		.UT-page{margin-top:50px;}
-
 		/*]]>*/
-	</style>
+	</style>   
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
-  <div id="skip-link">
-    <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
-  </div>
-	<header class="UT-header theme1">
+	<div id="skip-link">
+		<a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
+	</div>
 
+	<header class="UT-header theme1">
 		<div class="container container-logo-p2">
 			<div class="row">
 				<div class="column small-12">
 					<div class="p2-logo">
-						<a href="http://dellmed.utexas.edu" on-click="w3_close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
+						<a href="http://dellmed.utexas.edu" on-click="w3-close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
 					</div>
 				</div>
 			</div>
@@ -73,12 +62,14 @@
 
 		<div class="nav-overlay" id="nav-overlay"></div>
 			<div class="nav-wrapper" role="navigation">
+
 				<div class="container container-topnav">
 					<div class="row">
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="hide-for-large-up">
-									<ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
+									<ul class="topnav-constituents" role="menu">
+										<li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
 										<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
 										<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
 										<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
@@ -89,6 +80,7 @@
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 									</h2>
 								</div>
+
 								<div class="hide-for-large-up">
 									<div class="parent-links" id="parents">
 										<a href="http://www.utexas.edu">The University of Texas at Austin</a>
@@ -96,16 +88,14 @@
 
 									<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
 								</div>
-
 								<br>
 								<br>
 								<br>
-
 							</div>
 						</div>
 					</div>
 				</div> <!-- container-topnav -->
-				<!-- Page tabs -->
+				<!-- Admin Dashboard Tabs -->
 				<div class="container container-nav container-nav-phase2">
 					<div class="row">
 						<div class="column small-12">
@@ -132,6 +122,11 @@
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
+										<a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Delete Applications</a>
+										<div class="sub-nav-wrapper">
+										</div>
+									</li>
+									<li class="nav-item" role="menuitem">
 										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
 										<div class="sub-nav-wrapper">
 										</div>
@@ -148,132 +143,58 @@
 						</div>
 					</div>
 				</div> <!-- container-nav-phase2 -->
-
 			</div> <!-- nav-wrapper -->
+
 
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
-			<!-- Header -->
-			<div class="w3-container" style="margin-top:40px" id="showcase">
-				<h1 class="w3-jumbo">
-					<b>Create a New Application</b>
-				</h1>
+				<!-- Header -->
+				<div class="w3-container" style="margin-top:40px" id="showcase">
+					<h1 class="w3-jumbo">
+						<b>Roles Table</b>
+					</h1>
 
-				<!-- Instructions to create new program -->
-				<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
-				<br>
-				<b>Please enter the name of the program and its associated doctor </b>
-				<br>
-				<br>
-			</div>
+					<hr style="width:100%;border:5px solid #BF5700" align="left" class="w3-round">
+				</div>
 
 
-			<div class="w3-container" id="application">
 
-				<body>
-					<!--this form will post to DMS_connect in order to submit data to DB-->
-					<form name="apply_form" action = "ADMIN_create_application_functionality.php" method= "post">
+				<div class="w3-container" id="application" style="margin-top:10px"></div>
+				
 
-						<table>
-
-							<!--get all program names to populate dropdown-->
+					<body>
+						<form name="apply_form" action = "ADMIN_create_program_functionality.php" method= "post">
+							<tr>
+								<td><p>EID</p></td>
+							</tr>
+							<tr>
+								<td><input type="text" name="user_eid" required></td>
+							</tr>
+							<!--get all role names to populate dropdown-->
 							<?php
-							//link to file containing this function (line 18)
+							//link to file containing this function (line 101)
 							require 'DMS_general_functions.php';
 
-							$programs= get_all_programs()
+							$roles= get_all_roles()
 							?>
+							
 							<!--specify program application is for & # of unique questions -->
 							<tr>
-								<td>Please associate a new application with a program and enter any unique questions</td>
+								<td><p>New Role</p></td>
 							</tr>
 							<tr class="blankrow">
 								<td><br></td>
 							</tr>
 							<tr>
 								<td>
-									<select name="program_id" required>
-										<?php foreach($programs as $program): ?>
-											<option value="<?= $program['program_id']; ?>"><?= $program['name_of_program']; ?></option>
+									<select name="role_id" required>
+										<?php foreach($roles as $role): ?>
+											<option value="<?= $role['role_id']; ?>"><?= $role['role_name']; ?></option>
 										<?php endforeach; ?>
 									</select>
 								</td>
 							</tr>
-
-							<!--break-->
-							<tr>
-								<td><br></td>
-							</tr>
-							<!-- specify term and year for application -->
-							<tr>
-								<td>Please enter the year and semester that this application is for</td>
-							</tr>
-							<tr class="blankrow">
-								<td><br></td>
-							</tr>
-							<tr>
-								<td>
-									<select name="term" required>
-										<option value="Fall">Fall</option>
-										<option value="Spring">Spring</option>
-										<option value="Summer">Summer</option>
-										<option value="All_Year">All Year</option>
-										<option value="School_Year">School Year</option>
-									</select>
-								</td>
-							</tr>
-
-							<tr>
-
-								<td>
-									<input type="text" placeholder="ex: 2017" name="year" maxlength="4" pattern="^[0-9]*$" required/>
-								</td>
-							</tr>
-
-							<!--break-->
-							<tr>
-								<td><br></td>
-							</tr>
-
-							<!--text box for number of questions to create-->
-							<tr>
-								<td>Please enter the number of custom questions that you wish to create</td>
-							</tr>
-							<tr class="blankrow">
-								<td><br></td>
-							</tr>
-							<tr>
-								<td><input type="text" name="number_unique_questions" id="number_unique_questions" size="20" maxlength="2" pattern="^[0-9]+$" required/></td>
-
-							</tr>
-						</table>
-
-						<table id="unique_questions_table">
-
-						</table>
-
-						<!--submit button. Will post info.-->
-						<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
-
-					<script>
-
-						$("#number_unique_questions").keyup(function(){
-							var question_number = $("#number_unique_questions").val();
-
-							$("#unique_questions_table").empty();
-							$("#unique_questions_table").prepend("Enter the unique questions below");
-							while (question_number>0){
-
-								var text = $("<tr></tr>").html("<td><input type='text' name='list_unique_questions[]' id='unique_question' required/></td>");
-								$("#unique_questions_table").append(text);
-
-								question_number-=1;
-							}
-
-						});
-
-					</script>
-
-				</body>
-</html>
+							
+							
+				

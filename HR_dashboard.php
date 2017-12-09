@@ -403,7 +403,7 @@
 			
 			
 			
-			$review=get_review_entry($id);
+			/* $review=get_review_entry($id);
 			if(isset($review['application_id']))
 			{
 				//Calls get_program function from DMS_general_functions.php
@@ -411,6 +411,18 @@
 				$program_id=get_program_id_from_app_id($review['application_id']);
 				$name_of_program =get_program($program_id);
 				
+			}
+			else
+			{
+				$name_of_program="";
+				$program_id="";
+			} */
+			
+			
+			if (isset($row['program_id']))
+			{
+				$name_of_program= get_program($row['program_id']);
+				$program_id=$row['program_id'];
 			}
 			else
 			{
