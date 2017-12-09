@@ -110,7 +110,7 @@
 	//if the statement doesn't fail, redirect back to dms_viewapp and pass student_id in the url
 	else
 	{
-		//header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id']);
+		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id']);
 		die();
 	}
 
