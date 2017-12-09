@@ -66,6 +66,7 @@ require 'DMS_db.php';
 */
 
 require 'DMS_ldap_functionality.php';
+session_start();
 
 $username=$_GET['username'];
 $password=$_GET['password'];
@@ -74,10 +75,17 @@ $password=$_GET['password'];
 
 $ldap= new ldap(("DMS_ldap_config.php"));
 
-$x= $ldap->login($username, $password);
-echo $x;
 
 
+$ldap->login($username,$password);
+//echo $x;
+
+echo $_SESSION['username'];
+echo $_SESSION['firstName'];
+echo $_SESSION['lastName'];
+
+//$_SESSION=array();
+//session_destroy();
  
 
 

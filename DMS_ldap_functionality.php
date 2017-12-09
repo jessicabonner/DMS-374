@@ -3,8 +3,6 @@ date_default_timezone_set('America/Chicago');
         class ldap { //Begin class
                 //Global Vars
                 var $config = array();
-				
-				
 
                 /*------------------------------------------------------------------------------------------------*/
                 /*  ldap($file): Reads the configuration file and loads information into an array             */
@@ -18,7 +16,6 @@ date_default_timezone_set('America/Chicago');
                 /*                   information from the $this->config array. This is a private method.          */
                 /*------------------------------------------------------------------------------------------------*/
                 private function ldapConnect(){
-					var_dump($this->config);
                         $ldapConn = ldap_connect($this->config['ldap']['hosts'], $this->config['ldap']['port']);
                         if ($ldapConn) {
                                 return $ldapConn;
@@ -72,12 +69,10 @@ date_default_timezone_set('America/Chicago');
                                 $_SESSION['username'] = $username;
                                 $_SESSION['firstName'] = $ldapSearch[0]['givenname'][0];
                                 $_SESSION['lastName'] = $ldapSearch[0]['sn'][0];
-                                //return(true);
-								return 'worked';
+                                return(true);
                         }
                         else {
-                                //return(false);
-								return 'didnt work';
+                                return(false);
                         }
 
                 } //end function login
