@@ -387,6 +387,7 @@
 				<th>Background Check</th>
 				<!--<th>Working for DMS?</th>-->
 				<th>Program</th>
+				<th>Position Type</th>
 				
 				
 			</tr>
@@ -400,8 +401,6 @@
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 			$id = $row['user_id'];
-			
-			
 			
 			/* $review=get_review_entry($id);
 			if(isset($review['application_id']))
@@ -423,12 +422,25 @@
 			{
 				$name_of_program= get_program($row['program_id']);
 				$program_id=$row['program_id'];
+				
 			}
 			else
 			{
 				$name_of_program="";
 				$program_id="";
 			}
+			
+			if (isset($row['program_id']))
+			{
+				$position_type= get_program_type($row['program_id']);
+				$program_id=$row['program_id'];
+				
+			}
+			else
+			{
+				$position_type="";
+			}
+			
 			$bio_data_form = $row['bio_data_form'];
 			if($bio_data_form == 1)
 			{
@@ -516,7 +528,8 @@
 			}
 			
 			//echo "<td></td>"
-			echo "<td> <a href='HR_program_description.php?program_id= $program_id '>" .$name_of_program . "</a> </td></tr>";
+			echo "<td> <a href='HR_program_description.php?program_id= $program_id '>" .$name_of_program . "</a> </td>";
+			echo "<td>". $position_type. "</td></tr>";
 		}
 	
 ?>
