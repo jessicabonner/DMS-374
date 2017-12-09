@@ -40,6 +40,7 @@ require("DMS_db.php");
 	if ($role_id != $_SESSION['role'])
 	{
 		echo "You do not have access to view this page";
+		echo "<br><a href='DMS_login.php'>Login</a>";
 		die();
 	}
 	

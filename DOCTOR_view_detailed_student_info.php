@@ -165,10 +165,13 @@ require 'DMS_general_functions.php';
 
 
 	// Get ID from the URL
-	$id = $_GET['id'];
+	$student_id = $_GET['id'];
+	
 	$application_id=$_GET['selected_application'];
+	
 
-	$query = select_student2($id);
+	$query = select_student2($student_id);
+	
 
 	//TODO: DeleteThis Later
 	if (!$query)
@@ -200,7 +203,7 @@ require 'DMS_general_functions.php';
 	{
 		// Display applicants's ID
 		echo "<tr>";
-		echo "<th>ID</th>";
+		echo "<th>EID</th>";
 		//echo "<td width='50%'>" . $row['user_id'] .  "</td>";
 		echo "<td>" . $row['user_id'] .  "</td>";
 		echo "</tr>";
@@ -475,7 +478,7 @@ require 'DMS_general_functions.php';
 		{
 			$number_unique_questions-=1;
 			$question=question_unique_question($application_id, $number_unique_questions);
-			$answer=answer_unique_question($number_unique_questions, $application_id, $id);
+			$answer=answer_unique_question($number_unique_questions, $application_id, $user_id);
 			
 			echo "
 				<tr><td><br></td>
@@ -498,7 +501,7 @@ require 'DMS_general_functions.php';
 		//echo "<tr>";
 		echo "<th>Review</th>";
 
-		$stmt = $dbc->query("SELECT * FROM review WHERE user_id=$id AND application_id=$application_id;");
+		$stmt = $dbc->query("SELECT * FROM review WHERE user_id='".$student_id."' AND application_id=$application_id;");
        	$x = $stmt->fetch();
 
 		if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
@@ -560,7 +563,7 @@ require 'DMS_general_functions.php';
 		{
 			$number_unique_questions-=1;
 			$question=question_unique_question($application_id, $number_unique_questions);
-			$answer=answer_unique_question($number_unique_questions, $application_id, $id);
+			$answer=answer_unique_question($number_unique_questions, $application_id, $user_id);
 			
 			echo "
 				<tr><td><br></td>
@@ -588,25 +591,27 @@ require 'DMS_general_functions.php';
 		
 		$accepted_by_dms = $x['accepted_by_dms'];
 		
+		
 		//set variable to change whether doctors can accept or unaccept an applicant
 		//0 is false 1 is true
 		
 		//$application_id = $row['application_id'];
-		if ($accepted_by_dms=='0')
-		{
-			$accept_unaccept='Accept';
-			$value="1";
-		}
-		else
+		if ($accepted_by_dms=='1')
 		{
 			$accept_unaccept='Unaccept';
 			$value="0";
+			
+		}
+		else
+		{
+			$accept_unaccept='Accept';
+			$value="1";
 		}
 		
 		echo "<tr><td><br></td>
 			<tr><th>$accept_unaccept Candidate</th></td>
 			<td><input type='checkbox' name='new_accepted_by_DMS' value=$value >
-			<input type='hidden' name='user_id' value=$id><br /></td>
+			<input type='hidden' name='user_id' value=$student_id><br /></td>
 			<input type='hidden' name='application_id' value=$application_id>
 			</tr>";
 
