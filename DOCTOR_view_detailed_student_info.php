@@ -166,19 +166,19 @@ require 'DMS_general_functions.php';
 
 	// Get ID from the URL
 	$student_id = $_GET['id'];
-	
+
 	$application_id=$_GET['selected_application'];
-	
+
 
 	$query = select_student2($student_id);
-	
+
 
 	//TODO: DeleteThis Later
 	if (!$query)
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
-	
+
 
 	$number_unique_questions=get_number_questions($application_id);
 
@@ -204,7 +204,6 @@ require 'DMS_general_functions.php';
 		// Display applicants's ID
 		echo "<tr>";
 		echo "<th>EID</th>";
-		//echo "<td width='50%'>" . $row['user_id'] .  "</td>";
 		echo "<td>" . $row['user_id'] .  "</td>";
 		echo "</tr>";
 		// Display applicants's First Name
@@ -217,7 +216,6 @@ require 'DMS_general_functions.php';
 		echo "<th>Last Name</th>";
 		echo "<td>" . $row['last_name'] .  "</td>";
 		echo "</tr>";
-		
 		
 		// Display applicants's Email
 		echo "<tr>";
@@ -347,12 +345,12 @@ require 'DMS_general_functions.php';
 		echo "<th>Programs they applied to:</th>";
 		echo "<td>" . $row['other_programs'] .  "</td>";
 		echo "</tr>";
-		
+
 		echo "<tr>";
 		echo "<th>Hours Working</th>";
 		echo '<td><input type="text" name="hours_working_week" value="'.$row['hours_working_week'].'"; ></td>';
 		echo "</tr>";
-		
+
 		echo "<tr>";
 		echo "<th>Hourly Rate</th>";
 		echo '<td><input type="text" name="hourly_rate" value="'.$row['hourly_rate'].'"; ></td>';
@@ -479,16 +477,16 @@ require 'DMS_general_functions.php';
 			$number_unique_questions-=1;
 			$question=question_unique_question($application_id, $number_unique_questions);
 			$answer=answer_unique_question($number_unique_questions, $application_id, $user_id);
-			
+
 			echo "
 				<tr><td><br></td>
 				<tr><td><br></td>
 				<tr><td><br></td>
 				<tr>
 				</tr>";
-			
 
-				
+
+
 			echo "
 				<tr>
 					<th>".$question."</th>
@@ -564,7 +562,7 @@ require 'DMS_general_functions.php';
 			$number_unique_questions-=1;
 			$question=question_unique_question($application_id, $number_unique_questions);
 			$answer=answer_unique_question($number_unique_questions, $application_id, $user_id);
-			
+
 			echo "
 				<tr><td><br></td>
 				<tr><td><br></td>
@@ -585,29 +583,29 @@ require 'DMS_general_functions.php';
 			<td><br></td></tr>";
 
 			echo "</tr>";
-			
+
 
 		}
-		
+
 		$accepted_by_dms = $x['accepted_by_dms'];
-		
-		
+
+
 		//set variable to change whether doctors can accept or unaccept an applicant
 		//0 is false 1 is true
-		
+
 		//$application_id = $row['application_id'];
 		if ($accepted_by_dms=='1')
 		{
 			$accept_unaccept='Unaccept';
 			$value="0";
-			
+
 		}
 		else
 		{
 			$accept_unaccept='Accept';
 			$value="1";
 		}
-		
+
 		echo "<tr><td><br></td>
 			<tr><th>$accept_unaccept Candidate</th></td>
 			<td><input type='checkbox' name='new_accepted_by_DMS' value=$value >

@@ -1,424 +1,46 @@
-
-<!doctype html>
-<html lang="en" dir="ltr">
+<html>
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
-<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
-<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
-<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
-<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
-<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
-<meta name="msapplication-TileColor" content="#bf5700" />
-<link rel="apple-touch-icon" sizes="120x120" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-120x120.png" />
-<link rel="apple-touch-icon" sizes="76x76" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-76x76.png" />
-<link rel="apple-touch-icon" sizes="114x114" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-114x114.png" />
-<link rel="apple-touch-icon" sizes="57x57" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-57x57.png" />
-<link rel="apple-touch-icon" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon.png" />
-<link rel="apple-touch-icon" sizes="60x60" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-60x60.png" />
-<link rel="apple-touch-icon" sizes="72x72" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-72x72.png" />
-<meta name="description" content="Dell Medical School at The University of Texas at Austin is the first med school in decades to be built from the ground up at a Tier 1 research university." />
-<meta name="robots" content="follow, index" />
-<meta name="generator" content="Drupal 7 (http://drupal.org)" />
-<link rel="canonical" href="https://dellmed.utexas.edu" />
-<link rel="shortlink" href="https://dellmed.utexas.edu" />
-  <title>Dell Medical School | The University of Texas at Austin</title>
-  <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_xE-rWrJf-fncB6ztZfd2huxqgxu4WO-qwma6Xer30m4.css" media="all" />
-<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
-<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
-<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
-<style type="text/css" media="all">
-<!--/*--><![CDATA[/*><!--*/
-#main-nav li a{font-family:open_sans;}
-.UT-page{margin-top:50px;}
+<title></title>
 
-/*]]>*/
-</style>
-<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
-  <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
+<body >
 
-<body class="html front not-logged-in no-sidebars page-node"  >
-  <div id="skip-link">
-    <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
-  </div>
-      <header class="UT-header theme1">
+<?Php
+require "config.php"; // database connection is here
 
-    <div class="container container-logo-p2">
-      <div class="row">
-        <div class="column small-12">
-           <div class="p2-logo">
-             <a href="/" class="main-logo"><span class="hiddenText">Dell Medical School</span><img src="/sites/all/themes/dms/images/RGB_formal_Dell.svg" alt="Home" /></a>
-          </div>
-        </div>
-      </div>
-      <a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
-    </div> <!-- container-logo -->
+//////Displaying Data/////////////
+$id=$_GET['id'];        // Collecting data from query string
+if(!is_numeric($id)){ // Checking data it is a number or not
+echo "Data Error";
+exit;
+}
 
-    <div class="nav-overlay" id="nav-overlay"></div>
-    <div class="nav-wrapper" role="navigation">
-
-      <div class="container container-topnav">
-        <div class="row">
-          <div class="column small-12">
-            <div class="topnav">
-              <div class="hide-for-large-up">
-                <ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
-<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
-<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
-<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-</ul>              </div>
-              <div class="parent-banner-links">
-                <h2 class="UT-secondary-logo">
-                  <a href="http://www.utexas.edu" class="logo-link"><img src="/sites/all/themes/phase2_theme1/img/general/texas_shield.png" alt="UTexas Home" /><br></a>
-                </h2>
-                              </div>
-
-              <div class="hide-for-large-up">
-                <div class="parent-links" id="parents">
-                  <a href="http://www.utexas.edu">The University of Texas at Austin</a>
-                                  </div>
-
-                                  <a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
-                              </div>
-
-              <div class="nav-item-search show-for-large-up">
-                <ul class="topnav-constituents" role="menu"><ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
-<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
-<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
-<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-</ul></ul>                                <div class="nav-search-container">
-                  <label for="search-desktop" class="hiddenText" id="desktopSearchLabel">Search</label>
-                  <form action="/search-results" method="get" id="cse_searchbox">
-                      <input type="text" name="query" id="search-desktop" placeholder="Search" style= "width:70%" class="nav-search-input" title="Search the University of Texas site" aria-labelledby="desktopSearchLabel">
-                      <button class="nav-search-button"><span class="hiddenText">Search</span><span class="icon-search"></span></button>
-                    </form>                </div>
-              </div>
-
-              <ul class="topnav-links hide-for-large-up">
-                <li class="nav-item nav-item-search">
-                  <div class="nav-search-container">
-                    <label for="search-mobile" class="hiddenText" id="mobileSearchLabel">Search</label>
-                    <form action="/search-results" method="get" id="cse_searchbox">
-                      <input type="text" name="query" id="search-desktop" placeholder="Search" style= "width:70%" class="nav-search-input" title="Search the University of Texas site" aria-labelledby="desktopSearchLabel">
-                      <button class="nav-search-button"><span class="hiddenText">Search</span><span class="icon-search"></span></button>
-                    </form>                  </div>
-                </li>
-              </ul>
-
-            </div>
-          </div>
-        </div>
-      </div> <!-- container-topnav -->
-
-      <div class="container container-nav container-nav-phase2">
-        <div class="row">
-          <div class="column small-12">
-            <nav>
-              <ul class="nav" id="main-nav" role="menu">
-            <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">Academics</a>                  <div class="sub-nav-wrapper">
-            <div class="sub-nav-row">
-                                          <ul class="sub-nav">
-                                                      <li class="sub-nav-item">
-                      <a href="/prospective-students" class="sub-nav-link"><span>Prospective Students</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/curriculum" class="sub-nav-link"><span>Curriculum</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/gme" class="sub-nav-link"><span>Residencies &amp; Fellowships (GME)</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/medical-education" class="sub-nav-link"><span>Medical Education</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/student-affairs" class="sub-nav-link"><span>Student Affairs</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/pre-health-professions" class="sub-nav-link"><span>Pre-Health Professions</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/faculty-affairs" class="sub-nav-link"><span>Faculty Affairs</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/office-of-diversity-equity-and-inclusion" class="sub-nav-link"><span>Diversity</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/library" class="sub-nav-link"><span>Library</span></a>                    </li>
-                                                                                                                    </ul>
-            </div>
-          </div>
-              </li>
-                <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">Our Story</a>                  <div class="sub-nav-wrapper">
-            <div class="sub-nav-row">
-                                          <ul class="sub-nav">
-                                                      <li class="sub-nav-item">
-                      <a href="/about" class="sub-nav-link"><span>About Us</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/health-district" class="sub-nav-link"><span>Health District</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/what-makes-us-different" class="sub-nav-link"><span>What Makes Us Different</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/partners" class="sub-nav-link"><span>Partners</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/delivering-return-on-community-investment" class="sub-nav-link"><span>Delivering Return on Community Investment</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/philanthropy" class="sub-nav-link"><span>Make a Gift</span></a>                    </li>
-                                                                                                                    </ul>
-            </div>
-          </div>
-              </li>
-                <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">Initiatives</a>                  <div class="sub-nav-wrapper">
-            <div class="sub-nav-row">
-                                          <ul class="sub-nav">
-                                                      <li class="sub-nav-item">
-                      <a href="/ut-health-austin" class="sub-nav-link"><span>Redesigning Care</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/health-product-innovation" class="sub-nav-link"><span>Health Product Innovation</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/research" class="sub-nav-link"><span>Research Innovation</span></a>                    </li>
-                                                                                                                    </ul>
-            </div>
-          </div>
-              </li>
-                <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">Departments &amp; Institutes</a>                  <div class="sub-nav-wrapper">
-            <div class="sub-nav-row">
-                                          <ul class="sub-nav">
-                                                      <li class="sub-nav-item">
-                      <a href="https://dellmed.utexas.edu/diagnostic-medicine" class="sub-nav-link"><span>Diagnostic Medicine</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/internal-medicine" class="sub-nav-link"><span>Internal Medicine</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/medical-education" class="sub-nav-link"><span>Medical Education</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/neurology" class="sub-nav-link"><span>Neurology</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/oncology" class="sub-nav-link"><span>Oncology</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/pediatrics" class="sub-nav-link"><span>Pediatrics</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/population-health" class="sub-nav-link"><span>Population Health</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/psychiatry" class="sub-nav-link"><span>Psychiatry</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/surgery" class="sub-nav-link"><span>Surgery &amp; Perioperative Care</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/womens-health" class="sub-nav-link"><span>Women&#039;s Health</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="https://moody.utexas.edu/centers/health-communication/about-center" class="sub-nav-link"><span>Center for Health Communication</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/dpri" class="sub-nav-link"><span>Dell Pediatric Research Institute</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/design-institute" class="sub-nav-link"><span>Design Institute for Health</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/livestrong-cancer-institutes" class="sub-nav-link"><span>LIVESTRONG Cancer Institutes</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/mitchel-and-shannon-wong-eye-institute" class="sub-nav-link"><span>Mitchel and Shannon Wong Eye Institute</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/mulva-clinic-for-the-neurosciences" class="sub-nav-link"><span>Mulva Clinic for the Neurosciences</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="https://dellmed.utexas.edu/value-institute-for-health-and-care" class="sub-nav-link"><span>Value Institute for Health and Care</span></a>                    </li>
-                                                                                                                    </ul>
-            </div>
-          </div>
-              </li>
-                <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">GME Programs</a>                  <div class="sub-nav-wrapper">
-            <div class="sub-nav-row">
-                                          <ul class="sub-nav">
-                                                      <li class="sub-nav-item">
-                      <a href="/gme" class="sub-nav-link"><span>All Programs</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="https://dellmedschool.utexas.edu/gme/distinctions" class="sub-nav-link"><span>Innovation, Leadership and Discovery Distinctions</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/fellowship/arthroplasty-and-value-based-health-care-delivery" class="sub-nav-link"><span>Arthroplasty and Value-Based Health Care Delivery (Fellowship)</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/fellowship/child-adolescent-psychiatry" class="sub-nav-link"><span>Child &amp; Adolescent Psychiatry (Fellowship)</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/child-neurology" class="sub-nav-link"><span>Child Neurology</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/fellowship/craniofacial-plastic-surgery" class="sub-nav-link"><span>Craniofacial &amp; Plastic Surgery (Fellowship)</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/dermatology" class="sub-nav-link"><span>Dermatology</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/emergency-medicine" class="sub-nav-link"><span>Emergency Medicine</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/family-medicine" class="sub-nav-link"><span>Family Medicine</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/fpmrs" class="sub-nav-link"><span>Female Pelvic Medicine and Reconstructive Surgery Fellowship</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/internal-medicine" class="sub-nav-link"><span>Internal Medicine</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/neurology" class="sub-nav-link"><span>Neurology</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/obgyn" class="sub-nav-link"><span>Obstetrics &amp; Gynecology</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/orthopaedic-surgery" class="sub-nav-link"><span>Orthopaedic Surgery</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/fellowship/pediatric-emergency-medicine" class="sub-nav-link"><span>Pediatric Emergency Medicine (Fellowship)</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/fellowship/pediatric-hospitalist" class="sub-nav-link"><span>Pediatric Hospitalist (Fellowship)</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/pediatrics" class="sub-nav-link"><span>Pediatrics</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/pmr" class="sub-nav-link"><span>Physical Medicine &amp; Rehabiliation</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/psychiatry" class="sub-nav-link"><span>Psychiatry</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/fellowship/psychosomatic-medicine" class="sub-nav-link"><span>Psychosomatic Medicine (Fellowship)</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/surgery" class="sub-nav-link"><span>Surgery</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/residency/transitional" class="sub-nav-link"><span>Transitional</span></a>                    </li>
-                                                                                                                    </ul>
-            </div>
-          </div>
-              </li>
-                <li class="nav-item" role="menuitem">
-        <a href="#" class="nav-link has-child nolink">Meet The Team</a>                  <div class="sub-nav-wrapper">
-            <div class="sub-nav-row">
-                                          <ul class="sub-nav">
-                                                      <li class="sub-nav-item">
-                      <a href="/team/a-z" class="sub-nav-link"><span>Alphabetical Listing</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/team/leadership" class="sub-nav-link"><span>Leadership</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/team/deans" class="sub-nav-link"><span>Deans</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/team/chairs-directors" class="sub-nav-link"><span>Departments &amp; Institutes</span></a>                    </li>
-                                                                        <li class="sub-nav-item">
-                      <a href="/team/teams" class="sub-nav-link"><span>Teams</span></a>                    </li>
-                                                                                                                    </ul>
-            </div>
-          </div>
-              </li>
-                  </ul>
-            </nav>
-          </div>
-        </div>
-      </div> <!-- container-nav-phase2 -->
-
-    </div> <!-- nav-wrapper -->
-
-  </header><!-- /header -->
-
-<div class="UT-page" id="ut-page-content" role="main">
-
-  <div class="row">
-    <div class="column small-12">
-          </div>
-  </div>
-
-
-<div class="home-hero-container">
-
-  <div class="home-hero-img">
-
-    <img alt="Read Dell Med's Community Impact Update »" src="https://dellmed.utexas.edu/sites/default/files/hero_image/2017_11_15_communications_web_hero_banner_community_impact_update_1500x501.jpg" />  <div class="home-hero-caption-link-wrap">
-
-   <div class="row"><h2 class="home-hero-title">Read Dell Med's Community Impact Update »</h2>
-    <a href="https://utexas.box.com/s/ro4loqf89f8y5nzh8n83zlvyjvcg38ei"> <span class="home-hero-link"></span></a>
-  </div>
-
-</div>
-  </div>
-
-</div>
-
-
-      <div class="container container-pillars">
-        <div class="region region-content-top">
-    <div id="block-views-0c0fa0c2b0dfee5f2639deb75f339e5d"  class="block block-views">
-        <div class="content">
-    <div class="view view-featured-media view-id-featured_media view-display-id-featured_media_block view-dom-id-471400669c08bc42aa2fb4aa9bc7b616">
-
-      <div class="row container-pillars" data-equalizer="">
-        <div class="column small-6 medium-3">
-    <div class="pillar" data-equalizer-watch="">
-
-          <div class=""><a href="http://blog.dellmedschool.utexas.edu/2017/11/15/the-best-year-yet-dell-med-celebrates-its-supporters/" class="" style=""><img typeof="foaf:Image" src="https://dellmed.utexas.edu/sites/default/files/styles/magnific_popup_thumbnail/public/featured_media_images/2017_10_29_all_together_now_cq_6556_480_x_360.jpg?itok=dCWh378h" alt="2017_10_29_all_together_now_cq_6556_480_x_360.jpg" title="2017_10_29_all_together_now_cq_6556_480_x_360.jpg" /><h4 class="pillar-headline">'All Together Now' Event Honors Donors</h4></a></div>
-          <div class="pillar-text"><p>The Dell Med community gathered with donors to celebrate milestones of the past year, including the launch of the school’s clinical practice.<br /><a href="http://blog.dellmedschool.utexas.edu/2017/11/15/the-best-year-yet-dell-med-celebrates-its-supporters/">See a recap</a></p>
-</div>      </div>
-  </div>
-  <div class="column small-6 medium-3">
-    <div class="pillar" data-equalizer-watch="">
-
-          <div class=""><a href="http://www.mystatesman.com/news/opinion/commentary-dell-medical-school-delivers-promise-healthier-city/BVVc9HpAPtyR4CN5qX0q3I" class="" style=""><img typeof="foaf:Image" src="https://dellmed.utexas.edu/sites/default/files/styles/magnific_popup_thumbnail/public/featured_media_images/rethink-homepage.png?itok=O0s5Zn3t" alt="rethink-homepage.png" title="rethink-homepage.png" /><h4 class="pillar-headline">Making Austin a Model Healthy City</h4></a></div>
-          <div class="pillar-text"><p>Dell Med was created to make care better (and less expensive), writes Dean Clay Johnston in an op-ed for the Austin American-Statesman.<br /><a href="http://www.mystatesman.com/news/opinion/commentary-dell-medical-school-delivers-promise-healthier-city/BVVc9HpAPtyR4CN5qX0q3I/">Get his take on our progress</a></p>
-</div>      </div>
-  </div>
-  <div class="column small-6 medium-3">
-    <div class="pillar" data-equalizer-watch="">
-
-          <div class=""><a href="https://uthealthaustin.org/" class="" style=""><img typeof="foaf:Image" src="https://dellmed.utexas.edu/sites/default/files/styles/magnific_popup_thumbnail/public/featured_media_images/37029044644_c08fe9538b_k.jpg?itok=hXuAtQza" alt="37029044644_c08fe9538b_k.jpg" title="37029044644_c08fe9538b_k.jpg" /><h4 class="pillar-headline">UT Health Austin Opens Specialty Clinics </h4></a></div>
-          <div class="pillar-text"><p>Patients may now request an appointment at Dell Med’s new team-based clinical practice, where doctors “practice what they teach.”<br /><a href="https://uthealthaustin.org/about-utha">Learn about UT Health Austin</a></p>
-</div>      </div>
-  </div>
-  <div class="column small-6 medium-3">
-    <div class="pillar" data-equalizer-watch="">
-
-          <div class=""><a href="https://dellmedrethink.com/how-your-bias-is-impacting-your-work-and-6-ways-to-stop-it/" class="" style=""><img typeof="foaf:Image" src="https://dellmed.utexas.edu/sites/default/files/styles/magnific_popup_thumbnail/public/featured_media_images/2017_10_23_communications_web_feature_bias_480x360.jpg?itok=Wt5TJqvz" alt="2017_10_23_communications_web_feature_bias_480x360.jpg" title="2017_10_23_communications_web_feature_bias_480x360.jpg" /><h4 class="pillar-headline">How Bias Is Impacting Your Work</h4></a></div>
-          <div class="pillar-text"><p>Biased professionals can’t create and foster environments that maximize productivity. See how to recognize and confront your unconscious habits.<br /><a href="https://dellmedrethink.com/how-your-bias-is-impacting-your-work-and-6-ways-to-stop-it/">Go to REthink</a></p>
-</div>      </div>
-  </div>
-    </div>
-  </div>
-  </div>
-</div>
-  </div>
-    </div>
-
-
-      <div class="home-content">
-      <div class="row highlighted-featured-media">
-          <div class="region region-content">
-    <div id="block-views-featured-media-block-1"  class="block block-views">
-        <div class="content">
-    <div class="view view-featured-media view-id-featured_media view-display-id-block_1 view-dom-id-d12f515af2b85464c039ff674db478e2">
+$count=$dbo->prepare(select * from student where id=:id ");
+$count->bindParam(":id",$id,PDO::PARAM_INT,3);
 
 
 
-      <div class="view-content">
-        <div class="views-row views-row-1 views-row-odd views-row-first views-row-last">
+if($count->execute()){
 
-  <div>        <div class="mfp-gallery-iframe"><a href="http://www.youtube.com/watch?v=uazj53HhycQ" class="mfp-item" style=""><img class="mfp-thumbnail" typeof="foaf:Image" src="https://dellmed.utexas.edu/sites/default/files/styles/magnific_popup_yt_preview_wplay/public/media-youtube/uazj53HhycQ.jpg?itok=-_3nrAJJ" alt="Dell Medical School: Making Austin a Model Healthy City" title="Dell Medical School: Making Austin a Model Healthy City" /></a></div>  </div>
-  <div>        <div id="title-text-wrapper">
-<h4>In Partnership With Our Community</h4>
-<p>The future of medical education, care and research is taking shape at the Dell Medical School – all with a focus on improving health and making Austin a model healthy city.</p>
+echo " Success ";
 
-</div>  </div>  </div>
-    </div>
+$row = $count->fetch(PDO::FETCH_OBJ);
+
+}
 
 
-</div><!--container-footer-->
-</div>
-  <!--[if lt IE 9]>
-    <script src="/sites/all/themes/phase2_theme1/js/polyfill.min.js"></script>
-  <![endif]-->
-  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-<script type="text/javascript">
-<!--//--><![CDATA[//><!--
-window.jQuery || document.write("<script src='/sites/all/modules/custom/utexas_admin/js/replace/backup/jquery.min.js'>\x3C/script>")
-//--><!]]>
-</script>
-<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_V1ZuwJK9uzfm6fFffOcHHubfxnimoxnbgG58pvTQdpY.js"></script>
-<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_i8ZDNK9FSclaojQobXVjwcDgllxkCNEBi7F9dR3cyG4.js"></script>
-<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_OQYJ-u6vDcK-675deS5Xo9mquqU3gecqRovKlzqWxgo.js"></script>
-<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_RrQc6CubqbOf8B1FDFLiOZd89DCZo5HaON0Jzve9S38.js"></script>
-<script type="text/javascript">
-<!--//--><![CDATA[//><!--
-jQuery.extend(Drupal.settings, {"basePath":"\/","pathPrefix":"","ajaxPageState":{"theme":"dms","theme_token":"ldwKYvqbNm9QvvSHqmM1baDbR7Wu4H0dVqepI3Y2hxU","js":{"https:\/\/ajax.googleapis.com\/ajax\/libs\/jquery\/1.10.2\/jquery.min.js":1,"0":1,"misc\/jquery.once.js":1,"misc\/drupal.js":1,"sites\/all\/libraries\/magnific-popup\/dist\/jquery.magnific-popup.js":1,"sites\/all\/modules\/contrib\/magnific_popup\/js\/behaviors.mfp-formatter.js":1,"sites\/all\/modules\/custom\/utexas_google_cse\/js\/utexas_google_cse.js":1,"sites\/all\/themes\/phase2_theme1\/js\/custom.js":1,"sites\/all\/themes\/dms\/js\/fitvids.js":1,"sites\/all\/themes\/dms\/js\/dmscustom.js":1},"css":{"modules\/system\/system.base.css":1,"modules\/system\/system.menus.css":1,"modules\/system\/system.messages.css":1,"modules\/system\/system.theme.css":1,"sites\/all\/libraries\/magnific-popup\/dist\/magnific-popup.css":1,"sites\/all\/modules\/contrib\/magnific_popup\/css\/mfp-formatter.css":1,"sites\/all\/modules\/contrib\/calendar\/css\/calendar_multiday.css":1,"sites\/all\/modules\/custom\/features\/content_types\/content_type_twitter_widget\/theme\/twitter-widget.css":1,"sites\/all\/modules\/contrib\/date\/date_api\/date.css":1,"sites\/all\/modules\/contrib\/date\/date_popup\/themes\/datepicker.1.7.css":1,"sites\/all\/modules\/custom\/features\/bundles\/featured_media\/theme\/featured_media.css":1,"modules\/field\/theme\/field.css":1,"sites\/all\/modules\/custom\/localist_integration\/css\/localist.css":1,"modules\/node\/node.css":1,"modules\/search\/search.css":1,"modules\/user\/user.css":1,"sites\/all\/modules\/custom\/utexas_fonts\/css\/fonts.css":1,"sites\/all\/modules\/custom\/utexas_google_cse\/css\/utexas_google_cse.css":1,"sites\/all\/modules\/custom\/features\/views\/views_core_home_featured_stories\/theme\/core-home-featured-stories.css":1,"sites\/all\/modules\/custom\/features\/views\/views_utexas_localist_widget\/theme\/utexas-localist-widget.css":1,"sites\/all\/modules\/contrib\/views\/css\/views.css":1,"sites\/all\/modules\/contrib\/ckeditor\/css\/ckeditor.css":1,"sites\/all\/modules\/contrib\/ctools\/css\/ctools.css":1,"sites\/all\/modules\/contrib\/oembed\/oembed.base.css":1,"sites\/all\/modules\/contrib\/oembed\/oembed.theme.css":1,"0":1,"1":1,"sites\/all\/themes\/phase2_theme1\/css\/base.css":1,"sites\/all\/themes\/phase2_theme1\/css\/phase2_pages.css":1,"sites\/all\/themes\/phase2_theme1\/css\/phase2_theme1.css":1,"sites\/all\/themes\/dms\/css\/custom.css":1,"sites\/all\/themes\/dms\/css\/overrides.css":1}},"cseId":"015663220751118638721:x0c8u6cfbrm","magnific_popup_api":{"iframe_patterns":{"youtube":{"index":"youtube.com\/","id":"v=","src":"\/\/www.youtube.com\/embed\/%id%?rel=0\u0026modestbranding=1\u0026playerapiid=mfp-iframe\u0026controls=2\u0026autoplay=1"}}}});
-//--><!]]>
-</script>
-  <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_9xSy2jfgzGVpfqWMRbersAVIjfBizP0C9bnfdzuyJPo.js"></script>
-<script type="text/javascript" src="//platform.twitter.com/widgets.js"></script>
-    <div class="region region-page-bottom">
-    <!-- Google Tag Manager -->
-<noscript><iframe src="//www.googletagmanager.com/ns.html?id=GTM-59NMNV"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-59NMNV');</script>
-<!-- End Google Tag Manager -->  </div>
+
+echo "<table>";
+echo "
+<tr bgcolor='#f1f1f1'><td><b>Name</b></td><td>$row->name</td></tr>
+<tr><td><b>Class</b></td><td>$row->class</td></tr>
+<tr bgcolor='#f1f1f1'><td><b>Mark</b></td><td>$row->mark</td></tr>
+<tr><td><b>Address</b></td><td>$row->address</td></tr>
+<tr bgcolor='#f1f1f1'><td><b>Image</b></td><td>$row->img</td></tr>
+";
+echo "</table>";
+
+////////////////////
+?>
 </body>
 </html>
