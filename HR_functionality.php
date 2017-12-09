@@ -84,6 +84,16 @@ function view_all(){
 	$query= $dbc->query($sql);;
 	return $query;
 }
+function get_program_type($program_id)
+{
+	require 'DMS_db.php';
+	
+	$sql="SELECT name_of_program, position_type FROM programs WHERE program_id=$program_id";
+	$stmt=$dbc->prepare($sql);
+	$stmt->execute();
+	$program= $stmt->fetch();
+	return $program['position_type'];
+}
 
 function get_position_type($program_id)
 	{

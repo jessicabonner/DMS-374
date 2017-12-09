@@ -222,6 +222,7 @@ require 'DMS_general_functions.php';
 		{
 			$name_of_program = $row['name_of_program'];
 			$doctor_EID = $row['doctor_EID'];
+			$position_type = $row['position_type'];
 		}
 
 		echo "<tr>";
@@ -232,6 +233,11 @@ require 'DMS_general_functions.php';
 		echo "<tr>";
 		echo "<th>Doctor EID</th>";
 		echo "<td>" . $doctor_EID .  "</td>";
+		echo "</tr>";
+		
+		echo "<tr>";
+		echo "<th>Position Type</th>";
+		echo "<td>" . $position_type .  "</td>";
 		echo "</tr>";
 
 	}
