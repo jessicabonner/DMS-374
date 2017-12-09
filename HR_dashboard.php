@@ -56,6 +56,8 @@
 	       <div class="p2-logo">
 	        <a href="http://dellmed.utexas.edu" onclick="w3_close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
        </div>
+	    
+          	
       </div>
      </div>
 		<a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
@@ -78,7 +80,8 @@
 		 </div>
           <div class="parent-banner-links">
            <h2 class="UT-secondary-logo">
-            <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+            <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /></a>
+			<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
            </h2>
           </div>
           <div class="hide-for-large-up">
