@@ -158,7 +158,6 @@
 			
 			
 			
-			
 			if ($review['accepted_by_dms']=='1')
 			{
 				$student_applicant_id_array[]="'".$value["user_id"]."'";
