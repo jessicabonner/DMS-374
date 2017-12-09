@@ -132,6 +132,11 @@
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
+										<a href="ADMIN_create_profile.php" onclick="w3_close()" class="nav-link has-child nolink">New Profile</a>
+										<div class="sub-nav-wrapper">
+										</div>
+									</li>
+									<li class="nav-item" role="menuitem">
 										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
 										<div class="sub-nav-wrapper">
 										</div>
