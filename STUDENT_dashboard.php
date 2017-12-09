@@ -114,6 +114,7 @@
               <div class="parent-banner-links">
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
                 </h2>
                               </div>
               <div class="hide-for-large-up">
@@ -148,10 +149,7 @@
         	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
           	</div>
         </li>
-		 <li class="nav-item" role="menuitem">
-        	<a href="DMS_logout.php" onclick="w3_close()" class="nav-link has-child nolink">Logout</a>                  <div class="sub-nav-wrapper">
-          	</div>
-        </li>
+		 
         <li class="nav-item" role="menuitem">
             </div>
             </div>

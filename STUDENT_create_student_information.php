@@ -103,6 +103,7 @@
 		<div class="parent-banner-links">
     	<h2 class="UT-secondary-logo">
     	<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+		<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
     	</h2>
 		</div>
     	<div class="hide-for-large-up">

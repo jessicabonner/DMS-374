@@ -100,6 +100,7 @@
               <div class="parent-banner-links">
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
                 </h2>
                               </div>
               <div class="hide-for-large-up">
@@ -421,7 +422,9 @@
 		//call select_application_student_list function from DOCTOR_functionality.php
 		//to get the list of applicants for this program
 		$student_applicants=select_application_student_list($_GET['select_application']);
+		
 		$student_applicants= implode(',',$student_applicants);
+		
 
 		//call select_application program from DOCTOR_functionality.php
 		//to get all information on the selected application
@@ -568,7 +571,7 @@
 
 
 
-				echo "<td> <a href='DOCTOR_view_detailed_student_info.php?id= $id &selected_application=$selected_application_id'>" .$row['EID'] . "</a> </td>";
+				echo "<td> <a href='DOCTOR_view_detailed_student_info.php?id=$id&selected_application=$selected_application_id'>" .$row['user_id'] . "</a> </td>";
 
 				echo '
 						<td>'.$row['first_name'].'</td>

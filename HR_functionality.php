@@ -55,7 +55,6 @@ function search($search_criteria)
 		first_name LIKE '%$search_criteria%'
 		OR middle_name LIKE '%$search_criteria%'
 		OR last_name LIKE '%$search_criteria%'
-		OR EID LIKE '%$search_criteria%'
 		OR address LIKE '%$search_criteria%'
 		OR city LIKE '%$search_criteria%'
 		OR state LIKE '%$search_criteria%'
@@ -108,7 +107,7 @@ function get_position_type($program_id)
 	{
 		require 'DMS_db.php';
 		
-		$sql="SELECT * FROM student_info WHERE user_id=$user_id";
+		$sql="SELECT * FROM student_info WHERE user_id=".$user_id;
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$student= $stmt->fetch();
@@ -119,7 +118,7 @@ function get_position_type($program_id)
 function get_review_entry($user_id)
 {
 	require 'DMS_db.php';
-	$sql="SELECT * FROM review WHERE user_id=$user_id AND accepted_by_dms='1' AND student_accept_offer='1'";
+	$sql="SELECT * FROM review WHERE user_id='".$user_id."' AND accepted_by_dms='1' AND student_accept_offer='1'";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$review= $stmt->fetch();

@@ -25,10 +25,10 @@
 	}
 	
 	//return student in student_info where the user_id matches the given user_id - for code with While loops
-	function select_student2($id)
+	function select_student2($user_id)
 	{
 		require 'DMS_db.php';
-		$result = "SELECT * FROM student_info WHERE user_id = '$id'";
+		$result = "SELECT * FROM student_info WHERE user_id ='".$user_id."'";
 		$student = $dbc->query($result);
 		return $student;
 	}
@@ -113,7 +113,7 @@
 		$student_applicant_id_array=array();
 		foreach($student_applicants as $key=>$value)
 		{
-			$student_applicant_id_array[]=$value["user_id"];
+			$student_applicant_id_array[]="'".$value["user_id"]."'";
 			//echo $value['user_id'];
 		}
 		$student_applicant_id_list=implode(',',$student_applicant_id_array);
@@ -130,13 +130,17 @@
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$application= $stmt->fetch();
+		
 
 		$name_of_program=get_program($application['program_id']);
+		
 
 		$term=$application['term'];
 		$year=$application['year'];
 
 		$name_of_table= $application_id."_".str_replace(' ', '_', $name_of_program)."_".$term."_".$year;
+		
+		
 
 		$sql="SELECT * FROM $name_of_table";
 		$stmt=$dbc->prepare($sql);
@@ -146,25 +150,31 @@
 		$student_applicant_id_array=array();
 		foreach($student_applicants as $key=>$value)
 		{
-			$sql='SELECT * FROM review WHERE user_id='.$value['user_id'].' AND application_id ='.$application_id;
+			
+			$sql="SELECT * FROM review WHERE user_id='".$value['user_id']."' AND application_id =".$application_id;
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 			$review= $stmt->fetch();
+			
+			
+			
 			
 			if ($review['accepted_by_dms']=='1')
 			{
-				$student_applicant_id_array[]=$value["user_id"];
+				$student_applicant_id_array[]="'".$value["user_id"]."'";
 			}
 			
-			$sql='SELECT * FROM review WHERE user_id='.$value['user_id'].' AND application_id !='.$application_id.' AND student_accept_offer=1';
+			$sql="SELECT * FROM review WHERE user_id='".$value['user_id']."' AND application_id !='.$application_id.' AND student_accept_offer=1";
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 			$review= $stmt->fetch();
 			
+			
 			if (count($review['user_id']) ==0)
 			{
-				$student_applicant_id_array[]=$value["user_id"];
+				$student_applicant_id_array[]="'".$value["user_id"]."'";
 			}
+			
 			
 			//echo $value['user_id'];
 		}
@@ -194,7 +204,7 @@
 		$potential_student_array=array();
 		 foreach ($potential_students as $key=>$value)
 		 {
-			 $potential_student_array[]=$value['user_id'];
+			 $potential_student_array[]="'".$value["user_id"]."'";
 		 }
 		 
 		$potential_student_list=implode(',',$potential_student_array);
@@ -218,7 +228,7 @@
 		$student_applicant_id_array=array();
 		foreach($student_applicants as $key=>$value)
 		{
-			$student_applicant_id_array[]=$value["user_id"];
+			$student_applicant_id_array[]="'".$value["user_id"]."'";
 			//echo $value['user_id'];
 		}
 		return $student_applicant_id_array;
@@ -336,7 +346,6 @@
 			first_name LIKE '%$search_criteria%'
 			OR middle_name LIKE '%$search_criteria%'
 			OR last_name LIKE '%$search_criteria%'
-			OR EID LIKE '%$search_criteria%'
 			OR address LIKE '%$search_criteria%'
 			OR city LIKE '%$search_criteria%'
 			OR state LIKE '%$search_criteria%'
@@ -378,7 +387,7 @@
 		
 		$name_of_table=get_application_table_name($application_id);
 		$question="question_".$number_unique_questions;
-		$sql="SELECT $question FROM $name_of_table WHERE user_id=$user_id";
+		$sql="SELECT $question FROM $name_of_table WHERE user_id='".$user_id."'";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$applicant= $stmt->fetch();
@@ -407,7 +416,7 @@
 	{
 		require 'DMS_db.php';
 		
-		$sql="SELECT * FROM review WHERE application_id=$application_id AND user_id=$user_id";
+		$sql="SELECT * FROM review WHERE application_id=$application_id AND user_id='".$user_id."'";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$review= $stmt->fetch();

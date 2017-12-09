@@ -56,6 +56,8 @@
 	       <div class="p2-logo">
 	        <a href="http://dellmed.utexas.edu" onclick="w3_close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
        </div>
+	    
+          	
       </div>
      </div>
 		<a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
@@ -78,7 +80,8 @@
 		 </div>
           <div class="parent-banner-links">
            <h2 class="UT-secondary-logo">
-            <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+            <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /></a>
+			<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
            </h2>
           </div>
           <div class="hide-for-large-up">
@@ -478,24 +481,26 @@
 			}
 			
 			
-			$id = $row['user_id'];
+			$id = "'".$row['user_id']."'";
+			$id_2=$row['user_id'];
+			
 
 			//display all student info in the table
-			echo "<td> <a href='HR_view_student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
-			echo '
-				<td>'.$row['first_name'].'</td>
-				<td>'.$row['middle_name'].'</td>
-				<td>'.$row['last_name'].'</td>
-				<td>'.$row['email'].'</td>
-				<td>'.$row['classification'].'</td>
-				<td>'.$row['student_type'].'</td>
-				<td>'.$row['credit_hours'].'</td>
-				<td>'.$row['GPA'].'</td>
-				<td>'.$row['hours_working_week'].' hours</td>
-				<td>$'.$row['hourly_rate'].'/hr</td>
-				<td><input type="checkbox" name="bio_data_form_list[]" value='.$id.' id='.$id.' <?php if ($checked_bio == 1) { echo '.$check_bio.'; } ?></td>
-				<td><input type="checkbox" name="i9_list[]" value='.$id.' id='.$id.' <?php if ($checked_i9 == 1) { echo '.$check_i9.'; } ?></td>
-				<td><input type="checkbox" name="seton_forms_list[]" value='.$id.' id='.$id.' <?php if ($checked_seton == 1) { echo '.$check_seton.'; } ?></td>';
+			echo "<td> <a href='HR_view_student.php?id=$id_2'>" .$row['user_id'] . "</a> </td>";
+			echo "
+				<td>".$row["first_name"]."</td>
+				<td>".$row["middle_name"]."</td>
+				<td>".$row["last_name"]."</td>
+				<td>".$row["email"]."</td>
+				<td>".$row["classification"]."</td>
+				<td>".$row["student_type"]."</td>
+				<td>".$row["credit_hours"]."</td>
+				<td>".$row["GPA"]."</td>
+				<td>".$row["hours_working_week"]." hours</td>
+				<td>$".$row["hourly_rate"]."/hr</td>
+				<td><input type='checkbox' name='bio_data_form_list[]' value=$id id=$id <?php if ($checked_bio == 1) { echo ".$check_bio."; } ?></td>
+				<td><input type='checkbox' name='i9_list[]' value=$id id=$id <?php if ($checked_i9 == 1) { echo ".$check_i9."; } ?></td>
+				<td><input type='checkbox' name='seton_forms_list[]' value=$id id=$id <?php if ($checked_seton == 1) { echo ".$check_seton."; } ?></td>";
 				
 			//call function select_student from DMS_HR.php
 			//to pull the value of the background_check field in table student_info
@@ -505,25 +510,25 @@
 			if ($x['background_check']=="2") //if background_check = 2 (Fail) in the db, show the correct selected value
 			{
 				echo '<td><select name="background_check_list[]">
-					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
-					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Fail</option>
+					<option value="background_check = 0 WHERE user_id='.$id.'">N/A</option>
+					<option value="background_check = 1 WHERE user_id='.$id.'">Pass</option>
+					<option value="background_check = 2 WHERE user_id='.$id.'" selected="selected">Fail</option>
 					</select></td>';
 			}
 			elseif ($x['background_check']=="1") //if background_check = 1 (Pass) in the db, show the correct selected value
 			{
 				echo'<td><select name="background_check_list[]">
-					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Pass</option>
-					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
+					<option value="background_check = 0 WHERE user_id='.$id.'">N/A</option>
+					<option value="background_check = 1 WHERE user_id='.$id.'" selected="selected">Pass</option>
+					<option value="background_check = 2 WHERE user_id='.$id.'">Fail</option>
 					</select></td>';
 			}
 			else
 			{ //if background_check = 0 (N/A) in the db, show the correct selected value
 				echo '<td><select name="background_check_list[]">
-					<option value="background_check = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
-					<option value="background_check = 1 WHERE user_id='.$row['user_id'].'">Pass</option>
-					<option value="background_check = 2 WHERE user_id='.$row['user_id'].'">Fail</option>
+					<option value="background_check = 0 WHERE user_id='.$id.'"selected="selected">N/A</option>
+					<option value="background_check = 1 WHERE user_id='.$id.'">Pass</option>
+					<option value="background_check = 2 WHERE user_id='.$id.'">Fail</option>
 					</select></td>';
 			}
 			
