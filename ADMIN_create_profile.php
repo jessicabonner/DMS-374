@@ -1,3 +1,20 @@
+<?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "The passwords you entered do not match";
+		}
+		elseif ($_GET['error']=="2")
+		{
+			echo "This email already exists in our system";
+		}
+		
+	}
+
+
+?>
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -164,13 +181,30 @@
 				
 
 					<body>
-						<form name="apply_form" action = "ADMIN_create_program_functionality.php" method= "post">
+						<form name="apply_form" action = "STUDENT_create_profile_functionality.php" method= "post">
 							<tr>
 								<td><p>EID</p></td>
 							</tr>
 							<tr>
-								<td><input type="text" name="user_id" required></td>
+								<td><input type="text" name="username" required></td>
 							</tr>
+							
+							<!--text box for students middle name-->
+							<tr>
+								<td>Password</td>
+							</tr>
+							<tr>
+								<td><input type="text" name="password" size="20" maxlength="30" required/></td>
+							</tr>
+					
+							<!--text box for students middle name-->
+							<tr>
+								<td>Re-enter password</td>
+							</tr>
+							<tr>
+								<td><input type="text" name="password_2" size="20" maxlength="30" required/></td>
+							</tr>
+						
 							<!--get all role names to populate dropdown-->
 							<?php
 							//link to file containing this function (line 101)
@@ -181,7 +215,7 @@
 							
 							<!--specify program application is for & # of unique questions -->
 							<tr>
-								<td><p>New Role</p></td>
+								<td><p>Role</p></td>
 							</tr>
 							<tr class="blankrow">
 								<td><br></td>
@@ -195,6 +229,13 @@
 									</select>
 								</td>
 							</tr>
+							
+			<!--submit button. Will post info.-->
+			<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"/> </td>
+
+							
+							
+						</form>
 							
 							
 				

@@ -15,7 +15,7 @@ try{
 
 	
 	//check if the student info already exists in the database
-	$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$user_id");
+	$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id='".$user_id."'");
 	$x = $stmt->fetch();
 		
 	//if the student info already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
@@ -29,7 +29,6 @@ try{
 	$first_name=$_POST['first_name'];
 	$middle_name=$_POST['middle_name'];
 	$last_name=$_POST['last_name'];
-	$EID=$_POST['EID'];
 	$address=$_POST['address'];
 	$city=$_POST['city'];
 	$state=$_POST['state'];
@@ -57,13 +56,13 @@ try{
 
 
 	//prepare SQL statement to prevent SQL injection
-	$stmt = $dbc-> prepare('INSERT INTO student_info (user_id, first_name, middle_name, last_name, EID, address, city, state, zip_code, phone, email, employment, student_type,
-	classification, degree_type, major, major_2, GPA, credit_hours, worked_at_dms, volunteered_at_seton, car, bilingual, semester_commitment, other_programs, availability) VALUES (:user_id, :first_name, :middle_name, :last_name, :EID, :address, :city, :state, :zip_code, :phone, 
+	$stmt = $dbc-> prepare('INSERT INTO student_info (user_id, first_name, middle_name, last_name, address, city, state, zip_code, phone, email, employment, student_type,
+	classification, degree_type, major, major_2, GPA, credit_hours, worked_at_dms, volunteered_at_seton, car, bilingual, semester_commitment, other_programs, availability) VALUES (:user_id, :first_name, :middle_name, :last_name, :address, :city, :state, :zip_code, :phone, 
 	:email, :employment, :student_type, :classification, :degree_type, :major, :major_2, :GPA, :credit_hours, :worked_at_dms, :volunteered_at_seton, :car, :bilingual, :semester_commitment, :other_programs, :availability)');
 
 
 	//bind variables to prepared statement and execute
-	$stmt->execute(array('user_id' => $user_id, 'first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'EID' => $EID,'address' => $address,'city' => $city,
+	$stmt->execute(array('user_id' => $user_id, 'first_name' => $first_name, 'middle_name' => $middle_name, 'last_name' => $last_name,'address' => $address,'city' => $city,
 	'state' => $state,'zip_code' => $zip_code,'phone' => $phone,'email' => $email,'employment' => $employment,'student_type' => $student_type,'classification' => $classification,
 	'degree_type' => $degree_type,'major' => $major,'major_2' => $major_2, 'GPA'=>$GPA, 'credit_hours' => $credit_hours, 'worked_at_dms' => $worked_at_dms,'volunteered_at_seton' => $volunteered_at_seton,
 	'car'=>$car,'bilingual'=>$bilingual, 'semester_commitment' => $semester_commitment, 'other_programs' => $other_programs,'availability' => $availability ));

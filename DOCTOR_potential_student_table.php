@@ -1,5 +1,9 @@
 <?php
 
+	$role_id="4";
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
 	//require file containing all doctor functions
 	require 'DOCTOR_functionality.php';
 	require 'DMS_general_functions.php';

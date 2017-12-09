@@ -19,7 +19,7 @@
 	function select_student($user_id)
 	{
 		require 'DMS_db.php';
-		$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$user_id;");
+		$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id= '".$user_id."'");
 		$student = $stmt->fetch();
 		return	$student;
 	}
@@ -40,6 +40,18 @@
 		require 'DMS_db.php';
 		//select all the applications that are active
 		$sql="SELECT * FROM applications WHERE archived='FALSE'";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$applications= $stmt->fetchAll();
+		return $applications;
+	}
+	
+	//return all applications that are not archived that are assigned to this doctor
+	function select_all_doctor_applications()
+	{
+		require 'DMS_db.php';
+		//select all the applications that are active
+		$sql="SELECT * FROM applications AS a INNER JOIN programs AS p ON a.program_id=p.program_id WHERE archived='FALSE' AND p.doctor_eid='".$_SESSION['user_id']."'";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$applications= $stmt->fetchAll();

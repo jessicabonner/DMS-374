@@ -1,5 +1,9 @@
 <?php
 
+	$role_id="2";
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
 
 
 	//require file containing all doctor functions
@@ -111,6 +115,22 @@
           </div>
         </div>
       </div> <!-- container-topnav -->
+	  <div class="container container-nav container-nav-phase2">
+        <div class="row">
+        <div class="column small-12">
+        <nav>
+		 <li class="nav-item" role="menuitem">
+        	<a href="DMS_logout.php" onclick="w3_close()" class="nav-link has-child nolink">Logout</a>                  <div class="sub-nav-wrapper">
+          	</div>
+        </li>
+		 <li class="nav-item" role="menuitem">
+            </div>
+            </div>
+        </li>
+        </ul>
+        </nav>
+        </div>
+        
 
     </div> <!-- nav-wrapper -->
 
@@ -129,8 +149,16 @@
 </div>
 
 <?php
-	//get list of applications to populate dropdown
-	$applications=select_all_applications();
+	if ($_SESSION['role']=='2')
+	{
+		$applications=select_all_doctor_applications();
+	}
+	else
+	{
+		//get list of applications to populate dropdown
+		$applications=select_all_applications();
+	}
+	
 ?>
 <body>
 	<form name="select_application" method="get">

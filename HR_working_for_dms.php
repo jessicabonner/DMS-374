@@ -1,5 +1,9 @@
 <?php
 
+	$role_id="3";
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
 //THIS FOR WILL BE LINKED TO DMS_ViewApp.php TO Change accepted_by_dms 
 
 require 'DMS_db.php';

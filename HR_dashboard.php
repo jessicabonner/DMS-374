@@ -469,7 +469,7 @@
 			$id = $row['user_id'];
 
 			//display all student info in the table
-			echo "<td> <a href='HR_view_student.php?id= $id '>" .$row['EID'] . "</a> </td>";
+			echo "<td> <a href='HR_view_student.php?id= $id '>" .$row['user_id'] . "</a> </td>";
 			echo '
 				<td>'.$row['first_name'].'</td>
 				<td>'.$row['middle_name'].'</td>

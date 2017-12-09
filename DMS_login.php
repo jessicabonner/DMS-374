@@ -27,7 +27,7 @@
 
 			<!--text box for students first name-->
 			<tr>
-				<td>Email address</td>
+				<td>UT EID</td>
 			</tr>
 			<tr>
 				<td><input type="text" name="username" size="20" maxlength="30" required/></td>

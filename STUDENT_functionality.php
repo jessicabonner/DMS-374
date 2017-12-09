@@ -6,7 +6,7 @@ function get_applications_student_applied_to($user_id)
 {
 	require 'DMS_db.php';
 	//select all the applications that are active
-	$sql="SELECT application_id FROM review WHERE user_id= $user_id";
+	$sql="SELECT application_id FROM review WHERE user_id='". $user_id."'";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$reviews= $stmt->fetchAll();
@@ -31,7 +31,7 @@ function get_application_submit_date($user_id, $application_id)
 {
 	require 'DMS_db.php';
 	//select all the applications that are active
-	$sql="SELECT application_submit_time FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$sql="SELECT application_submit_time FROM review WHERE user_id='". $user_id."' AND application_id=$application_id";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$review= $stmt->fetch();
@@ -46,7 +46,7 @@ function get_application_accept_date_not_formatted($user_id, $application_id)
 {
 	require 'DMS_db.php';
 	//select all the applications that are active
-	$sql="SELECT application_accept_date FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$sql="SELECT application_accept_date FROM review WHERE user_id='". $user_id ."' AND application_id=$application_id";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$review= $stmt->fetch();
@@ -62,7 +62,7 @@ function get_accepted($user_id, $application_id)
 {
 	require 'DMS_db.php';
 	//select all the applications that are active
-	$sql="SELECT accepted_by_dms FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$sql="SELECT accepted_by_dms FROM review WHERE user_id='". $user_id ."' AND application_id=$application_id";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$review= $stmt->fetch();
@@ -81,7 +81,7 @@ function get_accepted_offer($user_id, $application_id)
 {
 	require 'DMS_db.php';
 	//select all the applications that are active
-	$sql="SELECT student_accept_offer FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$sql="SELECT student_accept_offer FROM review WHERE user_id='". $user_id ."' AND application_id=$application_id";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$review= $stmt->fetch();
@@ -103,7 +103,7 @@ function get_accepted_declined_offer($user_id, $application_id)
 	
 	require 'DMS_db.php';
 	//select all the applications that are active
-	$sql="SELECT student_accept_offer FROM review WHERE user_id= $user_id AND application_id=$application_id";
+	$sql="SELECT student_accept_offer FROM review WHERE user_id='". $user_id ."' AND application_id=$application_id";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$review= $stmt->fetch();
@@ -125,7 +125,7 @@ function check_student_accepted_offer()
 	
 	require 'DMS_db.php';
 	//select all the applications that are active
-	$sql="SELECT * FROM review WHERE user_id= $user_id AND student_accept_offer=1";
+	$sql="SELECT * FROM review WHERE user_id='". $user_id ."' AND student_accept_offer=1";
 	$stmt=$dbc->prepare($sql);
 	$stmt->execute();
 	$review= $stmt->fetch();

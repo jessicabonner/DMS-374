@@ -25,8 +25,8 @@
 		    $work_location=$_POST['work_location'];
 		    $hours_per_week=$_POST['hours_per_week'];
 		    $hourly_rate=$_POST['hourly_rate'];
-			$position_type=$POST['position_type'];
-			$program_description=$POST['program_description'];
+			$position_type=$_POST['position_type'];
+			$program_description=$_POST['program_description'];
 			
 			//prepare SQL statement to prevent SQL injection		
 		    $stmt = $dbc-> prepare('INSERT INTO programs (name_of_program, program_description, position_type, supervisor_first_name, supervisor_middle_name, supervisor_last_name, doctor_EID, assignment_length, start_date, end_date, renew, student_type, it_equipment, work_location, hours_per_week, hourly_rate) 

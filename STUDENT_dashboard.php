@@ -1,10 +1,11 @@
 <?php 
 	$role_id="5";
 	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
 	
 	date_default_timezone_set('America/Chicago');
 
-	$user_id = $_SESSION['user_id'];
+	
 	require "STUDENT_functionality.php";
 	require "DMS_general_functions.php";
 	

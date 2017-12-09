@@ -77,7 +77,7 @@
 		try {
 			//create the new table
 			$sql="CREATE TABLE $name_of_table (
-			user_id INT(11)
+			user_id VARCHAR(11)
 			$sql_table_fields
 			,PRIMARY KEY(user_id)
 			,FOREIGN KEY (user_id) REFERENCES user(user_id))";

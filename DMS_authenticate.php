@@ -15,7 +15,7 @@ require("DMS_db.php");
 	
 	
 
-	if (!isset($_SESSION)||!isset($_SESSION['username'])||!isset($_SESSION['password_hash']))
+	if (!isset($_SESSION)||!isset($_SESSION['user_id'])||!isset($_SESSION['password_hash']))
 	{
 		
 		header("Location: DMS_login.php");
@@ -24,9 +24,9 @@ require("DMS_db.php");
 	
 	
 	//prepare SQL statement to prevent SQL injection
-	$stmt = $dbc-> prepare('SELECT * FROM user WHERE username= :username AND password= :password');
+	$stmt = $dbc-> prepare('SELECT * FROM user WHERE user_id= :user_id AND password= :password');
 	//bind variables to prepared statement and execute
-	$stmt->execute(array('username' => $_SESSION['username'], 'password' => $_SESSION['password_hash']));
+	$stmt->execute(array('user_id' => $_SESSION['user_id'], 'password' => $_SESSION['password_hash']));
 	$user = $stmt->fetch();
 	
 	

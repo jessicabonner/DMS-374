@@ -14,6 +14,11 @@
 			echo 'alert("The new application has been created successfully")';
 			echo '</script>';
 		}
+		if ($_GET['message']=="2"){
+			echo '<script language="javascript">';
+			echo 'alert("The new user profile has been created successfully")';
+			echo '</script>';
+		}
 
 	}
 ?>

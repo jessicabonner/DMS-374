@@ -1,3 +1,11 @@
+<?php
+
+$role_id="3";
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+?>
+
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>

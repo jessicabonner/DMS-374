@@ -1,5 +1,9 @@
 <?php
 
+$role_id="3";
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
 	//this will display an error message if the user tries to accept a student already accepted in the database
 	if (isset($_GET['error']))
 	{

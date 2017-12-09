@@ -190,13 +190,7 @@
 			<tr>
 				<td><input type="text" name="last_name" size="20" maxlength="30" required/></td>
 			</tr>
-			<!--text box for student's UTEID-->
-			<tr>
-				<td>UT EID</td>
-			</tr>
-			<tr>
-				<td><input type="text" name="EID" size="20" maxlength="10" required/></td>
-			</tr>
+			
 			<!--text boxes for student's address-->
 			<tr>
 				<td>Street Address</td>
