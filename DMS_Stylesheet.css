@@ -40,8 +40,8 @@ table td {
   padding: 7px 17px;
   text-align: center;
   font-size: 10px;
-/* Establises the table font, size, and ensures the table spans across the whole page! */
 }
+/* Establises the table font, size, and ensures the table spans across the whole page! */
 .data-table caption {
   margin: 7px;
   font-size: 18px;
@@ -82,4 +82,90 @@ table td {
 }
 .data-table tfoot th:first-child {
   text-align: left;
+}
+
+
+
+
+
+
+
+
+
+/* Establises the tables that can be interacted with be to left and font size 14 */
+/* Table */
+.data-table2 {
+  border-collapse: collapse;
+  font-size: 14px;
+  align-content: left;
+}
+/* Establises the table header and data font-sizem have a border, and centered */
+.data-table2 th,
+.data-table2 td {
+  border: 3px solid #e1edff;
+  padding: 7px 17px;
+  text-align: left;
+  font-size: 16px;
+}
+/* Establises the table font, size, and ensures the table spans across the whole page! */
+.data-table2 caption {
+  margin: 7px;
+  font-size: 18px;
+  width: 100%;
+}
+/* Data Table Header be white with black font and white border, centered */
+.data-table2 thead th {
+  background-color: #bf5700;
+  color: #FFFFFF;
+  border-color: #000000 !important;
+  text-transform: uppercase;
+  text-align: right;
+  width: 25%;
+  font-size: 15px;
+}
+/* Table Body  be a light blue #353535 */
+.data-table2 tbody td {
+  color: #353535;
+/* Establises the table data be aligned to the right for the first and last row */
+}
+.data-table2 tbody td:first-child,
+.data-table2 tbody td:nth-child(4),
+.data-table2 tbody td:last-child {
+  text-align: left;
+}
+/* Every other row is a light grey for readability! 
+.data-table2 tbody tr:nth-child(odd) td {
+  background-color: #e8ebed;
+}
+*/
+/* Makes the row the cursor is over a different color to highlight it */
+.data-table2 tbody tr:hover td {
+  background-color: #ffd1b3;
+  border-color: #ffd1b3;
+}
+/* Table Footer */
+.data-table2 tfoot th {
+  background-color: #e5f5ff;
+  text-align: right;
+}
+.data-table2 tfoot th:first-child {
+  text-align: left;
+}
+input[type=checkbox]
+{
+  /* Double-sized Checkboxes */
+  -ms-transform: scale(2); /* IE */
+  -moz-transform: scale(2); /* FF */
+  -webkit-transform: scale(2); /* Safari and Chrome */
+  -o-transform: scale(2); /* Opera */
+  padding: 10px;
+}
+
+/* Might want to wrap a span around your checkbox text */
+.checkboxtext
+{
+  /* Checkbox text */
+  font-size: 100%;
+  display: inline;
+
 }

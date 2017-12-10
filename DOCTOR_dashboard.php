@@ -4,8 +4,6 @@
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 
-
-
 	//require file containing all doctor functions
 	require 'DOCTOR_functionality.php';
 	require 'DMS_general_functions.php';
@@ -72,7 +70,6 @@
     <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
   </div>
       <header class="UT-header theme1">
-
     <div class="container container-logo-p2">
       <div class="row">
         <div class="column small-12">
