@@ -12,7 +12,7 @@
 		$statement->execute(array(':user_id' => $user_id));
 		$row = $statement->fetch(); */
 
-		$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id = $user_id");
+		$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id = '".$user_id."'");
 		$row = $stmt->fetch();
 
 		$availability_array=explode(',',$row['availability'])
