@@ -11,7 +11,6 @@
 	{
 		//get all info submitted through the form
 		$number_unique_questions=$_POST['number_unique_questions'];
-		$number_EIDs=$_POST['number_EIDs'];
 		$term=$_POST['term'];
 		$year=$_POST['year'];
 		$program_id=$_POST['program_id'];
@@ -38,16 +37,6 @@
 		//turn the array of questions into a string
 		$list_unique_questions= implode('(#!BREAK!#)', $_POST['list_unique_questions']);
 		
-		
-		
-		$array_EIDs=$_POST['EID_list'];
-		
-		//turn the array of EIDs into a string
-		$EID_list= implode('(#!BREAK!#)', $_POST['EID_list']);
-		
-		
-		
-		
 		//check if the application already exists in the database
 		$stmt = $dbc->query("SELECT * FROM applications WHERE program_id='".$program_id."' AND term='".$term."' AND year='".$year."'" );
 		$x = $stmt->fetch();
@@ -70,14 +59,14 @@
 		//$stmt = $dbc-> prepare('INSERT INTO applications(term,year,number_unique_questions,list_unique_questions,program_id, archived) VALUES (:term,:year,:number_unique_questions, :list_unique_questions, :program_id, :archived)');
 		
 		
-	    $stmt = $dbc-> prepare('INSERT INTO applications (term,year,number_unique_questions,list_unique_questions, number_EIDs, EID_list,program_id, archived, position_type, position_title, supervisor_first_name, supervisor_middle_name, supervisor_last_name, assignment_length, start_date, end_date, renew, student_type, it_equipment, work_location, hours_per_week, hourly_rate) 
-	    VALUES (:term, :year, :number_unique_questions, :list_unique_questions, :number_EIDs, :EID_list, :program_id, :archived, :position_type, :position_title, :supervisor_first_name, :supervisor_middle_name, :supervisor_last_name, :assignment_length, :start_date, :end_date, :renew, :student_type, :it_equipment, :work_location, :hours_per_week, :hourly_rate)');
+	    $stmt = $dbc-> prepare('INSERT INTO applications (term,year,number_unique_questions,list_unique_questions, program_id, archived, position_type, position_title, supervisor_first_name, supervisor_middle_name, supervisor_last_name, assignment_length, start_date, end_date, renew, student_type, it_equipment, work_location, hours_per_week, hourly_rate) 
+	    VALUES (:term, :year, :number_unique_questions, :list_unique_questions, :program_id, :archived, :position_type, :position_title, :supervisor_first_name, :supervisor_middle_name, :supervisor_last_name, :assignment_length, :start_date, :end_date, :renew, :student_type, :it_equipment, :work_location, :hours_per_week, :hourly_rate)');
 		
 		//bind variables to prepared statement and execute
 		//$stmt->execute(array('term'=>$term,'year'=>$year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'program_id'=>$program_id, 'archived'=>'FALSE'));
 		
 		//bind variables to prepared statement and execute
-		$stmt->execute(array('term' => $term,'year' => $year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'number_EIDs' => $number_EIDs, 'EID_list' => $EID_list, 'program_id' => $program_id,'archived' => 'FALSE','position_type' => $position_type, 'position_tile' => $position_title ,'supervisor_first_name' => $supervisor_first_name, 'supervisor_middle_name' => $supervisor_middle_name, 'supervisor_last_name' => $supervisor_last_name,'assignment_length' => $assignment_length,'start_date' => $start_date,'end_date' => $end_date,'renew' => $renew,'student_type' => $student_type,'it_equipment' => $it_equipment,'work_location' => $work_location,'hours_per_week' => $hours_per_week,'hourly_rate' => $hourly_rate ));
+		$stmt->execute(array('term' => $term,'year' => $year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'program_id' => $program_id,'archived' => 'FALSE','position_type' => $position_type, 'position_tile' => $position_title ,'supervisor_first_name' => $supervisor_first_name, 'supervisor_middle_name' => $supervisor_middle_name, 'supervisor_last_name' => $supervisor_last_name,'assignment_length' => $assignment_length,'start_date' => $start_date,'end_date' => $end_date,'renew' => $renew,'student_type' => $student_type,'it_equipment' => $it_equipment,'work_location' => $work_location,'hours_per_week' => $hours_per_week,'hourly_rate' => $hourly_rate ));
 		
 		
 		//get the primary key (application_id) that was just created

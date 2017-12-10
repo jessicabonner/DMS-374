@@ -253,30 +253,6 @@
 							</tr>
 							
 							
-							
-							<!--text box for number of questions to create-->
-							<tr>
-								<td>Enter the number of EIDs</td>
-							</tr>
-							
-							<tr class="blankrow">
-								<td><br></td>
-								<td><br></td>
-							</tr>
-							<tr>
-								<td><input type="text" name="number_EIDs" id="number_EIDs" size="20" maxlength="2" pattern="^[0-9]+$" required/></td>
-
-							</tr>
-							</table>
-
-							<table id="EID_list_table">
-
-							</table>
-							
-							
-							
-							
-							
 							<tr>
 								<td><br><td>
 							</tr>
@@ -510,23 +486,6 @@
 							}
 
 						});
-
-
-						$("#number_EIDs").keyup(function(){
-							var question_number = $("#number_EIDs").val();
-
-							$("#EID_list_table").empty();
-							$("#EID_list_table").prepend("Enter the EIDs below");
-							while (question_number>0){
-
-								var text = $("<tr></tr>").html("<td><input type='text' name='EID_list[]' id='EID' required/></td>");
-								$("#EID_list_table").append(text);
-
-								question_number-=1;
-							}
-
-						});
-
 					</script>
 
 				</body>
