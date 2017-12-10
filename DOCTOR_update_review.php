@@ -50,38 +50,22 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 			//$stmt=$dbc->prepare($sql);
 			//$stmt->execute();
 			
-			//$sql2 = "SELECT name_of_program FROM programs WHERE application_id = '".$application_id."'";
-			//$query = $dbc->query($sql2);
-			
-			//require 'DOCTOR_functionality.php';
-			
-			
-			
-			
 			//If the doctor accepts a student, this will send an email notification to the student
 			if(($_POST['new_accepted_by_DMS'])== '1')
 			{
-				$sql2="SELECT * FROM applications WHERE application_id=18";
+				$sql2="SELECT * FROM applications WHERE application_id='".$application_id."'";
 				$stmt=$dbc->prepare($sql2);
-				//$stmt->execute();
-				//$application= $stmt->fetch();
-				//'".$application_id."'
 		
 				while ($row=$stmt->fetch(PDO::FETCH_ASSOC))
 				{
 					$program_id= $row['program_id'];
-					//$program_id= '1';
-					//$name_of_program= $row['name_of_program'];
 				}
-				//$program_id= '1';
 				
 				//The Email Sender information
-	    		$from = 'tanniarodriguez@utexas.edu'; //This will need to change
+	    		$from = 'DellMed.Notifications@gmail.com'; //This will need to change
 	    		$from_name = 'Dell Medical School';
-	   	 		$subject = 'DMS Application';
-	   	 		//$text = $_POST['elvismail'];
-				//$mail->Body = "<p>Congratulations, you're Dell Medical School volunteer/internship application has been reviewed. This is your acceptance notification for $program_id to respond to your acceptance login to your your account!</p>";
-				$msg = "Congratulations, you're Dell Medical School volunteer/internship application has been reviewed. This is your acceptance notification for your DMS application, please visit your account to view and accept your offer";
+	   	 		$subject = 'Conditional Offer Expires in 7 days - Dell Medical School';
+				//$msg = "We are pleased to inform you that you have been selected for our current position of POSITION TITLE - PROGRAM TITLE. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 7 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you've been accepted to. Sincerely, DMS Team";
 			
 			
 				
@@ -95,24 +79,11 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 				
 				while ($row=$query->fetch(PDO::FETCH_ASSOC))
 				{
-					//$recipients_array[] = $row['email'];
 					$recipient = $row['email'];
 				}
-	
-				//$recipients_string = implode(",", $recipients_array);
-	
-				//echo $recipients_string;
-				
-	
-	    		//foreach ($recipients_array as $value)
-				//{
-	
-					
-					//$program_id = 'Mobile Program';
-					//$msg = "Congratulations, you're Dell Medical School volunteer/internship application has been reviewed. This is your acceptance notification for $program_id to respond to your acceptance login to your your account!";
 
 			    	$mail = new PHPMailer(true);
-					$mail->SMTPDebug = 2;   
+					//$mail->SMTPDebug = 2;   
 			    	$mail->IsSMTP();
 			    	$mail->Host = 'smtp.gmail.com'; 
 			    	$mail->SMTPAuth = true;
@@ -122,10 +93,13 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 				    $mail->Port = 587; 
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
-			    	$mail->Body = "$msg";
+			    	//$mail->Body = "$msg";
+					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 7 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you've been accepted to.</p><p>Sincerely,</p>DMS Team";
+					
+					$mail->AltBody = 'We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 7 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you have been accepted into. Sincerely, DMS Team';
+					
 			    	$mail->Subject = "$subject";
 			    	$mail->AddAddress($recipient);  // Recipient
-				    //$mail->send();
 			
 						if(!$mail->send())
 				 		{
@@ -136,9 +110,7 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 				    	{
 				       	 	echo 'Email sent to:' . $recipient . '<br/ >';
 				    	}	
-				
-			
-				//}
+
 			}
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
