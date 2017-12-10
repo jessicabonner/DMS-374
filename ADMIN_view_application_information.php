@@ -1,3 +1,10 @@
+<?php
+
+	require 'ADMIN_add_doctor_to_application_functionality.php';
+	
+?>
+
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -304,3 +311,10 @@
 	}
 
 ?>
+
+<a href="ADMIN_add_doctor_to_application.php?select_application=<?php echo $application_id ?>">Edit who can view applicants</a>
+
+
+
+
+				

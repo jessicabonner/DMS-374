@@ -1,24 +1,21 @@
 <?php
 	require 'DMS_general_functions.php';
 	require 'ADMIN_add_doctor_to_application_functionality.php';
+	require 'DOCTOR_functionality.php';
 	//this will display a message when a user is redirected to this page after completing an action
-	if (isset($_GET['message']))
+	if (isset($_GET['error']))
 	{
-		if ($_GET['message']=="0"){
+		if ($_GET['error']=="0"){
 			echo '<script language="javascript">';
-			echo 'alert("The new program has been created successfully")';
+			echo 'alert("The user entered does not exist")';
 			echo '</script>';
 		}
-		if ($_GET['message']=="1"){
+		if ($_GET['error']=="1"){
 			echo '<script language="javascript">';
-			echo 'alert("The new application has been created successfully")';
+			echo 'alert("The user entered does not have access to view this page. Please change their role before continuing")';
 			echo '</script>';
 		}
-		if ($_GET['message']=="2"){
-			echo '<script language="javascript">';
-			echo 'alert("The new user profile has been created successfully")';
-			echo '</script>';
-		}
+		
 
 	}
 ?>
@@ -168,7 +165,9 @@
 				<!-- Header -->
 				<div class="w3-container" style="margin-top:40px" id="showcase">
 					<h1 class="w3-jumbo">
-						<b>Edit <?php echo $_GET['select_application'] ?></b>
+						<b><?php 
+						$application=select_application($_GET['select_application']); 
+						echo get_program_from_app_id($_GET['select_application']).' '.$application['term'].' '.$application['year']?></b>
 					</h1>
 
 					<hr style="width:100%;border:5px solid #BF5700" align="left" class="w3-round">
@@ -177,43 +176,58 @@
 
 
 				<div class="w3-container" id="application" style="margin-top:10px"></div>
+					<b>The following people can view who has applied to this program<b><br><br>
+					<table class="data-table">
 				
+						<thead>
+							<th>EID</th>
+							<th>view only?</th>
+						</thead>
 				
+						<tbody>
 				<?php
 				
-					echo "<b>The following doctors/student coordinators are assigned to this application<b><br><br>";
-					$doctor_array= get_doctor_list($_GET['select_application']);
 					
-					foreach($doctor_array as $doctor)
-					{
-						echo "<p>".$doctor."<p><br>";
-					}
+							$doctor_array= get_doctor_list($_GET['select_application']);
 					
+							foreach($doctor_array as $doctor)
+							{
+								echo "<tr>";
+									echo "<td>".$doctor."<p></td>";
+									
+									$role_id=get_role($doctor);
+									if ($role_id=='4')
+									{
+										echo "<td>&#10004;</td>";
+									}
+									else
+									{
+										echo "<td></td>";
+									}
+								echo "</tr>";
+							}
 					
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+
 				
 				
 				?>
+						</tbody>
+					</table>
+					
+					<br><br>
+					<form name="apply_form" action = "ADMIN_add_doctor_to_application_functionality.php" method= "post">
+					
 				
+						<input type="text" name="new_doctor" size="10" maxlength="30" required/>
+			
+					
+						
+						<input type="hidden" name="select_application" value=<?php echo $_GET['select_application'] ?>>
+						<!--submit button. Will post info.-->
+						<input type="submit" value="Give user access to this application" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"/>
+
+
+						<!--break-->
+						<p><br></p>
+					</form>
 				
