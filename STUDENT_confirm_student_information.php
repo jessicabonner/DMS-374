@@ -133,7 +133,8 @@
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
-
+<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
+<table class='data-table2'>
   <!-- Header -->
 <div class="w3-container" style="margin-top:40px" id="showcase">
 	<h1 class="w3-jumbo">
@@ -204,30 +205,30 @@
 	$semester_commitment=$row['semester_commitment'];
 	$other_programs=$row['other_programs'];
 
-		echo "Before you apply, please confirm your profile information<br></br>";
-
-		echo "<tr><td><b>First Name</b></td> <td>$first_name</td></tr><br>";
-		echo "<tr><td><b>Middle Name</b></td> <td>$middle_name</td></tr><br>";
-		echo "<tr><td><b>Last Name</b></td> <td>$last_name</td></tr><br>";
-		echo "<tr><td><b>Address</b></td> <td>$address</td></tr><br>";
-		echo "<tr><td><b>City</b></td> <td>$city</td></tr><br>";
-		echo "<tr><td><b>State</b></td> <td>$state</td></tr><br>";
-		echo "<tr><td><b>Zip</b></td> <td>$zip_code</td></tr><br>";
-		echo "<tr><td><b>Phone</b></td> <td>$phone</td></tr><br>";
-		echo "<tr><td><b>Employment</b></td> <td>$employment</td></tr><br>";
-		echo "<tr><td><b>Type of student</b></td> <td>$student_type</td></tr><br>";
-		echo "<tr><td><b>Classification</b></td> <td>$classification</td></tr><br>";
-		echo "<tr><td><b>degree type</b></td> <td>$degree_type</td></tr><br>";
-		echo "<tr><td><b>Major</b></td> <td>$major</td></tr><br>";
-		echo "<tr><td><b>2nd Major</b></td> <td>$major_2</td></tr><br>";
-		echo "<tr><td><b>GPA</b></td> <td>$GPA</td></tr><br>";
-		echo "<tr><td><b>Credit Hours Enrollment</b></td> <td>$credit_hours</td></tr><br>";
-		echo "<tr><td><b>Have you worked at DMS before?</b></td> <td>$worked_at_dms</td></tr><br>";
-		echo "<tr><td><b>Have you volunteered at Seton before?</b></td> <td>$volunteered_at_seton</td></tr><br>";
-		echo "<tr><td><b>Do you own a car?</b></td> <td>$car</td></tr><br>";
-		echo "<tr><td><b>Fluent in the following language(s):</b></td> <td>$bilingual</td></tr><br>";
-		echo "<tr><td><b>How many semesters are you willing to commit?</b></td> <td>$semester_commitment</td></tr><br>";
-		echo "<tr><td><b>DMS Programs you have already applied to:</b></td> <td>$other_programs</td></tr><br>";
+		echo "Before you apply, please confirm your profile information";
+		
+		echo "<tr><thead><th>First Name </th><td>$first_name</td></tr>";
+		echo "<tr><th>Middle Name</th> <td>$middle_name</td></tr>";
+		echo "<tr><th>Last Name</th> <td>$last_name</td></tr>";
+		echo "<tr><th>Address</th> <td>$address</td></tr>";
+		echo "<tr><th>City</th> <td>$city</td></tr>";
+		echo "<tr><th>State</th> <td>$state</td></tr>";
+		echo "<tr><th>Zip</th> <td>$zip_code</td></tr>";
+		echo "<tr><th>Phone</th> <td>$phone</td></tr>";
+		echo "<tr><th>Employment</th> <td>$employment</td></tr>";
+		echo "<tr><th>Type of student</th> <td>$student_type</td></tr>";
+		echo "<tr><th>Classification</th> <td>$classification</td></tr>";
+		echo "<tr><th>degree type/td> <td>$degree_type</td></tr>";
+		echo "<tr><th>Major</th> <td>$major</td></tr>";
+		echo "<tr><th>2nd Major</th> <td>$major_2</td></tr>";
+		echo "<tr><th>GPA</th> <td>$GPA</td></tr>";
+		echo "<tr><th>Credit Hours Enrollment</th> <td>$credit_hours</td></tr>";
+		echo "<tr><th>Have you worked at DMS before?</th> <td>$worked_at_dms</td></tr>";
+		echo "<tr><th>Have you volunteered at Seton before?</th> <td>$volunteered_at_seton</td></tr>";
+		echo "<tr><th>Do you own a car?</th> <td>$car</td></tr>";
+		echo "<tr><th>Fluent in the following language(s):</th> <td>$bilingual</td></tr>";
+		echo "<tr><th>How many semesters are you willing to commit?</th> <td>$semester_commitment</td></tr><br>";
+		echo "<tr><th>DMS Programs you have already applied to:</th> <td>$other_programs</td></tr><br>";
 	?>
 		<table>
 			<br></br>
