@@ -7,6 +7,10 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
 require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
 
+//require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/Exception.php';
+//require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
+//require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
+
 
 	$role_id="2";
 	require "DMS_authenticate.php";
