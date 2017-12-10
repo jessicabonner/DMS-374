@@ -178,22 +178,22 @@
 								</tr>
 								<!--maxlength="4000"/></td -->
 								
-								<!--drop-down menu for postion_type-->
+								<!--drop-down menu for postion_type
 								<tr>
 									<td>Position Type</td>
 								</tr>
 								<tr class="blankrow">
 									<td><br></td>
-								<tr>
-								<!--populates the drop-down menu with different opttions-->
+								<tr>-->
+								<!--populates the drop-down menu with different opttions
 								<tr>
 									<td><select name="position_type" required>
 										<option value="Paid">Paid</option>
 										<option value="Non-Paid">Non-Paid</option>
 									</select></td>
-								</tr>
+								</tr>-->
 								
-								<!--text box for first name-->
+								<!--text box for first name
 								<tr class="blankrow">
 									<td><br></td>
 								<tr>
@@ -204,9 +204,9 @@
 								<tr>
 								<tr>
 									<td><input type="text" name="supervisor_first_name" size="20" maxlength="30" required/></td>
-								</tr>
+								</tr>-->
 
-								<!--text box for middle name-->
+								<!--text box for middle name
 								<tr>
 									<td>Supervisor's Middle Name (if applicable)</td>
 								</tr>
@@ -215,9 +215,9 @@
 								<tr>
 								<tr>
 									<td><input type="text" name="supervisor_middle_name" size="20" maxlength="30"/></td>
-								</tr>
+								</tr>-->
 
-								<!--text box for last name-->
+								<!--text box for last name
 								<tr>
 									<td>Supervisor's Last Name</td>
 								</tr>
@@ -226,27 +226,27 @@
 								<tr>
 								<tr>
 									<td><input type="text" name="supervisor_last_name" size="20" maxlength="30" required/></td>
-								</tr>
+								</tr>-->
 
 								<!--text box for eid-->
 								<tr>
-									<td>Supervisor's EID</td>
+									<td>Program Administrator EID</td>
 								</tr>
 								<tr class="blankrow">
 									<td><br></td>
 								<tr>
 								<tr>
-									<td><input type="text" name="doctor_EID" size="20" maxlength="10" required/></td>
+									<td><input type="text" name="doctor_EID_list[]" size="20" maxlength="200" required/></td>
 								</tr>
 
-								<!--drop-down menu for assignment_length-->
+								<!--drop-down menu for assignment_length
 								<tr>
 									<td>Assignment Length</td>
 								</tr>
 								<tr class="blankrow">
 									<td><br></td>
-								<tr>
-								<!--populates the drop-down menu with different opttions-->
+								<tr>-->
+								<!--populates the drop-down menu with different opttions
 								<tr>
 									<td><select name="assignment_length" required>
 										<option value="Summer">Summer</option>
@@ -254,9 +254,9 @@
 										<option value="School">School Year</option>
 										<option value="Other">Other</option>
 									</select></td>
-								</tr>
+								</tr>-->
 
-								<!--text boxes for dates-->
+								<!--text boxes for dates
 								<tr>
 									<td>Start Date:</td>
 								</tr>
@@ -265,8 +265,8 @@
 								<tr>
 								<tr>
 									<td><input type="date" name="start_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required/></td>
-								</tr>
-								<!--text boxes for dates-->
+								</tr>-->
+								<!--text boxes for dates
 								<tr>
 									<td>End Date:</td>
 								</tr>
@@ -275,10 +275,10 @@
 								<tr>
 								<tr>
 									<td><input type="date" name="end_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required pattern="^\d{2}/\d{2}/\d{4}$"/></td>
-								</tr>
+								</tr>-->
 									
 									
-								<!--drop-down menu to specify if the postions is renewable-->
+								<!--drop-down menu to specify if the postions is renewable
 								<tr>
 									<td>Renewable position:</td>
 								</tr>
@@ -290,10 +290,10 @@
 										<option value="1">Yes</option>
 										<option value="0">No</option>
 									</select></td>
-								</tr>
+								</tr>-->
 								
 								
-								<!--drop-down menu to specify the classification for which students need to be-->
+								<!--drop-down menu to specify the classification for which students need to be
 								<tr>
 									<td>Student Type:</td>
 								<tr>
@@ -306,9 +306,9 @@
 										<option value="graduate">Graduate</option>
 										<option value="other">Other</option>
 									</select></td>
-								</tr>
+								</tr>-->
 
-								<!--text box for IT Equipment-->
+								<!--text box for IT Equipment
 								<tr>
 									<td>IT Equipment:</td>
 								</tr>
@@ -317,9 +317,9 @@
 								<tr>
 								<tr>
 									<td><input type="text" name="it_equipment" size="20" maxlength="30" required/></td>
-								</tr>
+								</tr>-->
 
-								<!--text box for Work Location-->
+								<!--text box for Work Location
 								<tr>
 									<td>Specify the Student's Work Location:</td>
 								</tr>
@@ -331,9 +331,9 @@
 								<tr>
 								<tr>
 									<td><input type="text" name="work_location" placeholder="ex. station #, seat #" size="20" maxlength="30" required/></td>
-								</tr>
+								</tr>-->
 
-								<!--text box for Hours Per Week-->
+								<!--text box for Hours Per Week
 								<tr>
 									<td>Maximum expected Hours Per Week:</td>
 								</tr>
@@ -342,9 +342,9 @@
 								<tr>
 								<tr>
 									<td><input type="text" name="hours_per_week" placeholder="ex. 20" size="20" maxlength="30" required/></td>
-								</tr>
+								</tr>-->
 
-								<!--text box for hourly rate-->
+								<!--text box for hourly rate
 								<tr>
 									<td>Maximum expected Hourly Rate:</td>
 								</tr>
@@ -353,7 +353,7 @@
 								<tr>
 								<tr>
 									<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" required/></td>
-								</tr>
+								</tr>-->
 							</table>
 
 								<!--submit button. Will post info.-->

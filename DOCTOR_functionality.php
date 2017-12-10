@@ -56,9 +56,7 @@
 		$stmt->execute();
 		$applications= $stmt->fetchAll();
 		return $applications;
-	}
-
-	
+	}	
 	//return the application that corresponds to a given id
 	function select_application($application_id)
 	{

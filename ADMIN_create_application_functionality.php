@@ -11,9 +11,26 @@
 	{
 		//get all info submitted through the form
 		$number_unique_questions=$_POST['number_unique_questions'];
+		$number_EIDs=$_POST['number_EIDs'];
 		$term=$_POST['term'];
 		$year=$_POST['year'];
 		$program_id=$_POST['program_id'];
+		
+		
+	    $supervisor_first_name=$_POST['supervisor_first_name'];
+	    $supervisor_middle_name=$_POST['supervisor_middle_name'];
+	    $supervisor_last_name=$_POST['supervisor_last_name'];
+	    $assignment_length=$_POST['assignment_length'];
+	    $start_date=$_POST['start_date'];
+	    $end_date=$_POST['end_date'];
+	    $renew=$_POST['renew'];
+	    $student_type=$_POST['student_type'];
+	    $it_equipment=$_POST['it_equipment'];
+	    $work_location=$_POST['work_location'];
+	    $hours_per_week=$_POST['hours_per_week'];
+	    $hourly_rate=$_POST['hourly_rate'];
+		$position_type=$_POST['position_type'];
+		$position_title=$_POST['position_title'];
 		
 		
 		$array_unique_questions=$_POST['list_unique_questions'];
@@ -23,10 +40,19 @@
 		
 		
 		
+		$array_EIDs=$_POST['EID_list'];
+		
+		//turn the array of EIDs into a string
+		$EID_list= implode('(#!BREAK!#)', $_POST['EID_list']);
+		
+		
+		
 		
 		//check if the application already exists in the database
 		$stmt = $dbc->query("SELECT * FROM applications WHERE program_id='".$program_id."' AND term='".$term."' AND year='".$year."'" );
 		$x = $stmt->fetch();
+		
+		
 		
 		//if the application already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
 		if (count($x['application_id'])>0)
@@ -41,11 +67,17 @@
 		
 		//below is making a new field in the applications table for this application
 		//prepare SQL statement to prevent SQL injection
-		$stmt = $dbc-> prepare('INSERT INTO applications(term,year,number_unique_questions,list_unique_questions,program_id, archived) 
-		VALUES (:term,:year,:number_unique_questions, :list_unique_questions, :program_id, :archived)');
+		//$stmt = $dbc-> prepare('INSERT INTO applications(term,year,number_unique_questions,list_unique_questions,program_id, archived) VALUES (:term,:year,:number_unique_questions, :list_unique_questions, :program_id, :archived)');
+		
+		
+	    $stmt = $dbc-> prepare('INSERT INTO applications (term,year,number_unique_questions,list_unique_questions, number_EIDs, EID_list,program_id, archived, position_type, position_title, supervisor_first_name, supervisor_middle_name, supervisor_last_name, assignment_length, start_date, end_date, renew, student_type, it_equipment, work_location, hours_per_week, hourly_rate) 
+	    VALUES (:term, :year, :number_unique_questions, :list_unique_questions, :number_EIDs, :EID_list, :program_id, :archived, :position_type, :position_title, :supervisor_first_name, :supervisor_middle_name, :supervisor_last_name, :assignment_length, :start_date, :end_date, :renew, :student_type, :it_equipment, :work_location, :hours_per_week, :hourly_rate)');
 		
 		//bind variables to prepared statement and execute
-		$stmt->execute(array('term'=>$term,'year'=>$year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'program_id'=>$program_id, 'archived'=>'FALSE'));
+		//$stmt->execute(array('term'=>$term,'year'=>$year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'program_id'=>$program_id, 'archived'=>'FALSE'));
+		
+		//bind variables to prepared statement and execute
+		$stmt->execute(array('term' => $term,'year' => $year,'number_unique_questions' => $number_unique_questions, 'list_unique_questions' => $list_unique_questions, 'number_EIDs' => $number_EIDs, 'EID_list' => $EID_list, 'program_id' => $program_id,'archived' => 'FALSE','position_type' => $position_type, 'position_tile' => $position_title ,'supervisor_first_name' => $supervisor_first_name, 'supervisor_middle_name' => $supervisor_middle_name, 'supervisor_last_name' => $supervisor_last_name,'assignment_length' => $assignment_length,'start_date' => $start_date,'end_date' => $end_date,'renew' => $renew,'student_type' => $student_type,'it_equipment' => $it_equipment,'work_location' => $work_location,'hours_per_week' => $hours_per_week,'hourly_rate' => $hourly_rate ));
 		
 		
 		//get the primary key (application_id) that was just created
