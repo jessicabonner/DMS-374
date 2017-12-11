@@ -12,7 +12,7 @@ try{
 	//prepare SQL statement to prevent SQL injection
 	$stmt = $dbc-> prepare('SELECT * FROM user WHERE user_id= :user_id');
 	//bind variables to prepared statement and execute
-	$stmt->execute(array('user_id' => $username));
+	$stmt->execute(array('user_id' => $username)); 
 	
 	
 	$x = $stmt->fetch();

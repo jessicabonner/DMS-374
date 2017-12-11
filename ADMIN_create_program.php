@@ -247,7 +247,7 @@ $role_id_array=array("1");
 									<td><br></td>
 								<tr>
 								<tr>
-									<td><input type="text" name="doctor_EID_list[]" size="20" maxlength="200" required/></td>
+									<td><input type="text" name="doctor_EID" size="20" maxlength="200" required/></td>
 								</tr>
 
 								<!--drop-down menu for assignment_length
