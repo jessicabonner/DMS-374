@@ -92,6 +92,8 @@
 <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 </ul>              </div>
               <div class="parent-banner-links">
+								<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
                 </h2>
@@ -184,12 +186,12 @@ require 'DMS_general_functions.php';
 	$number_unique_questions=get_number_questions($application_id);
 if($_SESSION['role']=='2')
 {
-	
+
 	echo "<form action='DOCTOR_dashboard.php' method='get'>
 		 <input type='submit' value='Return to list' />
 		 <input type='hidden' name=select_application value=$application_id>
 		</form>";
-} 
+}
 else
 {
 	echo "<form action='DOCTOR_potential_student_table.php' method='get'>
@@ -211,7 +213,7 @@ else
 <?php
 
 	while ($row=$query->fetch(PDO::FETCH_ASSOC))
-	{ 
+	{
 		// Display applicants's ID
 		echo "<tr><thead>";
 		echo "<th>EID</th>";
@@ -227,7 +229,7 @@ else
 		echo "<th>Last Name</th>";
 		echo "<td>" . $row['last_name'] .  "</td>";
 		echo "</tr>";
-		
+
 		// Display applicants's Email
 		echo "<tr>";
 		echo "<th>Email</th>";
@@ -374,9 +376,9 @@ else
 <table class='data-table2'>
 			<br></br><thead>
 			<th>Semester Availability</th>
-			
+
 			<br></br>
-			
+
 			<td><input type='checkbox' name='availability_list[]' value='NA'<?php if (in_array('NA',$availability_array))echo 'checked="checked"'?>disabled><td>Unknown</td></td>
 			<tr class="blankrow">
 				</table>
@@ -513,7 +515,7 @@ if ($_SESSION['role']=='2')
 {
 		// Display applicants's review status
 		//echo "<tr>";
-		echo "<th>Review</th>"; 
+		echo "<th>Review</th>";
 
 		$stmt = $dbc->query("SELECT * FROM review WHERE user_id='".$student_id."' AND application_id=$application_id;");
        	$x = $stmt->fetch();
@@ -571,7 +573,7 @@ if ($_SESSION['role']=='2')
 			{
 				echo '<td><input type="checkbox" name="interview" value="1"></td>';
 			}
-			
+
 }
 
 		while ($number_unique_questions>0)
@@ -633,7 +635,7 @@ if ($_SESSION['role']=='2')
 			</tr>";
 
 	}
-	
+
 
 	}
 ?>
@@ -647,7 +649,7 @@ if ($_SESSION['role']=='2')
 		<tr><td><br></td>
 		<tr><td><br></td>
 		<tr><td><br></td>
-		
+
 		<?php endif ?>
 
 </form>

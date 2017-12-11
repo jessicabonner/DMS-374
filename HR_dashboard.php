@@ -56,8 +56,8 @@
 	       <div class="p2-logo">
 	        <a href="http://dellmed.utexas.edu" onclick="w3_close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
        </div>
-	    
-          	
+
+
       </div>
      </div>
 		<a href="#" class="UT-nav-hamburger icon-menu" id="menu-icon"><span class="hiddenText">Menu</span></a>
@@ -79,9 +79,10 @@
 		  </ul>
 		 </div>
           <div class="parent-banner-links">
+						<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+						<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
            <h2 class="UT-secondary-logo">
             <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /></a>
-			<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
            </h2>
           </div>
           <div class="hide-for-large-up">
@@ -109,8 +110,8 @@
 			<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
-          
-          
+
+
           <li class="nav-item" role="menuitem">
 			<a href="HR_view_all_applications.php" onclick="w3_close()" class="nav-link has-child nolink">All Applications</a>
 			<div class="sub-nav-wrapper"></div>
@@ -152,7 +153,7 @@
 
 	<!--<details>
 
-	
+
 	<summary><b>Sort By</b></summary>
 	<p>
 	<form name="sort" method= "get">
@@ -222,7 +223,7 @@
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year<br></td>
 				</tr>
-				
+
 				<tr>
 					<!--Page Break-->
 					<td><br></td>
@@ -293,7 +294,7 @@
 		<tr>
 			<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
 		</tr>
-	
+
 		<!--break-->
 		<tr>
 			<td><br></td>
@@ -313,7 +314,7 @@
 	</details>
 
 	<?php
-	
+
 	require"HR_functionality.php";
 	require 'DMS_general_functions.php';
 
@@ -358,16 +359,16 @@
 			$query=filter_only_gpa($_GET['GPA_less'],'<');
 		}
 	}
-	
-	
-	else 
+
+
+	else
 	{
 		$query=view_all();
 	}
 	?>
 
 	<form action='HR_background_check.php' method='post'>
-	
+
 	<!--Displays all of the students who have been accepted, unless given specific criteria -->
 	<table class="data-table">
 	<caption class="title">Students Accepted by DMS</caption>
@@ -391,20 +392,20 @@
 				<!--<th>Working for DMS?</th>-->
 				<th>Program</th>
 				<th>Position Type</th>
-				
-				
+
+
 			</tr>
 		</thead>
 
 		<tbody>
-<?php 
+<?php
 		//this will run the user-created query and return all applicants that came out of that query
 		require 'DMS_db.php';
 
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 			$id = $row['user_id'];
-			
+
 			/* $review=get_review_entry($id);
 			if(isset($review['application_id']))
 			{
@@ -412,38 +413,38 @@
 				//$name_of_program =get_program_from_app_id($review['application_id']);
 				$program_id=get_program_id_from_app_id($review['application_id']);
 				$name_of_program =get_program($program_id);
-				
+
 			}
 			else
 			{
 				$name_of_program="";
 				$program_id="";
 			} */
-			
-			
+
+
 			if (isset($row['program_id']))
 			{
 				$name_of_program= get_program($row['program_id']);
 				$program_id=$row['program_id'];
-				
+
 			}
 			else
 			{
 				$name_of_program="";
 				$program_id="";
 			}
-			
+
 			if (isset($row['program_id']))
 			{
 				$position_type= get_program_type($row['program_id']);
 				$program_id=$row['program_id'];
-				
+
 			}
 			else
 			{
 				$position_type="";
 			}
-			
+
 			$bio_data_form = $row['bio_data_form'];
 			if($bio_data_form == 1)
 			{
@@ -455,7 +456,7 @@
 				$checked_bio = 0;
 				$check_bio = '';
 			}
-			
+
 			$i9 = $row['i9'];
 			if($i9 == 1)
 			{
@@ -467,7 +468,7 @@
 				$checked_i9 = 0;
 				$check_i9 = '';
 			}
-			
+
 			$seton_forms = $row['seton_forms'];
 			if($seton_forms == 1)
 			{
@@ -479,11 +480,11 @@
 				$checked_seton = 0;
 				$check_seton = '';
 			}
-			
-			
+
+
 			$id = "'".$row['user_id']."'";
 			$id_2=$row['user_id'];
-			
+
 
 			//display all student info in the table
 			echo "<td> <a href='HR_view_student.php?id=$id_2'>" .$row['user_id'] . "</a> </td>";
@@ -501,11 +502,11 @@
 				<td><input type='checkbox' name='bio_data_form_list[]' value=$id id=$id <?php if ($checked_bio == 1) { echo ".$check_bio."; } ?></td>
 				<td><input type='checkbox' name='i9_list[]' value=$id id=$id <?php if ($checked_i9 == 1) { echo ".$check_i9."; } ?></td>
 				<td><input type='checkbox' name='seton_forms_list[]' value=$id id=$id <?php if ($checked_seton == 1) { echo ".$check_seton."; } ?></td>";
-				
+
 			//call function select_student from DMS_HR.php
 			//to pull the value of the background_check field in table student_info
 			$x = select_student($id);
-			
+
 
 			if ($x['background_check']=="2") //if background_check = 2 (Fail) in the db, show the correct selected value
 			{
@@ -531,20 +532,20 @@
 					<option value="background_check = 2 WHERE user_id='.$id.'">Fail</option>
 					</select></td>';
 			}
-			
+
 			//echo "<td></td>"
 			echo "<td> <a href='HR_program_description.php?program_id= $program_id '>" .$name_of_program . "</a> </td>";
 			echo "<td>". $position_type. "</td></tr>";
 		}
-	
+
 ?>
 		</tbody>
 	</table>
-				
+
 		<tr><td><br></td>
 				<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 		<tr>
-			
+
 		</form>
 </body>
 </html>

@@ -1,9 +1,9 @@
 <?php
-	
+
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 	require 'STUDENT_dynamic_application_functionality.php';
-	
+
 	$user_id=$_SESSION['user_id'];
 ?>
 
@@ -79,9 +79,10 @@
 									<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 								</ul>              </div>
               <div class="parent-banner-links">
+								<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
                 </h2>
               </div>
 
@@ -150,7 +151,7 @@
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "STUDENT_dynamic_application_connect.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
 		<input type="hidden" name="application_id" value="<?php echo $application_id?>"/>
-		
+
 		<table>
 
 <?php

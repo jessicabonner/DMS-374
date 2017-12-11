@@ -81,9 +81,10 @@
 <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 </ul>              </div>
               <div class="parent-banner-links">
+								<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
                 </h2>
                               </div>
 
@@ -149,7 +150,7 @@
 
 	require "DMS_db.php";
 
-	
+
 
 
 	$statement = $dbc->prepare("SELECT * FROM student_info WHERE user_id = :user_id");
@@ -206,7 +207,7 @@
 	$other_programs=$row['other_programs'];
 
 		echo "Before you apply, please confirm your profile information";
-		
+
 		echo "<tr><thead><th>First Name </th><td>$first_name</td></tr>";
 		echo "<tr><th>Middle Name</th> <td>$middle_name</td></tr>";
 		echo "<tr><th>Last Name</th> <td>$last_name</td></tr>";
@@ -343,11 +344,11 @@
 		</table>
 
 		<form action="STUDENT_edit_profile_information.php" method="get">
-			
+
 			<input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Edit"/>
 		</form>
 
 		<form action="STUDENT_select_program_apply.php" method="get">
-		
+
 			<input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Confirm"/>
 		</form>

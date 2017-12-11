@@ -95,9 +95,10 @@
 <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 </ul>              </div>
               <div class="parent-banner-links">
+								<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
                 </h2>
                               </div>
               <div class="hide-for-large-up">
@@ -128,7 +129,7 @@
         </ul>
         </nav>
         </div>
-        
+
 
     </div> <!-- nav-wrapper -->
 
@@ -156,7 +157,7 @@
 		//get list of applications to populate dropdown
 		$applications=select_all_applications();
 	}
-	
+
 ?>
 <body>
 	<form name="select_application" method="get">
@@ -252,7 +253,7 @@
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year<br></td>
 				</tr>
-				
+
 				<tr>
 					<!--Page Break-->
 					<td><br></td>
@@ -372,27 +373,27 @@
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='2' ">Competitive<br></td>
 				</tr>
-				
+
 				<!--Page Break-->
-				
+
 				<tr class="blankrow">
 					<td><br></td>
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" interview='1' ">Interview?<br></td>
 				</tr>
-				
-				
+
+
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" potential='1' ">Potential Candidate?<br></td>
 				</tr>
-				
-			
+
+
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" accepted_by_dms='1' ">Accepted?<br></td>
 				</tr>
-				
-				
-				
+
+
+
 
 				<!--break-->
 				<tr>
@@ -419,9 +420,9 @@
 		//call select_application_student_list function from DOCTOR_functionality.php
 		//to get the list of applicants for this program
 		$student_applicants=select_application_student_list($_GET['select_application']);
-		
+
 		$student_applicants= implode(',',$student_applicants);
-		
+
 
 		//call select_application program from DOCTOR_functionality.php
 		//to get all information on the selected application
@@ -444,7 +445,7 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Review</th>
-					
+
 					<th>GPA</th>
 					<th>Email</th>
 					<th>Type</th>
@@ -454,8 +455,8 @@
 					<th>Potential Candidate?</th>
 					<th>Accepted?</th>
 					<th>Student accepted Offer?</th>
-					
-					
+
+
 				</tr>
 			</thead>
 
@@ -605,7 +606,7 @@
 						}
 
 							echo '
-								
+
 								<td>'.$row['GPA'].'</td>
 								<td>'.$row['email'].'</td>
 								<td>'.$row['student_type'].'</td>
@@ -618,12 +619,12 @@
 						}
 						else{
 							$working_for_dms="Yes";
-						} 
+						}
 
 				echo '  <td>'.$working_for_dms.'</td>
 					</tr>';*/
-					
-					
+
+
 					if($x['interview']=="1")
 					{
 						//echo '<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" checked="checked"disabled></td>';
@@ -666,7 +667,7 @@
 					{
 						echo "<td></td>";
 					}
-					
+
 				echo "</tr>";
 
 

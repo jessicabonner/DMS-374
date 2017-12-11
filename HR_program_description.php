@@ -82,9 +82,10 @@
 									</ul>
 								</div>
 								<div class="parent-banner-links">
+									<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+									<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-										<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
 									</h2>
 								</div>
 								<div class="hide-for-large-up">
@@ -144,15 +145,15 @@
 
 	$query= $dbc->query($sql);;
 	$program=$query->fetch();
-	
+
 	if (!$query)
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
 
-	
-	
-	
+
+
+
 
 ?>
 <html>
@@ -186,11 +187,11 @@
 		</tr>
 		<tr>
 			<th>Renew?</th>
-			<td><?php 
+			<td><?php
 			if ($program['renew']="0")
 			{
 				echo "Yes";
-			}				
+			}
 			else
 			{
 				echo"No";
@@ -226,7 +227,7 @@
 
 	</tbody>
 	</table>
-	
+
 
 </body>
 </html>

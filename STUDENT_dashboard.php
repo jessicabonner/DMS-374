@@ -1,14 +1,14 @@
-<?php 
+<?php
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
-	
+
 	date_default_timezone_set('America/Chicago');
 
-	
+
 	require "STUDENT_functionality.php";
 	require "DMS_general_functions.php";
-	
+
 	if (isset($_GET['message']))
 	{
 		if ($_GET['message']=="1")
@@ -112,9 +112,10 @@
 <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 </ul>              </div>
               <div class="parent-banner-links">
+								<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
                 <h2 class="UT-secondary-logo">
-                  <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
+				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a>
                 </h2>
                               </div>
               <div class="hide-for-large-up">
@@ -149,7 +150,7 @@
         	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
           	</div>
         </li>
-		 
+
         <li class="nav-item" role="menuitem">
             </div>
             </div>
@@ -170,21 +171,21 @@
 				<b>Welcome!</b>
 			</h1>
 		<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
-		
-		
+
+
 		<br>
 			<b>You have applied to the following programs. If you would like to apply to another program, click the "New Application" tab on the navigation bar.
 			</b>
 		<br>
 		</div>
-		
-		
-		
+
+
+
 		<table class="data-table">
 			<caption class="title">Programs</caption>
 			<thead>
 				<tr>
-					
+
 					<th>Program</th>
 					<th>Term</th>
 					<th>Year</th>
@@ -192,13 +193,13 @@
 					<th>Status</th>
 				</tr>
 			</thead>
-			
-			
+
+
 		<?php
-		
+
 			$application_array=get_applications_student_applied_to($user_id);
 			$already_accepted_offer=check_student_accepted_offer();
-			
+
 			foreach($application_array as $row)
 				{
 					//call function get_program from DMS_general_functions to get the program name
@@ -206,7 +207,7 @@
 						<td>'.$row['term'].'</td>
 						<td>'.$row['year'].'</td>
 						<td>'.get_application_submit_date($user_id, $row['application_id']).'</td>';
-						
+
 						if (get_accepted_declined_offer($user_id, $row['application_id'])=="0")
 						{
 							echo '<td>Offer Declined</td>
@@ -216,7 +217,7 @@
 						{
 							echo '<td>Offer Accepted</td>
 							</tr>';
-							
+
 						}
 						else
 						{
@@ -234,12 +235,12 @@
 							{
 								echo "<td>$already_accepted_offer</td>";
 							}
-							
+
 						}
-						
-		
+
+
 				}
-		
+
 		?>
-		
+
 		</table>

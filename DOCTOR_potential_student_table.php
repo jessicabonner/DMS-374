@@ -8,7 +8,7 @@
 	require 'DOCTOR_functionality.php';
 	require 'DMS_general_functions.php';
 
-	
+
 ?>
 
 <!--Doctor's view that displays applicants-->
@@ -90,9 +90,10 @@
 <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 </ul>              </div>
               <div class="parent-banner-links">
+								<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
                 </h2>
                               </div>
               <div class="hide-for-large-up">
@@ -371,7 +372,7 @@
 			<caption class="title"><?php echo $name_of_program.' '.$selected_application['term'].' '.$selected_application['year']; ?></caption>
 			<thead>
 				<tr>
-					
+
 					<th>EID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
@@ -456,7 +457,7 @@
 				$working_for_dms = $row['working_for_dms'];
 				$review_array = array('1', '0');
 
-				
+
 
 				echo "<td> <a href='DOCTOR_view_detailed_student_info.php?id=$id&selected_application=$selected_application_id'>" .$row['user_id'] . "</a> </td>";
 
@@ -467,7 +468,7 @@
 						//call function select_student from SMD_doctor_functionality.php
 						//to pull the value of the competitive field in table 'review'
 						$x=select_student_review($id, $_GET['select_application']);
-						
+
 
 						if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
 						{
@@ -510,8 +511,8 @@
 
 				echo '  <td>'.$working_for_dms.'</td>
 					</tr>';
-					
-					
+
+
 			}
 		?>
 
@@ -520,7 +521,7 @@
 		<!--Page Break-->
 		<tr>
 			<td><br></td>
-			
+
 			<input type='hidden' name='application_id' value=<?php echo $selected_application_id ?>>
 			<td><input type='submit' name= "save" value='Save Changes' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
 		<tr>

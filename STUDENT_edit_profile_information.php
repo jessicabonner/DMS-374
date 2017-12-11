@@ -96,9 +96,10 @@
 <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 </ul>              </div>
               <div class="parent-banner-links">
+								<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-				  <a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
                 </h2>
                               </div>
 
@@ -172,7 +173,7 @@
 		</head>
 
         <form action="STUDENT_edit_profile_information_connect.php" method="post">
-			
+
 
             First Name
             <input type="text" name="first_name" value="<?php echo $row ['first_name']; ?> " size=10>
@@ -298,7 +299,7 @@
 			<tr>
 				<td><input type="radio" name="classification" value="5th year" <?php if($row['classification'] == "5th year") echo 'checked="checked"'?>>5th year<br></td>
 			</tr>
-			
+
 			<tr>
 				<td>What type of student are you?</td>
 			</tr>
@@ -318,8 +319,8 @@
 			<tr>
 				<td><input type="radio" name="student_type" value="Other" <?php if($row['student_type'] == "Other") echo 'checked="checked"'?>>Other<br></td>
 			</tr>
-			
-			
+
+
 
 			Degree Type
             <input type="text" name="degree_type" value="<?php echo $row ['degree_type']; ?> " size=10>

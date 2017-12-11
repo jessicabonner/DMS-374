@@ -1,5 +1,5 @@
 <?php
-	
+
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 	require 'DOCTOR_functionality.php';
@@ -101,9 +101,10 @@
 		</ul>
 		</div>
 		<div class="parent-banner-links">
+			<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
+			<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
     	<h2 class="UT-secondary-logo">
-    	<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-		<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
+		<a href="DMS_logout.php" onclick="w3_close()">Logout</a>
     	</h2>
 		</div>
     	<div class="hide-for-large-up">
@@ -168,7 +169,7 @@
 	<body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "STUDENT_create_student_information_connect.php" method= "post">
-	
+
 		<table>
 			<!--text box for students first name-->
 			<tr>
@@ -191,7 +192,7 @@
 			<tr>
 				<td><input type="text" name="last_name" size="20" maxlength="30" required/></td>
 			</tr>
-			
+
 			<!--text boxes for student's address-->
 			<tr>
 				<td>Street Address</td>
