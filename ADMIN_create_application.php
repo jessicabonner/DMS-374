@@ -1,4 +1,8 @@
 <?php
+$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+	
 	//this will display an error message if the user tries to create an application that already exists in the database
 	if (isset($_GET['error']))
 	{

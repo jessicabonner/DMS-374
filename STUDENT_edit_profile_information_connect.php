@@ -3,7 +3,7 @@
 //THIS FILE PULLS TAKES THE DATA SUBMITTED THROUGH STUDENT_create_student_information.php AND ADDS IT TO THE student_info TABLE ON THE DATABASE
 //THIS RECORD WILL BE LINKED TO THE USERS PROFILE 
 
-	$role_id="5";
+	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 
 	//link to file containing database connection string

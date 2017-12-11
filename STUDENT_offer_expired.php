@@ -1,6 +1,6 @@
 <?php
 
-	$role_id="5";
+	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 	
 	date_default_timezone_set('America/Chicago');
@@ -155,7 +155,7 @@
 		<?php 
 			$date= get_application_accept_date_not_formatted($user_id, $application_id);
 			
-			$deadline=date('Y-m-d', strtotime($date. ' + 7 days'));	
+			$deadline=date('Y-m-d', strtotime($date. ' + 14 days'));	
 			echo date("m-d-Y", strtotime($deadline));
 		?> </u></b>
 	<br>

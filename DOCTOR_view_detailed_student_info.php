@@ -1,6 +1,6 @@
 <?php
 
-	$role_id="2";
+	$role_id_array=array('2','4');
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 /*
@@ -173,6 +173,7 @@ require 'DMS_general_functions.php';
 	$query = select_student2($student_id);
 
 
+
 	//TODO: DeleteThis Later
 	if (!$query)
 	{
@@ -181,12 +182,21 @@ require 'DMS_general_functions.php';
 
 
 	$number_unique_questions=get_number_questions($application_id);
-
-	//TODO add if user is supervisor, redirect to potential_student_list
+if($_SESSION['role']=='2')
+{
+	
 	echo "<form action='DOCTOR_dashboard.php' method='get'>
 		 <input type='submit' value='Return to list' />
 		 <input type='hidden' name=select_application value=$application_id>
-		</form>"
+		</form>";
+} 
+else
+{
+	echo "<form action='DOCTOR_potential_student_table.php' method='get'>
+		 <input type='submit' value='Return to list' />
+		 <input type='hidden' name=select_application value=$application_id>
+		</form>";
+}
 
 
 ?>
@@ -199,8 +209,9 @@ require 'DMS_general_functions.php';
 </tr>
 
 <?php
+
 	while ($row=$query->fetch(PDO::FETCH_ASSOC))
-	{
+	{ 
 		// Display applicants's ID
 		echo "<tr><thead>";
 		echo "<th>EID</th>";
@@ -498,7 +509,8 @@ require 'DMS_general_functions.php';
 				</tr>";
 
 		}
-
+if ($_SESSION['role']=='2')
+{
 		// Display applicants's review status
 		//echo "<tr>";
 		echo "<th>Review</th>"; 
@@ -559,6 +571,8 @@ require 'DMS_general_functions.php';
 			{
 				echo '<td><input type="checkbox" name="interview" value="1"></td>';
 			}
+			
+}
 
 		while ($number_unique_questions>0)
 		{
@@ -590,7 +604,8 @@ require 'DMS_general_functions.php';
 
 
 		}
-
+if ($_SESSION['role']=='2')
+{
 		$accepted_by_dms = $x['accepted_by_dms'];
 
 
@@ -618,9 +633,12 @@ require 'DMS_general_functions.php';
 			</tr>";
 
 	}
+	
 
+	}
 ?>
 
+<?php if ($_SESSION['role']=='2'):?>
 </table>
 	<tr><td><br></td>
 		<td><input type='submit' name= "accept" value= '  <?php echo $accept_unaccept ?>  ' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
@@ -629,4 +647,7 @@ require 'DMS_general_functions.php';
 		<tr><td><br></td>
 		<tr><td><br></td>
 		<tr><td><br></td>
+		
+		<?php endif ?>
+
 </form>

@@ -1,5 +1,5 @@
 <?php
-	$role_id="5";
+	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 
 	date_default_timezone_set('America/Chicago');
