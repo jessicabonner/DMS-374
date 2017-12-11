@@ -483,7 +483,7 @@ require 'DMS_general_functions.php';
 		{
 			$number_unique_questions-=1;
 			$question=question_unique_question($application_id, $number_unique_questions);
-			$answer=answer_unique_question($number_unique_questions, $application_id, $user_id);
+			$answer=answer_unique_question($number_unique_questions, $application_id, $student_id);
 
 			echo "
 				<tr>
@@ -564,7 +564,7 @@ require 'DMS_general_functions.php';
 		{
 			$number_unique_questions-=1;
 			$question=question_unique_question($application_id, $number_unique_questions);
-			$answer=answer_unique_question($number_unique_questions, $application_id, $user_id);
+			$answer=answer_unique_question($number_unique_questions, $application_id, $student_id);
 
 			echo "
 				<tr><td><br></td>
@@ -581,6 +581,7 @@ require 'DMS_general_functions.php';
 				<tr>
 			<th>".$question."</th>
 			<td>".$answer."</td>
+
 
 			<td><br></td></tr>
 			<td><br></td></tr>";
