@@ -37,7 +37,15 @@ require("DMS_db.php");
 	}
 
 	
-	if ($role_id != $_SESSION['role'])
+	foreach($role_id_array as $role_id)
+	{
+		if ($role_id == $_SESSION['role'])
+			{
+				$access_granted="true";
+			}
+	}
+	
+	if (!isset($access_granted))
 	{
 		echo "You do not have access to view this page";
 		echo "<br><a href='DMS_login.php'>Login</a>";

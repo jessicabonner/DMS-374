@@ -51,7 +51,7 @@
 	{
 		require 'DMS_db.php';
 		//select all the applications that are active
-		$sql="SELECT * FROM applications AS a INNER JOIN programs AS p ON a.program_id=p.program_id WHERE archived='FALSE' AND p.doctor_eid='".$_SESSION['user_id']."'";
+		$sql="SELECT * FROM applications WHERE archived='FALSE' AND user_permissions_eid_list LIKE '% ".$_SESSION['user_id']." %'";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$applications= $stmt->fetchAll();

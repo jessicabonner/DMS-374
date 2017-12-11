@@ -1,7 +1,7 @@
 <?php
 
 	
-	$role_id="5";
+	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 	$user_id=$_SESSION['user_id'];
 
@@ -17,7 +17,7 @@
 
 	$date= get_application_accept_date_not_formatted($user_id, $application_id);
 
-	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));	
+	$deadline= date('Y-m-d', strtotime($date. ' + 14 days'));	
 	
 	/* $current_date = date('m/d/Y h:i:s a', time());
 	echo $current_date; */
@@ -27,7 +27,7 @@
 	
 	if ($current_date > $deadline) 
 
-	$deadline= date('Y-m-d', strtotime($date. ' + 7 days'));
+	$deadline= date('Y-m-d', strtotime($date. ' + 14 days'));
 
 	$current_date=date('Y-m-d');
 

@@ -1,4 +1,8 @@
 <?php
+	$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
 	if(isset($_GET['error']))
 	{
 		if ($_GET['error']=="1")

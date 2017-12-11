@@ -6,7 +6,7 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
 require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
 
-	$role_id="5";
+	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 
 	require "DMS_db.php";

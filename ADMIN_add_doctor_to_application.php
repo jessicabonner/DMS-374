@@ -1,4 +1,10 @@
 <?php
+
+	$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+	
+	
 	require 'DMS_general_functions.php';
 	require 'ADMIN_add_doctor_to_application_functionality.php';
 	require 'DOCTOR_functionality.php';
@@ -195,8 +201,8 @@
 								echo "<tr>";
 									echo "<td>".$doctor."<p></td>";
 									
-									$role_id=get_role($doctor);
-									if ($role_id=='4')
+									$role_id_array=array(get_role($doctor);
+									if ($role_id_array=array(='4')
 									{
 										echo "<td>&#10004;</td>";
 									}

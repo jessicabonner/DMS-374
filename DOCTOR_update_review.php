@@ -12,7 +12,7 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 //require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
 
 
-	$role_id="2";
+	$role_id_array=array("2";
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 	
@@ -68,7 +68,7 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 				//The Email Sender information
 	    		$from = 'DellMed.Notifications@gmail.com'; //This will need to change
 	    		$from_name = 'Dell Medical School';
-	   	 		$subject = 'Conditional Offer Expires in 7 days - Dell Medical School';
+	   	 		$subject = 'Conditional Offer Expires in 14 days - Dell Medical School';
 				//$msg = "We are pleased to inform you that you have been selected for our current position of POSITION TITLE - PROGRAM TITLE. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 7 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you've been accepted to. Sincerely, DMS Team";
 			
 			

@@ -1,6 +1,6 @@
 <?php
 	
-	$role_id="5";
+	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 	require 'STUDENT_dynamic_application_functionality.php';
 	

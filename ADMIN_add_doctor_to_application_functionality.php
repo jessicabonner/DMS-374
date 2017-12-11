@@ -23,10 +23,16 @@
 			die();
 		}
 		
-		
-		$doctor_list=implode(',', get_doctor_list($select_application));
+		if (get_doctor_list($select_application)==null)
+		{
+			$doctor_list=implode(' , ', get_doctor_list($select_application));
 			
-		$doctor_list="'".$doctor_list.",".$_POST['new_doctor']."'";
+			$doctor_list="'".$doctor_list.", ".$_POST['new_doctor']." '";
+		}
+		else
+		{
+			$doctor_list="' ".$_POST['new_doctor']." '";
+		}
 		
 		$sql="UPDATE applications SET user_permissions_eid_list= $doctor_list WHERE application_id= $select_application";
 		
@@ -42,22 +48,7 @@
 		
 	} 
 	
-	function add_doctor()
-	{
-		require "DMS_db.php";
-		
-		
-		$select_application=$_POST['select_application'];
-		$doctor_list=implode(',', get_doctor_list($select_application));
-		
-		$doctor_list=$doctor_list.",".$_POST['new_doctor'];
-		
-		$sql="UPDATE applications SET user_permissions_eid_list= $doctor_list WHERE application_id= $select_application";
-		$stmt=$dbc->prepare($sql);
-		$stmt->execute();
-		
-		return header("ADMIN_add_doctor_to_application.php?select_application=$select_application");
-	}
+	
 
 
 	function get_doctor_list($selected_application)
@@ -69,7 +60,7 @@
 		$stmt->execute();
 		$application= $stmt->fetch();
 		
-		$doctor_id_array=explode(',', $application['user_permissions_eid_list']);
+		$doctor_id_array=explode(' , ', $application['user_permissions_eid_list']);
 		
 		
 		
