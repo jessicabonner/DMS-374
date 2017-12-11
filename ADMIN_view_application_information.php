@@ -12,10 +12,11 @@ $role_id_array=array("1");
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
+	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
-	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<link rel="apple-touch-icon" sizes="180x180" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-180x180.png" />
 	<link rel="apple-touch-icon" sizes="152x152" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-152x152.png" />
 	<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
@@ -72,29 +73,25 @@ $role_id_array=array("1");
 
 		<div class="nav-overlay" id="nav-overlay"></div>
 			<div class="nav-wrapper" role="navigation">
+
 				<div class="container container-topnav">
 					<div class="row">
 						<div class="column small-12">
 							<div class="topnav">
-								<div class="hide-for-large-up">
-									<ul class="topnav-constituents" role="menu">
-										<li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
-										<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
-										<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
-										<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-									</ul>
-								</div>
 								<div class="parent-banner-links">
+								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>							
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-										<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
 									</h2>
 								</div>
+
 								<div class="hide-for-large-up">
 									<div class="parent-links" id="parents">
 										<a href="http://www.utexas.edu">The University of Texas at Austin</a>
 									</div>
-										<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
+
+									<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
 								</div>
 								<br>
 								<br>
@@ -104,45 +101,42 @@ $role_id_array=array("1");
 					</div>
 				</div> <!-- container-topnav -->
 
+				<!-- Admin Dashboard Tabs -->
 				<div class="container container-nav container-nav-phase2">
 					<div class="row">
 						<div class="column small-12">
 							<nav>
 								<ul class="nav" id="main-nav" role="menu">
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link">Home</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="ADMIN_create_profile.php" onclick="w3_close()" class="nav-link">New Profile</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link">New Program</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="#" class="nav-link has-child nolink">Applications</a>
 										<div class="sub-nav-wrapper">
+											<div class="sub-nav-row">
+					                                          <ul class="sub-nav">
+					                                                      <li class="sub-nav-item">
+					                      <a href="ADMIN_create_application.php" onclick="w3_close()"  class="sub-nav-link"><span>New Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Edit Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Delete Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                                                                                                                    </ul>
+					            </div>
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
-										<div class="sub-nav-wrapper">
-										</div>
+										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_application.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Delete Applications</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>
-										<div class="sub-nav-wrapper">
-										</div>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Accepted Students</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>

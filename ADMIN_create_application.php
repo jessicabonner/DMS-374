@@ -16,6 +16,7 @@ $role_id_array=array("1");
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
+	<link href='./application.css' type='text/css' rel='stylesheet'>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 </head>
 <head>
@@ -25,8 +26,7 @@ $role_id_array=array("1");
 	<link rel="apple-touch-icon" sizes="144x144" href="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
 	<link rel="icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
 	<!--[if IE]><link rel="shortcut icon" href="/sites/all/themes/phase2_theme1/img/favicon/favicon.ico" />
-	<![endif]-->
-	<meta name="apple-mobile-web-app-title" content="UT Austin" />
+	<![endif]--><meta name="apple-mobile-web-app-title" content="UT Austin" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
 	<meta name="msapplication-TileImage" content="/sites/all/themes/phase2_theme1/img/favicon/apple-touch-icon-144x144.png" />
 	<meta name="msapplication-TileColor" content="#bf5700" />
@@ -47,11 +47,11 @@ $role_id_array=array("1");
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
 	<style type="text/css" media="all">
 		/*--><![CDATA[/*><!--*/
 		#main-nav li a{font-family:open_sans;}
 		.UT-page{margin-top:50px;}
-
 		/*]]>*/
 	</style>
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
@@ -59,16 +59,16 @@ $role_id_array=array("1");
 </head>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
-  <div id="skip-link">
-    <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
-  </div>
-	<header class="UT-header theme1">
+	<div id="skip-link">
+		<a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
+	</div>
 
+	<header class="UT-header theme1">
 		<div class="container container-logo-p2">
 			<div class="row">
 				<div class="column small-12">
 					<div class="p2-logo">
-						<a href="http://dellmed.utexas.edu" on-click="w3_close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
+						<a href="http://dellmed.utexas.edu" on-click="w3-close()" class="main-logo"><img src ="Dell_Medical_School_logo.png" alt="Home" /></a>
 					</div>
 				</div>
 			</div>
@@ -77,23 +77,19 @@ $role_id_array=array("1");
 
 		<div class="nav-overlay" id="nav-overlay"></div>
 			<div class="nav-wrapper" role="navigation">
+
 				<div class="container container-topnav">
 					<div class="row">
 						<div class="column small-12">
 							<div class="topnav">
-								<div class="hide-for-large-up">
-									<ul class="topnav-constituents" role="menu"><li class="nav-item" role="menuitem"><a href="/maps" id="cta-button-style1" class="nav-link">Maps</a></li>
-										<li class="nav-item" role="menuitem"><a href="/philanthropy" id="cta-button-style2" class="nav-link">Give</a></li>
-										<li class="nav-item" role="menuitem"><a href="/events" class="nav-link">Events</a></li>
-										<li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
-									</ul>
-								</div>
 								<div class="parent-banner-links">
+								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>							
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-										<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
 									</h2>
 								</div>
+
 								<div class="hide-for-large-up">
 									<div class="parent-links" id="parents">
 										<a href="http://www.utexas.edu">The University of Texas at Austin</a>
@@ -101,50 +97,50 @@ $role_id_array=array("1");
 
 									<a href="/" class="current-directory" id="show-parents"><span class="name">Dell Medical School</span><span class="toggle"></span></a>
 								</div>
-
 								<br>
 								<br>
 								<br>
-
 							</div>
 						</div>
 					</div>
 				</div> <!-- container-topnav -->
-				<!-- Page tabs -->
+
+				<!-- Admin Dashboard Tabs -->
 				<div class="container container-nav container-nav-phase2">
 					<div class="row">
 						<div class="column small-12">
 							<nav>
 								<ul class="nav" id="main-nav" role="menu">
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link">Home</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="ADMIN_create_profile.php" onclick="w3_close()" class="nav-link">New Profile</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link">New Program</a>
+									</li>
+									<li class="nav-item" role="menuitem">
+										<a href="#" class="nav-link has-child nolink">Applications</a>
 										<div class="sub-nav-wrapper">
+											<div class="sub-nav-row">
+					                                          <ul class="sub-nav">
+					                                                      <li class="sub-nav-item">
+					                      <a href="ADMIN_create_application.php" onclick="w3_close()"  class="sub-nav-link"><span>New Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Edit Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Delete Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                                                                                                                    </ul>
+					            </div>
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
-										<div class="sub-nav-wrapper">
-										</div>
+										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_application.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>
-										<div class="sub-nav-wrapper">
-										</div>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Accepted Students</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>
@@ -153,8 +149,8 @@ $role_id_array=array("1");
 						</div>
 					</div>
 				</div> <!-- container-nav-phase2 -->
-
 			</div> <!-- nav-wrapper -->
+
 
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
