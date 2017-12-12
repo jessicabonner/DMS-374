@@ -5,7 +5,7 @@
 		{
 			echo "Incorrect username or password";
 		}
-		
+
 	}
 ?>
 
@@ -84,7 +84,7 @@
 		<div class="parent-banner-links">
     	<h2 class="UT-secondary-logo">
     	<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-		
+
     	</h2>
 		</div>
     	<div class="hide-for-large-up">
@@ -106,7 +106,7 @@
         <div class="column small-12">
         <nav>
         <ul class="nav" id="main-nav" role="menu">
-        
+
         <li class="nav-item" role="menuitem">
             </div>
             </div>
@@ -117,16 +117,16 @@
         </div>
   		</div> <!-- container-nav-phase2 -->
     	</div> <!-- nav-wrapper -->
-		
-		
-		
-		
+
+
+
+
 		<head>
 			<link href='application.css' type='text/css' rel='stylesheet'>
 			<!--<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>-->
 			<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
 		</head>
-		
+
 
 
 
@@ -149,7 +149,7 @@
 	<body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="login_form" action = "DMS_login_connect.php" method= "get">
-	
+
 		<table>
 
 			<!--text box for students first name-->
@@ -167,8 +167,8 @@
 			<tr>
 				<td><input type="text" name="password" size="20" maxlength="30" required/></td>
 			</tr>
-			
-			
+
+
 			<!--break-->
 		<tr>
 			<td><br></td>
@@ -176,37 +176,37 @@
 
 
 		<!--submit button. Will post info.-->
-		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Login"/> </td>
-		
-		
+		<td colspan="1" style="text-align: center; float: center;"><input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Login"/> </td>
+
+
 		<tr>
 			<td><br></td>
 		</tr>
 		<tr>
 			<td><br></td>
 		</tr>
-		
+
 		<tr>
 			<td><a href='STUDENT_create_profile.php'>Create Profile</a> </td>
 		</tr>
-		
+
 		<tr>
 			<td><br></td>
 		</tr>
-		
+
 		<tr>
 			<td><a href='DMS_reset_password.html'>Forgot Password?</a> </td>
 		</tr>
-		
-		
+
+
 		<tr>
 			<td><br></td>
 		</tr>
 		<tr>
 			<td><br></td>
 		</tr>
-		
-		
+
+
 
 
 	</form>
