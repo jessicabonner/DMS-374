@@ -1,13 +1,4 @@
-<?php
-	if(isset($_GET['error']))
-	{
-		if ($_GET['error']=="1")
-		{
-			echo "Incorrect username or password";
-		}
-		
-	}
-?>
+
 
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -143,6 +134,18 @@
 			<b>Please enter your UT EID and a password below.
 			</b>
 		<br>
+		<?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "<br>";
+			echo "<font color=#ff0000;>*Incorrect username or password</font>";
+			echo "<br>";
+		}
+		
+	}
+?>
 		</div>
 
 		<div class="w3-container" id="application" style="margin-top:10px">

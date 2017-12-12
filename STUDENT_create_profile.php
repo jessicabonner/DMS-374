@@ -1,19 +1,3 @@
-<?php
-	if(isset($_GET['error']))
-	{
-		if ($_GET['error']=="1")
-		{
-			echo "The passwords you entered do not match";
-		}
-		elseif ($_GET['error']=="2")
-		{
-			echo "This email already exists in our system";
-		}
-		
-	}
-
-
-?>
 
 
 
@@ -90,7 +74,7 @@
 		</ul>
 		</div>
 		<div class="parent-banner-links">
-			<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="4">Logout</font></a>
+			
     	<h2 class="UT-secondary-logo">
     	<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 		
@@ -152,6 +136,29 @@
 			<b>Please enter your UT EID and a password below.
 			</b>
 		<br>
+		
+		<?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "<br>";
+			echo "<font color=#ff0000;>*The passwords you entered do not match</font>";
+			echo "<br>";
+			
+		}
+		elseif ($_GET['error']=="2")
+		{
+			echo "<br>";
+			echo "<font color=#ff0000;>*This user already exists in our system</font>";
+			echo "<br>";
+			
+		}
+		
+	}
+
+
+?>
 		</div>
 
 		<div class="w3-container" id="application" style="margin-top:10px">
