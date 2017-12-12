@@ -172,13 +172,13 @@ if($_GET['key'] && $_GET['reset'])
 				<td><p>Enter New password</p></td>
 			</tr>
 			<tr>
-				<td><input type="text" name="password" size="20" maxlength="30" required/></td>
+				<td><input type="password" name="password" size="20" maxlength="30" required/></td>
 			</tr>
 		    <!--<input type="text" name='password'>-->
 			<tr>
 				<td><p>Re-enter New password<p></td>
 			
-				<td><input type="text" name="password_2" size="20" maxlength="30" required/></td>
+				<td><input type="password" name="password_2" size="20" maxlength="30" required/></td>
 			</tr>
 			<tr>
 		    <!--<input type="submit" name="submit_password">-->

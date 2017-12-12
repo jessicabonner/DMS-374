@@ -197,7 +197,7 @@
 				<td>Password</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="password" size="20" maxlength="30" required/></td>
+				<td><input type="password" name="password" size="20" maxlength="30" required/></td>
 			</tr>
 
 			<!--text box for students middle name-->
@@ -205,7 +205,7 @@
 				<td>Re-enter your password</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="password_2" size="20" maxlength="30" required/></td>
+				<td><input type="password" name="password_2" size="20" maxlength="30" required/></td>
 			</tr>
 
 		</table>
