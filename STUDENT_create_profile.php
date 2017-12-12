@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 <?php
 	if(isset($_GET['error']))
 	{
@@ -16,10 +14,6 @@
 
 
 ?>
->>>>>>> 4c38a207cec05a0759bac60f901ca5e42caad247
-
-
-
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -93,7 +87,7 @@
 		</ul>
 		</div>
 		<div class="parent-banner-links">
-			
+
     	<h2 class="UT-secondary-logo">
     	<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 
@@ -155,7 +149,7 @@
 			<b>Please enter your UT EID and a password below.
 			</b>
 		<br>
-		
+
 		<?php
 	if(isset($_GET['error']))
 	{
@@ -164,16 +158,16 @@
 			echo "<br>";
 			echo "<font color=#ff0000;>*The passwords you entered do not match</font>";
 			echo "<br>";
-			
+
 		}
 		elseif ($_GET['error']=="2")
 		{
 			echo "<br>";
 			echo "<font color=#ff0000;>*This user already exists in our system</font>";
 			echo "<br>";
-			
+
 		}
-		
+
 	}
 
 
