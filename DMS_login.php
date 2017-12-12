@@ -178,7 +178,7 @@
 				<td>Enter your password</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="password" size="20" maxlength="30" required/></td>
+				<td><input type="password" name="password" size="20" maxlength="30" required/></td>
 			</tr>
 
 
