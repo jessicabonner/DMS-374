@@ -114,7 +114,7 @@ use PHPMailer\PHPMailer\Exception;
 			    	$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
 			    	$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
 				    $mail->SMTPSecure = 'tls';      //tls                      // Enable TLS encryption, `ssl` also accepted
-				    //$mail->Port = 587; 465
+				    //$mail->Port = 587; 465; 25;
 					$mail->Port = 587; 
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 

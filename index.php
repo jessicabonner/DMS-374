@@ -186,6 +186,13 @@
 			<td><br></td>
 		</tr>
 		
+		<tr>
+			<td><a href='STUDENT_create_profile.php'>Create Profile</a> </td>
+		</tr>
+		
+		<tr>
+			<td><br></td>
+		</tr>
 		
 		<tr>
 			<td><a href='DMS_reset_password.html'>Forgot Password?</a> </td>
