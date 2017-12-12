@@ -44,7 +44,7 @@
 								<td><p>Current Password</p></td>
 							</tr>
 							<tr>
-								<td><input type="text" name="current_password" required></td>
+								<td><input type="password" name="current_password" required></td>
 							</tr>
 							
 
@@ -53,7 +53,7 @@
 							<td>New Password</td>
 						</tr>
 						<tr>
-							<td><input type="text" name="password" size="20" maxlength="30" required/></td>
+							<td><input type="password" name="password" size="20" maxlength="30" required/></td>
 						</tr>
 
 						<!--text box for students middle name-->
@@ -61,7 +61,7 @@
 							<td>Re-enter password</td>
 						</tr>
 						<tr>
-							<td><input type="text" name="password_2" size="20" maxlength="30" required/></td>
+							<td><input type="password" name="password_2" size="20" maxlength="30" required/></td>
 						</tr>
 
 							<td><input type='submit' value='Change password' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change your password?')"></td>
