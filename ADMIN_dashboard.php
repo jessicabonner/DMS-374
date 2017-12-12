@@ -15,16 +15,24 @@ $role_id_array=array("1");
 			echo 'alert("The new program has been created successfully")';
 			echo '</script>';
 		}
-		if ($_GET['message']=="1"){
+		elseif ($_GET['message']=="1"){
 			echo '<script language="javascript">';
 			echo 'alert("The new application has been created successfully")';
 			echo '</script>';
 		}
-		if ($_GET['message']=="2"){
+		elseif ($_GET['message']=="2"){
 			echo '<script language="javascript">';
 			echo 'alert("The new user profile has been created successfully")';
 			echo '</script>';
 		}
+	
+		elseif ($_GET['message']=="6"){
+			echo '<script language="javascript">';
+			echo 'alert("The password was successfully changed")';
+			echo '</script>';
+		}
+	
+
 
 	}
 ?>
@@ -99,7 +107,7 @@ $role_id_array=array("1");
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="parent-banner-links">
-								<!--<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>-->
+								<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
 								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="4">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>

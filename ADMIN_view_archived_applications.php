@@ -84,6 +84,7 @@ $role_id_array=array("1");
 								<div class="parent-banner-links">
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
+										<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
 										<a href="DMS_logout.php" onclick="w3_close()">Logout</a>
 									</h2>
 								</div>

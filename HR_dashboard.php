@@ -3,6 +3,16 @@
 	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
+	
+if (isset($_GET['message']))
+	{
+	
+		elseif ($_GET['message']=="6"){
+			echo '<script language="javascript">';
+			echo 'alert("The password was successfully changed")';
+			echo '</script>';
+		}
+	}
 
 
 
@@ -81,7 +91,7 @@
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="parent-banner-links">
-								<!--<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>-->
+								<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
 								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="4">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
