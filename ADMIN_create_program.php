@@ -75,7 +75,7 @@ $role_id_array=array("1");
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="parent-banner-links">
-								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>							
+								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
 								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
@@ -107,7 +107,17 @@ $role_id_array=array("1");
 										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link">Home</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_profile.php" onclick="w3_close()" class="nav-link">New Profile</a>
+										<a href="#" class="nav-link has-child nolink">Manage Profiles</a>
+										<div class="sub-nav-wrapper">
+											<div class="sub-nav-row">
+																										<ul class="sub-nav">
+																																<li class="sub-nav-item">
+																<a href="ADMIN_manage_roles.php" onclick="w3_close()"  class="sub-nav-link"><span>Manage Roles</span></a>                    </li>
+																																									<li class="sub-nav-item">
+																<a href="ADMIN_create_profile.php" onclick="w3_close()" class="sub-nav-link"><span>New Profile</span></a>                    </li>
+																																																															</ul>
+											</div>
+										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
 										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link">New Program</a>
@@ -176,7 +186,7 @@ $role_id_array=array("1");
 								<tr>
 									<td><input type="text" name="name_of_program" size="64" pattern="^([a-zA-Z0-9_\s\-]*)$" required/></td>
 								</tr>
-								
+
 								<!--text box for program description-->
 								<tr>
 									<td>Program Description (if applicable)</td>
@@ -185,10 +195,10 @@ $role_id_array=array("1");
 									<td><br></td>
 								<tr>
 								<tr>
-									<td><input type="text" name="program_description" size="40"	
+									<td><input type="text" name="program_description" size="40"
 								</tr>
 								<!--maxlength="4000"/></td -->
-								
+
 								<!--drop-down menu for postion_type
 								<tr>
 									<td>Position Type</td>
@@ -203,7 +213,7 @@ $role_id_array=array("1");
 										<option value="Non-Paid">Non-Paid</option>
 									</select></td>
 								</tr>-->
-								
+
 								<!--text box for first name
 								<tr class="blankrow">
 									<td><br></td>
@@ -287,8 +297,8 @@ $role_id_array=array("1");
 								<tr>
 									<td><input type="date" name="end_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required pattern="^\d{2}/\d{2}/\d{4}$"/></td>
 								</tr>-->
-									
-									
+
+
 								<!--drop-down menu to specify if the postions is renewable
 								<tr>
 									<td>Renewable position:</td>
@@ -302,8 +312,8 @@ $role_id_array=array("1");
 										<option value="0">No</option>
 									</select></td>
 								</tr>-->
-								
-								
+
+
 								<!--drop-down menu to specify the classification for which students need to be
 								<tr>
 									<td>Student Type:</td>
@@ -369,7 +379,7 @@ $role_id_array=array("1");
 
 								<!--submit button. Will post info.-->
 								<td colspan="1"> <input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
-					
+
 					<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 			<script type="text/javascript">
 			<!--//--><![CDATA[//><!--
