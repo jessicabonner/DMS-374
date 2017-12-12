@@ -2,7 +2,7 @@
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
-	
+
 	if (isset($_GET['message']))
 	{
 		if ($_GET['message']=="0"){
@@ -88,7 +88,7 @@
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="parent-banner-links">
-								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>							
+								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
 								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
@@ -172,7 +172,7 @@
 
 
 				<div class="w3-container" id="application" style="margin-top:10px"></div>
-				
+
 
 					<body>
 						<form name="apply_form" action = "ADMIN_manage_roles_connect.php" method= "post">
@@ -189,7 +189,7 @@
 
 							$roles= get_all_roles()
 							?>
-							
+
 							<!--specify program application is for & # of unique questions -->
 							<tr>
 								<td><p>New Role</p></td>
@@ -206,10 +206,10 @@
 									</select>
 								</td>
 							</tr>
-							
+
 							<td><input type='submit' value='Change role' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change this user's role?')"></td>
 						</form>
-						
+
 						<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 			<script type="text/javascript">
 			<!--//--><![CDATA[//><!--
@@ -238,6 +238,4 @@
 			})(window,document,'script','dataLayer','GTM-59NMNV');</script>
 			<!-- End Google Tag Manager -->  </div>
 			</body>
-							
-							
-				
+			</html>

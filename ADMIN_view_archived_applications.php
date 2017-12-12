@@ -39,6 +39,7 @@ $role_id_array=array("1");
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+	<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
 	<style type="text/css" media="all">
 		/*--><![CDATA[/*><!--*/
 		#main-nav li a{font-family:open_sans;}
@@ -47,97 +48,6 @@ $role_id_array=array("1");
 	</style>
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
-
-	<title>Program Applicants</title>
-	<style type="text/css">
-		body {
-			font-size: 15px;
-			color: #343d44;
-			font-family: "segoe-ui", "open-sans", tahoma, arial;
-			padding: 0;
-			margin: 0;
-		}
-		table {
-			margin: auto;
-			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
-			font-size: 12px;
-			width: 100%;
-		}
-
-		h1 {
-			margin: 25px auto 0;
-			text-align: center;
-			text-transform: uppercase;
-			font-size: 17px;
-		}
-
-		table td {
-			transition: all .5s;
-			font-size: 10px;
-			text-align-last: center;
-		}
-
-		/* Table */
-		.data-table {
-			border-collapse: collapse;
-			font-size: 14px;
-		}
-
-		.data-table th,
-		.data-table td {
-			border: 1px solid #e1edff;
-			padding: 7px 17px;
-			text-align: center;
-			font-size: 10px;
-		}
-		.data-table caption {
-			margin: 7px;
-			font-size: 18px;
-		}
-
-		/* Table Header */
-		.data-table thead th {
-			background-color: #bf5700;
-			color: #FFFFFF;
-			border-color: #000000 !important;
-			text-transform: uppercase;
-			text-align: center;
-		}
-
-		/* Table Body */
-		.data-table tbody td {
-			color: #353535;
-		}
-		.data-table tbody td:first-child,
-		.data-table tbody td:nth-child(4),
-		.data-table tbody td:last-child {
-			text-align: right;
-		}
-
-		.data-table tbody tr:nth-child(odd) td {
-			background-color: #f4fbff;
-		}
-		.data-table tbody tr:hover td {
-			background-color: #ffd1b3;
-			border-color: #ffd1b3;
-		}
-
-		/* Table Footer */
-		.data-table tfoot th {
-			background-color: #e5f5ff;
-			text-align: right;
-		}
-		.data-table tfoot th:first-child {
-			text-align: left;
-		}
-		/* Color for an empy table field */
-		/*.data-table tbody td:empty
-		{
-			background-color: #ffcccc;
-		} */
-
-	</style>
-</head>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">
@@ -174,7 +84,7 @@ $role_id_array=array("1");
 								<div class="parent-banner-links">
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
-										<a href="DMS_logout.php" onclick="w3_close()">Logout</a> 
+										<a href="DMS_logout.php" onclick="w3_close()">Logout</a>
 									</h2>
 								</div>
 
@@ -278,98 +188,6 @@ if (!$query) {
 }
 ?>
 <html>
-<head>
-	<title>Program Applicants</title>
-	<style type="text/css">
-		body {
-			font-size: 15px;
-			color: #343d44;
-			font-family: "segoe-ui", "open-sans", tahoma, arial;
-			padding: 0;
-			margin: 0;
-		}
-		table {
-			margin: auto;
-			font-family: "Lucida Sans Unicode", "Lucida Grande", "Segoe Ui";
-			font-size: 12px;
-			width: 100%;
-		}
-
-		h1 {
-			margin: 25px auto 0;
-			text-align: center;
-			text-transform: uppercase;
-			font-size: 17px;
-		}
-
-		table td {
-			transition: all .5s;
-			font-size: 10px;
-			text-align-last: center;
-		}
-
-		/* Table */
-		.data-table {
-			border-collapse: collapse;
-			font-size: 14px;
-			width: 100%;
-		}
-
-		.data-table th,
-		.data-table td {
-			border: 1px solid #e1edff;
-			padding: 7px 17px;
-			text-align: center;
-			font-size: 10px;
-		}
-		.data-table caption {
-			margin: 7px;
-			font-size: 18px;
-		}
-
-		/* Table Header */
-		.data-table thead th {
-			background-color: #bf5700;
-			color: #FFFFFF;
-			border-color: #000000 !important;
-			text-transform: uppercase;
-			text-align: center;
-		}
-
-		/* Table Body */
-		.data-table tbody td {
-			color: #353535;
-		}
-		.data-table tbody td:first-child,
-		.data-table tbody td:nth-child(4),
-		.data-table tbody td:last-child {
-			text-align: right;
-		}
-
-		.data-table tbody tr:nth-child(odd) td {
-			background-color: #f4fbff;
-		}
-		.data-table tbody tr:hover td {
-			background-color: #ffd1b3;
-			border-color: #ffd1b3;
-		}
-
-		/* Table Footer */
-		.data-table tfoot th {
-			background-color: #e5f5ff;
-			text-align: right;
-		}
-		.data-table tfoot th:first-child {
-			text-align: left;
-		}
-		/* Color for an empy table field */
-		/*.data-table tbody td:empty
-		{
-			background-color: #ffcccc;
-		} */
-
-	</style>
-</head>
 <body>
 
 <form action='ADMIN_delete_applications_functionality.php' method='post' onsubmit="return confirm('Are you sure you want to delete the selected tables? If you do, all applicant data will be lost and CANNOT be recovered');">
@@ -468,6 +286,6 @@ if (!$query) {
 			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 			})(window,document,'script','dataLayer','GTM-59NMNV');</script>
 			<!-- End Google Tag Manager -->  </div>
-			
+
 </body>
 </html>

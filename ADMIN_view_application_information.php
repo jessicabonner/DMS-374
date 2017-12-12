@@ -5,7 +5,7 @@ $role_id_array=array("1");
 	$user_id = $_SESSION['user_id'];
 
 	require 'ADMIN_add_doctor_to_application_functionality.php';
-	
+
 ?>
 
 
@@ -79,7 +79,7 @@ $role_id_array=array("1");
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="parent-banner-links">
-								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>							
+								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
 								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
@@ -172,8 +172,8 @@ $role_id_array=array("1");
 
 	//Calls select_application2 function from DOCTOR_functionality.php
 	$query=select_application2($application_id);
-	
-	
+
+
 
 	//echo "<table class='data-table'>
 	echo "<table class=view-table>
@@ -340,8 +340,4 @@ $role_id_array=array("1");
 			})(window,document,'script','dataLayer','GTM-59NMNV');</script>
 			<!-- End Google Tag Manager -->  </div>
 			</body>
-
-
-
-
-				
+					</html>
