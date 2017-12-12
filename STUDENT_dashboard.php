@@ -163,6 +163,8 @@
         </div>
   		</div> <!-- container-nav-phase2 -->
     	</div> <!-- nav-wrapper -->
+		
+		
 
 		<!-- !PAGE CONTENT! -->
 		<div class="w3-main" style="margin-left:40px;margin-right:450px">
@@ -170,7 +172,10 @@
   		<!-- Header -->
 		<div class="w3-container" style="margin-top:40px" id="showcase">
 			<h1 class="w3-jumbo">
-				<b>Welcome!</b>
+				<!-- logged in user information -->
+				<?php  if (isset($_SESSION['user_id'])) : ?>
+					<b>Welcome <strong><?php echo $_SESSION['user_id']; ?></strong></b>
+				<?php endif ?>
 			</h1>
 		<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
 

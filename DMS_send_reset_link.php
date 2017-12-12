@@ -167,12 +167,14 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 	  $x=$dbc->prepare($sql);
 	  $x->execute();
 
-	  while ($row=$x->fetch(PDO::FETCH_ASSOC))
+  		while ($row=$x->fetch(PDO::FETCH_ASSOC))
 	  {
 		  $user_id2= $row['user_id'];
 	      $email2= $row['email'];
 	      $pass2= $row['password'];  
 	  }
+
+	  
 
 //$sql = "UPDATE review SET accepted_by_dms = '".$new_accepted_by_DMS."', application_accept_date='".$current_date."'  WHERE user_id ='".$student_id."' AND application_id='".$_POST['application_id']."'";
 
