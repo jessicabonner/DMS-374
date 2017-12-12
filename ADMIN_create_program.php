@@ -249,7 +249,7 @@ $role_id_array=array("1");
 									<td><input type="text" name="supervisor_last_name" size="20" maxlength="30" required/></td>
 								</tr>-->
 
-								<!--text box for eid-->
+								<!--text box for eid
 								<tr>
 									<td>Program Administrator EID</td>
 								</tr>
@@ -258,7 +258,7 @@ $role_id_array=array("1");
 								<tr>
 								<tr>
 									<td><input type="text" name="doctor_EID" size="20" maxlength="200" required/></td>
-								</tr>
+								</tr>-->
 
 								<!--drop-down menu for assignment_length
 								<tr>

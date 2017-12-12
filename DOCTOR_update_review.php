@@ -84,6 +84,8 @@ use PHPMailer\PHPMailer\Exception;
 					$program_id= $row['program_id'];
 				}
 				
+				/*
+				
 				//The Email Sender information
 	    		$from = 'DellMed.Notifications@gmail.com'; //This will need to change
 	    		$from_name = 'Dell Medical School';
@@ -104,6 +106,7 @@ use PHPMailer\PHPMailer\Exception;
 				{
 					$recipient = $row['email'];
 				}
+				
 
 			    	//$mail = new PHPMailer(true);
 					$mail = new PHPMailer(true);
@@ -137,12 +140,42 @@ use PHPMailer\PHPMailer\Exception;
 				       	 	echo 'Email sent to:' . $recipient . '<br/ >';
 				    	}	
 
+			
+				
+				*/
+				
+				
+				//$mail = new PHPMailer(true);
+				$mail = new PHPMailer;
+				//$mail->SMTPDebug = 2; 
+				$mail->setFrom('DellMed.Notifications@gmail.com', 'DMS');
+				$mail->addAddress('tanniarodriguez@utexas.edu', 'Tannia');
+				$mail->Subject  = 'First PHPMailer Message';
+				$mail->Body     = 'Hi! This is my first e-mail sent through PHPMailer.';
+				
+				if(!$mail->send()) 
+				{
+				  echo 'Message was not sent.';
+				  echo 'Mailer error: ' . $mail->ErrorInfo;
+				} else 
+				{
+				  echo 'Message has been sent.';
+				}
+				
+				
+				
+				
 			}
+			/*	
+				
 			else
 			{
 				header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id'].'&error=0');
 				die();
 			}
+				
+
+			*/	
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 			

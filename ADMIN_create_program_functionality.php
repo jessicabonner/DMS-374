@@ -15,7 +15,7 @@
 		    //$supervisor_first_name=$_POST['supervisor_first_name'];
 		    //$supervisor_middle_name=$_POST['supervisor_middle_name'];
 		    //$supervisor_last_name=$_POST['supervisor_last_name'];
-		    $doctor_EID=$_POST['doctor_EID'];
+		    //$doctor_EID=$_POST['doctor_EID'];
 		    //$assignment_length=$_POST['assignment_length'];
 		    //$start_date=$_POST['start_date'];
 		    //$end_date=$_POST['end_date'];
@@ -29,11 +29,11 @@
 			$program_description=$_POST['program_description'];
 			
 			//prepare SQL statement to prevent SQL injection		
-		    $stmt = $dbc-> prepare('INSERT INTO programs (name_of_program, program_description, doctor_EID) 
-		    VALUES (:name_of_program, :program_description, :doctor_EID)');
+		    $stmt = $dbc-> prepare('INSERT INTO programs (name_of_program, program_description) 
+		    VALUES (:name_of_program, :program_description');
 
 			//bind variables to prepared statement and execute
-			$stmt->execute(array('name_of_program' => $name_of_program, 'program_description' => $program_description, 'doctor_EID' => $doctor_EID));
+			$stmt->execute(array('name_of_program' => $name_of_program, 'program_description' => $program_description));
 
 			//direct back to admin dashboard with a message that the program has been successfully created
 			header('Location: ADMIN_dashboard.php?message=0');
