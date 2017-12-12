@@ -4,8 +4,8 @@
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 
-	
-	
+
+
 
 ?>
 
@@ -82,7 +82,7 @@
 							<div class="topnav">
 								<div class="parent-banner-links">
 								<!--<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>-->
-								
+
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 									</h2>
@@ -152,7 +152,7 @@
 
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
-			
+
 <?php else: ?>
 
 <!doctype html>
@@ -373,19 +373,19 @@
 				<tr class="blankrow">
 					<td><br></td>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='1st year' " >1st Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='1st year' " >1st Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='4th year' ">4th Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='4th year' ">4th Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" classification='5th year' ">5th Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='5th year' ">5th Year<br></td>
 				</tr>
 
 				<tr>
@@ -398,16 +398,16 @@
 				<tr class="blankrow">
 					<td><br></td>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Undergraduate' " >Undergraduate<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Undergraduate' " >Undergraduate<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Graduate' ">Graduate<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Graduate' ">Graduate<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='PhD' ">PhD<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='PhD' ">PhD<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" student_type='Other' ">Other<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Other' ">Other<br></td>
 				</tr>
 		<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
 		<tr>
@@ -420,13 +420,13 @@
 			<td><br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" employment='UT' " >Currently employed at UT<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='UT' " >Currently employed at UT<br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" employment='eligible' ">Eligible to work in the US with no restrictions<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='eligible' ">Eligible to work in the US with no restrictions<br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
 		</tr>
 		<!--checkbox buttons for if they have worked at dell med school before-->
 		<tr>
@@ -438,10 +438,10 @@
 		<tr class="blankrow">
 		<td><br></td>
 		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='1' ">Yes<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" worked_at_dms='1' ">Yes<br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" worked_at_dms='0' ">No<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" worked_at_dms='0' ">No<br></td>
 		</tr>
 		<!--checkbox buttons for if they have volunteered at seton before-->
 		<tr>
@@ -453,10 +453,10 @@
 		<tr class="blankrow">
 		<td><br></td>
 		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='1' " >Yes<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" volunteered_at_seton='1' " >Yes<br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
 		</tr>
 
 		<!--break-->
@@ -708,13 +708,13 @@
 
 	<?php if ($_SESSION['role']=='2'): ?>
 		<tr><td><br></td>
-		
+
 				<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 		<tr>
 		<?php  endif; ?>
 
 		</form>
-		
+
 		<?php if($_SESSION['role']=='1'): ?>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 			<script type="text/javascript">
