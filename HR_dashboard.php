@@ -373,19 +373,19 @@
 				<tr class="blankrow">
 					<td><br></td>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='1st year' " >1st Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='1st year' " >&nbsp; 1st Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='2nd year' ">2nd Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='2nd year' ">&nbsp; 2nd Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='3rd year' ">3rd Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='3rd year' ">&nbsp; 3rd Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='4th year' ">4th Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='4th year' ">&nbsp; 4th Year<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='5th year' ">5th Year<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" classification='5th year' ">&nbsp; 5th Year<br></td>
 				</tr>
 
 				<tr>
@@ -398,16 +398,16 @@
 				<tr class="blankrow">
 					<td><br></td>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Undergraduate' " >Undergraduate<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Undergraduate' " >&nbsp; Undergraduate<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Graduate' ">Graduate<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Graduate' ">&nbsp; Graduate<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='PhD' ">PhD<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='PhD' ">&nbsp; PhD<br></td>
 				</tr>
 				<tr>
-					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Other' ">Other<br></td>
+					<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" student_type='Other' ">&nbsp; Other<br></td>
 				</tr>
 		<!--checkbox buttons for if student is eligible to work in US/employed at UT-->
 		<tr>
@@ -420,13 +420,13 @@
 			<td><br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='UT' " >Currently employed at UT<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='UT' " >&nbsp; Currently employed at UT<br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='eligible' ">Eligible to work in the US with no restrictions<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='eligible' ">&nbsp; Eligible to work in the US with no restrictions<br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='none' ">None of the above<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" employment='none' ">&nbsp; None of the above<br></td>
 		</tr>
 		<!--checkbox buttons for if they have worked at dell med school before-->
 		<tr>
@@ -438,10 +438,10 @@
 		<tr class="blankrow">
 		<td><br></td>
 		<tr>
-			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" worked_at_dms='1' ">Yes<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" worked_at_dms='1' ">&nbsp; Yes<br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" worked_at_dms='0' ">No<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" worked_at_dms='0' ">&nbsp; No<br></td>
 		</tr>
 		<!--checkbox buttons for if they have volunteered at seton before-->
 		<tr>
@@ -453,10 +453,10 @@
 		<tr class="blankrow">
 		<td><br></td>
 		<tr>
-			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" volunteered_at_seton='1' " >Yes<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" volunteered_at_seton='1' " >&nbsp;Yes<br></td>
 		</tr>
 		<tr>
-			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" volunteered_at_seton='0' ">No<br></td>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" volunteered_at_seton='0' ">&nbsp; No<br></td>
 		</tr>
 
 		<!--break-->
@@ -465,11 +465,11 @@
 		</tr>
 		<!--displays all applicants who match all of the given criteria-->
 		<tr>
-			<td><b><input type="radio" name="and_or" value="AND" required>Search for records containing all criteria<br></b></td>
+			<td><b><input type="radio" name="and_or" value="AND" required>&nbsp; Search for records containing all criteria<br></b></td>
 		</tr>
 		<!--displays all applicants who match at least one of the given criteria-->
 		<tr>
-			<td><b><input type="radio" name="and_or" value="OR">Search for records containing at least one criteria<br></b></td>
+			<td><b><input type="radio" name="and_or" value="OR">&nbsp; Search for records containing at least one criteria<br></b></td>
 		</tr>
 		<!--submit filter decision-->
 		<td><input id='submit' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
