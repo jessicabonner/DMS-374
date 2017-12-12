@@ -264,7 +264,7 @@
         <nav>
          <ul class="nav" id="main-nav" role="menu">
           <li class="nav-item" role="menuitem">
-			<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+			<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper"></div>
           </li>
 
