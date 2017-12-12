@@ -1,6 +1,26 @@
 <?php
 //THIS FILE CONTAINS FUNCTIONS THAT ARE REGULARLY ACCESSED ACROSS ALL DMS_ FILES
 
+	function check_user_exists($id)
+	{
+		require "DMS_db.php";
+		
+		$stmt = $dbc->query("SELECT * FROM user WHERE user_id= '$id'");
+		$user=$stmt->fetch();
+		
+		if (count($user['user_id'])<1)
+		{
+			$value= "NONEXISTENT";
+		}
+		else
+		{
+			$value= "EXISTS";
+		}
+		
+		return $value;
+	}
+
+
 	//gets the name of a specific program based on its id
 	function get_program($program_id)
 	{

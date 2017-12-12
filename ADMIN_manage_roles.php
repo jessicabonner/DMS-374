@@ -1,7 +1,21 @@
 <?php
-$role_id_array=array("1");
+	$role_id_array=array("1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
+	
+	if (isset($_GET['message']))
+	{
+		if ($_GET['message']=="0"){
+			echo '<script language="javascript">';
+			echo 'alert("The user does not exist in the database")';
+			echo '</script>';
+		}
+		elseif ($_GET['message']=="1"){
+			echo '<script language="javascript">';
+			echo 'alert("The role was successfully changed")';
+			echo '</script>';
+		}
+	}
 ?>
 
 <!doctype html>
@@ -161,12 +175,12 @@ $role_id_array=array("1");
 				
 
 					<body>
-						<form name="apply_form" action = "ADMIN_create_program_functionality.php" method= "post">
+						<form name="apply_form" action = "ADMIN_manage_roles_connect.php" method= "post">
 							<tr>
 								<td><p>EID</p></td>
 							</tr>
 							<tr>
-								<td><input type="text" name="user_id" required></td>
+								<td><input type="text" name="id" required></td>
 							</tr>
 							<!--get all role names to populate dropdown-->
 							<?php
@@ -192,6 +206,9 @@ $role_id_array=array("1");
 									</select>
 								</td>
 							</tr>
+							
+							<td><input type='submit' value='Change role' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change this user's role?')"></td>
+						</form>
 							
 							
 				
