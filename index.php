@@ -1,3 +1,14 @@
+<?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "Incorrect username or password";
+		}
+		
+	}
+?>
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -125,104 +136,71 @@
   		<!-- Header -->
 		<div class="w3-container" style="margin-top:40px" id="showcase">
 			<h1 class="w3-jumbo">
-				<b>Reset Password</b>
+				<b>Login</b>
 			</h1>
 		<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 		<br>
-			<b>The Reset Link has been emailed
+			<b>Please enter your UT EID and a password below.
 			</b>
 		<br>
 		</div>
 
 		<div class="w3-container" id="application" style="margin-top:10px">
-
-
-
-
-
-
-
-
-<?php
-
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/Exception.php';
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
-
-//require '/var/www/html/phpmailer/libs/PHPMailer-master/src/Exception.php';
-//require '/var/www/html/phpmailer/libs/PHPMailer-master/src/PHPMailer.php';
-//require '/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
-
-	if(isset($_POST['submit_email']) && $_POST['email'])
-	{
-  	  require "DMS_db.php";
-
-	  $email = $_POST['email'];
-
-	  $sql = "SELECT student_info.email, student_info.user_id, user.password FROM student_info INNER JOIN user ON student_info.user_id = user.user_id WHERE student_info.email ='".$email."'";
-	  //$x = $sql->fetch();
-	  $x=$dbc->prepare($sql);
-	  $x->execute();
-
-	  while ($row=$x->fetch(PDO::FETCH_ASSOC))
-	  {
-		  $user_id2= $row['user_id'];
-	      $email2= $row['email'];
-	      $pass2= $row['password'];  
-	  }
-
-//$sql = "UPDATE review SET accepted_by_dms = '".$new_accepted_by_DMS."', application_accept_date='".$current_date."'  WHERE user_id ='".$student_id."' AND application_id='".$_POST['application_id']."'";
-
-  
-  //$select=mysql_query("select email,password from user where email='$email'");
-  /*if(mysql_num_rows($select)==1)
-  {
-    while($row=mysql_fetch_array($select))
-    {
-      $email=md5($row['email']);
-      $pass=md5($row['password']);
-    }
-  */
-    //$link="<a href='www.samplewebsite.com/reset.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
-	$link="<a href='localhost/dms-374/DMS_reset_password.php?key=".$email2."&reset=".$pass2."'>Click To Reset password</a>";
-
-    //require_once('phpmail/PHPMailerAutoload.php');
+	<body>
+	<!--this form will post to DMS_connect in order to submit data to DB-->
+	<form name="login_form" action = "DMS_login_connect.php" method= "get">
 	
-	$from = 'DellMed.Notifications@gmail.com'; //This will need to change
-	$from_name = 'Dell Medical School';
-	$subject = 'Reset Password - Dell Medical School';
-	$mail = new PHPMailer(true);
-	
-	//$mail->SMTPDebug = 2;   
-	$mail->IsSMTP();
-	$mail->Host = 'smtp.gmail.com'; 
-	$mail->SMTPAuth = true;
-	$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
-	$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
-    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-    $mail->Port = 587; 
-	$mail->From = "$from";  // Sender's email address
-	$mail->FromName = "$from_name"; // senders name 
-	//$mail->Body = "$msg";
-	$mail->Body = "<p>Here is your reset password link '".$link."'.</p><p>Sincerely,</p>DMS Team";
-	
-	$mail->AltBody = 'Here is your reset password link "'.$link.'". Sincerely, DMS Team';
-	
-	$mail->Subject = "$subject";
-	$mail->AddAddress("$email2");  // Recipient
+		<table>
 
-    	if($mail->Send())
-    	{
-    		echo "Open the email message and click on the link to reset your password.";
-    	}
-    	else
-    	{
-    		echo "Mail Error - >".$mail->ErrorInfo;
-    	}
-	
-}
+			<!--text box for students first name-->
+			<tr>
+				<td>UT EID</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="username" size="20" maxlength="30" required/></td>
+			</tr>
 
-?>
+			<!--text box for students middle name-->
+			<tr>
+				<td>Enter your password</td>
+			</tr>
+			<tr>
+				<td><input type="text" name="password" size="20" maxlength="30" required/></td>
+			</tr>
+			
+			
+			<!--break-->
+		<tr>
+			<td><br></td>
+		</tr>
+
+
+		<!--submit button. Will post info.-->
+		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Login"/> </td>
+		
+		
+		<tr>
+			<td><br></td>
+		</tr>
+		<tr>
+			<td><br></td>
+		</tr>
+		
+		
+		<tr>
+			<td><a href='DMS_reset_password.html'>Forgot Password?</a> </td>
+		</tr>
+		
+		
+		<tr>
+			<td><br></td>
+		</tr>
+		<tr>
+			<td><br></td>
+		</tr>
+		
+		
+
+
+	</form>
+</body>
