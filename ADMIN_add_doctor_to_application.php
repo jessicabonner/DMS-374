@@ -188,6 +188,7 @@
 						<thead>
 							<th>EID</th>
 							<th>view only?</th>
+							<th></th<
 						</thead>
 				
 						<tbody>
@@ -195,22 +196,34 @@
 				
 					
 							$doctor_array= get_doctor_list($_GET['select_application']);
-					
+							$application_id=$application['application_id'];
+							
+							if (empty($doctor_array))
+							{
+								echo "No one has access yet";
+							}
+							else
+							{
 							foreach($doctor_array as $doctor)
 							{
+								
 								echo "<tr>";
 									echo "<td>".$doctor."<p></td>";
 									
-									$role_id_array=array(get_role($doctor));
-									if ($role_id_array=array('4'))
+									$role_id=get_role($doctor);
+									if ($role_id == '4')
 									{
 										echo "<td>&#10004;</td>";
+								
 									}
 									else
 									{
 										echo "<td></td>";
 									}
+									
+									echo "<td><a href='ADMIN_add_doctor_to_application_functionality.php?action=delete&id=$doctor&select_application=$application_id'>Remove</a></td>";
 								echo "</tr>";
+							}
 							}
 					
 

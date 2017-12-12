@@ -51,11 +51,25 @@
 	{
 		require 'DMS_db.php';
 		//select all the applications that are active
-		$sql="SELECT * FROM applications WHERE archived='FALSE' AND user_permissions_eid_list LIKE '% ".$_SESSION['user_id']." %'";
+		//$sql="SELECT * FROM applications WHERE archived='FALSE' AND user_permissions_eid_list LIKE '%".$_SESSION['user_id']."%'";
+		$sql="SELECT * FROM applications WHERE archived='FALSE'";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$applications= $stmt->fetchAll();
-		return $applications;
+		
+		$doctor_applications=array();
+		foreach ($applications as $application)
+		{
+			$doctor_id_array=explode(',', $application['user_permissions_eid_list']);
+			
+			if (in_array($_SESSION['user_id'], $doctor_id_array)) 
+			{
+				$doctor_applications[]=$application;
+				
+			}
+			
+		}
+		return $doctor_applications;
 	}	
 	//return the application that corresponds to a given id
 	function select_application($application_id)
