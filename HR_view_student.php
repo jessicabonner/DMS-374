@@ -184,7 +184,7 @@ if (!$query) {
 }
 
 echo "<form action='HR_dashboard.php' method='get'>
-	 <input type='submit' value='Return to list' />
+	 <input type='submit' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' value='Return to list' />
 	 <input type='hidden' name=user_id value=$id>
 	</form>"
 
