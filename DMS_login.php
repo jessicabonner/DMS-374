@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-
-=======
 <?php
 	if(isset($_GET['error']))
 	{
@@ -11,7 +8,7 @@
 
 	}
 ?>
->>>>>>> 4c38a207cec05a0759bac60f901ca5e42caad247
+
 
 <!doctype html>
 <html lang="en" dir="ltr">
