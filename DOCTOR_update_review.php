@@ -3,16 +3,35 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/Exception.php';
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
+//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/Exception.php';
+//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
+//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
+
+//require_once $_SERVER['DOCUMENT_ROOT'].'/phpmailer/libs/PHPMailer-master/src/Exception.php';
+//require_once $_SERVER['DOCUMENT_ROOT'].'/phpmailer/libs/PHPMailer-master/src/PHPMailer.php';
+//require_once $_SERVER['DOCUMENT_ROOT'].'/phpmailer/libs/PHPMailer-master/src/SMTP.php';
+
+	require "phpmailer/libs/PHPMailer-master/src/PHPMailer.php";
+    //require "PHPMailer-master/src/OAuth.php";
+    require "phpmailer/libs/PHPMailer-master/src/SMTP.php";
+    //require "PHPMailer-master/src/POP3.php";
+    require "phpmailer/libs/PHPMailer-master/src/Exception.php";
+
+
+//require '/tr22252/var/www/html/phpmailer/libs/PHPMailer-master/src/Exception.php';
+//require '/tr22252/var/www/html/phpmailer/libs/PHPMailer-master/src/PHPMailer.php';
+//require '/tr22252/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
+
+
+
+
 
 //require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/Exception.php';
 //require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
 //require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
 
 
-	$role_id_array=array("2";
+	$role_id_array=array("2");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 	
@@ -86,15 +105,17 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 					$recipient = $row['email'];
 				}
 
-			    	$mail = new PHPMailer(true);
-					//$mail->SMTPDebug = 2;   
+			    	//$mail = new PHPMailer(true);
+					$mail = new PHPMailer(true);
+					$mail->SMTPDebug = 3;   
 			    	$mail->IsSMTP();
 			    	$mail->Host = 'smtp.gmail.com'; 
 			    	$mail->SMTPAuth = true;
 			    	$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
 			    	$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
-				    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-				    $mail->Port = 587; 
+				    $mail->SMTPSecure = 'tls';      //tls                      // Enable TLS encryption, `ssl` also accepted
+				    //$mail->Port = 587; 465
+					$mail->Port = 587; 
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
 			    	//$mail->Body = "$msg";

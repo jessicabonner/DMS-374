@@ -201,8 +201,8 @@
 								echo "<tr>";
 									echo "<td>".$doctor."<p></td>";
 									
-									$role_id_array=array(get_role($doctor);
-									if ($role_id_array=array(='4')
+									$role_id_array=array(get_role($doctor));
+									if ($role_id_array=array('4'))
 									{
 										echo "<td>&#10004;</td>";
 									}
