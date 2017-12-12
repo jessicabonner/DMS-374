@@ -90,6 +90,7 @@
 		</ul>
 		</div>
 		<div class="parent-banner-links">
+			<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="4">Logout</font></a>
     	<h2 class="UT-secondary-logo">
     	<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 		
