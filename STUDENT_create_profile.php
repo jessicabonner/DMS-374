@@ -1,6 +1,18 @@
 <<<<<<< HEAD
 =======
 <?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "The passwords you entered do not match";
+		}
+		elseif ($_GET['error']=="2")
+		{
+			echo "This email already exists in our system";
+		}
+
+	}
 
 
 ?>
@@ -206,6 +218,9 @@
 
 
 		<!--submit button. Will post info.-->
+		<td colspan="1" style="text-align: center; float: center;"><input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"value="Create Profile"/> </td>
+
+
 		<!--break-->
 		<p><br></p>
 

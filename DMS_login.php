@@ -1,6 +1,16 @@
 <<<<<<< HEAD
 
 =======
+<?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "Incorrect username or password";
+		}
+
+	}
+?>
 >>>>>>> 4c38a207cec05a0759bac60f901ca5e42caad247
 
 <!doctype html>
@@ -182,6 +192,9 @@
 
 
 		<!--submit button. Will post info.-->
+		<td colspan="1" style="text-align: center; float: center;"><input type="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Login"/> </td>
+
+
 		<tr>
 			<td><br></td>
 		</tr>
