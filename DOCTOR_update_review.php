@@ -107,9 +107,10 @@ use PHPMailer\PHPMailer\Exception;
 
 			    	//$mail = new PHPMailer(true);
 					$mail = new PHPMailer(true);
-					$mail->SMTPDebug = 3;   
+					//$mail->SMTPDebug = 2;   
 			    	$mail->IsSMTP();
 			    	$mail->Host = 'smtp.gmail.com'; 
+					//$mail->Host = 'dev-undergraduates.dellmed.utexas.edu'; 
 			    	$mail->SMTPAuth = true;
 			    	$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
 			    	$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
