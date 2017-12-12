@@ -294,6 +294,7 @@
 		//get list of applications to populate dropdown
 		$applications=select_all_applications();
 	}
+	
 
 ?>
 <body>
