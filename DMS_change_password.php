@@ -1,6 +1,8 @@
 <?php
 
-	session_start();
+	$role_id_array=array("1","2","3","4","5");
+	require "DMS_authenticate.php";
+	
 	$user_id=$_SESSION['user_id'];
 	
 	if (isset($_GET['message']))
