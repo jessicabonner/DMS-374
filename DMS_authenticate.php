@@ -2,6 +2,7 @@
 
 session_start();
 require("DMS_db.php");
+date_default_timezone_set('America/Chicago');
 
 /* function check_role($role)
 {
