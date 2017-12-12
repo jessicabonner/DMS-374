@@ -1,5 +1,5 @@
 <?php
-	$role_id_array=array("3");
+	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 

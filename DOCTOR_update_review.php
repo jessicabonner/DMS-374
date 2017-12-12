@@ -137,6 +137,11 @@ use PHPMailer\PHPMailer\Exception;
 				    	}	
 
 			}
+			else
+			{
+				header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id'].'&error=0');
+				die();
+			}
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 			
@@ -159,7 +164,7 @@ use PHPMailer\PHPMailer\Exception;
 			if( ($_POST['new_review'])!== null)
 				{
 					$new_review = $_POST['new_review'];
-					$sql = "UPDATE review SET $new_review AND application_id='".$_POST['application_id']."'";
+					$sql = "UPDATE review SET $new_review WHERE user_id='".$student_id."' AND application_id=".$_POST['application_id'];
 					$stmt=$dbc->prepare($sql);
 					$stmt->execute();
 				}

@@ -142,7 +142,7 @@ $role_id_array=array("1");
 											<div class="sub-nav-row">
 					                                          <ul class="sub-nav">
 					                                                      <li class="sub-nav-item">
-					                      <a href="ADMIN_create_application.php" onclick="w3_close()"  class="sub-nav-link"><span>New Applications</span></a>                    </li>
+					                      <a href="ADMIN_create_application.php" onclick="w3_close()"  class="sub-nav-link"><span>New Application</span></a>                    </li>
 					                                                                        <li class="sub-nav-item">
 					                      <a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Edit Applications</span></a>                    </li>
 					                                                                        <li class="sub-nav-item">

@@ -30,6 +30,8 @@ require 'DMS_db.php';
 	$_SESSION["user_id"] = $user_id;
 	$_SESSION["password_hash"]=$password_hash; 
 	$_SESSION["role"]=$user["role_id"];
+	$_SESSION['timeout'] = time();
+
 	
 	if($_SESSION["role"]=="5")
 	{

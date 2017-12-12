@@ -22,6 +22,14 @@ require("DMS_db.php");
 		
 	}
 	
+	$access = date("M D H:i:s");
+    if ($_SESSION['timeout'] + 3600 < time()) {
+		
+        //$this->errorMsg($access . " " . $_SESSION['eid'] . " session timed out.");
+		Header("Location: DMS_logout.php");
+    }
+	$_SESSION['timeout'] = time();
+	
 	
 	//prepare SQL statement to prevent SQL injection
 	$stmt = $dbc-> prepare('SELECT * FROM user WHERE user_id= :user_id AND password= :password');
