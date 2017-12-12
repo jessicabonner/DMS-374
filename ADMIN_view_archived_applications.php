@@ -114,24 +114,37 @@ $role_id_array=array("1");
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
+										<a href="#" class="nav-link has-child nolink">Manage Profiles</a>
+										<div class="sub-nav-wrapper">
+											<div class="sub-nav-row">
+					                                          <ul class="sub-nav">
+					                                                      <li class="sub-nav-item">
+					                      <a href="ADMIN_manage_roles.php" onclick="w3_close()"  class="sub-nav-link"><span>Manage Roles</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_create_profile.php" onclick="w3_close()" class="sub-nav-link"><span>New Profile</span></a>                    </li>
+					                                                                                                                    </ul>
+					            </div>
+										</div>
+									</li>
+									<li class="nav-item" role="menuitem">
 										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_application.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>
+										<a href="#" class="nav-link has-child nolink">Applications</a>
 										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Applications</a>
-										<div class="sub-nav-wrapper">
-										</div>
-									</li>
-									</li>
-									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="nav-link has-child nolink">Delete Applications</a>
-										<div class="sub-nav-wrapper">
+											<div class="sub-nav-row">
+					                                          <ul class="sub-nav">
+					                                                      <li class="sub-nav-item">
+					                      <a href="ADMIN_create_application.php" onclick="w3_close()"  class="sub-nav-link"><span>New Application</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_view_all_active_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Edit Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                      <a href="ADMIN_view_archived_applications.php" onclick="w3_close()" class="sub-nav-link"><span>Delete Applications</span></a>                    </li>
+					                                                                        <li class="sub-nav-item">
+					                                                                                                                    </ul>
+					            </div>
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">

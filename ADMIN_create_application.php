@@ -2,7 +2,7 @@
 $role_id_array=array("1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
-	
+
 	//this will display an error message if the user tries to create an application that already exists in the database
 	if (isset($_GET['error']))
 	{
@@ -83,7 +83,7 @@ $role_id_array=array("1");
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="parent-banner-links">
-								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>							
+								<a href="#" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
 								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
@@ -115,7 +115,17 @@ $role_id_array=array("1");
 										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link">Home</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="ADMIN_create_profile.php" onclick="w3_close()" class="nav-link">New Profile</a>
+										<a href="#" class="nav-link has-child nolink">Manage Profiles</a>
+										<div class="sub-nav-wrapper">
+											<div class="sub-nav-row">
+																										<ul class="sub-nav">
+																																<li class="sub-nav-item">
+																<a href="ADMIN_manage_roles.php" onclick="w3_close()"  class="sub-nav-link"><span>Manage Roles</span></a>                    </li>
+																																									<li class="sub-nav-item">
+																<a href="ADMIN_create_profile.php" onclick="w3_close()" class="sub-nav-link"><span>New Profile</span></a>                    </li>
+																																																															</ul>
+											</div>
+										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
 										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link">New Program</a>
@@ -220,7 +230,7 @@ $role_id_array=array("1");
 									</select>
 								</td>
 							</tr>
-							
+
 							<tr>
 								<td>Application Year</td>
 							</tr>
@@ -232,7 +242,7 @@ $role_id_array=array("1");
 									<input type="text" placeholder="ex: 2017" name="year" maxlength="4" pattern="^[0-9]*$" required/>
 								</td>
 							</tr>
-							
+
 								<!--text box for number of questions to create-->
 								<tr>
 									<td>Enter the number of custom application questions</td>
@@ -244,15 +254,15 @@ $role_id_array=array("1");
 									<td><input type="text" name="number_unique_questions" id="number_unique_questions" size="20" maxlength="2" pattern="^[0-9]+$" required/></td>
 
 								</tr>
-								
+
 							</table>
 
 							<table id="unique_questions_table">
 
 							</table>
 							</tr>
-							
-							
+
+
 							<tr>
 								<td><br><td>
 							</tr>
@@ -260,7 +270,7 @@ $role_id_array=array("1");
 							<tr>
 								<td><br><td>
 							</tr>
-							
+
 							<!--drop-down menu for postion_type-->
 							<tr>
 								<td>Position Type</td>
@@ -278,7 +288,7 @@ $role_id_array=array("1");
 									<option value="Non-Paid">Non-Paid</option>
 								</select></td>
 							</tr>
-							
+
 							<!--text box for first name-->
 							<tr class="blankrow">
 								<td><br></td>
@@ -294,8 +304,8 @@ $role_id_array=array("1");
 							<tr>
 								<td><input type="text" name="position_title" size="20" maxlength="30" required/></td>
 							</tr>
-							
-							
+
+
 							<!--text box for first name-->
 							<tr class="blankrow">
 								<td><br></td>
@@ -388,8 +398,8 @@ $role_id_array=array("1");
 							<tr>
 								<td><input type="date" name="end_date" placeholder="mm/dd/yyyy" size="20" maxlength="30" required pattern="^\d{2}/\d{2}/\d{4}$"/></td>
 							</tr>
-								
-								
+
+
 							<!--drop-down menu to specify if the postions is renewable-->
 							<tr>
 								<td>Renewable position:</td>
@@ -403,8 +413,8 @@ $role_id_array=array("1");
 									<option value="0">No</option>
 								</select></td>
 							</tr>
-							
-							
+
+
 							<!--drop-down menu to specify the classification for which students need to be-->
 							<tr>
 								<td>Student Type:</td>
@@ -466,7 +476,7 @@ $role_id_array=array("1");
 							<tr>
 								<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" required/></td>
 							</tr>
-	
+
 						<!--submit button. Will post info.-->
 						<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
 
