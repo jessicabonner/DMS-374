@@ -4,8 +4,8 @@
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 
-	
-	
+
+
 ?>
 
 <?php  if ($_SESSION['role']=='1'): ?>
@@ -161,7 +161,7 @@
 
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
-			
+
 <?php else: ?>
 
 <!--Doctor's view that displays applicants-->
@@ -265,7 +265,7 @@
         <div class="row">
         <div class="column small-12">
         <nav>
-		 
+
 		 <li class="nav-item" role="menuitem">
             </div>
             </div>
@@ -324,14 +324,14 @@ if($_SESSION['role']=='4')
 {
 
 	echo "<form action='DOCTOR_potential_student_table.php' method='get'>
-		 <input type='submit' value='Return to list' />
+		 <input type='submit' value='Return to list' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' />
 		 <input type='hidden' name=select_application value=$application_id>
 		</form>";
 }
 else
 {
 	echo "<form action='DOCTOR_dashboard.php' method='get'>
-		 <input type='submit' value='Return to list' />
+		 <input type='submit' value='Return to list' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;''/>
 		 <input type='hidden' name=select_application value=$application_id>
 		</form>";
 }
@@ -514,7 +514,7 @@ else
 	?>
 </table>
 <table class='data-table2' width=600px>
-	
+
 			<br></br><thead>
 			<th>Semester Availability</th>
 
@@ -547,7 +547,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH8am" id="TH8am" <?php if (in_array("TH8am",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F8am" id="F8am" <?php if (in_array("F8am",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>8:30am-9:00am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M8:30am" id="M8:30am" <?php if (in_array("M8:30pm",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -565,7 +565,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH9am" id="TH9am" <?php if (in_array("TH9am",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F9am" id="F9am" <?php if (in_array("F9am",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>9:30am-10:00am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M9:30am" id="M9:30am" <?php if (in_array("M9:30am",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -583,7 +583,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH10am" id="TH10am" <?php if (in_array("TH10am",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F10am" id="F10am" <?php if (in_array("F10am",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>10:30am-11:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M10:30am" id="M10:30am" <?php if (in_array("M10:30am",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -601,7 +601,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH11am" id="TH11am" <?php if (in_array("TH11am",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F11am" id="F11am" <?php if (in_array("F11am",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>11:30pm-12:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M11:30am" id="M11:30am" <?php if (in_array("F11:30am",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -619,7 +619,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH12am" id="TH12am" <?php if (in_array("TH12am",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F12am" id="F12am" <?php if (in_array("F12am",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>12:30pm-1:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M12:30pm" id="M12:30pm" <?php if (in_array("M12:30pm",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -637,7 +637,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH1pm" id="TH1pm" <?php if (in_array("TH1pm",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F1pm" id="F1pm" <?php if (in_array("F1pm",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>1:30pm-2:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M1:30pm" id="M1:30pm" <?php if (in_array("M1:30am",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -655,7 +655,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH2pm" id="TH2pm" <?php if (in_array("TH2pm",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F2pm" id="F2pm" <?php if (in_array("F2pm",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>2:30pm-3:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M2:30pm" id="M2:30pm" <?php if (in_array("M2:30pm",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -673,7 +673,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH3pm" id="TH3pm" <?php if (in_array("TH3pm",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F3pm" id="F3pm" <?php if (in_array("F3pm",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>3:30pm-4:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M3:30pm" id="M3:30pm" <?php if (in_array("F3:30pm",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -691,7 +691,7 @@ else
 				<td><input type="checkbox" name="availability_list[]" value="TH4pm" id="TH4pm" <?php if (in_array("TH4pm",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="F4pm" id="F4pm" <?php if (in_array("F4pm",$availability_array))echo 'checked="checked"'?>disabled></td>
 			</tr>
-			
+
 			<tr>
 				<td>4:30pm-5:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M4:30pm" id="M4:30pm" <?php if (in_array("M4:30pm",$availability_array))echo 'checked="checked"'?>disabled></td>
@@ -736,11 +736,11 @@ else
 
 		// Display applicants's review status
 		//echo "<tr>";
-		
+
 
 		$stmt = $dbc->query("SELECT * FROM review WHERE user_id='".$student_id."' AND application_id=$application_id;");
        	$x = $stmt->fetch();
-		
+
 if ($_SESSION['role']=='2')
 {
 	echo "<th>Review</th>";
@@ -774,7 +774,7 @@ if ($_SESSION['role']=='2')
 		}
 
 		echo "</tr>";
-		
+
 		echo "
 			<tr>
 			<th>Interview Candidate</th>";
@@ -810,7 +810,7 @@ if ($_SESSION['role']=='2')
 				echo '<td><input type="checkbox" name="approved" value="1" disabled></td>';
 			}
 
-		
+
 
 }
 
@@ -873,7 +873,7 @@ if ($_SESSION['role']=='2')
 			</tr>";
 
 	}
-	
+
 	if ($_SESSION['role']=='4')
 	{
 		echo "
@@ -901,7 +901,7 @@ if ($_SESSION['role']=='2')
 	<?php if ($_SESSION['role']=='2'): ?>
 		<td><input type='submit' name= "accept" id="accept_button" value= '  <?php echo $accept_unaccept ?>  ' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
 	<?php endif ?>
-		
+
 		<td><input type='submit' name= "update" value='  Save Changes  ' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<tr>
 		<tr><td><br></td>
@@ -911,8 +911,8 @@ if ($_SESSION['role']=='2')
 		<?php endif ?>
 
 		</form>
-		
-		
+
+
 		<?php if($_SESSION['role']=='1'): ?>
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 			<script type="text/javascript">
@@ -942,8 +942,8 @@ if ($_SESSION['role']=='2')
 			})(window,document,'script','dataLayer','GTM-59NMNV');</script>
 			<!-- End Google Tag Manager -->  </div>
 	<?php else: ?>
-	
-	
+
+
 	<script>
 		$("#accept_checkbox").click(function(){
 			if (this.checked) {
@@ -952,15 +952,13 @@ if ($_SESSION['role']=='2')
 			else{
 				$('#accept_button').prop('disabled', true);
 			}
-	
+
 		});
-	
-	
+
+
 	</script>
-	
+
 	<?php endif; ?>
-	
+
 	</body>
 	</html>
-
-
