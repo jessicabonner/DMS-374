@@ -491,11 +491,11 @@ if (isset($_GET['message']))
 		//call search_criteria function
 		$query=search($_GET['search_criteria']);
 	}
-	
+
 	//if user is filtering
 	elseif(isset($_GET['filter_criteria']))
 	{
-		
+
 			$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
 	}
 
@@ -504,12 +504,13 @@ if (isset($_GET['message']))
 		$query=view_all();
 	}
 	?>
-	
+
 
 	<form action='HR_background_check.php' method='post'>
 
 	<!--Displays all of the students who have been accepted, unless given specific criteria -->
 	<table class="data-table" style="width:100;table-layout:fixed;">
+	<table class="data-table3">
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
 			<tr>
@@ -729,11 +730,16 @@ if (isset($_GET['message']))
 			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 			})(window,document,'script','dataLayer','GTM-59NMNV');
-			
+
 			</script>
 			<!-- End Google Tag Manager -->  </div>
 	<?php endif; ?>
+<<<<<<< HEAD
 	
 </div>
+=======
+
+
+>>>>>>> 37bcf36e250c2853b3986f06fee84b496c86aec1
 </body>
 </html>
