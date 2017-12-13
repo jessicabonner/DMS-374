@@ -170,7 +170,7 @@
 
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
-			
+
 <?php elseif($_SESSION['role']=='2'): ?>
 
 <!--Doctor's view that displays applicants-->
@@ -270,9 +270,9 @@
           </div>
         </div>
       </div> <!-- container-topnav -->
-	 
-        
-       
+
+
+
         </div>
 
 
@@ -304,7 +304,7 @@
 		//get list of applications to populate dropdown
 		$applications=select_all_applications();
 	}
-	
+
 
 ?>
 <body>
@@ -316,7 +316,7 @@
 				<option id="select_application" name="select_application" value="<?= $application['application_id']; ?>"><?= $name_of_program.' '.$application['term'].' '.$application['year'] ; ?></option>
 			<?php endforeach; ?>
 		</select>
-		<td><input id='program' type='submit' value='Choose Program'style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"/></td>
+		<td><input id='program' type='submit' value='Choose Program' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"/></td>
 	</form>
 
 	<?php if(isset($_GET['select_application'])):?>
@@ -534,7 +534,7 @@
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" potential='1' ">Potential Candidate?<br></td>
 				</tr>
-				
+
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" approved='1' ">Approved?<br></td>
 				</tr>
@@ -572,7 +572,7 @@
 		//call select_application_student_list function from DOCTOR_functionality.php
 		//to get the list of applicants for this program
 		$student_applicants=select_application_student_list($_GET['select_application']);
-		
+
 		$student_applicants= implode(',',$student_applicants);
 
 
@@ -583,15 +583,6 @@
 
 		//call get_program on DOCTOR_functionality.php to get the name of the program
 		$name_of_program=get_program($selected_application['program_id']);
-		
-			if ($_SESSION['role']=='1')
-			{
-				$disabled='disabled';
-			}
-			else
-			{
-				$disabled='';
-			}
 	?>
 
 		<form action='DOCTOR_update_review_list.php' method='post'>
@@ -699,7 +690,7 @@
 				try
 				{
 					$query= select_student_from_list($student_applicants);
-					
+
 				}
 				//if the program has no applicants
 				catch(Exception $e)
@@ -725,12 +716,12 @@
 
 
 				$id = $row['user_id'];
-				
+
 				$working_for_dms = $row['working_for_dms'];
 				$review_array = array('1', '0');
 
 
-			
+
 
 
 				echo "<td> <a href='DOCTOR_view_detailed_student_info.php?id=$id&selected_application=$selected_application_id'>" .$row['user_id'] . "</a> </td>";
@@ -742,13 +733,13 @@
 						//call function select_student from SMD_doctor_functionality.php
 						//to pull the value of the competitive field in table 'review'
 						$x=select_student_review($id, $_GET['select_application']);
-						
+
 						$id_format="'".$id."'";
-						
+
 
 						if ($x['competitive']=="2"): //if competitive = 2 (Competitive) in the db, show the correct selected value
 						?>
-							<td><select name="application_review_list[]" <?php echo $disabled ?>>
+							<td><select name="application_review_list[]">
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'" selected="selected">Competitive</option>
@@ -756,7 +747,7 @@
 				<?php
 						elseif ($x['competitive']=="1"): //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
 				?>
-							<td><select name="application_review_list[]" <?php echo $disabled ?>>
+							<td><select name="application_review_list[]">
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'" selected="selected">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'">Competitive</option>
@@ -764,8 +755,8 @@
 				<?php
 						else: //if competitive = 0 (N/A) in the db, show the correct selected value
 						?>
-						 
-								<td><select name="application_review_list[]" <?php echo $disabled ?>>
+
+								<td><select name="application_review_list[]">
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'"selected="selected">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'">Competitive</option>
@@ -896,8 +887,8 @@
 			})(window,document,'script','dataLayer','GTM-59NMNV');</script>
 			<!-- End Google Tag Manager -->  </div>
 	<?php endif; ?>
-	
-	
-	
+
+
+
 </body>
 </html>
