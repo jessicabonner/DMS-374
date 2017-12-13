@@ -49,7 +49,7 @@ table td {
 }
 /* Data Table Header be white with black font and white border, centered */
 .data-table thead th {
-  background-color: #bf5700;
+  background-color: #D9711A;
   color: #FFFFFF;
   border-color: #000000 !important;
   text-transform: uppercase;

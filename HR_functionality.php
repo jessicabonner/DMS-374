@@ -7,7 +7,7 @@ function filter($filter_criteria, $and_or)
 	//filtering accepted applicants with selected criteria
 	$filter_criteria_sql=implode($and_or,$filter_criteria);
 
-	$sql="SELECT * FROM student_info WHERE working_for_dms='1' AND( $filter_criteria_sql)";
+	$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id WHERE student_accept_offer='1' AND ($filter_criteria_sql)";
 
 	$query= $dbc->query($sql);;
 
@@ -15,35 +15,6 @@ function filter($filter_criteria, $and_or)
 	return $query;
 }
 
-function filter_with_gpa($filter_criteria, $and_or, $GPA, $greater_less)
-{
-	require 'DMS_db.php';
-	//filtering accepted applicants with selected GPA and other criteria, could sort from greater than or less than
-	$filter_criteria_sql=implode($and_or,$filter_criteria);
-	$filter_criteria_sql=$filter_criteria_sql." ".$and_or." GPA".$greater_less.$GPA;
-
-	$sql="SELECT * FROM student_info WHERE working_for_dms='1' AND( $filter_criteria_sql)";
-
-	$query= $dbc->query($sql);;
-
-	echo "Displaying students where $filter_criteria_sql";
-	return $query;
-}
-
-function filter_only_gpa($GPA, $greater_less)
-{
-	require 'DMS_db.php';
-	//filtering accepted applicants only with desired GPA
-	$filter_criteria_sql="";
-	$filter_criteria_sql=$filter_criteria_sql."GPA".$greater_less.$GPA;
-
-	$sql="SELECT * FROM student_info WHERE working_for_dms='1' AND $filter_criteria_sql";
-
-	$query= $dbc->query($sql);;
-
-	echo "Displaying students with GPA".$greater_less.$GPA;
-	return $query;
-}
 
 function search($search_criteria)
 {
