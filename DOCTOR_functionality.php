@@ -155,11 +155,14 @@
 		
 
 		$sql="SELECT * FROM $name_of_table";
+		
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$student_applicants= $stmt->fetchAll();
 
 		$student_applicant_id_array=array();
+		
+		
 		foreach($student_applicants as $key=>$value)
 		{
 			
@@ -169,19 +172,16 @@
 			$review= $stmt->fetch();
 			
 			
+			$sql="SELECT * FROM review WHERE user_id='".$value['user_id']."' AND application_id !='.$application_id.' AND student_accept_offer=1";
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+			$review2= $stmt->fetch();
 			
 			if ($review['accepted_by_dms']=='1')
 			{
 				$student_applicant_id_array[]="'".$value["user_id"]."'";
 			}
-			
-			$sql="SELECT * FROM review WHERE user_id='".$value['user_id']."' AND application_id !='.$application_id.' AND student_accept_offer=1";
-			$stmt=$dbc->prepare($sql);
-			$stmt->execute();
-			$review= $stmt->fetch();
-			
-			
-			if (count($review['user_id']) ==0)
+			elseif (count($review2['user_id']) ==0)
 			{
 				$student_applicant_id_array[]="'".$value["user_id"]."'";
 			}
