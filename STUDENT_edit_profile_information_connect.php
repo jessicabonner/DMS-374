@@ -57,7 +57,8 @@
 	$other_programs = $_POST['other_programs'];
 	$semester_commitment=$_POST['semester_commitment'];
 
-	//turn availability_list into a string 
+	//turn availability_list into a string include 'ADMIN_view_application_information.php';
+	
 	$availability= implode(',', $_POST['availability_list']);
 	
 	

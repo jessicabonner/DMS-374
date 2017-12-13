@@ -442,6 +442,22 @@
 
 
 		</table>
+		
+		
+		
+		<!--<tr><br>
+			<br>
+			<td><p style="font-size:90%;">I certify that all the information provided by me in connection with my application, whether on this document or not, is true and complete, and I understand that any misstatement, falsification, or omission of information shall be grounds for refusal to hire or, if hired, termination. I understand any current or former employment at The University of Texas at Austin must be disclosed on my application. I understand that any offer of employment is contingent upon my agreement to abide by the rules and regulations of The Board of Regents of The University of Texas System.</p><p style="font-size:90%;">I hereby authorize The University of Texas at Austin or any law enforcement agency to furnish to The University of Texas at Austin my criminal conviction record for a deferred adjudication, misdemeanor or felony offense at age 17 or older. I do hereby release all agents, servants, and employees of UT Austin, the person in charge of such law enforcement agency or department and all members of such law enforcement agency or department from all liability resulting from the furnishing of this information to The University of Texas at Austin.</p>
+ 
+<p style="font-size:90%;">I authorize The University of Texas at Austin to communicate with persons listed as references, former employers, and any others with whom you desire to check. I agree to hold such persons harmless with respect to any information they may give about me.</p>
+ 
+		</tr>
+		
+		<tr>
+			<td><input type="checkbox" name="terms" value="1" required style="font-size:90%;"> I agree to the terms and conditions<br></td>
+		</tr>-->
+		
+		
 
 		<form action="STUDENT_edit_profile_information.php" method="get">
 
