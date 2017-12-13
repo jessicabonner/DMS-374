@@ -526,7 +526,7 @@ else
 <br></br>
 <!--<table width=100% table style>-->
 
-<table class='data-table2'>
+<table class='data-table'>
 
 			<tr><thead>
 				<th></th>
