@@ -158,9 +158,11 @@
 
 				foreach($array_unique_questions as $key=>$value)
 				{
-					echo "<tr><td>$value</td></td>";
-					echo "<tr><td><textarea class='written' placeholder='Please enter your response here' name='question_$key' rows='10'
-					cols'800' required></textarea></td></tr>";
+					echo "<div>";
+					echo "<p>$value<p>";
+					echo "<textarea class='written' placeholder='Please enter your response here' name='question_$key' rows='10'
+					cols'800' required></textarea><br>";
+					echo '</div>';
 				}
 
 ?>
@@ -172,16 +174,16 @@
 		</form>
 		<script>
 		//function to limit the amount of characters in textarea
-		$("textarea").keyup(function(
+		$("textarea").keyup(function()
 			{
 				var words = this.value.match(/\S+/g).length;
 				if (words > 500) {
-				// Split the string on first 200 words and rejoin on spaces
+				// Split the string on first 500 words and rejoin on spaces so that any words past 500 are cut off
 				var trimmed = $(this).val().split(/\s+/, 500).join(" ");
-				// Add a space at the end to make sure more typing creates new words
+				// Add a space at the end to make sure more typing creates new words to work in this function
 				$(this).val(trimmed + " ");
 			}
-		});
+		});  
 </script>
 </body>
 </html>

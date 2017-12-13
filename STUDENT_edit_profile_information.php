@@ -149,6 +149,8 @@
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
+<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
+<table class='data-table'>
 
   <!-- Header -->
 <div class="w3-container" style="margin-top:40px" id="showcase">
@@ -185,11 +187,9 @@
             <input type="text" name="address" value="<?php echo $row ['address']; ?> " size=10>
 			City
             <input type="text" name="city" value="<?php echo $row ['city']; ?> " size=10>
-			<tr>
-				<td>State</td>
-			</tr>
-			<tr>
-				<td><select name="state" required>
+			
+			State
+					<select name="state" required>
 					<option value="AL" <?php if($row['state'] == "AL") echo 'selected="selected"'?>>Alabama</option>
 					<option value="AK" <?php if($row['state'] == "AK") echo 'selected="selected"'?>>Alaska</option>
 					<option value="AZ"<?php if($row['state'] == "AZ") echo 'selected="selected"'?>>Arizona</option>
@@ -241,84 +241,43 @@
 					<option value="WV"<?php if($row['state'] == "WV") echo 'selected="selected"'?>>West Virginia</option>
 					<option value="WI"<?php if($row['state'] == "WI") echo 'selected="selected"'?>>Wisconsin</option>
 					<option value="WY"<?php if($row['state'] == "WY") echo 'selected="selected"'?>>Wyoming</option>
-				</select></td>
+				</select>
 
-			</tr>
+			
 			Zip Code
             <input type="text" name="zip_code" value="<?php echo $row ['zip_code']; ?> " size=10>
 			Phone Number
             <input type="text" name="phone" value="<?php echo $row ['phone']; ?> " size=10>
 			Email
-            <input type="text" name="email" value="<?php echo $row ['email']; ?> " size=10>
+            <input type="text" name="email" value="<?php echo $row ['email']; ?> " size=10 >
 			<!--radio buttons for if student is eligible to work in US/employed at UT-->
-			<tr>
-				<td>Are you:</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="employment" value="UT" <?php if($row['employment'] == "UT") echo 'checked="checked"'?> required>Currently employed at UT<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="employment" value="eligible"<?php if($row['employment'] == "eligible") echo 'checked="checked"'?>>Eligible to work in the US with no restrictions<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="employment" value="none"<?php if($row['employment'] == "none") echo 'checked="checked"'?>>None of the above<br></td>
-			</tr>
+			
+			Are you: <br><br>
+			<input type="radio" name="employment" value="UT" <?php if($row['employment'] == "UT") echo 'checked="checked"'?> required>Currently employed at UT<br>
+			<input type="radio" name="employment" value="eligible"<?php if($row['employment'] == "eligible") echo 'checked="checked"'?>>Eligible to work in the US with no restrictions<br>
+			<input type="radio" name="employment" value="none"<?php if($row['employment'] == "none") echo 'checked="checked"'?>>None of the above<br>
 
 
 
-			<!--break between radio button questions-->
-			<tr>
-				<td><br></td>
-			</tr>
-
+			
+			<br>
 			<!--Radio buttons for student's classification-->
-			<tr>
-				<td>What is your classification?</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="radio" name="classification" value="1st year" <?php if($row['classification'] == "1st year") echo 'checked="checked"'?> required>1st year<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="2nd year" <?php if($row['classification'] == "2nd year") echo 'checked="checked"'?>>2nd year<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="3rd year" <?php if($row['classification'] == "3rd year") echo 'checked="checked"'?>>3rd year<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="4th year" <?php if($row['classification'] == "4th year") echo 'checked="checked"'?>>4th year<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="classification" value="5th year" <?php if($row['classification'] == "5th year") echo 'checked="checked"'?>>5th year<br></td>
-			</tr>
+			What is your classification?
+			<br><br>
+			<input type="radio" name="classification" value="1st year" <?php if($row['classification'] == "1st year") echo 'checked="checked"'?> required>1st year<br>
+			<input type="radio" name="classification" value="2nd year" <?php if($row['classification'] == "2nd year") echo 'checked="checked"'?>>2nd year<br>
+			<input type="radio" name="classification" value="3rd year" <?php if($row['classification'] == "3rd year") echo 'checked="checked"'?>>3rd year<br>
+			<input type="radio" name="classification" value="4th year" <?php if($row['classification'] == "4th year") echo 'checked="checked"'?>>4th year<br>
+			<input type="radio" name="classification" value="5th year" <?php if($row['classification'] == "5th year") echo 'checked="checked"'?>>5th year<br>
 
-			<tr>
-				<td>What type of student are you?</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="radio" name="student_type" value="Undergraduate" <?php if($row['student_type'] == "Undergraduate") echo 'checked="checked"'?> required>Undergraduate<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="student_type" value="Graduate" <?php if($row['student_type'] == "Graduate") echo 'checked="checked"'?>>Graduate<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="student_type" value="PhD" <?php if($row['student_type'] == "PhD") echo 'checked="checked"'?>>PhD<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="student_type" value="Other" <?php if($row['student_type'] == "Other") echo 'checked="checked"'?>>Other<br></td>
-			</tr>
+			<br>
+			What type of student are you?
+			<br><br>
+			<input type="radio" name="student_type" value="Undergraduate" <?php if($row['student_type'] == "Undergraduate") echo 'checked="checked"'?> required>Undergraduate<br>
+			<input type="radio" name="student_type" value="Graduate" <?php if($row['student_type'] == "Graduate") echo 'checked="checked"'?>>Graduate<br>
+			<input type="radio" name="student_type" value="PhD" <?php if($row['student_type'] == "PhD") echo 'checked="checked"'?>>PhD<br>
+			<input type="radio" name="student_type" value="Other" <?php if($row['student_type'] == "Other") echo 'checked="checked"'?>>Other<br>
+			
 
 
 
@@ -333,67 +292,20 @@
 			Credit Hours Enrollment
             <input type="text" name="credit_hours" value="<?php echo $row ['credit_hours']; ?> " size=10>
 
-			<!--break-->
-			<tr>
-				<td><br></td>
-			</tr>
-			<!--Radio buttons for if they have worked at dell med school before-->
-			<tr>
-				<td>Have you previously worked at Dell Medical School?</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="radio" name="worked_at_dms" value="1" required <?php if($row['worked_at_dms'] == 1) echo 'checked="checked"'?>>Yes<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="worked_at_dms" value="0" <?php if($row['worked_at_dms'] == 0) echo 'checked="checked"'?>>No<br></td>
-			</tr>
-
-
-			<!--break-->
-			<tr>
-				<td><br></td>
-			</tr>
-
-
-			<!--radio buttons for if they have volunteered at seton before-->
-			<tr>
-				<td>Have you previously volunteered at Seton Hospital?</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="radio" name="volunteered_at_seton" value="1" required <?php if($row['volunteered_at_seton'] == 1) echo 'checked="checked"'?>>Yes<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="volunteered_at_seton" value="0" <?php if($row['volunteered_at_seton'] == 0) echo 'checked="checked"'?>>No<br></td>
-			</tr>
-
-			<!--break-->
-			<tr>
-				<td><br></td>
-			</tr>
-
-
-			<!--Radio buttons for if they have a car-->
-			<tr>
-				<td>Do you own a car?</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr class="blankrow">
-				<td><br></td>
-			<tr>
-				<td><input type="radio" name="car" value="1" required <?php if($row['car'] == 1) echo 'checked="checked"'?>>Yes<br></td>
-			</tr>
-			<tr>
-				<td><input type="radio" name="car" value="0" <?php if($row['car'] == 0) echo 'checked="checked"'?>>No<br></td>
-			</tr>
+			Have you previously worked at Dell Medical School?
+			<br><br>
+			<input type="radio" name="worked_at_dms" value="1" required <?php if($row['worked_at_dms'] == 1) echo 'checked="checked"'?>>Yes<br>
+			<input type="radio" name="worked_at_dms" value="0" <?php if($row['worked_at_dms'] == 0) echo 'checked="checked"'?>>No<br>
+			
+			Have you previously volunteered at Seton Hospital?
+			<br><br>
+			<input type="radio" name="volunteered_at_seton" value="1" required <?php if($row['volunteered_at_seton'] == 1) echo 'checked="checked"'?>>Yes<br>
+			<input type="radio" name="volunteered_at_seton" value="0" <?php if($row['volunteered_at_seton'] == 0) echo 'checked="checked"'?>>No<br>
+			
+			Do you own a car?
+			<br><br>
+			<input type="radio" name="car" value="1" required <?php if($row['car'] == 1) echo 'checked="checked"'?>>Yes<br>
+			<input type="radio" name="car" value="0" <?php if($row['car'] == 0) echo 'checked="checked"'?>>No<br>
 
 			Language(s)
             <input type="text" name="bilingual" value="<?php echo $row ['bilingual']; ?> " size=10>
@@ -404,28 +316,36 @@
 			DMS Program(s) already applied to
 			<input type="text" name="other_programs" value= "<?php echo $row ['other_programs']; ?> " size=10>
 
-			<table>
-			<tr>What is your availability for the upcoming semester?</tr>
-			<tr class="blankrow">
-				<td><br></td>
+			
 
 
+			
 
-			<tr>
-				<td><input type="checkbox" name="availability_list[]" value="NA" <?php if (in_array("NA",$availability_array))echo 'checked="checked"'?>>Unknown</td>
-			</tr>
+			<table class="data-table">
+					<caption class="title">What is your availability for the upcoming semester?</caption>
+					
+					
+					<thead>
+						<tr>
+			
+
+			
 
 			<!--create column names-->
-			<tr>
-				<td></td>
-				<td>Monday</td>
-				<td>Tuesday</td>
-				<td>Wednesday</td>
-				<td>Thursday</td>
-				<td>Friday</td>
-			</tr>
-			<tr class="blankrow">
-				<td><br></td>
+			
+				<th></th>
+				<th>Monday</th>
+				<th>Tuesday</th>
+				<th>Wednesday</th>
+				<th>Thursday</th>
+				<th>Friday</th>
+				
+				
+				</tr>
+					</thead>
+
+					<tbody>
+			
 
 
 			<!--input checkboxes and row names-->		
@@ -459,10 +379,10 @@
 			<tr>
 				<td>9:30am-10:00am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M9:30am" id="M9:30am" <?php if (in_array("M9:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="T9:30am" id="T9:30am" <?php if (in_array("M9:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="W9:30am" id="W9:30am" <?php if (in_array("M9:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH9:30am" id="TH9:30am" <?php if (in_array("M9:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="F9:30am" id="F9:30am" <?php if (in_array("M9:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="T9:30am" id="T9:30am" <?php if (in_array("T9:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="W9:30am" id="W9:30am" <?php if (in_array("W9:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH9:30am" id="TH9:30am" <?php if (in_array("TH9:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="F9:30am" id="F9:30am" <?php if (in_array("F9:30am",$availability_array))echo 'checked="checked"'?>></td>
 			</tr>
 
 			<tr>
@@ -477,10 +397,10 @@
 			<tr>
 				<td>10:30am-11:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M10:30am" id="M10:30am" <?php if (in_array("M10:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="T10:30am" id="T10:30am" <?php if (in_array("M10:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="W10:30am" id="W10:30am" <?php if (in_array("M10:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH10:30am" id="TH10:30am" <?php if (in_array("M10:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="F10:30am" id="F10:30am" <?php if (in_array("M10:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="T10:30am" id="T10:30am" <?php if (in_array("T10:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="W10:30am" id="W10:30am" <?php if (in_array("W10:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH10:30am" id="TH10:30am" <?php if (in_array("TH10:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="F10:30am" id="F10:30am" <?php if (in_array("F10:30am",$availability_array))echo 'checked="checked"'?>></td>
 			</tr>
 
 			<tr>
@@ -494,10 +414,10 @@
 			
 			<tr>
 				<td>11:30pm-12:00pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M11:30am" id="M11:30am" <?php if (in_array("F11:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="T11:30am" id="T11:30am" <?php if (in_array("F11:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="W11:30am" id="W11:30am" <?php if (in_array("F11:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH11:30am" id="TH11:30am" <?php if (in_array("F11:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="M11:30am" id="M11:30am" <?php if (in_array("M11:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="T11:30am" id="T11:30am" <?php if (in_array("T11:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="W11:30am" id="W11:30am" <?php if (in_array("W11:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH11:30am" id="TH11:30am" <?php if (in_array("TH11:30am",$availability_array))echo 'checked="checked"'?>></td>
 				<td><input type="checkbox" name="availability_list[]" value="F11:30am" id="F11:30am" <?php if (in_array("F11:30am",$availability_array))echo 'checked="checked"'?>></td>
 			</tr>
 
@@ -513,10 +433,10 @@
 			<tr>
 				<td>12:30pm-1:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M12:30pm" id="M12:30pm" <?php if (in_array("M12:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="T12:30pm" id="T12:30pm" <?php if (in_array("M12:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="W12:30pm" id="W12:30pm" <?php if (in_array("M12:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH12:30pm" id="TH12:30pm" <?php if (in_array("M12:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="F12:30pm" id="F12:30pm" <?php if (in_array("M12:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="T12:30pm" id="T12:30pm" <?php if (in_array("T12:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="W12:30pm" id="W12:30pm" <?php if (in_array("W12:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH12:30pm" id="TH12:30pm" <?php if (in_array("TH12:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="F12:30pm" id="F12:30pm" <?php if (in_array("F12:30pm",$availability_array))echo 'checked="checked"'?>></td>
 			</tr>
 
 			<tr>
@@ -531,10 +451,10 @@
 			<tr>
 				<td>1:30pm-2:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M1:30pm" id="M1:30pm" <?php if (in_array("M1:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="T1:30pm" id="T1:30pm" <?php if (in_array("M1:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="W1:30pm" id="W1:30pm" <?php if (in_array("M1:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH1:30pm" id="TH1:30pm" <?php if (in_array("M1:30am",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="F1:30pm" id="F1:30pm" <?php if (in_array("M1:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="T1:30pm" id="T1:30pm" <?php if (in_array("T1:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="W1:30pm" id="W1:30pm" <?php if (in_array("W1:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH1:30pm" id="TH1:30pm" <?php if (in_array("TH1:30am",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="F1:30pm" id="F1:30pm" <?php if (in_array("F1:30am",$availability_array))echo 'checked="checked"'?>></td>
 			</tr>
 
 			<tr>
@@ -549,10 +469,10 @@
 			<tr>
 				<td>2:30pm-3:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M2:30pm" id="M2:30pm" <?php if (in_array("M2:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="T2:30pm" id="T2:30pm" <?php if (in_array("M2:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="W2:30pm" id="W2:30pm" <?php if (in_array("M2:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH2:30pm" id="TH2:30pm" <?php if (in_array("M2:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="F2:30pm" id="F2:30pm" <?php if (in_array("M2:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="T2:30pm" id="T2:30pm" <?php if (in_array("T2:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="W2:30pm" id="W2:30pm" <?php if (in_array("W2:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH2:30pm" id="TH2:30pm" <?php if (in_array("TH2:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="F2:30pm" id="F2:30pm" <?php if (in_array("F2:30pm",$availability_array))echo 'checked="checked"'?>></td>
 			</tr>
 
 			<tr>
@@ -566,10 +486,10 @@
 			
 			<tr>
 				<td>3:30pm-4:00pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M3:30pm" id="M3:30pm" <?php if (in_array("F3:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="T3:30pm" id="T3:30pm" <?php if (in_array("F3:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="W3:30pm" id="W3:30pm" <?php if (in_array("F3:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH3:30pm" id="TH3:30pm" <?php if (in_array("F3:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="M3:30pm" id="M3:30pm" <?php if (in_array("M3:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="T3:30pm" id="T3:30pm" <?php if (in_array("T3:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="W3:30pm" id="W3:30pm" <?php if (in_array("W3:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH3:30pm" id="TH3:30pm" <?php if (in_array("TH3:30pm",$availability_array))echo 'checked="checked"'?>></td>
 				<td><input type="checkbox" name="availability_list[]" value="F3:30pm" id="F3:30pm" <?php if (in_array("F3:30pm",$availability_array))echo 'checked="checked"'?>></td>
 			</tr>
 
@@ -585,17 +505,22 @@
 			<tr>
 				<td>4:30pm-5:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M4:30pm" id="M4:30pm" <?php if (in_array("M4:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="T4:30pm" id="T4:30pm" <?php if (in_array("M4:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="W4:30pm" id="W4:30pm" <?php if (in_array("M4:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH4:30pm" id="TH4:30pm" <?php if (in_array("M4:30pm",$availability_array))echo 'checked="checked"'?>></td>
-				<td><input type="checkbox" name="availability_list[]" value="F4:30pm" id="F4:30pm" <?php if (in_array("M4:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="T4:30pm" id="T4:30pm" <?php if (in_array("T4:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="W4:30pm" id="W4:30pm" <?php if (in_array("W4:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH4:30pm" id="TH4:30pm" <?php if (in_array("TH4:30pm",$availability_array))echo 'checked="checked"'?>></td>
+				<td><input type="checkbox" name="availability_list[]" value="F4:30pm" id="F4:30pm" <?php if (in_array("F4:30pm",$availability_array))echo 'checked="checked"'?>></td>
 			</tr>
-
+			<tr><td></td></tr>
 			<tr>
-				<td><br></td>
+				<td><input type="checkbox" name="availability_list[]" value="NA" <?php if (in_array("NA",$availability_array))echo 'checked="checked"'?>> Unknown</td>
 			</tr>
-
+			
+		</tbody>
+		
 		</table>
+
+			<br>
+			
 
 		<!--submit button. Will post info.-->
 		<td colspan="1" style="text-align: center; float: center;"><input type="submit" name="submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value="Update Profile Information"> </td>
