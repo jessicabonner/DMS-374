@@ -498,11 +498,15 @@ else
 		echo "<tr>";
 		echo "<th>Hours Working</th>";
 		echo '<td><input type="text" name="hours_working_week" value="'.$row['hours_working_week'].'"; ></td>';
+		echo "<input type='hidden' name='user_id' value=$student_id><br /></td>
+		<input type='hidden' name='application_id' value=$application_id>";
 		echo "</tr>";
 
 		echo "<tr>";
 		echo "<th>Hourly Rate</th>";
 		echo '<td><input type="text" name="hourly_rate" value="'.$row['hourly_rate'].'"; ></td>';
+		echo "<input type='hidden' name='user_id' value=$student_id><br /></td>
+		<input type='hidden' name='application_id' value=$application_id>";
 		echo "</tr>";
 
 
@@ -897,7 +901,7 @@ if ($_SESSION['role']=='2')
 		<td><input type='submit' name= "accept" id="accept_button" value= '  <?php echo $accept_unaccept ?>  ' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
 	<?php endif ?>
 		
-		<td><input type='submit' name= "update" value='  Save Changes  ' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+		<td><input type='submit' name= "update" value='  Save Changes  ' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<tr>
 		<tr><td><br></td>
 		<tr><td><br></td>

@@ -255,21 +255,21 @@ if ($_SESSION['role']==2)
 			if( ($_POST['potential'])!== null)
 			{
 					$new_potential = $_POST['potential'];
-					$sql = "UPDATE review SET potential=$new_potential WHERE user_id= '".$user_id."' AND application_id='".$_POST['application_id']."'";
+					$sql = "UPDATE review SET potential = '".$new_potential."' WHERE user_id= '".$student_id."' AND application_id='".$_POST['application_id']."'";
 					$stmt=$dbc->prepare($sql);
 					$stmt->execute();
 			}
 			elseif( ($_POST['potential'])== null)
 			{
 					
-					$sql = "UPDATE review SET potential=0 WHERE user_id= '".$student_id."' AND application_id='".$_POST['application_id']."'";
+					$sql = "UPDATE review SET potential=NULL WHERE user_id= '".$student_id."' AND application_id='".$_POST['application_id']."'";
 					$stmt=$dbc->prepare($sql);
 					$stmt->execute();
 			}
 			if( ($_POST['interview'])!== null)
 			{
 					$new_interview = $_POST['interview'];
-					$sql = "UPDATE review SET interview=$new_interview WHERE user_id= '".$student_id."' AND application_id='".$_POST['application_id']."'";
+					$sql = "UPDATE review SET interview= '".$new_interview."' WHERE user_id= '".$student_id."' AND application_id='".$_POST['application_id']."'";
 					$stmt=$dbc->prepare($sql);
 					$stmt->execute();
 			}
@@ -282,10 +282,13 @@ if ($_SESSION['role']==2)
 			}
 			
 			
-			$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week=:hours_working_week, hourly_rate=:hourly_rate
+			//$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week = :hours_working_week, hourly_rate = :hourly_rate
+				//WHERE user_id= :student_id');
+	
+		$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week = :hours_working_week, hourly_rate = :hourly_rate
 			WHERE user_id= :student_id');
 		
-			$stmt2->execute(array('hours_working_week' => $hours_working_week, 'student_id' => "'".$student_id."'" , 'hourly_rate' => $hourly_rate));
+			$stmt2->execute(array('hours_working_week' => "'".$hours_working_week."'", 'student_id' => "'".$student_id."'" , 'hourly_rate' => "'".$hourly_rate."'"));
 			
 			}
 }
