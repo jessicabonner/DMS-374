@@ -597,7 +597,6 @@
 					<th>First Name</th>
 					<th>Last Name</th>
 					<th>Application Status</th>
-
 					<th>GPA</th>
 					<th>Email</th>
 					<th>Type</th>
@@ -764,7 +763,7 @@
 						else: //if competitive = 0 (N/A) in the db, show the correct selected value
 						?>
 
-						 
+
 								<td wdith="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
 
 
