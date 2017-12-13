@@ -112,8 +112,6 @@ $role_id_array=array("1");
 								<ul class="nav" id="main-nav" role="menu">
 									<li class="nav-item" role="menuitem">
 										<a href="ADMIN_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
-										<div class="sub-nav-wrapper">
-										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
 										<a href="#" class="nav-link has-child nolink">Manage Profiles</a>
@@ -132,8 +130,6 @@ $role_id_array=array("1");
 									</li>
 									<li class="nav-item" role="menuitem">
 										<a href="ADMIN_create_program.php" onclick="w3_close()" class="nav-link has-child nolink">New Program</a>
-										<div class="sub-nav-wrapper">
-										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
 										<a href="#" class="nav-link has-child nolink">Applications</a>
@@ -153,13 +149,9 @@ $role_id_array=array("1");
 									</li>
 									<li class="nav-item" role="menuitem">
 										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Applicants</a>
-										<div class="sub-nav-wrapper">
-										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
 										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Filled Students</a>
-										<div class="sub-nav-wrapper">
-										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>
