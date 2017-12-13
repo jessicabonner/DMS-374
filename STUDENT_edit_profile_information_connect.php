@@ -15,6 +15,8 @@
 	
 	
 	
+	
+	
 	/* //check if the student info already exists in the database
 	$stmt = $dbc->query("SELECT * FROM student_info WHERE user_id=$user_id");
 	$x = $stmt->fetch();
@@ -51,7 +53,7 @@
 	$worked_at_dms=$_POST['worked_at_dms'];
 	$volunteered_at_seton=$_POST['volunteered_at_seton'];
 	$car=$_POST['car'];
-	$language=$_POST['bilingual'];
+	$bilingual=$_POST['bilingual'];
 	$other_programs = $_POST['other_programs'];
 	$semester_commitment=$_POST['semester_commitment'];
 

@@ -402,7 +402,7 @@
             <input type="text" name="semester_commitment" value="<?php echo $row ['semester_commitment']; ?> " size=10>
 
 			DMS Program(s) already applied to
-			<input type="text" name"other_programs" value= "<?php echo $row ['other_programs']; ?> " size=10>
+			<input type="text" name="other_programs" value= "<?php echo $row ['other_programs']; ?> " size=10>
 
 			<table>
 			<tr>What is your availability for the upcoming semester?</tr>

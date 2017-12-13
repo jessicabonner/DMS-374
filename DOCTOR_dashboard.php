@@ -534,6 +534,10 @@
 				<tr>
 					<td><input type="checkbox" name="filter_criteria[]" value=" potential='1' ">Potential Candidate?<br></td>
 				</tr>
+				
+				<tr>
+					<td><input type="checkbox" name="filter_criteria[]" value=" approved='1' ">Approved?<br></td>
+				</tr>
 
 
 				<tr>
@@ -568,7 +572,7 @@
 		//call select_application_student_list function from DOCTOR_functionality.php
 		//to get the list of applicants for this program
 		$student_applicants=select_application_student_list($_GET['select_application']);
-
+		
 		$student_applicants= implode(',',$student_applicants);
 
 
@@ -686,6 +690,7 @@
 				try
 				{
 					$query= select_student_from_list($student_applicants);
+					
 				}
 				//if the program has no applicants
 				catch(Exception $e)

@@ -93,8 +93,9 @@ try{
 	$_SESSION["user_id"] = $username;
 	$_SESSION["password_hash"]=$password_hash;
 	$_SESSION["role"]='5';
+	$_SESSION['timeout'] = time();
 
-	header('Location: STUDENT_create_student_information.php?user_id='.$user_id);
+	header('Location: STUDENT_create_student_information.php');
 	die();
 }
 
