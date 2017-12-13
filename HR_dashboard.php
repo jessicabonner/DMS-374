@@ -176,6 +176,7 @@ if (isset($_GET['message']))
 <?php else: ?>
 
 <!doctype html>
+
 <html lang="en" dir="ltr">
 <head>
 	<script src="https://code.jquery.com/jquery-3.1.1.js"></script>
@@ -310,7 +311,7 @@ if (isset($_GET['message']))
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
 
 <?php endif; ?>
-
+<div class="zoomed">
 <!-- Header -->
 <div class="w3-container" style="margin-top:40px;" id="showcase">
 	<h1 class="w3-jumbo">
@@ -774,8 +775,12 @@ if (isset($_GET['message']))
 			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-			})(window,document,'script','dataLayer','GTM-59NMNV');</script>
+			})(window,document,'script','dataLayer','GTM-59NMNV');
+			
+			</script>
 			<!-- End Google Tag Manager -->  </div>
 	<?php endif; ?>
+	
+</div>
 </body>
 </html>
