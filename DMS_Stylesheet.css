@@ -150,7 +150,6 @@ table td {
 /* Table Footer */
 .data-table2 tfoot th {
   background-color: #e5f5ff;
-  text-align: left;
   text-align: right;
 }
 .data-table2 tfoot th:first-child {
@@ -179,4 +178,8 @@ input[type=checkbox2]
 
 
 =======
+div.zoomed
+{
+	zoom:80%
+}
 >>>>>>> 4076495a69ae53256ab2d3fe830f9d94c6abe3da

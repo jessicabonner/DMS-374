@@ -22,7 +22,7 @@ function search($search_criteria)
 	//perform search based on HR selected criteria
 	$search_criteria=$_GET['search_criteria'];
 
-	$sql="SELECT * FROM student_info WHERE working_for_dms='1' AND(
+	$sql="SELECT * FROM student_info  INNER JOIN review ON student_info.user_id=review.user_id WHERE student_accept_offer='1' AND(
 		first_name LIKE '%$search_criteria%'
 		OR middle_name LIKE '%$search_criteria%'
 		OR last_name LIKE '%$search_criteria%'
