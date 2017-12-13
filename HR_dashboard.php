@@ -131,6 +131,8 @@ if (isset($_GET['message']))
 					                      <a href="ADMIN_manage_roles.php" onclick="w3_close()"  class="sub-nav-link"><span>Manage Roles</span></a>                    </li>
 					                                                                        <li class="sub-nav-item">
 					                      <a href="ADMIN_create_profile.php" onclick="w3_close()" class="sub-nav-link"><span>New Profile</span></a>                    </li>
+																<li class="sub-nav-item">
+													<a href="ADMIN_change_user_password.php" onclick="w3_close()"  class="sub-nav-link"><span>Change User's Password</span></a>                    </li>
 					                                                                                                                    </ul>
 					            </div>
 										</div>
@@ -735,7 +737,7 @@ if (isset($_GET['message']))
 			<!-- End Google Tag Manager -->  </div>
 	<?php endif; ?>
 
-	
+
 </div>
 
 </body>
