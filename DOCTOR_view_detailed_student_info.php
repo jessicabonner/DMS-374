@@ -526,22 +526,22 @@ else
 <br></br>
 <!--<table width=100% table style>-->
 
-<table class='data-table2'width="100%">
+<table class='data-table2'>
 
 			<tr><thead>
-				<th><width="16.66%"></th>
-				<th><width="16.66%">Monday</th>
-				<th><width="16.66%">Tuesday</th>
-				<th><width="16.66%">Wednesday</th>
-				<th><width="16.66%">Thursday</th>
-				<th><width="16.66%">Friday</th>
+				<th></th>
+				<th>Mon</th>
+				<th>Tue</th>
+				<th>Wed</th>
+				<th>Thu</th>
+				<th>Fri</th>
 			</tr>
 
 
 			<!--input checkboxes and row names-->
 			<tr>
 				<td>8:00am-8:30am</td>
-				<td><input type="checkbox" name="availability_list[]" value="M8am" id="M8am" <?php if (in_array("M8am",$availability_array))echo 'checked="checked"'?>disabled></td>
+				<td><input type="checkbox" name="availability_list[]" id="M8am" value="M8am" <?php if (in_array("M8am",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="T8am" id="T8am" <?php if (in_array("T8am",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="W8am" id="W8am" <?php if (in_array("W8am",$availability_array))echo 'checked="checked"'?>disabled></td>
 				<td><input type="checkbox" name="availability_list[]" value="TH8am" id="TH8am" <?php if (in_array("TH8am",$availability_array))echo 'checked="checked"'?>disabled></td>

@@ -12,7 +12,7 @@
 		}
 		elseif ($_GET['error']=="2")
 		{
-			echo "This email already exists in our system";
+			echo "This user already exists in our system";
 		}
 
 	}

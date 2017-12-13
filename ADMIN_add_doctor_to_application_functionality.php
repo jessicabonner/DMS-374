@@ -47,9 +47,10 @@
 			die();
 		}
 		
-		if (empty(get_doctor_list($select_application)))
+		if (get_doctor_list($select_application)==null)
 		{
 			$doctor_list="'".$_POST['new_doctor']."'";
+			
 		}
 		else
 		{
