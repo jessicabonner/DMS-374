@@ -1,6 +1,6 @@
 <?php
 
-$role_id_array=array("2");
+$role_id_array=array("2","4");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 
@@ -21,6 +21,24 @@ require 'DMS_db.php';
 			$stmt->execute();
 		
 		}
+	}
+	
+	if(isset($_POST['save_potential']))
+	{
+		require 'DMS_db.php';
+		$review= $_POST['potential_approve_array'];
+		$select_application=$_POST['application_id'];
+		
+		foreach($review as $value)
+		{
+			$sql="UPDATE review SET approved=1 WHERE user_id= '$value' AND application_id=$select_application";
+			
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
+		}
+		
+		header("Location: DOCTOR_potential_student_table.php?select_application=$select_application");
+		die();
 	}
 	/* elseif (isset($_POST['accept']))
 	{

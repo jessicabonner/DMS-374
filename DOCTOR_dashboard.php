@@ -601,6 +601,7 @@
 					<th>Major</th>
 					<th>Interview?</th>
 					<th>Potential Candidate?</th>
+					<th>Approved</th>
 					<th>Accepted?</th>
 					<th>Student accepted Offer?</th>
 
@@ -787,6 +788,15 @@
 						echo "<td></td>";
 					}
 					if($x['potential']=="1")
+					{
+						//echo '<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" checked="checked"disabled></td>';
+						echo "<td>&#10004;</td>";
+					}
+					else
+					{
+						echo "<td></td>";
+					}
+					if($x['approved']=="1")
 					{
 						//echo '<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" checked="checked"disabled></td>';
 						echo "<td>&#10004;</td>";

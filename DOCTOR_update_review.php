@@ -33,12 +33,12 @@ use PHPMailer\PHPMailer\Exception;
 
 
 
-require './Exception.php';
-require './PHPMailer.php';
+//require './Exception.php';
+//require './PHPMailer.php';
 
 //require '/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
 
-	$role_id_array=array("2");
+	$role_id_array=array("2","4");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 	
@@ -52,7 +52,8 @@ require './PHPMailer.php';
 	$application_id=$_POST['application_id'];
 	$current_date=date('Y-m-d');
 	
-
+if ($_SESSION['role']==2)
+{
 	//if user clicked submit button named accept to accept a student
 	if(isset($_POST['accept']))
 	{
@@ -280,14 +281,39 @@ require './PHPMailer.php';
 					$stmt->execute();
 			}
 			
+			
 			$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week=:hours_working_week, hourly_rate=:hourly_rate
 			WHERE user_id= :student_id');
 		
 			$stmt2->execute(array('hours_working_week' => $hours_working_week, 'student_id' => "'".$student_id."'" , 'hourly_rate' => $hourly_rate));
 			
 			}
+}
+
+elseif ($_SESSION['role']==4)
+{
+	if( ($_POST['approved'])!== null)
+			{
+					
+					$sql = "UPDATE review SET approved=1 WHERE user_id= '".$student_id."' AND application_id='".$_POST['application_id']."'";
+					$stmt=$dbc->prepare($sql);
+					$stmt->execute();
+					
+					
+			}
+			elseif( ($_POST['approved'])== null)
+			{
+					
+					$sql = "UPDATE review SET approved=NULL WHERE user_id= '".$student_id."' AND application_id='".$_POST['application_id']."'";
+					$stmt=$dbc->prepare($sql);
+					$stmt->execute();
+					
+			}
 			
-	/*		
+			
+}
+			
+		
 			
 	//if the statement fails, display an error
 	if (!$stmt)
@@ -300,5 +326,5 @@ require './PHPMailer.php';
 		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id']);
 		die();
 	}
-*/
+
 ?>

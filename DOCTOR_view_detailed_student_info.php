@@ -507,7 +507,7 @@ else
 
 
 		$availability_array=explode(',',$row['availability']);
-		?>
+	?>
 </table>
 <table class='data-table2'>
 			<br></br><thead>
@@ -647,14 +647,17 @@ else
 				</tr>";
 
 		}
-if ($_SESSION['role']=='2')
-{
+
 		// Display applicants's review status
 		//echo "<tr>";
-		echo "<th>Review</th>";
+		
 
 		$stmt = $dbc->query("SELECT * FROM review WHERE user_id='".$student_id."' AND application_id=$application_id;");
        	$x = $stmt->fetch();
+		
+if ($_SESSION['role']=='2')
+{
+	echo "<th>Review</th>";
 
 		if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
 		{
@@ -685,6 +688,18 @@ if ($_SESSION['role']=='2')
 		}
 
 		echo "</tr>";
+		
+		echo "
+			<tr>
+			<th>Interview Candidate</th>";
+			if ($x['interview']=="1")
+			{
+				echo '<td><input type="checkbox" name="interview" value="1" checked="checked"></td>';
+			}
+			else
+			{
+				echo '<td><input type="checkbox" name="interview" value="1"></td>';
+			}
 
 		echo "
 			<tr>
@@ -697,18 +712,19 @@ if ($_SESSION['role']=='2')
 			{
 				echo '<td><input type="checkbox" name="potential" value="1"></td>';
 			}
-
 		echo "
 			<tr>
-			<th>Interview Candidate</th>";
-			if ($x['interview']=="1")
+			<th>Approved?</th>";
+			if ($x['approved']=="1")
 			{
-				echo '<td><input type="checkbox" name="interview" value="1" checked="checked"></td>';
+				echo '<td><input type="checkbox" name="approved" value="1" checked="checked" disabled></td>';
 			}
 			else
 			{
-				echo '<td><input type="checkbox" name="interview" value="1"></td>';
+				echo '<td><input type="checkbox" name="approved" value="1" disabled></td>';
 			}
+
+		
 
 }
 
@@ -771,15 +787,35 @@ if ($_SESSION['role']=='2')
 			</tr>";
 
 	}
+	
+	if ($_SESSION['role']=='4')
+	{
+		echo "
+			<tr>
+			<th>Approved?</th>";
+			if ($x['approved']=='1')
+			{
+				echo '<td><input type="checkbox" name="approved" value="1" checked="checked"></td>';
+			}
+			else
+			{
+				echo '<td><input type="checkbox" name="approved" value="1"></td>';
+			}
+			echo "<input type='hidden' name='user_id' value=$student_id><br /></td>
+			<input type='hidden' name='application_id' value=$application_id>";
+	}
 
 
 	}
 ?>
 
-<?php if ($_SESSION['role']=='2'):?>
+<?php if ($_SESSION['role']=='2' || $_SESSION['role']=='4'):?>
 </table>
 	<tr><td><br></td>
+	<?php if ($_SESSION['role']=='2'): ?>
 		<td><input type='submit' name= "accept" id="accept_button" value= '  <?php echo $accept_unaccept ?>  ' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
+	<?php endif ?>
+		
 		<td><input type='submit' name= "update" value='  Save Changes  ' onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<tr>
 		<tr><td><br></td>

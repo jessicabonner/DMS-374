@@ -11,7 +11,7 @@
 	if (isset($_GET['message']))
 	{
 	
-		elseif ($_GET['message']=="6"){
+		if ($_GET['message']=="6"){
 			echo '<script language="javascript">';
 			echo 'alert("The password was successfully changed")';
 			echo '</script>';
@@ -319,26 +319,7 @@
 					<td><input type="checkbox" name="filter_criteria[]" value=" car='0' ">No<br></td>
 				</tr>
 
-				<!--checkbox for review status-->
-				<tr>
-					<!--Page Break-->
-					<td><br></td>
-					<td>Review Status</td>
-				</tr>
-				<!--Page Break-->
-				<tr class="blankrow">
-					<td><br></td>
-				<tr class="blankrow">
-					<td><br></td>
-				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='0' ">Not yet reviewed<br></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='1' ">Noncompetitive<br></td>
-				</tr>
-				<tr>
-					<td><input type="checkbox" name="filter_criteria[]" value=" competitive='2' ">Competitive<br></td>
-				</tr>
+				
 
 				<!--break-->
 				<tr>
@@ -387,12 +368,11 @@
 					<th>EID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
-					<th>Review</th>
 					<th>GPA</th>
 					<th>Email</th>
 					<th>Classification</th>
 					<th>Major</th>
-					<th>Already Accepted?</th>
+					<th>Approve?</th>
 				</tr>
 			</thead>
 
@@ -481,47 +461,24 @@
 						$x=select_student_review($id, $_GET['select_application']);
 
 
-						if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
-						{
-							echo '<td><select name="application_review_list[]">
-								<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-								<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-								<option value="competitive = 2 WHERE user_id='.$row['user_id'].'" selected="selected">Competitive</option>
-								</select></td>';
-						}
-						elseif ($x['competitive']=="1") //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
-						{
-							echo'<td><select name="application_review_list[]">
-								<option value="competitive = 0 WHERE user_id='.$row['user_id'].'">N/A</option>
-								<option value="competitive = 1 WHERE user_id='.$row['user_id'].'" selected="selected">Noncompetitive</option>
-								<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
-								</select></td>';
-						}
-						else
-						{ //if competitive = 0 (N/A) in the db, show the correct selected value
-							echo '<td><select name="application_review_list[]">
-								<option value="competitive = 0 WHERE user_id='.$row['user_id'].'"selected="selected">N/A</option>
-								<option value="competitive = 1 WHERE user_id='.$row['user_id'].'">Noncompetitive</option>
-								<option value="competitive = 2 WHERE user_id='.$row['user_id'].'">Competitive</option>
-								</select></td>';
-						}
+						
 
 							echo '
 								<td>'.$row['GPA'].'</td>
 								<td>'.$row['email'].'</td>
 								<td>'.$row['classification'].'</td>
 								<td>'.$row['major'].'</td>';
+								
+							if ($x['approved']=="1")
+							{
+								echo "<td><input type='checkbox' name='potential_approve_array[]' value='$id' checked='checked'></td>";
+							}
+							else
+							{
+								echo "<td><input type='checkbox' name='potential_approve_array[]' value='$id'></td>";
+							}
 
-						if ($row['working_for_dms']==0)
-						{
-							$working_for_dms="No";
-						}
-						else{
-							$working_for_dms="Yes";
-						}
-
-				echo '  <td>'.$working_for_dms.'</td>
-					</tr>';
+						
 
 
 			}
@@ -534,7 +491,7 @@
 			<td><br></td>
 
 			<input type='hidden' name='application_id' value=<?php echo $selected_application_id ?>>
-			<td><input type='submit' name= "save" value='Save Changes' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
+			<td><input type='submit' name= "save_potential" value='Approve Students' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to SAVE the changes to review status?')"></td>
 		<tr>
 
 	</form>
@@ -542,15 +499,6 @@
 	<?php endif; ?>
 
 
-	<script>
-		$('#sort').change(function(){
-			$.ajax({
-				type: "POST",
-				url: "DOCTOR_dashboard.php",
-				data: {text:$(this).val()}
-			});
-		});
-
-	</script>
+	
 </body>
 </html>
