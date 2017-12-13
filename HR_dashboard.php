@@ -514,6 +514,7 @@ if (isset($_GET['message']))
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
 			<tr>
+				<th>Current?</th>
 				<th>EID</th>
 				<th>First Name</th>
 				<th>Middle Name</th>
@@ -632,8 +633,18 @@ if (isset($_GET['message']))
 
 
 			//display all student info in the table
+			
+			if($row['working_for_dms']=='1')
+			{
+				echo "<td>&#10004;</td>";
+			}
+			else
+			{
+				echo "<td></td>";
+			}
 			echo "<td> <a href='HR_view_student.php?id=$id_2'>" .$row['user_id'] . "</a> </td>";
 			echo "
+			
 				<td>".$row["first_name"]."</td>
 				<td>".$row["middle_name"]."</td>
 				<td>".$row["last_name"]."</td>
