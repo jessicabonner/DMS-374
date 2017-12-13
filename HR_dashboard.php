@@ -365,25 +365,7 @@ if (isset($_GET['message']))
 	<details>
 	<summary><b>Filter</b></summary>
 	<p>
-		<form name="filter" method= "get">
-		<!--filter for greater GPA's-->
-		<tr>
-			<td>GPA Greater than</td>
-		</tr>
-		<tr class="blankrow">
-		<!--insert standard GPA to be used for filter-->
-		<tr>
-			<td><input type="text" name="GPA_greater" size="20" style="width:25%;"/></td>
-		</tr>
-		<!--filter for lower GPA's-->
-		<tr>
-			<td>GPA Less than</td>
-		</tr>
-		<tr class="blankrow">
-		<!--insert standard GPA to be used for filter-->
-		<tr>
-			<td><input type="text" name="GPA_less" size="20" style="width:25%;"/></td>
-		</tr>
+	<form name="filter" method= "get">
 			<!--checkbox buttons for student's classification-->
 				<tr>
 					<!--Page Break-->
@@ -509,43 +491,13 @@ if (isset($_GET['message']))
 		//call search_criteria function
 		$query=search($_GET['search_criteria']);
 	}
-
+	
 	//if user is filtering
 	elseif(isset($_GET['filter_criteria']))
 	{
-		if ($_GET['GPA_greater']!="")
-		{
-			//call the filter with gpa function
-			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_greater'],'>');
-		}
-		//if filter is by gpa less than
-		elseif($_GET['GPA_less']!="")
-		{
-			//call the filter with gppa function
-			$query=filter_with_gpa($_GET['filter_criteria'], $_GET['and_or'],$_GET['GPA_less'],'<');
-		}
-		//if filter doesn't include gpa
-		else
-		{
+		
 			$query=filter($_GET['filter_criteria'], $_GET['and_or']); //call filter_criteria function
-		}
 	}
-
-	//if user is trying to filter by GPA along with other criteria
-	elseif(!isset($_GET['filter_criteria']) && (isset($_GET['GPA_greater'])||isset($_GET['GPA_less'])))
-	{
-		//if filter is by gpa greater than
-		if($_GET['GPA_greater']!="")
-		{
-			$query=filter_only_gpa($_GET['GPA_greater'],'>');
-		}
-		//if filter is by gpa less than
-		elseif($_GET['GPA_less']!="")
-		{
-			$query=filter_only_gpa($_GET['GPA_less'],'<');
-		}
-	}
-
 
 	else
 	{
