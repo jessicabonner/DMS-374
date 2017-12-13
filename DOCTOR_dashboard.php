@@ -605,7 +605,7 @@
 					<th>EID</th>
 					<th>First Name</th>
 					<th>Last Name</th>
-					<th>Review</th>
+					<th>Application Status</th>
 
 					<th>GPA</th>
 					<th>Email</th>
@@ -748,28 +748,28 @@
 
 						if ($x['competitive']=="2"): //if competitive = 2 (Competitive) in the db, show the correct selected value
 						?>
-							<td><select name="application_review_list[]" <?php echo $disabled ?>>
+							<td width="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'" selected="selected">Competitive</option>
-								</select></td>
+							</style></select></td>
 				<?php
 						elseif ($x['competitive']=="1"): //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
 				?>
-							<td><select name="application_review_list[]" <?php echo $disabled ?>>
+							<td width="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'" selected="selected">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'">Competitive</option>
-								</select></td>
+							</style></select></td>
 				<?php
 						else: //if competitive = 0 (N/A) in the db, show the correct selected value
 						?>
 						 
-								<td><select name="application_review_list[]" <?php echo $disabled ?>>
+								<td wdith="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'"selected="selected">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'">Competitive</option>
-								</select></td>
+							</style></select></td>
 						<?php endif;
 
 							echo '
