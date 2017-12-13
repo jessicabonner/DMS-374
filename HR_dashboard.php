@@ -3,10 +3,10 @@
 	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
-	
+
 if (isset($_GET['message']))
 	{
-	
+
 		if ($_GET['message']=="6"){
 			echo '<script language="javascript">';
 			echo 'alert("The password was successfully changed")';
@@ -493,7 +493,7 @@ if (isset($_GET['message']))
 			<td><b><input type="radio" name="and_or" value="OR">&nbsp; Search for records containing at least one criteria<br></b></td>
 		</tr>
 		<!--submit filter decision-->
-		<td><input id='submit' type='submit' style='background-color:#AAAAAA;font-color:#66727B;' value='Search'/></td>
+		<td><input id='submit' type='submit' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value='Search'/></td>
 	</form>
 	</p>
 	</details>
@@ -555,7 +555,7 @@ if (isset($_GET['message']))
 	<form action='HR_background_check.php' method='post'>
 
 	<!--Displays all of the students who have been accepted, unless given specific criteria -->
-	<table class="data-table">
+	<table class="data-table" style="width:100;table-layout:fixed;">
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
 			<tr>
@@ -619,13 +619,13 @@ if (isset($_GET['message']))
 				$name_of_program="";
 				$program_id="";
 			}
-			
+
 			$sql = "SELECT * FROM applications WHERE application_id=$application_id";
 			$query2= $dbc->query($sql);
 			$application=$query2->fetch();
-			
-			
-			
+
+
+
 			$bio_data_form = $row['bio_data_form'];
 			if($bio_data_form == 1)
 			{
@@ -665,7 +665,7 @@ if (isset($_GET['message']))
 
 			$id = "'".$row['user_id']."'";
 			$id_2=$row['user_id'];
-			
+
 			if ($_SESSION['role']=='1')
 			{
 				$disabled='disabled';
@@ -738,7 +738,7 @@ if (isset($_GET['message']))
 				<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 		<tr>
 		<?php  endif; ?>
-		
+
 	<?php if ($_SESSION['role']=='3'): ?>
 		<tr><td><br></td>
 

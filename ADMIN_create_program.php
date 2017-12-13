@@ -183,7 +183,7 @@ $role_id_array=array("1");
 								<!--text box for name of program-->
 								<!--This will become the name of the program's application table?-->
 								<tr>
-									<td><p>Name of Program</p></td>
+									<td class = 'dellform'><p>Name of Program</p></td>
 								</tr>
 								<tr>
 									<td><input type="text" name="name_of_program" size="64" pattern="^([a-zA-Z0-9_\s\-]*)$" required/></td>

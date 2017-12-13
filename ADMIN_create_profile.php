@@ -207,7 +207,7 @@
 
 							<!--text box for students middle name-->
 							<tr>
-								<td>Re-enter password</td>
+								<td>Re-enter Password</td>
 							</tr>
 							<tr>
 								<td><input type="text" name="password_2" size="20" maxlength="30" required/></td>
@@ -224,9 +224,6 @@
 							<!--specify program application is for & # of unique questions -->
 							<tr>
 								<td><p>Role</p></td>
-							</tr>
-							<tr class="blankrow">
-								<td><br></td>
 							</tr>
 							<tr>
 								<td>
