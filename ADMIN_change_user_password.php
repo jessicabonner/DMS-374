@@ -211,13 +211,13 @@
 
 						<!--text box for students middle name-->
 						<tr>
-							<td>Re-enter password</td>
+							<td>Re-enter Password</td>
 						</tr>
 						<tr>
 							<td><input type="text" name="password_2" size="20" maxlength="30" required/></td>
 						</tr>
 
-							<td><input type='submit' value='Change password' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change this user's role?')"></td>
+							<td><input type='submit' value='Change Password' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change this user's role?')"></td>
 						</form>
 
 						<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
