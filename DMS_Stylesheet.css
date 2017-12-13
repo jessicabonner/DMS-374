@@ -98,8 +98,6 @@ td.dellform{
 
 
 
-
-
 /* Establises the tables that can be interacted with be to left and font size 14 */
 /* Table */
 .data-table2 {
@@ -112,7 +110,7 @@ td.dellform{
 /* Establises the table header and data font-sizem have a border, and centered */
 .data-table2 th,
 .data-table2 td {
-  border: 3px solid #e1edff;
+  border: 1px solid #e1edff;
   padding: 7px 17px;
   text-align: left;
   font-size: 10px;
@@ -167,7 +165,7 @@ td.dellform{
 .data-table2 tfoot th:first-child {
   text-align: left;
 }
-input[type=checkbox]
+input[type=checkbox2]
 {
   /* Double-sized Checkboxes */
   -ms-transform: scale(2); /* IE */
@@ -183,5 +181,4 @@ input[type=checkbox]
   /* Checkbox text */
   font-size: 100%;
   display: inline;
-
 }
