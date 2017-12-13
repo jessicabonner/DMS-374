@@ -351,7 +351,7 @@ if (isset($_GET['message']))
 		<tr>
 			<td><input type="radio" name="sort" value="GPA DESC">GPA Descending<br></td>
 		</tr>
-		<input type="hidden" name="select_application" value="<?php echo $_GET['select_application']?>"/>
+		<input type="hidden" name="select_application" value="<?php //echo $_GET['select_application']?>"/>
 
 		<td><input id='sort' type='submit' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" value='Search'/></td>
 
@@ -665,6 +665,15 @@ if (isset($_GET['message']))
 
 			$id = "'".$row['user_id']."'";
 			$id_2=$row['user_id'];
+			
+			if ($_SESSION['role']=='1')
+			{
+				$disabled='disabled';
+			}
+			else
+			{
+				$disabled='';
+			}
 
 
 			//display all student info in the table
@@ -680,9 +689,9 @@ if (isset($_GET['message']))
 				<td>".$row["GPA"]."</td>
 				<td>".$row["hours_working_week"]." hours</td>
 				<td>$".$row["hourly_rate"]."/hr</td>
-				<td><input type='checkbox' name='bio_data_form_list[]' value=$id id=$id <?php if ($checked_bio == 1) { echo ".$check_bio."; } ?></td>
-				<td><input type='checkbox' name='i9_list[]' value=$id id=$id <?php if ($checked_i9 == 1) { echo ".$check_i9."; } ?></td>
-				<td><input type='checkbox' name='seton_forms_list[]' value=$id id=$id <?php if ($checked_seton == 1) { echo ".$check_seton."; } ?></td>";
+				<td><input type='checkbox' name='bio_data_form_list[]' value=$id id=$id $disabled <?php if ($checked_bio == 1) { echo ".$check_bio."; } ?></td>
+				<td><input type='checkbox' name='i9_list[]' value=$id id=$id $disabled <?php if ($checked_i9 == 1) { echo ".$check_i9."; } ?></td>
+				<td><input type='checkbox' name='seton_forms_list[]' value=$id id=$id $disabled <?php if ($checked_seton == 1) { echo ".$check_seton."; } ?></td>";
 
 			//call function select_student from DMS_HR.php
 			//to pull the value of the background_check field in table student_info
@@ -691,7 +700,7 @@ if (isset($_GET['message']))
 
 			if ($x['background_check']=="2") //if background_check = 2 (Fail) in the db, show the correct selected value
 			{
-				echo '<td><select name="background_check_list[]">
+				echo '<td><select name="background_check_list[]" '.$disabled.'>
 					<option value="background_check = 0 WHERE user_id='.$id.'">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$id.'">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$id.'" selected="selected">Fail</option>
@@ -699,7 +708,7 @@ if (isset($_GET['message']))
 			}
 			elseif ($x['background_check']=="1") //if background_check = 1 (Pass) in the db, show the correct selected value
 			{
-				echo'<td><select name="background_check_list[]">
+				echo'<td><select name="background_check_list[]" '.$disabled.'>
 					<option value="background_check = 0 WHERE user_id='.$id.'">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$id.'" selected="selected">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$id.'">Fail</option>
@@ -707,7 +716,7 @@ if (isset($_GET['message']))
 			}
 			else
 			{ //if background_check = 0 (N/A) in the db, show the correct selected value
-				echo '<td><select name="background_check_list[]">
+				echo '<td><select name="background_check_list[]"'.$disabled.'>
 					<option value="background_check = 0 WHERE user_id='.$id.'"selected="selected">N/A</option>
 					<option value="background_check = 1 WHERE user_id='.$id.'">Pass</option>
 					<option value="background_check = 2 WHERE user_id='.$id.'">Fail</option>
