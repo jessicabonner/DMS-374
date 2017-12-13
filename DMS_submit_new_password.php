@@ -139,17 +139,18 @@
 
 <?php
 
-if(isset($_POST['submit_password']) && $_POST['email'] && $_POST['password'])
+if(isset($_POST['submit_password']) && $_POST['email'] && $_POST['password'] && $_POST['user_id'])
 {
 	require "DMS_db.php";
 	$email=$_POST['email'];
 	$pass=$_POST['password'];
+	$user=$_POST['user_id'];
 	
 	$password_hash=hash('sha512',$pass);
 
   	//$select=mysql_query("update user set password='$pass' where email='$email'");
 
-	$sql1 = "SELECT user_id FROM student_info WHERE email = '".$email."'";
+	$sql1 = "SELECT user_id FROM student_info WHERE email = '".$email."' AND user_id= '".$user."'";
 	$stmt=$dbc->prepare($sql1);
 	$stmt->execute();
 	

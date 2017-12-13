@@ -5,7 +5,8 @@ require 'DMS_db.php';
 
 try{
 	
-	$username=$_POST['username'];
+	$username=$_POST['id'];
+	//$username=$_POST['username'];
 	$password=$_POST['password'];
 	$password_2=$_POST['password_2'];
 	
