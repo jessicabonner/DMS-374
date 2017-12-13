@@ -90,8 +90,6 @@ table td {
 
 
 
-
-
 /* Establises the tables that can be interacted with be to left and font size 14 */
 /* Table */
 .data-table2 {
@@ -172,4 +170,9 @@ input[type=checkbox]
   font-size: 100%;
   display: inline;
 
+}
+
+div.zoomed
+{
+	zoom:80%
 }
