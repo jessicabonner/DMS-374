@@ -33,8 +33,8 @@ use PHPMailer\PHPMailer\Exception;
 
 
 
-//require './Exception.php';
-//require './PHPMailer.php';
+require './Exception.php';
+require './PHPMailer.php';
 
 //require '/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
 
@@ -156,11 +156,12 @@ if ($_SESSION['role']==2)
 				  			echo 'Email sent to:' . $recipient . '<br/ >';
 				      	  	echo "Mailer Error: " . $mail->ErrorInfo;
 				   		}
+						/*
 				    	else
 				    	{
 				       	 	echo 'Email sent to:' . $recipient . '<br/ >';
 				    	}	
-
+*/
 			
 				
 				
@@ -216,7 +217,7 @@ if ($_SESSION['role']==2)
 				
 				
 			}
-			/*	
+			
 				
 			else
 			{
@@ -225,7 +226,7 @@ if ($_SESSION['role']==2)
 			}
 				
 
-			*/
+		
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 			
