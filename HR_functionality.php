@@ -7,11 +7,11 @@ function filter($filter_criteria, $and_or)
 	//filtering accepted applicants with selected criteria
 	$filter_criteria_sql=implode($and_or,$filter_criteria);
 
-	$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id WHERE student_accept_offer='1' AND ($filter_criteria_sql)";
+	$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id WHERE student_accept_offer='1' AND ($filter_criteria_sql) ORDER BY working_for_dms DESC";
 
 	$query= $dbc->query($sql);;
 
-	echo "Displaying students where $filter_criteria_sql";
+	//echo "Displaying students where $filter_criteria_sql";
 	return $query;
 }
 
@@ -34,10 +34,11 @@ function search($search_criteria)
 		OR email LIKE '%$search_criteria%'
 		OR degree_type LIKE '%$search_criteria%'
 		OR major LIKE '%$search_criteria%'
-		OR major_2 LIKE '%$search_criteria%')";
+		OR major_2 LIKE '%$search_criteria%')
+		ORDER BY working_for_dms DESC";
 	$query= $dbc->query($sql);;
 
-	echo "Displaying students containing '$search_criteria'";
+	//echo "Displaying students containing '$search_criteria'";
 	return $query;
 
 	//error handing
@@ -50,7 +51,7 @@ function search($search_criteria)
 function view_all(){
 	require 'DMS_db.php';
 	
-	$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id WHERE student_accept_offer='1'";
+	$sql="SELECT * FROM student_info INNER JOIN review ON student_info.user_id=review.user_id WHERE student_accept_offer='1' ORDER BY working_for_dms DESC";
 	$query= $dbc->query($sql);;
 	return $query;
 }
