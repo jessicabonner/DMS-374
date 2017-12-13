@@ -502,7 +502,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="F10am" id="F10am" required></td>
 			</tr>
 			<tr>
-				<td>10:30am-11:00pm</td>
+				<td>10:30am-11:00am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M10:30am" id="M10:30am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="T10:30am" id="T10:30am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="W10:30am" id="W10:30am" required></td>
@@ -510,7 +510,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="F10:30am" id="F10:30am" required></td>
 			</tr>
 			<tr>
-				<td>11:00am-11:30pm</td>
+				<td>11:00am-11:30am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M11am" id="M11am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="T11am" id="T11am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="W11am" id="W11am" required></td>
