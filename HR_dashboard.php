@@ -462,6 +462,21 @@ if (isset($_GET['message']))
 		<tr>
 			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" volunteered_at_seton='0' ">&nbsp; No<br></td>
 		</tr>
+		
+		<tr>
+			<td><br></td>
+			<td>Current?</td>
+		</tr>
+		<tr class="blankrow">
+		<td><br></td>
+		<tr class="blankrow">
+		<td><br></td>
+		<tr>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" working_for_dms='1' " >&nbsp;Yes<br></td>
+		</tr>
+		<tr>
+			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" working_for_dms='0' ">&nbsp; No<br></td>
+		</tr>
 
 		<!--break-->
 		<tr>
