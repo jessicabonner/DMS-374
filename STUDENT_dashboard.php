@@ -119,8 +119,8 @@
 <li class="nav-item" role="menuitem"><a href="/in-the-news" class="nav-link">News</a></li>
 </ul>              </div>
               <div class="parent-banner-links">
-								<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
-								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="4">Logout</font></a>
+								<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="2">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="2">Logout</font></a>
 					<h2 class="UT-secondary-logo">
 					<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 				  <!--<a href="DMS_logout.php" onclick="w3_close()">Logout</a>-->
@@ -136,6 +136,9 @@
                       <br>
                     <br>
                   <br>
+				  <br>
+				  <br>
+				  
             </div>
           </div>
         </div>
@@ -159,6 +162,10 @@
         	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
           	</div>
         </li>
+		 <li class="nav-item" role="menuitem">
+        	<div class="sub-nav-wrapper">
+          	</div>
+        </li>
 
         <li class="nav-item" role="menuitem">
             </div>
@@ -177,26 +184,26 @@
 		<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
   		<!-- Header -->
-		<div class="w3-container" style="margin-top:40px" id="showcase">
-			<h1 class="w3-jumbo">
-				<!-- logged in user information -->
-				<?php  if (isset($_SESSION['user_id'])) : ?>
-					<b>Welcome</b>
-				<?php endif ?>
-			</h1>
-		<hr style="width:800px;border:5px solid #BF5700" class="w3-round">
+<div class="w3-container" style="margin-top:50px; font-familt:benton sans;" id="showcase">
+	<h1 class="w3-jumbo">
+		
+	</h1>
 
+	<hr style="min-width:100%;border:5px solid #BF5700" align="left" class="w3-round">
+	
 
+		
 		<br>
 			<b>You have applied to the following programs. If you would like to apply to another program, click the "New Application" tab on the navigation bar.
 			</b>
+		<br>
 		<br>
 		</div>
 
 
 
 		<table class="data-table">
-			<caption class="title">Programs</caption>
+			
 			<thead>
 				<tr>
 

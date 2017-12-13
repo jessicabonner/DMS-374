@@ -111,8 +111,8 @@
 	</ul>
 	</div>
     <div class="parent-banner-links">
-			<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
-			<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
+			<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="2">Change Password</font></a>
+			<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="2">Logout</font></a>
     <h2 class="UT-secondary-logo">
     	<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
     </h2>
@@ -131,48 +131,56 @@
     </div>
     </div>
 	<!-- container-topnav -->
-	<div class="container container-nav container-nav-phase2">
-    <div class="row">
-    <div class="column small-12">
-    <nav>
-    <ul class="nav" id="main-nav" role="menu">
-		<li class="nav-item" role="menuitem">
-        <a href="STUDENT_dashboard.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
-	<div class="sub-nav-wrapper">
-    </div>
+		<div class="container container-nav container-nav-phase2">
+        <div class="row">
+        <div class="column small-12">
+        <nav>
+        <ul class="nav" id="main-nav" role="menu">
+        <li class="nav-item" role="menuitem">
+        	<a href="STUDENT_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+			<div class="sub-nav-wrapper">
+            </div>
         </li>
         <li class="nav-item" role="menuitem">
-        <a href="STUDENT_edit_profile_information.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  	<div class="sub-nav-wrapper">
-    </div>
+        	<a href="STUDENT_edit_profile_information.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+          	</div>
         </li>
         <li class="nav-item" role="menuitem">
-        <a href="" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                    <div class="sub-nav-wrapper">
-    </div>
-    </li>
-    <li class="nav-item" role="menuitem">
-    </div>
-    </div>
-    </li>
-    </ul>
-    </nav>
-    </div>
-    </div>
-    </div> <!-- container-nav-phase2 -->
-    </div> <!-- nav-wrapper -->
+        	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+          	</div>
+        </li>
+		 <li class="nav-item" role="menuitem">
+        	<div class="sub-nav-wrapper">
+          	</div>
+        </li>
+
+        <li class="nav-item" role="menuitem">
+            </div>
+            </div>
+        </li>
+        </ul>
+        </nav>
+        </div>
+        </div>
+  		</div> <!-- container-nav-phase2 -->
+    	</div> <!-- nav-wrapper -->
 
 	<!-- !PAGE CONTENT! -->
-	<div class="w3-main" style="margin-left:40px;margin-right:450px">
+		<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
-    <!-- Header -->
-	<div class="w3-container" style="margin-top:40px" id="showcase">
+  		<!-- Header -->
+<div class="w3-container" style="margin-top:50px; font-familt:benton sans;" id="showcase">
 	<h1 class="w3-jumbo">
-		<b>Dell Medical Undergraduate Programs</b>
+		<b>Programs</b>
 	</h1>
-	<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
+
+	<hr style="min-width:100%;border:5px solid #BF5700" align="left" class="w3-round">
+
+    
 	<br>
-	<b>Please select which program you would like to apply to. </b>
-	<br>
-	<br>
+	<!--<b>Select which program you would like to apply to. </b>
+	<hr />-->
+	
 	<small>**Be aware that applying to too many programs does not reflect well on a student. Choose the programs you apply to wisely.</small>
 	</div>
 	<div class="w3-container" id="application" style="margin-top:10px">
@@ -180,7 +188,8 @@
 
 <!--Calls on the function to display all applications -->
 	<form name="apply_form" action = "STUDENT_dynamic_application.php" method= "post">
-<table>
+	
+	<br><br>
 
 				<?php
 				//Displays every application as a checkbox for the student to choose from
@@ -192,12 +201,12 @@
 							$name_of_program = get_program($application['program_id']);
 
 							//Displays the actual name of the application
-							echo "<tr><td><input type='radio' name='application_id' value=$application[application_id] required>$name_of_program<br></td></tr>";
+							echo "<input type='radio' name='application_id' value=$application[application_id] required><b>$name_of_program</b><br>";
 						}
 					}
 				?>
-</table>
+
 
 <!--Selects the application that the doctor has seleceted -->
-<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
+<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Select Program" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
 </body>

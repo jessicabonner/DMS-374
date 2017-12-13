@@ -106,6 +106,7 @@ table td {
   padding: 7px 17px;
   text-align: left;
   font-size: 16px;
+  
 }
 /* Establises the table font, size, and ensures the table spans across the whole page! */
 .data-table2 caption {
@@ -126,6 +127,7 @@ table td {
 /* Table Body  be a light blue #353535 */
 .data-table2 tbody td {
   color: #353535;
+  
 /* Establises the table data be aligned to the right for the first and last row */
 }
 .data-table2 tbody td:first-child,
@@ -142,6 +144,7 @@ table td {
 .data-table2 tbody tr:hover td {
   background-color: #ffd1b3;
   border-color: #ffd1b3;
+  
 }
 /* Table Footer */
 .data-table2 tfoot th {
@@ -151,7 +154,7 @@ table td {
 .data-table2 tfoot th:first-child {
   text-align: left;
 }
-input[type=checkbox2]
+input[type=checkbox]
 {
   /* Double-sized Checkboxes */
   -ms-transform: scale(2); /* IE */

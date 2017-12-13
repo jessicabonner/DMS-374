@@ -112,6 +112,23 @@
         <div class="column small-12">
         <nav>
         <ul class="nav" id="main-nav" role="menu">
+        <li class="nav-item" role="menuitem">
+        	<a href="STUDENT_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+			<div class="sub-nav-wrapper">
+            </div>
+        </li>
+        <li class="nav-item" role="menuitem">
+        	<a href="STUDENT_edit_profile_information.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+          	</div>
+        </li>
+        <li class="nav-item" role="menuitem">
+        	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+          	</div>
+        </li>
+		 <li class="nav-item" role="menuitem">
+        	<div class="sub-nav-wrapper">
+          	</div>
+        </li>
 
         <li class="nav-item" role="menuitem">
             </div>
@@ -123,7 +140,6 @@
         </div>
   		</div> <!-- container-nav-phase2 -->
     	</div> <!-- nav-wrapper -->
-
 
 
 
