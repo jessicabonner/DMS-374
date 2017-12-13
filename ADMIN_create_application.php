@@ -123,6 +123,8 @@ $role_id_array=array("1");
 																<a href="ADMIN_manage_roles.php" onclick="w3_close()"  class="sub-nav-link"><span>Manage Roles</span></a>                    </li>
 																																									<li class="sub-nav-item">
 																<a href="ADMIN_create_profile.php" onclick="w3_close()" class="sub-nav-link"><span>New Profile</span></a>                    </li>
+																<li class="sub-nav-item">
+													<a href="ADMIN_change_user_password.php" onclick="w3_close()"  class="sub-nav-link"><span>Change User's Password</span></a>                    </li>
 																																																															</ul>
 											</div>
 										</div>
