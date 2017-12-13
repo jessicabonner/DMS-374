@@ -9,6 +9,7 @@
 	$user_id=$_SESSION['user_id'];
 
 	$application_id= $_POST['application_id'];
+	
 	//echo $_POST['question_0'];
 
 	$sql="SELECT term, year, number_unique_questions, list_unique_questions, program_id FROM applications WHERE application_id='".$application_id."'";
