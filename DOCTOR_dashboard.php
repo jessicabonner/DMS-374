@@ -583,6 +583,15 @@
 
 		//call get_program on DOCTOR_functionality.php to get the name of the program
 		$name_of_program=get_program($selected_application['program_id']);
+		
+			if ($_SESSION['role']=='1')
+			{
+				$disabled='disabled';
+			}
+			else
+			{
+				$disabled='';
+			}
 	?>
 
 		<form action='DOCTOR_update_review_list.php' method='post'>
@@ -739,7 +748,7 @@
 
 						if ($x['competitive']=="2"): //if competitive = 2 (Competitive) in the db, show the correct selected value
 						?>
-							<td><select name="application_review_list[]">
+							<td><select name="application_review_list[]" <?php echo $disabled ?>>
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'" selected="selected">Competitive</option>
@@ -747,7 +756,7 @@
 				<?php
 						elseif ($x['competitive']=="1"): //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
 				?>
-							<td><select name="application_review_list[]">
+							<td><select name="application_review_list[]" <?php echo $disabled ?>>
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'" selected="selected">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'">Competitive</option>
@@ -756,7 +765,7 @@
 						else: //if competitive = 0 (N/A) in the db, show the correct selected value
 						?>
 						 
-								<td><select name="application_review_list[]">
+								<td><select name="application_review_list[]" <?php echo $disabled ?>>
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'"selected="selected">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'">Noncompetitive</option>
 								<option value="competitive = 2 WHERE user_id='<?php echo $id?>'">Competitive</option>

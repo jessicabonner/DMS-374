@@ -1,13 +1,3 @@
-<?php
-	if(isset($_GET['error']))
-	{
-		if ($_GET['error']=="1")
-		{
-			echo "Incorrect username or password";
-		}
-
-	}
-?>
 
 
 <!doctype html>
