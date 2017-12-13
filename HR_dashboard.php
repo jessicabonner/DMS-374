@@ -311,7 +311,7 @@ if (isset($_GET['message']))
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
 
 <?php endif; ?>
-
+<div class="zoomed">
 <!-- Header -->
 <div class="w3-container" style="margin-top:40px;" id="showcase">
 	<h1 class="w3-jumbo">
@@ -734,6 +734,6 @@ if (isset($_GET['message']))
 			<!-- End Google Tag Manager -->  </div>
 	<?php endif; ?>
 	
-
+</div>
 </body>
 </html>
