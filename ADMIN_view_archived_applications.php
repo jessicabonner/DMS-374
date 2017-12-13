@@ -156,7 +156,7 @@ $role_id_array=array("1");
 										</div>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Accepted Students</a>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">View All Filled Students</a>
 										<div class="sub-nav-wrapper">
 										</div>
 									</li>
