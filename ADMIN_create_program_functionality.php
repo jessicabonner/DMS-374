@@ -30,7 +30,7 @@
 			
 			//prepare SQL statement to prevent SQL injection		
 		    $stmt = $dbc-> prepare('INSERT INTO programs (name_of_program, program_description) 
-		    VALUES (:name_of_program, :program_description');
+		    VALUES (:name_of_program, :program_description)');
 
 			//bind variables to prepared statement and execute
 			$stmt->execute(array('name_of_program' => $name_of_program, 'program_description' => $program_description));

@@ -6,6 +6,7 @@ body {
   padding: 0;
   margin: 0;
   width: 100%;
+
 }
 /* Establises the table font, size, and ensures the table spans across the whole page! */
 table {
@@ -98,6 +99,7 @@ td.dellform{
 
 
 
+
 /* Establises the tables that can be interacted with be to left and font size 14 */
 /* Table */
 .data-table2 {
@@ -182,3 +184,6 @@ input[type=checkbox2]
   font-size: 100%;
   display: inline;
 }
+
+
+
