@@ -3,7 +3,7 @@
 	if(isset($_GET['action']))
 	{
 		require "DMS_db.php";
-		$id=$_GET['id'];
+		$id=strtolower($_GET['id']);
 		$select_application=$_GET['select_application'];
 		
 		$doctor_array=get_doctor_list($select_application);

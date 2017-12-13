@@ -3,7 +3,7 @@
 	require "DMS_general_functions.php";
 	require "DMS_db.php";
 
-	$id=$_POST['id'];
+	$id=strtolower($_POST['id']);
 	$role_id=$_POST['role_id'];
 	
 	$validate=check_user_exists($id);

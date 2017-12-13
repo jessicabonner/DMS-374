@@ -4,7 +4,7 @@
 require 'DMS_db.php';
 	
 	$password_hash=hash('sha512',$_GET['password']);
-	$user_id=$_GET['username'];
+	$user_id=strtolower($_GET['username']);
 	
 	
 	
