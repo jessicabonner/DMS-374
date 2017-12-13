@@ -2,9 +2,15 @@
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/Exception.php';
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
-require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
+//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/Exception.php';
+//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
+//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
+
+
+require './Exception.php';
+require './PHPMailer.php';
+
+
 
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
@@ -72,20 +78,23 @@ require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-
 				$recipient = $row['email'];
 			}
 
-		    	$mail = new PHPMailer(true);
+		    	$mail = new PHPMailer;
 				//$mail->SMTPDebug = 2;   
-		    	$mail->IsSMTP();
+		    	//$mail->IsSMTP();
+				/*
 		    	$mail->Host = 'smtp.gmail.com'; 
 		    	$mail->SMTPAuth = true;
 		    	$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
 		    	$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
 			    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 			    $mail->Port = 587; 
+				*/
 		    	$mail->From = "$from";  // Sender's email address
 		    	$mail->FromName = "$from_name"; // senders name 
 		    	$mail->Body = "$msg";
 		    	$mail->Subject = "$subject";
-				$mail->addAttachment('/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/files/Biographical Data Form.pdf');
+				//$mail->addAttachment('/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/files/Biographical Data Form.pdf');
+				$mail->addAttachment('./html/Biographical Data Form.pdf');
 		    	$mail->AddAddress($recipient);  // Recipient
 		
 					if(!$mail->send())

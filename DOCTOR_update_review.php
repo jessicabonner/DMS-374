@@ -11,11 +11,12 @@ use PHPMailer\PHPMailer\Exception;
 //require_once $_SERVER['DOCUMENT_ROOT'].'/phpmailer/libs/PHPMailer-master/src/PHPMailer.php';
 //require_once $_SERVER['DOCUMENT_ROOT'].'/phpmailer/libs/PHPMailer-master/src/SMTP.php';
 
-	require "phpmailer/libs/PHPMailer-master/src/PHPMailer.php";
+	
+	//require "phpmailer/libs/PHPMailer-master/src/PHPMailer.php";
     //require "PHPMailer-master/src/OAuth.php";
-    require "phpmailer/libs/PHPMailer-master/src/SMTP.php";
+    //require "phpmailer/libs/PHPMailer-master/src/SMTP.php";
     //require "PHPMailer-master/src/POP3.php";
-    require "phpmailer/libs/PHPMailer-master/src/Exception.php";
+    //require "phpmailer/libs/PHPMailer-master/src/Exception.php";
 
 
 //require '/tr22252/var/www/html/phpmailer/libs/PHPMailer-master/src/Exception.php';
@@ -30,6 +31,12 @@ use PHPMailer\PHPMailer\Exception;
 //require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
 //require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
 
+
+
+require './Exception.php';
+require './PHPMailer.php';
+
+//require '/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
 
 	$role_id_array=array("2");
 	require "DMS_authenticate.php";
@@ -76,6 +83,7 @@ use PHPMailer\PHPMailer\Exception;
 			//If the doctor accepts a student, this will send an email notification to the student
 			if(($_POST['new_accepted_by_DMS'])== '1')
 			{
+				/*
 				$sql2="SELECT * FROM applications WHERE application_id='".$application_id."'";
 				$stmt=$dbc->prepare($sql2);
 		
@@ -83,8 +91,8 @@ use PHPMailer\PHPMailer\Exception;
 				{
 					$program_id= $row['program_id'];
 				}
+				*/
 				
-				/*
 				
 				//The Email Sender information
 	    		$from = 'DellMed.Notifications@gmail.com'; //This will need to change
@@ -96,30 +104,42 @@ use PHPMailer\PHPMailer\Exception;
 				
 		
 				//Finds the email of the student the doctor accepted
-				$sql2 = "SELECT email FROM student_info WHERE user_id = '".$student_id."'";
+				$sql2 = "SELECT email, first_name FROM student_info WHERE user_id = '".$student_id."'";
 				$query = $dbc->query($sql2);
 				
 				
 				//$recipients_array = array();
+				//$mail_body="We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 7 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you have been accepted into. Sincerely, DMS Team";
 				
 				while ($row=$query->fetch(PDO::FETCH_ASSOC))
 				{
+					/*
+					$mailArray = array(
+						'recipient' => $row['email'],
+						'name' => $row['first_name'],
+						'subject'=> 'DMS application',
+						'mail_body'=>$mail_body);
+					*/
+					
+					
 					$recipient = $row['email'];
+						
 				}
 				
-
+				
+				
 			    	//$mail = new PHPMailer(true);
-					$mail = new PHPMailer(true);
+					$mail = new PHPMailer;
 					//$mail->SMTPDebug = 2;   
-			    	$mail->IsSMTP();
-			    	$mail->Host = 'smtp.gmail.com'; 
+			    	//$mail->IsSMTP();
+			    	//$mail->Host = 'smtp.gmail.com'; 
 					//$mail->Host = 'dev-undergraduates.dellmed.utexas.edu'; 
-			    	$mail->SMTPAuth = true;
-			    	$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
-			    	$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
-				    $mail->SMTPSecure = 'tls';      //tls                      // Enable TLS encryption, `ssl` also accepted
+			    	//$mail->SMTPAuth = true;
+			    	//$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
+			    	//$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
+				    //$mail->SMTPSecure = 'tls';      //tls                      // Enable TLS encryption, `ssl` also accepted
 				    //$mail->Port = 587; 465; 25;
-					$mail->Port = 587; 
+					//$mail->Port = 587; 
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
 			    	//$mail->Body = "$msg";
@@ -142,9 +162,9 @@ use PHPMailer\PHPMailer\Exception;
 
 			
 				
-				*/
 				
 				
+				/*
 				//$mail = new PHPMailer(true);
 				$mail = new PHPMailer;
 				//$mail->SMTPDebug = 2; 
@@ -162,7 +182,36 @@ use PHPMailer\PHPMailer\Exception;
 				  echo 'Message has been sent.';
 				}
 				
+				*/
 				
+				
+				
+				/*
+				
+				function mailer($mailArray, $page) {
+				    $header = array();
+				    $header[] = "MIME-Version: 1.0";
+							$header[] = "From: Dell Medical School < DellMed.Notifications@gmail.com >";
+							$file =
+				            $header[] = "Content-type: text/plain; charset=iso-8859-1";
+				            $header[] = "X-Mailer: PHP/".phpversion();
+				            $header[] = $mailArray['name'];
+				            if ($page) {
+				                $subject = $mailArray['subject'];
+				                $recipient = $mailArray['recipient'];
+								
+				            }
+				            $mail_body = $mailArray['mail_body']; 
+				            mail($recipient, $subject, $mail_body, implode("\r\n", $header) ); 
+							
+
+				        }// end function mailer()
+				
+				
+						mailer($mailArray, true);
+				
+				
+				*/
 				
 				
 			}
@@ -175,7 +224,7 @@ use PHPMailer\PHPMailer\Exception;
 			}
 				
 
-			*/	
+			*/
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 			
@@ -238,7 +287,7 @@ use PHPMailer\PHPMailer\Exception;
 			
 			}
 			
-			
+	/*		
 			
 	//if the statement fails, display an error
 	if (!$stmt)
@@ -251,5 +300,5 @@ use PHPMailer\PHPMailer\Exception;
 		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id']);
 		die();
 	}
-
+*/
 ?>
