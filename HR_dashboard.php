@@ -509,7 +509,7 @@ if (isset($_GET['message']))
 	<form action='HR_background_check.php' method='post'>
 
 	<!--Displays all of the students who have been accepted, unless given specific criteria -->
-	<table class="data-table">
+	<table class="data-table3">
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
 			<tr>
