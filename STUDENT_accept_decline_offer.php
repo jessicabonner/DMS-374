@@ -94,7 +94,7 @@ require './PHPMailer.php';
 		    	$mail->Body = "$msg";
 		    	$mail->Subject = "$subject";
 				//$mail->addAttachment('/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/files/Biographical Data Form.pdf');
-				$mail->addAttachment('./html/Biographical Data Form.pdf');
+				$mail->addAttachment('./Biographical Data Form1.pdf');
 		    	$mail->AddAddress($recipient);  // Recipient
 		
 					if(!$mail->send())
@@ -102,10 +102,12 @@ require './PHPMailer.php';
 			  			echo 'Email sent to:' . $recipient . '<br/ >';
 			      	  	echo "Mailer Error: " . $mail->ErrorInfo;
 			   		}
+					/*
 			    	else
 			    	{
 			       	 	echo 'Email sent to:' . $recipient . '<br/ >';
 			    	}	
+					*/
 
 		
 				
