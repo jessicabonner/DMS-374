@@ -192,7 +192,7 @@
 								<td><p>EID</p></td>
 							</tr>
 							<tr>
-								<td><input type="text" name="username" required></td>
+								<td><input type="text" name="id" required></td>
 							</tr>
 
 							<!--text box for students middle name-->
