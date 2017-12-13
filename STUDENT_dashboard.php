@@ -181,7 +181,7 @@
 			<h1 class="w3-jumbo">
 				<!-- logged in user information -->
 				<?php  if (isset($_SESSION['user_id'])) : ?>
-					<b>Welcome <strong><?php echo $_SESSION['user_id']; ?></strong></b>
+					<b>Welcome</b>
 				<?php endif ?>
 			</h1>
 		<hr style="width:800px;border:5px solid #BF5700" class="w3-round">

@@ -14,6 +14,8 @@
 
 	
 	$application_id=$_GET['application_id'];
+	
+	$application = select_application($application_id);
 
 	$date= get_application_accept_date_not_formatted($user_id, $application_id);
 
@@ -200,7 +202,7 @@
 
 <body>
 <p>You are being offered an internship position with the <?php echo get_program_from_app_id($application_id) ?> program.
-This is/is not a paid position. Please accept of decline your offer below.</p>
+This is <?php if($application['position_type']=='Non-Paid'){ echo 'not'; } ?> a paid position. Please accept of decline your offer below.</p>
 
 
 <form name="STUDENT_accept_decline_offer.php" action="STUDENT_accept_decline_offer.php" method="post">

@@ -132,4 +132,16 @@
 		return $roles;
 	}
 	
+	//return the application that corresponds to a given id
+	function select_application($application_id)
+	{
+		require 'DMS_db.php';
+		// select a specific application using application_id
+		$sql="SELECT * FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application= $stmt->fetch();
+		return $application;
+	}
+	
 ?>
