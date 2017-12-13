@@ -11,7 +11,7 @@ function filter($filter_criteria, $and_or)
 
 	$query= $dbc->query($sql);;
 
-	echo "Displaying students where $filter_criteria_sql";
+	//echo "Displaying students where $filter_criteria_sql";
 	return $query;
 }
 
@@ -38,7 +38,7 @@ function search($search_criteria)
 		ORDER BY working_for_dms ASC";
 	$query= $dbc->query($sql);;
 
-	echo "Displaying students containing '$search_criteria'";
+	//echo "Displaying students containing '$search_criteria'";
 	return $query;
 
 	//error handing
