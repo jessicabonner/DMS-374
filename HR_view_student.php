@@ -114,32 +114,34 @@ $role_id_array=array("3","1");
         </div>
       </div> <!-- container-topnav -->
 
-			<div class="container container-nav container-nav-phase2">
-       <div class="row">
-        <div class="column small-12">
-         <nav>
-          <ul class="nav" id="main-nav" role="menu">
-           <li class="nav-item" role="menuitem">
- 			<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
- 			<div class="sub-nav-wrapper"></div>
-           </li>
-
-
-           <li class="nav-item" role="menuitem">
- 			<a href="HR_view_all_applications.php" onclick="w3_close()" class="nav-link has-child nolink">All Applications</a>
- 			<div class="sub-nav-wrapper"></div>
-           </li>
-           <li class="nav-item" role="menuitem">
+      <div class="container container-nav container-nav-phase2">
+        <div class="row">
+          <div class="column small-12">
+            <nav>
+              <ul class="nav" id="main-nav" role="menu">
+            <li class="nav-item" role="menuitem">
+        <a href="HR_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+        <a href="" onclick="w3_close()" class="nav-link has-child nolink">HR Forms</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+        <a href="" onclick="w3_close()" class="nav-link has-child nolink">Biographical Forms</a>                  <div class="sub-nav-wrapper">
+          </div>
+              </li>
+                <li class="nav-item" role="menuitem">
+            </div>
+          </div>
+              </li>
+                  </ul>
+            </nav>
+          </div>
         </div>
-       </div>
-           </li>
-          </ul>
-         </nav>
-      </div>
-     </div>
- <!-- container-nav-phase2 -->
+      </div> <!-- container-nav-phase2 -->
 
- </div><!-- nav-wrapper -->
+    </div> <!-- nav-wrapper -->
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
@@ -196,7 +198,7 @@ echo "<form action='HR_dashboard.php' method='get'>
 </tr>
 
 <table class="data-table2">
-
+	
 <?php
 
 //while($row = mysqli_fetch_array($result))
@@ -366,7 +368,7 @@ else
 
 echo "<tr>";
 echo "<th>Working for DMS?</th>";
-echo '<td><input type="checkbox" name="new_working_for_dms" value="1" <?php if ($checked == 1) { echo '.$check.'; } ?></td>';
+echo '<td><input type="checkbox" name="new_working_for_dms" value="1" <?php if ($checked == 1) { echo '.$check.'; } ?>></td>';
 echo '<td><input type="hidden" name="user_id" value='.$row['user_id'].'></td>';
 //echo "</tr>"Check<br/>;
 

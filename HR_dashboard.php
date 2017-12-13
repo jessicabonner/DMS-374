@@ -546,7 +546,7 @@ if (isset($_GET['message']))
 				<th>Biographical Data Form</th>
 				<th>I-9 Form</th>
 				<th>Seton Forms</th>
-				<th>Background Check</th>
+				<?php if ($_SESSION['role']=='3'){ echo "<th>Background Check</th>"; } ?>
 				<!--<th>Working for DMS?</th>-->
 				<th>Program</th>
 				<th>Position Type</th>
@@ -680,7 +680,8 @@ if (isset($_GET['message']))
 			//to pull the value of the background_check field in table student_info
 			$x = select_student($id);
 
-
+			if ($_SESSION['role']=='3')
+			{
 			if ($x['background_check']=="2") //if background_check = 2 (Fail) in the db, show the correct selected value
 			{
 				echo '<td><select name="background_check_list[]" '.$disabled.'>
@@ -705,10 +706,12 @@ if (isset($_GET['message']))
 					<option value="background_check = 2 WHERE user_id='.$id.'">Fail</option>
 					</select></td>';
 			}
+			}
 
 			//echo "<td></td>"
 			echo "<td> <a href='HR_program_description.php?application_id= $application_id & program_id= $program_id '>" .$name_of_program . "</a> </td>";
 			echo "<td>". $application['position_type']. "</td></tr>";
+			
 		}
 
 ?>

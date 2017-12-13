@@ -1,3 +1,43 @@
+	  <?php
+	  
+	  session_start();
+	  
+		if($_SESSION["role"]=="5")
+	{
+		header("STUDENT_dashboard.php");
+		
+	}
+	elseif($_SESSION["role"]=="4")
+	{
+		$here="DOCTOR_potential_student_table.php";
+		
+	}
+	elseif($_SESSION["role"]=="3")
+	{
+		$here="HR_dashboard.php";
+		
+	}
+	elseif($_SESSION["role"]=="2")
+	{
+		$here="DOCTOR_dashboard.php";
+		
+	}
+	elseif($_SESSION["role"]=="1")
+	{
+		$here="ADMIN_dashboard.php";
+		
+	}
+
+	else
+	{
+		$here="DMS_login.php";
+		
+	}
+	  
+	  
+	  
+	  ?>
+
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -94,6 +134,9 @@
 
 			<!-- !PAGE CONTENT! -->
 			<div class="center" style="position:relative; bottom:-175px; vertical-align:bottom;"><center>
-          Looks like something went wrong on our end. Please press here to navigate back to your dashbaord.
+          Something went wrong on our end. Please press <a href= <?php echo $here; ?>>here</a> to navigate back to your dashboard.
         </center>
       </div>
+	  
+	  
+
