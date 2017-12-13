@@ -178,7 +178,7 @@ $role_id_array=array("1");
 										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Accepted Students</a>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Filled Students</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>
