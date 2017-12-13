@@ -8,7 +8,6 @@
 
 require 'DMS_db.php';
 
-	$user_id=$_POST['user_id'];
 
 
 	if( ($_POST['save']))
@@ -21,9 +20,9 @@ require 'DMS_db.php';
 		
 		
 		//Set all checkboxes to 0 (unchecked)
-		$sql = "UPDATE student_info SET working_for_dms = '0'";
-		$stmt=$dbc->prepare($sql);
-		$stmt->execute();
+		//$sql = "UPDATE student_info SET working_for_dms = '0'";
+		//$stmt=$dbc->prepare($sql);
+		//$stmt->execute();
 		
 		
 		$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week=:hours_working_week, hourly_rate=:hourly_rate
@@ -46,16 +45,19 @@ require 'DMS_db.php';
 		}
 		*/
 		
-		if(!empty($_POST['new_working_for_dms']))
+		if(isset($_POST['new_working_for_dms']))
 		{
-			require 'DMS_db.php';
 			
-			$id=$_POST['user_id'];
-
 			$sql="UPDATE student_info SET working_for_dms = 1 WHERE user_id = '".$id."'";
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 	
+		}
+		else
+		{
+			$sql="UPDATE student_info SET working_for_dms = 0 WHERE user_id = '".$id."'";
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
 		}
 		
 		/*
