@@ -509,8 +509,7 @@ if (isset($_GET['message']))
 	<form action='HR_background_check.php' method='post'>
 
 	<!--Displays all of the students who have been accepted, unless given specific criteria -->
-	<table class="data-table" style="width:100;table-layout:fixed;">
-	<table class="data-table3">
+	<table class="data-table">
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
 			<tr>
@@ -734,12 +733,9 @@ if (isset($_GET['message']))
 			</script>
 			<!-- End Google Tag Manager -->  </div>
 	<?php endif; ?>
-<<<<<<< HEAD
+
 	
 </div>
-=======
 
-
->>>>>>> 37bcf36e250c2853b3986f06fee84b496c86aec1
 </body>
 </html>
