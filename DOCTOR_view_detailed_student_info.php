@@ -513,7 +513,8 @@ else
 		$availability_array=explode(',',$row['availability']);
 	?>
 </table>
-<table class='data-table2'>
+<table class='data-table2' width=600px>
+	
 			<br></br><thead>
 			<th>Semester Availability</th>
 
@@ -525,15 +526,15 @@ else
 <br></br>
 <!--<table width=100% table style>-->
 
-<table class='data-table2'>
+<table class='data-table2'width="100%">
 
 			<tr><thead>
-				<th></th>
-				<th>Monday</th>
-				<th>Tuesday</th>
-				<th>Wednesday</th>
-				<th>Thursday</th>
-				<th>Friday</th>
+				<th><width="16.66%"></th>
+				<th><width="16.66%">Monday</th>
+				<th><width="16.66%">Tuesday</th>
+				<th><width="16.66%">Wednesday</th>
+				<th><width="16.66%">Thursday</th>
+				<th><width="16.66%">Friday</th>
 			</tr>
 
 

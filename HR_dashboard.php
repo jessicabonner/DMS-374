@@ -256,8 +256,8 @@ if (isset($_GET['message']))
 		  </ul>
 		 </div>
           <div class="parent-banner-links">
-						<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
-						<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
+						<a href="DMS_reset_password.html" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="3">Change Password</font></a>
+						<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="3">Logout</font></a>
            <h2 class="UT-secondary-logo">
             <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /></a>
            </h2>
@@ -589,6 +589,7 @@ if (isset($_GET['message']))
 		while ($row=$query->fetch(PDO::FETCH_ASSOC))
 		{
 			$id = $row['user_id'];
+			$application_id = $row['application_id'];
 
 			/* $review=get_review_entry($id);
 			if(isset($review['application_id']))
@@ -617,27 +618,12 @@ if (isset($_GET['message']))
 				$name_of_program="";
 				$program_id="";
 			}
-			/*
-			if (isset($row['program_id']))
-			{
-				$position_type= get_program_type($row['program_id']);
-				$program_id=$row['program_id'];
-
-			}
-			else
-			{
-				$position_type="";
-			}
-			*/
 			
-			if (isset($row['appliction_id']))
-			{
-				$position_type = get_appplication_position($row['application_id']);
-			}
-			else
-			{
-				$position_type ="";
-			}
+			$sql = "SELECT * FROM applications WHERE application_id=$application_id";
+			$query2= $dbc->query($sql);
+			$application=$query2->fetch();
+			
+			
 			
 			$bio_data_form = $row['bio_data_form'];
 			if($bio_data_form == 1)
@@ -728,8 +714,8 @@ if (isset($_GET['message']))
 			}
 
 			//echo "<td></td>"
-			echo "<td> <a href='HR_program_description.php?program_id= $program_id '>" .$name_of_program . "</a> </td>";
-			echo "<td>". $position_type. "</td></tr>";
+			echo "<td> <a href='HR_program_description.php?application_id= $application_id & program_id= $program_id '>" .$name_of_program . "</a> </td>";
+			echo "<td>". $application['position_type']. "</td></tr>";
 		}
 
 ?>
@@ -737,6 +723,13 @@ if (isset($_GET['message']))
 	</table>
 
 	<?php if ($_SESSION['role']=='2'): ?>
+		<tr><td><br></td>
+
+				<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+		<tr>
+		<?php  endif; ?>
+		
+	<?php if ($_SESSION['role']=='3'): ?>
 		<tr><td><br></td>
 
 				<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>

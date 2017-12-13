@@ -143,4 +143,24 @@
 		$application= $stmt->fetch();
 		return $application;
 	}	
+	function get_application_position($application_id)
+	{
+		require 'DMS_db.php';
+		// select a specific application using application_id
+		$sql="SELECT position_type FROM applications WHERE application_id=$application_id";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$position= $stmt->fetch();
+		return $position;
+	}
+	function get_application($user_id)
+	{
+		require 'DMS_db.php';
+		
+		$sql="SELECT application_id FROM review WHERE user_id = $user_id AND student_accept_offer = 1";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
+		$application_id= $stmt->fetch();
+		return $application_id;
+	}
 ?>

@@ -79,8 +79,8 @@ $role_id_array=array("1");
 						<div class="column small-12">
 							<div class="topnav">
 								<div class="parent-banner-links">
-								<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
-								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Logout</font></a>
+								<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="3">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="3">Logout</font></a>
 									<h2 class="UT-secondary-logo">
 										<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 									</h2>
@@ -185,11 +185,10 @@ $role_id_array=array("1");
 
 
 
-	//echo "<table class='data-table'>
-	echo "<table class=view-table>
+	echo "<table class='data-table2'>";
+	//echo "<table class=view-table>
 
-	<tr>
-	</tr>";
+	echo "<tr></tr>";
 	//while($row = mysqli_fetch_array($result))
 	while ($row=$query->fetch(PDO::FETCH_ASSOC))
 	{
@@ -214,7 +213,7 @@ $role_id_array=array("1");
 			}
 
 		// Display application's ID
-		echo "<tr>";
+		echo "<tr><thead>";
 		echo "<th>ID</th>";
 		echo "<td>" . $row['application_id'] .  "</td>";
 		echo "</tr>";

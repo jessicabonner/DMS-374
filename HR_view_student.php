@@ -49,6 +49,7 @@ $role_id_array=array("3","1");
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_tKJ8QKUw8OLBfSpVi3r2kqhI0EM9KvnZzuv9rNVL1dE.css" media="all" />
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_ObkY4Fv7biAuohhzB1p-hgy32GQxKG4rzg9E0b42Xo0.css" media="all" />
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_YytGlvj-rOSj7aCuw23k0KHgv0uW_7b2NUNxl_vdSsM.css" media="all" />
+<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
 <style type="text/css" media="all">
 /*--><![CDATA[/*><!--*/
 #main-nav li a{font-family:open_sans;}
@@ -191,18 +192,20 @@ echo "<form action='HR_dashboard.php' method='get'>
 ?>
 <form action='HR_working_for_dms.php' method='post'>
 <input type="hidden" name="user_id" value=<?php echo $id ?>>
-<table width=100% table border>
+<!--<table width=100% table border>-->
 <tr>
 
 </tr>
 
+<table class="data-table2">
+	
 <?php
 
 //while($row = mysqli_fetch_array($result))
 while ($row=$query->fetch(PDO::FETCH_ASSOC))
 {
 
-echo "<tr>";
+echo "<tr><thead>";
 echo "<th>ID</th>";
 echo "<td>" . $row['user_id'] .  "</td>";
 echo "</tr>";

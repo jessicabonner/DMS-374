@@ -190,6 +190,8 @@ require 'DOCTOR_functionality.php';
 					{
 						$id = $row['application_id'];
 						$program_id=$row['program_id'];
+
+						$application_id = $row['application_id'];
 						$list_unique_questions = $row['list_unique_questions'];
 						$array_unique_questions=explode('(#!BREAK!#)', $list_unique_questions);
 						$string_unique_questions=implode('<br>', $array_unique_questions);
@@ -217,7 +219,7 @@ require 'DOCTOR_functionality.php';
 
 
 						echo "
-							<td> <a href='HR_program_description.php?program_id= $program_id '>" .$name_of_program . "</a> </td>";
+							<td> <a href='HR_program_description.php?application_id= $application_id & program_id= $program_id '>" .$name_of_program . "</a> </td>";
 
 						echo '
 							<td>'.$row['term'].'</td>
