@@ -101,8 +101,8 @@
 		</ul>
 		</div>
 		<div class="parent-banner-links">
-								<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="5">Change Password</font></a>
-								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="4">Logout</font></a>
+								<a href="DMS_change_password.php" style="position:relative;left:-40px;top:-12px;color:white;" onclick="w3_close()"><font size="2">Change Password</font></a>
+								<a href="DMS_logout.php" style="position:relative;left:-20px;top:-12px;color:white;" onclick="w3_close()"><font size="2">Logout</font></a>
                 <h2 class="UT-secondary-logo">
                   <a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
                 </h2>
@@ -127,18 +127,23 @@
         <nav>
         <ul class="nav" id="main-nav" role="menu">
         <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_dashboard.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
+        	<a href="STUDENT_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
 			<div class="sub-nav-wrapper">
             </div>
         </li>
         <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_edit_profile_information.php?user_id= <?php echo $user_id ?>" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
+        	<a href="STUDENT_edit_profile_information.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
           	</div>
         </li>
         <li class="nav-item" role="menuitem">
-        	<a href="" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
+        	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
           	</div>
         </li>
+		 <li class="nav-item" role="menuitem">
+        	<div class="sub-nav-wrapper">
+          	</div>
+        </li>
+
         <li class="nav-item" role="menuitem">
             </div>
             </div>
