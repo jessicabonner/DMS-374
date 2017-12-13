@@ -462,76 +462,148 @@
 				<td><br></td>
 			<!--input checkboxes and row names-->
 			<tr>
-				<td>8am-9am</td>
-				<td><input type="checkbox" name="availability_list[]" value="M8" id="M8" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T8" id="T8" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W8" id="W8" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH8" id="TH8" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F8" id="F8" required></td>
+				<td>8:00am-8:30am</td>
+				<td><input type="checkbox" name="availability_list[]" value="T8am" id="M8am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T8am" id="T8am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W8am" id="W8am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH8am" id="TH8am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F8am" id="F8am" required></td>
 			</tr>
 			<tr>
-				<td>9am-10am</td>
-				<td><input type="checkbox" name="availability_list[]" value="M9" id="M9" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T9" id="T9" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W9" id="W9" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH9" id="TH9" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F9" id="F9" required></td>
+				<td>8:30am-9:00am</td>
+				<td><input type="checkbox" name="availability_list[]" value="M8:30am" id="M8:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T8:30am" id="T8:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W8:30am" id="W8:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH8:30am" id="TH8:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F8:30am" id="F8:30am" required></td>
 			</tr>
 			<tr>
-				<td>10am-11am</td>
-				<td><input type="checkbox" name="availability_list[]" value="M10" id="M10" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T10" id="T10" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W10" id="W10" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH10" id="TH10" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F10" id="F10" required></td>
+				<td>9:00am-9:30am</td>
+				<td><input type="checkbox" name="availability_list[]" value="M9am" id="M9am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T9am" id="T9am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W9am" id="W9am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH9am" id="TH9am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F9am" id="F9am" required></td>
 			</tr>
 			<tr>
-				<td>11am-12pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M11" id="M11" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T11" id="T11" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W11" id="W11" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH11" id="TH11" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F11" id="F11" required></td>
+				<td>9:30am-10:00am</td>
+				<td><input type="checkbox" name="availability_list[]" value="M9:30am" id="M9:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T9:30am" id="T9:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W9:30am" id="W9:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH9:30am" id="TH9:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F9:30am" id="F9:30am" required></td>
 			</tr>
 			<tr>
-				<td>12am-1pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M12" id="M12" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T12" id="T12" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W12" id="W12" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH12" id="TH12" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F12" id="F12" required></td>
+				<td>10:00am-10:30am</td>
+				<td><input type="checkbox" name="availability_list[]" value="M10am" id="M10am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T10am" id="T10am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W10am" id="W10am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH10am" id="TH10am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F10am" id="F10am" required></td>
 			</tr>
 			<tr>
-				<td>1pm-2pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M1" id="M1" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T1" id="T1" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W1" id="W1" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH1" id="TH1" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F1" id="F1" required></td>
+				<td>10:30am-11:00pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M10:30am" id="M10:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T10:30am" id="T10:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W10:30am" id="W10:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH10:30am" id="TH10:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F10:30am" id="F10:30am" required></td>
 			</tr>
 			<tr>
-				<td>2pm-3pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M2" id="M2" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T2" id="T2" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W2" id="W2" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH2" id="TH2" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F2" id="F2" required></td>
+				<td>11:00am-11:30pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M11am" id="M11am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T11am" id="T11am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W11am" id="W11am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH11am" id="TH11am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F11am" id="F11am" required></td>
 			</tr>
 			<tr>
-				<td>3pm-4pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M3" id="M3" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T3" id="T3" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W3" id="W3" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH3" id="TH3" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F3" id="F3" required></td>
+				<td>11:30pm-12:00pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M11:30am" id="M11:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T11:30am" id="T11:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W11:30am" id="W11:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH11:30am" id="TH11:30am" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F11:30am" id="F11:30am" required></td>
 			</tr>
 			<tr>
-				<td>4pm-5pm</td>
-				<td><input type="checkbox" name="availability_list[]" value="M4" id="M4" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="T4" id="T4"required></td>
-				<td><input type="checkbox" name="availability_list[]" value="W4" id="W4"required></td>
-				<td><input type="checkbox" name="availability_list[]" value="TH4" id="TH4" required></td>
-				<td><input type="checkbox" name="availability_list[]" value="F" id="F4" required></td>
+				<td>12:00pm-12:30pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M12pm" id="M12pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T12pm" id="T12pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W12pm" id="W12pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH12pm" id="TH12pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F12pm" id="F12pm" required></td>
+			</tr>
+			<tr>
+				<td>12:30pm-1:00pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M12:30pm" id="M12:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T12:30pm" id="T12:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W12:30pm" id="W12:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH12:30pm" id="TH12:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F12:30pm" id="F12:30pm" required></td>
+			</tr>
+			<tr>
+				<td>1:00pm-1:30pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M1pm" id="M1pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T1pm" id="T1pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W1pm" id="W1pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH1pm" id="TH1pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F1pm" id="F1pm" required></td>
+			</tr>
+			<tr>
+				<td>1:30pm-2:00pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M1:30pm" id="M1:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T1:30pm" id="T1:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W1:30pm" id="W1:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH1:30pm" id="TH1:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F1:30pm" id="F1:30pm" required></td>
+			</tr>
+			<tr>
+				<td>2:00pm-2:30pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M2pm" id="M2pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T2pm" id="T2pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W2pm" id="W2pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH2pm" id="TH2pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F2pm" id="F2pm" required></td>
+			</tr>
+			<tr>
+				<td>2:30pm-3:00pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M2:30pm" id="M2:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T2:30pm" id="T2:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W2:30pm" id="W2:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH2:30pm" id="TH2:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F2:30pm" id="F2:30pm" required></td>
+			</tr>
+			<tr>
+				<td>3:00pm-3:30pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M3pm" id="M3pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T3pm" id="T3pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W3pm" id="W3pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH3pm" id="TH3pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F3pm" id="F3pm" required></td>
+			</tr>
+			<tr>
+				<td>3:30pm-4:00pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M3:30pm" id="M3:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T3:30pm" id="T3:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W3:30pm" id="W3:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH3:30pm" id="TH3:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F3:30pm" id="F3:30pm" required></td>
+			</tr>
+			<tr>
+				<td>4:00pm-4:30pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M4pm" id="M4pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T4pm" id="T4pm"required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W4pm" id="W4pm"required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH4pm" id="TH4pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F4pm" id="F4pm" required></td>
+			</tr>
+			<tr>
+				<td>4:30pm-5:00pm</td>
+				<td><input type="checkbox" name="availability_list[]" value="M4:30pm" id="M4:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="T4:30pm" id="T4:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="W4:30pm" id="W4:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="TH4:30pm" id="TH4:30pm" required></td>
+				<td><input type="checkbox" name="availability_list[]" value="F4:30pm" id="F4:30pm" required></td>
 			</tr>
 			</table>
 
