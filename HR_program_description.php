@@ -353,10 +353,7 @@
 			<th>Year</th>
 			<td><?php echo $application['year'] ?></td>
 		</tr>
-		<tr>
-			<th>Renew</th>
-			<td><?php echo $application['renew'] ?></td>
-		</tr>
+		
 		<tr>
 			<th>Position Type</th>
 			<td><?php echo $application['position_type'] ?></td>
@@ -390,8 +387,17 @@
 			<td><?php echo $application['end_date'] ?></td>
 		</tr>
 		<tr>
-			<th>Renew</th>
-			<td><?php echo $application['renew'] ?></td>
+			<th>Renew?</th>
+			<td><?php 
+			if ($application['renew']=='1') 
+			{
+				echo "Yes";
+			}
+			else
+			{
+				echo "No";
+			}
+					?></td>
 		</tr>
 		<tr>
 			<th>Student Type</th>
