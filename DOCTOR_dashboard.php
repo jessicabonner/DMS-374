@@ -733,7 +733,7 @@
 						//to pull the value of the competitive field in table 'review'
 						$x=select_student_review($id, $_GET['select_application']);
 
-						$id_format="'".$id."'";
+						
 
 
 						if ($x['competitive']=="2"): //if competitive = 2 (Competitive) in the db, show the correct selected value
@@ -741,7 +741,7 @@
 
 							<td width="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
 
-							<td><select name="application_review_list[]">
+							
 
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'">Noncompetitive</option>
@@ -753,7 +753,7 @@
 
 							<td width="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
 
-							<td><select name="application_review_list[]">
+							
 
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'" selected="selected">Noncompetitive</option>
@@ -767,7 +767,7 @@
 								<td wdith="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
 
 
-								<td><select name="application_review_list[]">
+								
 
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'"selected="selected">N/A</option>
 								<option value="competitive = 1 WHERE user_id='<?php echo $id?>'">Noncompetitive</option>
