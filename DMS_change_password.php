@@ -2,9 +2,9 @@
 
 	$role_id_array=array("1","2","3","4","5");
 	require "DMS_authenticate.php";
-	
+
 	$user_id=$_SESSION['user_id'];
-	
+
 	if (isset($_GET['message']))
 	{
 		if ($_GET['message']=="0"){
@@ -17,19 +17,19 @@
 			echo 'alert("Error: The passwords do not match")';
 			echo '</script>';
 		}
-		
+
 	}
 
-?>				
-				
-				
+?>
+
+
 				<!-- Header -->
 				<div class="w3-container" style="margin-top:40px" id="showcase">
 					<h1 class="w3-jumbo">
 						<b>Change Password</b>
 					</h1>
 
-					<hr style="width:100%;border:5px solid #BF5700" align="left" class="w3-round">
+					<hr style="width:99%;border:5px solid #BF5700" align="left" class="w3-round">
 				</div>
 
 
@@ -46,7 +46,7 @@
 							<tr>
 								<td><input type="password" name="current_password" required></td>
 							</tr>
-							
+
 
 							<!--text box for students middle name-->
 						<tr>
@@ -58,7 +58,7 @@
 
 						<!--text box for students middle name-->
 						<tr>
-							<td>Re-enter password</td>
+							<td>Re-enter Password</td>
 						</tr>
 						<tr>
 							<td><input type="password" name="password_2" size="20" maxlength="30" required/></td>
@@ -66,5 +66,3 @@
 
 							<td><input type='submit' value='Change password' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change your password?')"></td>
 						</form>
-
-						

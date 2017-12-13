@@ -128,6 +128,8 @@
 																<a href="ADMIN_manage_roles.php" onclick="w3_close()"  class="sub-nav-link"><span>Manage Roles</span></a>                    </li>
 																																									<li class="sub-nav-item">
 																<a href="ADMIN_create_profile.php" onclick="w3_close()" class="sub-nav-link"><span>New Profile</span></a>                    </li>
+																<li class="sub-nav-item">
+													<a href="ADMIN_change_user_password.php" onclick="w3_close()"  class="sub-nav-link"><span>Change User's Password</span></a>                    </li>
 																																																															</ul>
 											</div>
 										</div>
@@ -204,9 +206,6 @@
 							<tr>
 								<td><p>New Role</p></td>
 							</tr>
-							<tr class="blankrow">
-								<td><br></td>
-							</tr>
 							<tr>
 								<td>
 									<select name="role_id" required>
@@ -217,7 +216,7 @@
 								</td>
 							</tr>
 
-							<td><input type='submit' value='Change role' onclick="return confirm('Are you sure you want to change the Role of this user?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change this user's role?')"></td>
+							<td><input type='submit' value='Change Role' onclick="return confirm('Are you sure you want to change the Role of this user?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change this user's role?')"></td>
 						</form>
 
 						<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
