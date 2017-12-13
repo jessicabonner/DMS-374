@@ -142,6 +142,5 @@
 		$stmt->execute();
 		$application= $stmt->fetch();
 		return $application;
-	}
-	
+	}	
 ?>

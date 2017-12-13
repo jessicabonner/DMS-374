@@ -898,7 +898,7 @@ if ($_SESSION['role']=='2')
 </table>
 	<tr><td><br></td>
 	<?php if ($_SESSION['role']=='2'): ?>
-		<td><input type='submit' name= "accept" id="accept_button" value= '  <?php echo $accept_unaccept ?>  ' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
+		<td><input type='submit' name= "accept" id="accept_button" value= '  <?php echo $accept_unaccept ?>  ' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
 	<?php endif ?>
 		
 		<td><input type='submit' name= "update" value='  Save Changes  ' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>

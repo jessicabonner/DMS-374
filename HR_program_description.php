@@ -138,22 +138,18 @@
 <?php
 
 	require 'DMS_db.php';
+	
 	$program_id = $_GET['program_id'];
-	$sql = "SELECT *
-	FROM programs WHERE program_id=$program_id";
-
-
-	$query= $dbc->query($sql);;
+	$id = $_GET['user_id'];
+	
+	$sql = "SELECT * FROM programs WHERE program_id=$program_id";
+	$query= $dbc->query($sql);
 	$program=$query->fetch();
-
+	
 	if (!$query)
 	{
 		die ('SQL Error: ' . mysqli_error($dbc));
 	}
-
-
-
-
 
 ?>
 <html>
@@ -166,64 +162,9 @@
 			<td><?php echo $program['name_of_program'] ?></td>
 		</tr>
 		<tr>
-			<th>Doctor EID</th>
-			<td><?php echo $program['doctor_EID'] ?></td>
+			<th>Program Description</th>
+			<td><?php echo $program['program_description'] ?></td>
 		</tr>
-		<tr>
-			<th>Supervisor Name</th>
-			<td><?php echo $program['supervisor_last_name'].', '.$program['supervisor_first_name'].' '.$program['supervisor_middle_name'] ?></td>
-		</tr>
-		<tr>
-			<th>Assignment Length</th>
-			<td><?php echo $program['assignment_length'] ?></td>
-		</tr>
-		<tr>
-			<th>Stare Date</th>
-			<td><?php echo $program['start_date'] ?></td>
-		</tr>
-		<tr>
-			<th>End Date</th>
-			<td><?php echo $program['end_date'] ?></td>
-		</tr>
-		<tr>
-			<th>Renew?</th>
-			<td><?php
-			if ($program['renew']="0")
-			{
-				echo "Yes";
-			}
-			else
-			{
-				echo"No";
-			}
-			?></td>
-		</tr>
-		<tr>
-			<th>Student Type</th>
-			<td><?php echo $program['student_type'] ?></td>
-		</tr>
-		<tr>
-			<th>IT equipment?</th>
-			<td><?php echo $program['it_equipment'] ?></td>
-		</tr>
-		<tr>
-			<th>Work Location</th>
-			<td><?php echo $program['work_location'] ?></td>
-		</tr>
-		<tr>
-			<th>Position Type</th>
-			<td><?php echo $program['position_type'] ?></td>
-		</tr>
-		<tr>
-			<th>Hours per week</th>
-			<td><?php echo $program['hours_per_week'] ?></td>
-		</tr>
-		<tr>
-			<th>Hourly rate</th>
-			<td><?php echo $program['hourly_rate'] ?></td>
-		</tr>
-
-
 
 	</tbody>
 	</table>

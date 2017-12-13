@@ -217,7 +217,7 @@
 								</td>
 							</tr>
 
-							<td><input type='submit' value='Change role' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change this user's role?')"></td>
+							<td><input type='submit' value='Change role' onclick="return confirm('Are you sure you want to change the Role of this user?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" onclick="return confirm('Are you sure you want to change this user's role?')"></td>
 						</form>
 
 						<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

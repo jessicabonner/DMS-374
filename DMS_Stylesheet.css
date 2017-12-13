@@ -151,7 +151,7 @@ table td {
 .data-table2 tfoot th:first-child {
   text-align: left;
 }
-input[type=checkbox]
+input[type=checkbox2]
 {
   /* Double-sized Checkboxes */
   -ms-transform: scale(2); /* IE */

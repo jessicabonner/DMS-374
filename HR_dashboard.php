@@ -7,7 +7,7 @@
 if (isset($_GET['message']))
 	{
 	
-		elseif ($_GET['message']=="6"){
+		if ($_GET['message']=="6"){
 			echo '<script language="javascript">';
 			echo 'alert("The password was successfully changed")';
 			echo '</script>';
@@ -617,7 +617,7 @@ if (isset($_GET['message']))
 				$name_of_program="";
 				$program_id="";
 			}
-
+			/*
 			if (isset($row['program_id']))
 			{
 				$position_type= get_program_type($row['program_id']);
@@ -628,7 +628,17 @@ if (isset($_GET['message']))
 			{
 				$position_type="";
 			}
-
+			*/
+			
+			if (isset($row['appliction_id']))
+			{
+				$position_type = get_appplication_position($row['application_id']);
+			}
+			else
+			{
+				$position_type ="";
+			}
+			
 			$bio_data_form = $row['bio_data_form'];
 			if($bio_data_form == 1)
 			{
