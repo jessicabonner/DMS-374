@@ -510,6 +510,7 @@ if (isset($_GET['message']))
 
 	<!--Displays all of the students who have been accepted, unless given specific criteria -->
 	<table class="data-table">
+	<div class="zoomed">
 	<caption class="title">Students Accepted by DMS</caption>
 		<thead>
 			<tr>
