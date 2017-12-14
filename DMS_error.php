@@ -1,10 +1,8 @@
-	  <?php
-	 
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-	  
-		if($_SESSION["role"]=="5")
+<?php session_start();
+	
+if (isset($_SESSION['role']))
+{	
+	if($_SESSION["role"]=="5")
 	{
 		header("STUDENT_dashboard.php");
 		
@@ -29,6 +27,7 @@ if (session_status() == PHP_SESSION_NONE) {
 		$here="ADMIN_dashboard.php";
 		
 	}
+}
 
 	else
 	{
