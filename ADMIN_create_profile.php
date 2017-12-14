@@ -45,7 +45,7 @@
 </head>
 
 <?php
-/*
+
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
@@ -63,7 +63,7 @@
 
 	}
 
-*/
+
 ?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
