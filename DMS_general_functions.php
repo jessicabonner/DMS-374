@@ -1,10 +1,9 @@
 <?php
 //THIS FILE CONTAINS FUNCTIONS THAT ARE REGULARLY ACCESSED ACROSS ALL DMS_ FILES
 
-	set_error_handler("error_redirect");
+	//set_error_handler("error_redirect");
 	function error_redirect($errno, $errstr)
 	{
-		echo $errno;
 		Header("Location: DMS_error.php");
 		die();
 		
