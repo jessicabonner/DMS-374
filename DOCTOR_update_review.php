@@ -124,7 +124,6 @@ if ($_SESSION['role']==2)
 				die();
 			}*/
 				
-
 		
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
