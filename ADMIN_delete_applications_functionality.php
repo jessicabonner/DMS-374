@@ -47,7 +47,7 @@
 
 	}
 	
-	header("Location: Admin_view_archived_applications.php");
+	header("Location: ADMIN_view_archived_applications.php");
 
 
 ?>
