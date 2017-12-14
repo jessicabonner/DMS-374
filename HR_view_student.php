@@ -2,6 +2,7 @@
 	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
+	
 if ($_SESSION['role']=='1'): ?>
 
 <!doctype html>
@@ -48,25 +49,6 @@ if ($_SESSION['role']=='1'): ?>
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
-
-<?php
-
-	
-
-if (isset($_GET['message']))
-	{
-
-		if ($_GET['message']=="6"){
-			echo '<script language="javascript">';
-			echo 'alert("The password was successfully changed")';
-			echo '</script>';
-		}
-	}
-
-
-
-
-?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">
@@ -370,6 +352,14 @@ echo "<form action='HR_dashboard.php' method='get'>
 <table class="data-table2">
 
 <?php
+if ($_SESSION['role']=='1')
+{
+	$disabled='disabled';
+}
+else
+{
+	$disabled="";
+}
 
 //while($row = mysqli_fetch_array($result))
 while ($row=$query->fetch(PDO::FETCH_ASSOC))
@@ -514,13 +504,13 @@ echo "<tr>";
 echo "<th>Hours Working</th>";
 //echo "<td>" . $row['hours_working_week'] .  " hours/week</td>";
 //echo "<td><input type='text' name='hours_working_week' value='$row['hours_working_week']'</td>";
-echo '<td><input type="text" name="hours_working_week" value="'.$row['hours_working_week'].'"; ></td>';
+echo '<td><input type="text" name="hours_working_week" value="'.$row['hours_working_week'].'"'. $disabled.'></td>';
 echo "</tr>";
 
 echo "<tr>";
 echo "<th>Hourly Rate</th>";
 //echo "<td>$" . $row['hourly_rate'] .  "/hour</td>";
-echo '<td><input type="text" name="hourly_rate" value="'.$row['hourly_rate'].'"; ></td>';
+echo '<td><input type="text" name="hourly_rate" value="'.$row['hourly_rate'].'"'.$disabled.' ></td>';
 echo "</tr>";
 
 //This will allow the checkbox to be checked if the value =1 and unchecked if the value = 0
@@ -528,7 +518,7 @@ $working_for_dms = $row['working_for_dms'];
 if($working_for_dms == 1)
 {
 	$checked = 1;
-	$check= "checked=";
+	$check= 'checked="checked"';
 }
 else
 {
@@ -538,7 +528,8 @@ else
 
 echo "<tr>";
 echo "<th>Working for DMS?</th>";
-echo '<td><input type="checkbox" name="new_working_for_dms" value="1" <?php if ($checked == 1) { echo '.$check.'; } ?></td>';
+
+echo '<td><input type="checkbox" name="new_working_for_dms" value="1" '.$check.' '.$disabled.'></td>';
 echo '<input type="hidden" name="user_id" value='.$row['user_id'].'>';
 //echo "</tr>"Check<br/>;
 
@@ -612,8 +603,10 @@ echo "</table>"; */
 </table>
 
 <tr><td><br></td>
-<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td><tr>
 
+<?php if ($_SESSION['role']=='3'): ?>
+<td><input type='submit' name= "save" value='Save Changes' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td><tr>
+<?php endif; ?>
 
 <td><br></td>
 <td><br></td>

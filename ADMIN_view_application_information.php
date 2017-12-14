@@ -291,15 +291,15 @@
 						<td></td>
 						<td></td>
 						</br>
-						<td><input type='checkbox' name='new_close_application' value=$value> Check to $close_open Application
+						<td><input type='checkbox' name='new_close_application' id='close_open' value=$value> Check to $close_open Application
 						<input type='hidden' name='application_id' value=$application_id></td>
-						<td>&nbsp&nbsp&nbsp&nbsp&nbsp<input type='checkbox' name='new_archive_application' value=$value> Check to Archive Application<br />
+						<td>&nbsp&nbsp&nbsp&nbsp&nbsp<input type='checkbox' name='new_archive_application' id='archive' value=$value> Check to Archive Application<br />
 					</tr>
 					<tr>
 						<td></td>
 						<td></td>
-						<td><input type='submit' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' value=' Enter '></td>
-						<td><input type='submit' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' value=' Archive '></td>
+						<td><input type='submit' id='close_open_submit' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' value=' Enter ' disabled></td>
+						<td><input type='submit' id='archive_submit' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' value=' Archive ' disabled></td>
 					</tr>
 					</form>";
 
@@ -339,12 +339,12 @@
 			
 			
 			echo "<tr><br></tr>";
-			echo "<tr><td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
+			echo "<tr><td><input type='checkbox' id='unarchive' name='unarchive_application' value=$value> Check to Unarchive Application<br />
 						<input type='hidden' name='application_id' value=$application_id><br /></td></tr>
 				<tr>
 					<td></td>
 					<td></td>
-					<td><input type='submit' value=' Enter '></td></tr>
+					<td><input type='submit' id='unarchive_submit' value=' Enter ' disabled></td></tr>
 				</form>";
 			echo "</table>";
 				
@@ -381,7 +381,44 @@
 			new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-			})(window,document,'script','dataLayer','GTM-59NMNV');</script>
+			})(window,document,'script','dataLayer','GTM-59NMNV');
+			
+			
+			
+			
+		$("#close_open").click(function(){
+			if (this.checked) {
+				$('#close_open_submit').prop('disabled', false);
+			}
+			else{
+				$('#close_open_submit').prop('disabled', true);
+			}
+
+		});
+			
+		$("#archive").click(function(){
+			if (this.checked) {
+				$('#archive_submit').prop('disabled', false);
+			}
+			else{
+				$('#archive_submit').prop('disabled', true);
+			}
+
+		});
+
+		$("#unarchive").click(function(){
+			if (this.checked) {
+				$('#unarchive_submit').prop('disabled', false);
+			}
+			else{
+				$('#unarchive_submit').prop('disabled', true);
+			}
+
+		});
+
+
+
+			</script>
 			<!-- End Google Tag Manager -->  </div>
 			</body>
 					</html>

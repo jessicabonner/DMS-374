@@ -46,6 +46,8 @@
 		$stmt->execute();
 
 	}
+	
+	header("Location: Admin_view_archived_applications.php");
 
 
 ?>
