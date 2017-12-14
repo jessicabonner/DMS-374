@@ -43,7 +43,7 @@ if ($_SESSION['role']==2)
 			
 			//update "accepted" field to true
 		
-			$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
+			
 			$sql = "UPDATE review SET accepted_by_dms = '".$new_accepted_by_DMS."', application_accept_date='".$current_date."'  WHERE user_id ='".$student_id."' AND application_id='".$application_id."'";
 			//$stmt=$dbc->prepare($sql);
 			//$stmt->execute();
