@@ -112,31 +112,6 @@
     	</div>
 <!-- container-topnav -->
 		<div class="container container-nav container-nav-phase2">
-        <div class="row">
-        <div class="column small-12">
-        <nav>
-        <ul class="nav" id="main-nav" role="menu">
-        <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
-			<div class="sub-nav-wrapper">
-            </div>
-        </li>
-        <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_edit_profile_information.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
-          	</div>
-        </li>
-        <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
-          	</div>
-        </li>
-		 <li class="nav-item" role="menuitem">
-        	<div class="sub-nav-wrapper">
-          	</div>
-        </li>
-
-        <li class="nav-item" role="menuitem">
-            </div>
-            </div>
         </li>
         </ul>
         </nav>
@@ -157,10 +132,10 @@
 
 
 		<!-- !PAGE CONTENT! -->
-		<div class="w3-main" style="margin-left:40px;margin-right:450px">
+		<div class="w3-main" style="margin-left:40px;margin-right:800px">
 
   		<!-- Header -->
-		<div class="w3-container" style="margin-top:40px" id="showcase">
+		<div class="w3-container" style="margin-top:10px" id="showcase">
 			<h1 class="w3-jumbo">
 				<b>Create Profile</b>
 			</h1>
