@@ -78,11 +78,12 @@
 			echo "3";
 		}
 		
-		$sql="UPDATE applications SET user_permissions_eid_list= $doctor_list WHERE application_id= $select_application";
+		//$sql="UPDATE applications SET user_permissions_eid_list= $doctor_list WHERE application_id= $select_application";
+		$stmt=$dbc->prepare("UPDATE applications SET user_permissions_eid_list= $doctor_list WHERE application_id= $select_application");
 		echo "4";
 		echo $sql;
 		
-		$stmt=$dbc->prepare($sql);
+		//$stmt=$dbc->prepare($sql);
 		echo "5";
 		$stmt->execute();
 		echo "6";
