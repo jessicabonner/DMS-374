@@ -141,8 +141,8 @@ if (isset($_SESSION['role']))
 			<!-- !PAGE CONTENT! -->
 			<div class="center" style="position:relative; bottom:-175px; vertical-align:bottom;"><center>
           Something went wrong on our end. Please press <a href= <?php echo $here; ?>>here</a> to navigate back to your dashboard. 
-		  <br><br>
-		  If this link does not work, click the logout button in the upper righthand corner.
+		  <br><br><br>
+		  <small>If this link does not work, click the logout button in the upper righthand corner.</small>
         </center>
       </div>
 	  
