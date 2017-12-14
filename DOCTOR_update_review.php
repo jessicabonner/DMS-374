@@ -1,8 +1,8 @@
 <?php
-require "DMS_general_functions.php";
-$role_id_array=array("2","4");
-require "DMS_authenticate.php";
-$user_id = $_SESSION['user_id'];
+//require "DMS_general_functions.php";
+//$role_id_array=array("2","4");
+//require "DMS_authenticate.php";
+//$user_id = $_SESSION['user_id'];
 /*
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -18,7 +18,7 @@ require './PHPMailer.php';
 
 	
 	
-	//date_default_timezone_set('America/Chicago');
+	date_default_timezone_set('America/Chicago');
 	
 	//THIS FOR WILL BE LINKED TO DOCTOR_view_detailed_student_info.php TO Change accepted_by_dms
 
@@ -26,11 +26,11 @@ require './PHPMailer.php';
 
 	$student_id=$_POST['user_id'];
 	$application_id=$_POST['application_id'];
-	//$current_date=date('Y-m-d');
-	$current_date='2017-12-13'
+	$current_date=date('Y-m-d');
 	
-if ($_SESSION['role']==2)
-{
+	
+//if ($_SESSION['role']==2)
+//{
 	//if user clicked submit button named accept to accept a student
 	if(isset($_POST['accept']))
 	{
@@ -129,7 +129,7 @@ if ($_SESSION['role']==2)
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
 			
-	}
+	//}
 		
 }
 	
@@ -193,8 +193,8 @@ if ($_SESSION['role']==2)
 			}
 }
 
-elseif ($_SESSION['role']==4)
-{
+//elseif ($_SESSION['role']==4)
+//{
 	if( ($_POST['approved'])!== null)
 			{
 					
@@ -214,7 +214,7 @@ elseif ($_SESSION['role']==4)
 			}
 			
 			
-}
+//}
 			
 	
 			
