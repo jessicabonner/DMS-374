@@ -150,7 +150,7 @@
 										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Filled Students</a>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Filled Positions</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>
@@ -256,8 +256,8 @@
 					echo "<td>$value</td></tr>";
 				}
 		}
-		
-		
+
+
 
 
 		//break
@@ -309,8 +309,8 @@
 		{
 			echo "This application is archived";
 			echo "<form action='ADMIN_close_application_connect.php' method='POST'>";
-			
-			
+
+
 			// Display whether or not the applications is open or closed
 			echo "<tr>";
 			echo "<th>Open?</th>";
@@ -331,12 +331,12 @@
 				$close_open="Close";
 				$value="1";
 			}
-			
-			
-			
-			
-			
-			
+
+
+
+
+
+
 			echo "<tr><br></tr>";
 			echo "<tr><td><input type='checkbox' id='unarchive' name='unarchive_application' value=$value> Check to Unarchive Application<br />
 						<input type='hidden' name='application_id' value=$application_id><br /></td></tr>
@@ -346,7 +346,7 @@
 					<td><input type='submit' id='unarchive_submit' value=' Enter ' disabled></td></tr>
 				</form>";
 			echo "</table>";
-				
+
 		}
 	}
 
@@ -381,10 +381,10 @@
 			j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 			'//www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 			})(window,document,'script','dataLayer','GTM-59NMNV');
-			
-			
-			
-			
+
+
+
+
 		$("#close_open").click(function(){
 			if (this.checked) {
 				$('#close_open_submit').prop('disabled', false);
@@ -394,7 +394,7 @@
 			}
 
 		});
-			
+
 		$("#archive").click(function(){
 			if (this.checked) {
 				$('#archive_submit').prop('disabled', false);

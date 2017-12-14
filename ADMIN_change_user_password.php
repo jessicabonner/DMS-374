@@ -1,5 +1,5 @@
-<?php 
-require 'DMS_general_functions.php'; 
+<?php
+require 'DMS_general_functions.php';
 $role_id_array=array("1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
@@ -50,7 +50,7 @@ $role_id_array=array("1");
 </head>
 
 <?php
-	
+
 
 	if (isset($_GET['message']))
 	{
@@ -166,7 +166,7 @@ $role_id_array=array("1");
 										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Filled Students</a>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Filled Positions</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>

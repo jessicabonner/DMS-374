@@ -3,7 +3,7 @@
 	$role_id_array=array("2","1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
-	
+
 
 	//require file containing all doctor functions
 	require 'DOCTOR_functionality.php';
@@ -158,7 +158,7 @@
 										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Accepted Students</a>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Filled Positions</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>
@@ -706,7 +706,7 @@
 
 				$working_for_dms = $row['working_for_dms'];
 				$review_array = array('1', '0');
-				
+
 				if ($_SESSION['role']=='1')
 				{
 					$disabled="disabled";
