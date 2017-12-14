@@ -43,6 +43,28 @@
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
 
+<?php
+
+	$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "The passwords you entered do not match";
+		}
+		elseif ($_GET['error']=="2")
+		{
+			echo "This user already exists in our system";
+		}
+
+	}
+
+
+?>
+
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">
 		<a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
