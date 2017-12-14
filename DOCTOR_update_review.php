@@ -49,7 +49,7 @@ if ($_SESSION['role']==2)
 			//$stmt->execute();
 			
 			
-			
+			/*
 			//If the doctor accepts a student, this will send an email notification to the student
 			//if($new_accepted_by_DMS == '1')
 			//{
@@ -214,16 +214,16 @@ elseif ($_SESSION['role']==4)
 	
 			
 	//if the statement fails, display an error
-	//if (!$stmt)
-	//{
-		//die ('SQL Error: ' . mysqli_error($dbc));
-//	}
+	if (!$stmt)
+	{
+		die ('SQL Error: ' . mysqli_error($dbc));
+	}
 	//if the statement doesn't fail, redirect back to dms_viewapp and pass student_id in the url
-	//else
-	//{
+	else
+	{
 		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id']);
 		die();
-	//}
+	}
 	
 
 ?>
