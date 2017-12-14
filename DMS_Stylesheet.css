@@ -95,8 +95,8 @@ table td {
 /* Table */
 .data-table2 {
   border-collapse: collapse;
-  font-size: 14px;
-  text-align:left;
+  font-size: 12px;
+  text-align:center;
   align-content: left;
   width: 100%;
 }
@@ -107,7 +107,7 @@ table td {
   border: 1px solid #e1edff;
   padding: 7px 17px;
   text-align: left;
-  font-size: 16px;
+  font-size: 14px;
   width: 70%;
   max-width: 70%;
   word-break: break-all;
@@ -127,7 +127,7 @@ table td {
   border-color: #000000 !important;
   text-transform: uppercase;
   text-align: left;
-  width: 30%;
+  width: 40%;
   font-size: 15px;
 }
 /* Table Body  be a light blue #353535 */

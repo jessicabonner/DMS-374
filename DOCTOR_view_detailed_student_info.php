@@ -3,7 +3,7 @@
 	$role_id_array=array('2','4','1');
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
-	
+
 
 
 
@@ -121,6 +121,8 @@
 					                      <a href="ADMIN_manage_roles.php" onclick="w3_close()"  class="sub-nav-link"><span>Manage Roles</span></a>                    </li>
 					                                                                        <li class="sub-nav-item">
 					                      <a href="ADMIN_create_profile.php" onclick="w3_close()" class="sub-nav-link"><span>New Profile</span></a>                    </li>
+																<li class="sub-nav-item">
+													<a href="ADMIN_change_user_password.php" onclick="w3_close()"  class="sub-nav-link"><span>Change User's Password</span></a>                    </li>
 					                                                                                                                    </ul>
 					            </div>
 										</div>
@@ -448,7 +450,7 @@ else
 		}
 		// Display applicants's work history with DMS
 		echo "<tr>";
-		echo "<th>Has worked at DMS before?</th>";
+		echo "<th width='50%'>Has worked at DMS before?</th>";
 		echo "<td>$worked_at_dms</td>";
 		echo "</tr>";
 		// Check if the applicant has volunteered for Seton before
@@ -518,7 +520,7 @@ else
 
 			<tr><thead>
 			<th>Semester Availability</th>
-			
+
 
 			<td><input type='checkbox' name='availability_list[]' value='NA'<?php if (in_array('NA',$availability_array))echo 'checked="checked"'?>disabled<td><td>Unknown</td></td></tr>
 			<tr class="blankrow">
@@ -740,7 +742,7 @@ else
 
 		$stmt = $dbc->query("SELECT * FROM review WHERE user_id='".$student_id."' AND application_id=$application_id;");
        	$x = $stmt->fetch();
-		
+
 if ($_SESSION['role']=='2')
 {
 	echo "<th>Review</th>";
@@ -861,7 +863,7 @@ if ($_SESSION['role']=='2')
 			<input type='hidden' name='user_id' value=$student_id><br /></td>
 			<input type='hidden' name='application_id' value=$application_id>
 			</tr>";
-			
+
 
 		}
 		else
@@ -873,9 +875,9 @@ if ($_SESSION['role']=='2')
 			<input type='hidden' name='application_id' value=$application_id>
 			</tr>";
 		}
-		
 
-		
+
+
 
 	}
 
