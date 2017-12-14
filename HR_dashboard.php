@@ -5,9 +5,6 @@
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 
-	
-
-
 if ($_SESSION['role']=='1'): ?>
 
 <!doctype html>
