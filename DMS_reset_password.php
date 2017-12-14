@@ -6,7 +6,7 @@ if($_GET['key'] && $_GET['reset'])
 	$pass=$_GET['reset'];
  
 	//$sql="SELECT student_info.email, user.password from student_info INNER JOIN user ON student_info.user_id = user.user_id WHERE md5(student_info.email)='".$email."' AND md5(user.password)='".$pass."'";
-	$sql="SELECT student_info.email, user.password from student_info INNER JOIN User ON student_info.user_id = User.user_id WHERE student_info.email ='".$email."' AND User.password ='".$pass."'";
+	$sql="SELECT student_info.email, user.password from student_info INNER JOIN user ON student_info.user_id = user.user_id WHERE student_info.email ='".$email."' AND user.password ='".$pass."'";
 	$x=$dbc->prepare($sql);
 	$x->execute();
 	
@@ -168,6 +168,14 @@ if($_GET['key'] && $_GET['reset'])
 			
 		    <!--<form method="post" action="submit_new.php">-->
 		    <input type="hidden" name="email" value="<?php echo $email;?>">
+			
+			<tr>
+				<td><p>UT EID</p></td>
+			</tr>
+			<tr>
+				<td><input type="text" name="user_id" size="20" maxlength="30" required/></td>
+			</tr>
+			
 			<tr>
 				<td><p>Enter New password</p></td>
 			</tr>
