@@ -1,3 +1,4 @@
+<?php require "DMS_general_functions.php"; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -162,7 +163,6 @@ $role_id_array=array("3","1");
 
 <?php
 	require 'DMS_db.php';
-	require "DMS_general_functions.php";
 
 	// Get ID from the URL
 	$id = $_GET['id'];

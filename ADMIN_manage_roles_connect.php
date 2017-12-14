@@ -1,6 +1,6 @@
 <?php
 	
-	require "DMS_general_functions.php";
+	
 	require "DMS_db.php";
 
 	$id=strtolower($_POST['id']);
