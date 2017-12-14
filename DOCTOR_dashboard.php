@@ -722,6 +722,15 @@
 
 				$working_for_dms = $row['working_for_dms'];
 				$review_array = array('1', '0');
+				
+				if ($_SESSION['role']=='1')
+				{
+					$disabled="disabled";
+				}
+				else
+				{
+					$disabled='';
+				}
 
 
 
@@ -743,7 +752,7 @@
 						if ($x['competitive']=="2"): //if competitive = 2 (Competitive) in the db, show the correct selected value
 						?>
 
-							<td width="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
+							<td width="20%"><select name="application_review_list[]"<style="width:200px;" <?php echo $disabled ?>>
 
 
 
@@ -755,7 +764,7 @@
 						elseif ($x['competitive']=="1"): //if competitive = 1 (Noncompetitive) in the db, show the correct selected value
 				?>
 
-							<td width="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
+							<td width="20%"><select name="application_review_list[]" style="width:200px;" <?php echo $disabled ?>>
 
 
 
@@ -768,9 +777,7 @@
 						?>
 
 
-								<td wdith="20%"><select name="application_review_list[]"<style="width:200px;"> <?php echo $disabled ?>>
-
-
+								<td wdith="20%"><select name="application_review_list[]" style="width:200px;" <?php echo $disabled ?>>
 
 
 								<option value="competitive = 0 WHERE user_id='<?php echo $id?>'"selected="selected">N/A</option>
