@@ -174,7 +174,7 @@
 			<!-- !PAGE CONTENT! -->
 			<div class="w3-main" style="margin-left:40px;margin-right:450px">
 
-<?php elseif($_SESSION['role']=='2'): ?>
+<?php elseif($_SESSION['role']=='2'):?>
 
 <!--Doctor's view that displays applicants-->
 <!doctype html>
@@ -283,7 +283,6 @@
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
-
 <?php endif; ?>
 
   <!-- Header -->
@@ -321,7 +320,6 @@
 		</select>
 		<td><input id='program' type='submit' value='Choose Program' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"/></td>
 	</form>
-
 	<?php if(isset($_GET['select_application'])):?>
 		<!--search bar-->
 		<form name="search" method= "get">
@@ -616,10 +614,6 @@
 			</thead>
 
 <?php
-
-
-
-
 			//if user is trying to sort
 			if (isset($_GET['sort']))
 			{
