@@ -1,24 +1,3 @@
-<?php
-
-	$role_id_array=array("3","1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-if (isset($_GET['message']))
-	{
-
-		if ($_GET['message']=="6"){
-			echo '<script language="javascript">';
-			echo 'alert("The password was successfully changed")';
-			echo '</script>';
-		}
-	}
-
-
-
-
-?>
-
 <?php  if ($_SESSION['role']=='1'): ?>
 
 <!doctype html>
@@ -65,6 +44,27 @@ if (isset($_GET['message']))
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
+
+<?php
+
+	$role_id_array=array("3","1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
+if (isset($_GET['message']))
+	{
+
+		if ($_GET['message']=="6"){
+			echo '<script language="javascript">';
+			echo 'alert("The password was successfully changed")';
+			echo '</script>';
+		}
+	}
+
+
+
+
+?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">
@@ -464,7 +464,7 @@ if (isset($_GET['message']))
 		<tr>
 			<td><input type="checkbox" style="zoom:0.75;" name="filter_criteria[]" value=" volunteered_at_seton='0' ">&nbsp; No<br></td>
 		</tr>
-		
+
 		<tr>
 			<td><br></td>
 			<td>Current?</td>
@@ -650,7 +650,7 @@ if (isset($_GET['message']))
 
 
 			//display all student info in the table
-			
+
 			if($row['working_for_dms']=='1')
 			{
 				echo "<td>&#10004;</td>";
@@ -661,7 +661,7 @@ if (isset($_GET['message']))
 			}
 			echo "<td> <a href='HR_view_student.php?id=$id_2'>" .$row['user_id'] . "</a> </td>";
 			echo "
-			
+
 				<td>".$row["first_name"]."</td>
 				<td>".$row["middle_name"]."</td>
 				<td>".$row["last_name"]."</td>
@@ -711,7 +711,7 @@ if (isset($_GET['message']))
 			//echo "<td></td>"
 			echo "<td> <a href='HR_program_description.php?application_id= $application_id & program_id= $program_id '>" .$name_of_program . "</a> </td>";
 			echo "<td>". $application['position_type']. "</td></tr>";
-			
+
 		}
 
 ?>
