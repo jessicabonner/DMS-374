@@ -23,7 +23,7 @@
 	}
 	else
 	{
-		require "DOCTOR_header.html"
+		require "DOCTOR_header.html";
 	}
 	?>
 
