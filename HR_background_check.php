@@ -1,6 +1,7 @@
 <?php	
 	//require file containing db string
 	require 'DMS_db.php';
+
 	
 	# Save Changes-button was clicked
 	if (isset($_POST['save'])) 

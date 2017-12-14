@@ -1,6 +1,7 @@
 <?php
 require 'DMS_db.php';
 
+
 function filter($filter_criteria, $and_or)
 {
 	require 'DMS_db.php';

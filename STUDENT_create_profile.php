@@ -1,3 +1,4 @@
+<?php require "DMS_general_functions.php"; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -42,6 +43,8 @@
 </head>
 
 <?php
+
+
 	if(isset($_GET['error']))
 	{
 		if ($_GET['error']=="1")

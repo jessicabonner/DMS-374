@@ -1,3 +1,4 @@
+<?php require "DMS_general_functions.php"; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -46,10 +47,11 @@
 </head>
 
 <?php
+	
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 
-	require "DMS_general_functions.php";
+	
 
 	//if an error is passed on redirect, display error message
 	if (isset($_GET['error']))

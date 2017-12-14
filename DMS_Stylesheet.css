@@ -98,6 +98,7 @@ table td {
   font-size: 14px;
   text-align:left;
   align-content: left;
+  width: 100%;
 }
 
 /* Establises the table header and data font-sizem have a border, and centered */
@@ -107,6 +108,10 @@ table td {
   padding: 7px 17px;
   text-align: left;
   font-size: 16px;
+  width: 70%;
+  max-width: 70%;
+  word-break: break-all;
+}
 
 }
 /* Establises the table font, size, and ensures the table spans across the whole page! */
@@ -122,7 +127,7 @@ table td {
   border-color: #000000 !important;
   text-transform: uppercase;
   text-align: left;
-  width: 25%;
+  width: 30%;
   font-size: 15px;
 }
 /* Table Body  be a light blue #353535 */

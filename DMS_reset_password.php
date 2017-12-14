@@ -1,4 +1,5 @@
 <?php
+require 'DMS_general_functions.php';
 if($_GET['key'] && $_GET['reset'])
 {
 	require "DMS_db.php";

@@ -1,3 +1,4 @@
+<?php require "DMS_general_functions.php"; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -54,7 +55,7 @@
 
 
 	require "STUDENT_functionality.php";
-	require "DMS_general_functions.php";
+
 
 	if (isset($_GET['message']))
 	{

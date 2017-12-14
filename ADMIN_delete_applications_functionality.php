@@ -2,6 +2,7 @@
 //THIS FILE CONNECTS TO THE DATABASE USING THE INFORMATION PROVIDED BY THE USER IN ADMIN_view_all_active_applications.php 
 //IN ORDER TO DELETE ANY APPLICATIONS AND THEIR CORRESPONDING TABLES
 
+
 	//pull the list of applications to be deleted
 	$applications= $_POST['application_delete_list'];
 	
@@ -45,6 +46,8 @@
 		$stmt->execute();
 
 	}
+	
+	header("Location: Admin_view_archived_applications.php");
 
 
 ?>

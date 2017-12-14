@@ -1,6 +1,15 @@
 <?php
 //THIS FILE CONTAINS FUNCTIONS THAT ARE REGULARLY ACCESSED ACROSS ALL DMS_ FILES
 
+	function error_redirect($errno, $errstr)
+	{
+		Header("Location: DMS_error.php");
+	}
+	
+	set_error_handler("error_redirect");
+	
+	
+
 	function check_user_exists($id)
 	{
 		require "DMS_db.php";

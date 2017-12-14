@@ -1,7 +1,7 @@
 <?php
 //THIS FILE TAKES THE INFORMATION SUBMITTED IN ADMIN_create_application.php AND COMMITS IT TO THE DATABASE 
 //IN ORDER TO LET THE USER CREATE NEW APPLICATONS
-
+	require 'DMS_general_functions.php';
 
 	//require file containing db string
 	require 'DMS_db.php';

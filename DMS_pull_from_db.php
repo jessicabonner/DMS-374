@@ -1,5 +1,6 @@
 <?php
-
+	
+	
 	require 'DMS_db.php';
 
 	function dynamic_application($user_id,$application_id)

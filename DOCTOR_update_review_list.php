@@ -1,8 +1,9 @@
 <?php
 
 $role_id_array=array("2","4");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
+require "DMS_authenticate.php";
+$user_id = $_SESSION['user_id'];
+require "DMS_general_functions.php";
 
 //require file containing db string
 require 'DMS_db.php';

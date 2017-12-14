@@ -1,5 +1,5 @@
 <?php
-
+	require 'DMS_general_functions.php';
 	$role_id_array=array("1","2","3","4","5");
 	require "DMS_authenticate.php";
 

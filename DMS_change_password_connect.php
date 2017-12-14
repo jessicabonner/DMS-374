@@ -1,5 +1,5 @@
 <?php
-
+require 'DMS_general_functions.php';
 session_start();
 //link to file containing database connection string
 require 'DMS_db.php';

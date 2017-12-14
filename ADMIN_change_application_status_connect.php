@@ -1,5 +1,5 @@
 <?php
-
+require 'DMS_general_functions.php';
 if ($_GET['action'] == 'Close') {
     $applications= $_GET['application_list'];
 	

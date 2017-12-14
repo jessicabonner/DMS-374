@@ -1,7 +1,7 @@
 <?php
 //THIS FILE TAKES INPUT AS THE ID OF STUDENTS INDICATED TO BE ACCEPTED AND CHANGES 
 //THEIR STATUS TO ACCEPTED
-
+require 'DMS_general_functions.php';
 require 'DMS_db.php';
 
 

@@ -1,4 +1,5 @@
 <?php
+require 'DMS_general_functions.php';
 date_default_timezone_set('America/Chicago');
         class ldap { //Begin class
                 //Global Vars
