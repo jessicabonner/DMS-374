@@ -28,12 +28,21 @@ require './PHPMailer.php';
 	$application_id=$_POST['application_id'];
 	$current_date=date('Y-m-d');
 	
-	echo $student_id;
-	echo $application_id;
-	echo $current_date;
 	
 	
+	
+if ($_SESSION['role']==2)
+{
+	//if user clicked submit button named accept to accept a student
+	if(isset($_POST['accept']))
+	{
 
+		$student_id=$_POST['user_id'];
 	
+		$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
+		echo $student_id;
+		echo $new_accepted_by_DMS;
+
+}}
 
 ?>
