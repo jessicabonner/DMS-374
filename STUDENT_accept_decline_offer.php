@@ -1,4 +1,5 @@
 <?php
+require "DMS_general_functions.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -16,7 +17,7 @@ require './PHPMailer.php';
 	require "DMS_authenticate.php";
 
 	require "DMS_db.php";
-	require "DMS_general_functions.php";
+
 	
 	$user_id=$_SESSION['user_id'];
 	

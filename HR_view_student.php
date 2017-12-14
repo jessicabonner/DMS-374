@@ -1,3 +1,4 @@
+<?php require "DMS_general_functions.php"; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -50,7 +51,7 @@
 	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
-	require "DMS_general_functions.php";
+
 
 	//this will display an error message if the user tries to accept a student already accepted in the database
 	if (isset($_GET['error']))

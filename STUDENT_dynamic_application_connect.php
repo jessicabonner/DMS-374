@@ -1,7 +1,8 @@
 <?php
+	require "DMS_general_functions.php";
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
-	require "DMS_general_functions.php";
+	
 
 	date_default_timezone_set('America/Chicago');
 	//link to file containing database connection string
