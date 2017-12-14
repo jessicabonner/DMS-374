@@ -107,12 +107,18 @@ if ($_SESSION['role']==2)
 				
 			}
 			
+			if(!$mail->send())
+			 		{
+			  			echo 'Email sent to:' . $recipient . '<br/ >';
+			      	  	echo "Mailer Error: " . $mail->ErrorInfo;
+			   		}
+			
 				
-			else
+			/* else
 			{
 				header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id'].'&error=0');
 				die();
-			}
+			} */
 				
 		
 			$stmt=$dbc->prepare($sql);
@@ -120,7 +126,7 @@ if ($_SESSION['role']==2)
 			
 	
 		
-}
+
 	
 	
 	//if user clicked submit button named update to save the review field
@@ -174,7 +180,7 @@ if ($_SESSION['role']==2)
 			//$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week = :hours_working_week, hourly_rate = :hourly_rate
 				//WHERE user_id= :student_id');
 	
-		$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week = :hours_working_week, hourly_rate = :hourly_rate
+			$stmt2 = $dbc-> prepare('UPDATE student_info SET hours_working_week = :hours_working_week, hourly_rate = :hourly_rate
 			WHERE user_id= :student_id');
 		
 			$stmt2->execute(array('hours_working_week' => $hours_working_week, 'student_id' => $student_id, 'hourly_rate' => $hourly_rate,));
