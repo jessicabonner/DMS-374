@@ -38,13 +38,13 @@ if ($_SESSION['role']==2)
 	{
 
 	
-		$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
+		
 		
 			
 			//update "accepted" field to true
 		
 			
-			$sql = "UPDATE review SET accepted_by_dms = '".$new_accepted_by_DMS."', application_accept_date='".$current_date."'  WHERE user_id ='".$student_id."' AND application_id='".$application_id."'";
+			$sql = "UPDATE review SET accepted_by_dms = 1 , application_accept_date='".$current_date."'  WHERE user_id ='".$student_id."' AND application_id='".$application_id."'";
 			//$stmt=$dbc->prepare($sql);
 			//$stmt->execute();
 			
@@ -214,16 +214,16 @@ elseif ($_SESSION['role']==4)
 	
 			
 	//if the statement fails, display an error
-	if (!$stmt)
-	{
-		die ('SQL Error: ' . mysqli_error($dbc));
-	}
+	//if (!$stmt)
+	//{
+		//die ('SQL Error: ' . mysqli_error($dbc));
+	//}
 	//if the statement doesn't fail, redirect back to dms_viewapp and pass student_id in the url
-	else
-	{
-		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id']);
+	//else
+	//{
+		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$application_id.'');
 		die();
-	}
+	//}
 	
 
 ?>
