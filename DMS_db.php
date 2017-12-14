@@ -5,7 +5,7 @@
 	$user = 'root';
 	$pass = '';
 	$db = 'dms';
-	//YSxDM7xwpp}B4AA5
+	//
 
 	//create connection to database
 	$dbc = new PDO("mysql:dbname=$db; host=localhost", "$user", "$pass");

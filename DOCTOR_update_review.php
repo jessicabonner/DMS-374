@@ -143,10 +143,11 @@ if ($_SESSION['role']==2)
 					//$mail->Port = 587; 
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
+					$link="<a href='https://dev-undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
 			    	//$mail->Body = "$msg";
-					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you've been accepted to.</p><p>Sincerely,</p>DMS Team";
+					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team!</p><p>'".$link."'</p><p>Sincerely,</p>DMS Team";
 					
-					$mail->AltBody = 'We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you have been accepted into. Sincerely, DMS Team';
+					$mail->AltBody = 'We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team! "'.$link.'" Sincerely, DMS Team';
 					
 			    	$mail->Subject = "$subject";
 			    	$mail->AddAddress($recipient);  // Recipient
