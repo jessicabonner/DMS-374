@@ -3,44 +3,18 @@ require "DMS_general_functions.php";
 $role_id_array=array("2","4");
 require "DMS_authenticate.php";
 $user_id = $_SESSION['user_id'];
+/*
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
-//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/Exception.php';
-//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
-//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
-
-//require_once $_SERVER['DOCUMENT_ROOT'].'/phpmailer/libs/PHPMailer-master/src/Exception.php';
-//require_once $_SERVER['DOCUMENT_ROOT'].'/phpmailer/libs/PHPMailer-master/src/PHPMailer.php';
-//require_once $_SERVER['DOCUMENT_ROOT'].'/phpmailer/libs/PHPMailer-master/src/SMTP.php';
-
-	
-	//require "phpmailer/libs/PHPMailer-master/src/PHPMailer.php";
-    //require "PHPMailer-master/src/OAuth.php";
-    //require "phpmailer/libs/PHPMailer-master/src/SMTP.php";
-    //require "PHPMailer-master/src/POP3.php";
-    //require "phpmailer/libs/PHPMailer-master/src/Exception.php";
-
-
-//require '/tr22252/var/www/html/phpmailer/libs/PHPMailer-master/src/Exception.php';
-//require '/tr22252/var/www/html/phpmailer/libs/PHPMailer-master/src/PHPMailer.php';
-//require '/tr22252/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
-
-
-
-
-
-//require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/Exception.php';
-//require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
-//require '/xampp/htdocs/DMS/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
 
 
 
 require './Exception.php';
 require './PHPMailer.php';
+*/
 
-//require '/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
+
 
 	
 	
@@ -99,6 +73,7 @@ if ($_SESSION['role']==2)
 				}
 				*/
 				
+				/*
 				
 				//The Email Sender information
 	    		$from = 'DellMed.Notifications@gmail.com'; //This will need to change
@@ -118,7 +93,7 @@ if ($_SESSION['role']==2)
 						'subject'=> 'DMS application',
 						'mail_body'=>$mail_body);
 					*/
-					
+					/*
 					$recipient = $row['email'];
 						
 				}
@@ -146,7 +121,7 @@ if ($_SESSION['role']==2)
 			{
 				header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id'].'&error=0');
 				die();
-			}
+			}*/
 				
 
 		
