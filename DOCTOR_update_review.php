@@ -38,7 +38,7 @@ if ($_SESSION['role']==2)
 		$student_id=$_POST['user_id'];
 	
 		$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
-
+/*
 		//check if student is already accepted in the database
 		$stmt = $dbc->query("SELECT * FROM review WHERE accepted_by_dms=$new_accepted_by_DMS AND application_id=". $_POST['application_id']." AND user_id='".$student_id."'");
 		$x = $stmt->fetch();
@@ -49,10 +49,10 @@ if ($_SESSION['role']==2)
 			header('Location: DOCTOR_view_detailed_student_info.php?error="1" & id='.$student_id.' &selected_application='.$_POST['application_id'].'');
 			die();
 		}
-
+*/
 		//if student is not already accepted, update "accepted" field to true
-		if ( ($_POST['new_accepted_by_DMS'])!== null)
-		{
+		//if ( ($_POST['new_accepted_by_DMS'])!== null)
+		//{
 			$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
 			$sql = "UPDATE review SET accepted_by_dms = '".$new_accepted_by_DMS."', application_accept_date='".$current_date."'  WHERE user_id ='".$student_id."' AND application_id='".$_POST['application_id']."'";
 			//$stmt=$dbc->prepare($sql);
@@ -218,16 +218,16 @@ elseif ($_SESSION['role']==4)
 	
 			
 	//if the statement fails, display an error
-	if (!$stmt)
-	{
-		die ('SQL Error: ' . mysqli_error($dbc));
-	}
+	//if (!$stmt)
+	//{
+		//die ('SQL Error: ' . mysqli_error($dbc));
+//	}
 	//if the statement doesn't fail, redirect back to dms_viewapp and pass student_id in the url
-	else
-	{
+	//else
+	//{
 		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id']);
 		die();
-	}
+	//}
 	
 
 
