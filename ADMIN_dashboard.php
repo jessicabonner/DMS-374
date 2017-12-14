@@ -1,4 +1,9 @@
-<?php require 'DMS_general_functions.php'; ?>
+<?php 
+	require 'DMS_general_functions.php'; 
+	$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -45,12 +50,6 @@
 </head>
 
 <?php
-	$role_id_array=array("1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-
-
 	require 'ADMIN_dashboard_functionality.php';
 	//this will display a message when a user is redirected to this page after completing an action
 	if (isset($_GET['message']))
