@@ -273,18 +273,11 @@
           </div>
         </div>
       </div> <!-- container-topnav -->
-
-
-
         </div>
-
-
     </div> <!-- nav-wrapper -->
-
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:40px;margin-right:450px">
 <?php endif; ?>
-
   <!-- Header -->
 <div class="w3-container" style="margin-top:120px; font-familt:benton sans;" id="showcase">
 	<h1 class="w3-jumbo">
@@ -295,7 +288,6 @@
 	<br>
 	<b> </b>
 </div>
-
 <?php
 	if ($_SESSION['role']=='2')
 	{
