@@ -41,9 +41,8 @@ if ($_SESSION['role']==2)
 		if ( ($_POST['new_accepted_by_DMS'])!== null)
 		{
 			$new_accepted_by_DMS = $_POST['new_accepted_by_DMS'];
-			$sql = "UPDATE review SET accepted_by_dms = '".$new_accepted_by_DMS."', application_accept_date='".$current_date."'  WHERE user_id ='".$student_id."' AND application_id='".$_POST['application_id']."'";
-			
-			echo $sql;
+			echo $new_accepted_by_DMS;
 	}}
+	
 
 ?>
