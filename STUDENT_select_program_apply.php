@@ -1,39 +1,3 @@
-<?php
-	$role_id_array=array("5");
-	require "DMS_authenticate.php";
-
-	require "DMS_general_functions.php";
-
-	//if an error is passed on redirect, display error message
-	if (isset($_GET['error']))
-	{
-		//error message if student has already applied to the selected program
-		if ($_GET['error']=="1")
-		{
-			echo '<script language="javascript">';
-			echo 'alert("You have already applied to this program")';
-			echo '</script>';
-		}
-
-		//error message if user is trying to resubmit their student info page and is redirected to the STUDENT_select_program_apply.php
-		elseif($_GET['error']=="0")
-		{
-			echo '<script language="javascript">';
-			echo 'alert("You have already submitted your Student Information. If you wish to edit your information, please click on the edit profile tab")';
-			echo '</script>';
-
-		}
-	}
-
-
-	//call function from DMS_general_functions to get a list of all applications
-	$applications=get_all_applications_open();
-
-	//get the user id that was passed through the url
-	$user_id=$_SESSION['user_id'];
-
-?>
-
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -81,6 +45,42 @@
   <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
 
+<?php
+	$role_id_array=array("5");
+	require "DMS_authenticate.php";
+
+	require "DMS_general_functions.php";
+
+	//if an error is passed on redirect, display error message
+	if (isset($_GET['error']))
+	{
+		//error message if student has already applied to the selected program
+		if ($_GET['error']=="1")
+		{
+			echo '<script language="javascript">';
+			echo 'alert("You have already applied to this program")';
+			echo '</script>';
+		}
+
+		//error message if user is trying to resubmit their student info page and is redirected to the STUDENT_select_program_apply.php
+		elseif($_GET['error']=="0")
+		{
+			echo '<script language="javascript">';
+			echo 'alert("You have already submitted your Student Information. If you wish to edit your information, please click on the edit profile tab")';
+			echo '</script>';
+
+		}
+	}
+
+
+	//call function from DMS_general_functions to get a list of all applications
+	$applications=get_all_applications_open();
+
+	//get the user id that was passed through the url
+	$user_id=$_SESSION['user_id'];
+
+?>
+
 <body class="html front not-logged-in no-sidebars page-node"  >
   <div id="skip-link">
     <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
@@ -118,8 +118,8 @@
 					<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 				  <!--<a href="DMS_logout.php" onclick="w3_close()">Logout</a>-->
                 </h2>
-              </div>			
-								              
+              </div>
+
               <div class="hide-for-large-up">
                 <div class="parent-links" id="parents">
                   <a href="http://www.utexas.edu">The University of Texas at Austin</a>
@@ -131,7 +131,7 @@
                   <br>
 				  <br>
 				  <br>
-				  
+
             </div>
           </div>
         </div>
@@ -170,8 +170,8 @@
         </div>
   		</div> <!-- container-nav-phase2 -->
     	</div> <!-- nav-wrapper -->
-		
-		
+
+
 
 		<!-- !PAGE CONTENT! -->
 		<div class="w3-main" style="margin-left:40px;margin-right:450px">
@@ -184,11 +184,11 @@
 
 	<hr style="min-width:100%;border:5px solid #BF5700" align="left" class="w3-round">
 
-    
+
 	<br>
 	<!--<b>Select which program you would like to apply to. </b>
 	<hr />-->
-	
+
 	<small>**Be aware that applying to too many programs does not reflect well on a student. Choose the programs you apply to wisely.</small>
 	</div>
 	<div class="w3-container" id="application" style="margin-top:10px">
@@ -196,7 +196,7 @@
 
 <!--Calls on the function to display all applications -->
 	<form name="apply_form" action = "STUDENT_dynamic_application.php" method= "post">
-	
+
 	<br><br>
 
 				<?php

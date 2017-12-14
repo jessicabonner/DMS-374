@@ -1,46 +1,3 @@
-<?php
-	$role_id_array=array("5");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-	date_default_timezone_set('America/Chicago');
-
-
-	require "STUDENT_functionality.php";
-	require "DMS_general_functions.php";
-
-	if (isset($_GET['message']))
-	{
-		if ($_GET['message']=="1")
-		{
-			echo '<script language="javascript">';
-			echo 'alert("You have already responded to this offer")';
-			echo '</script>';
-		}
-		elseif($_GET['message']=="2")
-		{
-			echo '<script language="javascript">';
-			echo 'alert("You have successfully accepted your offer")';
-			echo '</script>';
-		}
-		elseif($_GET['message']=="3")
-		{
-			echo '<script language="javascript">';
-			echo 'alert("You have successfully declined your offer")';
-			echo '</script>';
-		}
-			
-		elseif ($_GET['message']=="6"){
-			echo '<script language="javascript">';
-			echo 'alert("The password was successfully changed")';
-			echo '</script>';
-		}
-	
-
-
-	}
-?>
-
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -88,6 +45,49 @@
   <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
 
+<?php
+	$role_id_array=array("5");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
+	date_default_timezone_set('America/Chicago');
+
+
+	require "STUDENT_functionality.php";
+	require "DMS_general_functions.php";
+
+	if (isset($_GET['message']))
+	{
+		if ($_GET['message']=="1")
+		{
+			echo '<script language="javascript">';
+			echo 'alert("You have already responded to this offer")';
+			echo '</script>';
+		}
+		elseif($_GET['message']=="2")
+		{
+			echo '<script language="javascript">';
+			echo 'alert("You have successfully accepted your offer")';
+			echo '</script>';
+		}
+		elseif($_GET['message']=="3")
+		{
+			echo '<script language="javascript">';
+			echo 'alert("You have successfully declined your offer")';
+			echo '</script>';
+		}
+
+		elseif ($_GET['message']=="6"){
+			echo '<script language="javascript">';
+			echo 'alert("The password was successfully changed")';
+			echo '</script>';
+		}
+
+
+
+	}
+?>
+
 <body class="html front not-logged-in no-sidebars page-node"  >
   <div id="skip-link">
     <a href="#ut-page-content" class="element-invisible element-focusable">Skip to main content</a>
@@ -125,8 +125,8 @@
 					<a href="http://www.utexas.edu" class="logo-link"><img src="Texas_logo.png" alt="UTexas Home" /><br></a>
 				  <!--<a href="DMS_logout.php" onclick="w3_close()">Logout</a>-->
                 </h2>
-              </div>			
-								              
+              </div>
+
               <div class="hide-for-large-up">
                 <div class="parent-links" id="parents">
                   <a href="http://www.utexas.edu">The University of Texas at Austin</a>
@@ -138,7 +138,7 @@
                   <br>
 				  <br>
 				  <br>
-				  
+
             </div>
           </div>
         </div>
@@ -177,8 +177,8 @@
         </div>
   		</div> <!-- container-nav-phase2 -->
     	</div> <!-- nav-wrapper -->
-		
-		
+
+
 
 		<!-- !PAGE CONTENT! -->
 		<div class="w3-main" style="margin-left:40px;margin-right:450px">
@@ -186,13 +186,13 @@
   		<!-- Header -->
 <div class="w3-container" style="margin-top:50px; font-familt:benton sans;" id="showcase">
 	<h1 class="w3-jumbo">
-		
+
 	</h1>
 
 	<hr style="min-width:100%;border:5px solid #BF5700" align="left" class="w3-round">
-	
 
-		
+
+
 		<br>
 			<b>You have applied to the following programs. If you would like to apply to another program, click the "New Application" tab on the navigation bar.
 			</b>
@@ -203,7 +203,7 @@
 
 
 		<table class="data-table">
-			
+
 			<thead>
 				<tr>
 

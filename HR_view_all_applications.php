@@ -224,7 +224,7 @@ require 'DOCTOR_functionality.php';
 						echo '
 							<td>'.$row['term'].'</td>
 							<td>'.$row['year'].'</td>
-							<td>'.$string_unique_questions.'</td>
+							<td><font color="red">'.$string_unique_questions.'</td></div>
 							<td>'.$application_closed.'</td>
 							</tr>';
 

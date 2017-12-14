@@ -1,27 +1,3 @@
-<?php
-
-	$role_id_array=array('4');
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-	//require file containing all doctor functions
-	require 'DOCTOR_functionality.php';
-	require 'DMS_general_functions.php';
-	
-	if (isset($_GET['message']))
-	{
-	
-		if ($_GET['message']=="6"){
-			echo '<script language="javascript">';
-			echo 'alert("The password was successfully changed")';
-			echo '</script>';
-		}
-	}
-
-
-
-?>
-
 <!--Doctor's view that displays applicants-->
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -69,6 +45,30 @@
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
   <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
+
+<?php
+
+	$role_id_array=array('4');
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
+	//require file containing all doctor functions
+	require 'DOCTOR_functionality.php';
+	require 'DMS_general_functions.php';
+
+	if (isset($_GET['message']))
+	{
+
+		if ($_GET['message']=="6"){
+			echo '<script language="javascript">';
+			echo 'alert("The password was successfully changed")';
+			echo '</script>';
+		}
+	}
+
+
+
+?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
   <div id="skip-link">
@@ -319,7 +319,7 @@
 					<td><input type="checkbox" name="filter_criteria[]" value=" car='0' ">No<br></td>
 				</tr>
 
-				
+
 
 				<!--break-->
 				<tr>
@@ -461,14 +461,14 @@
 						$x=select_student_review($id, $_GET['select_application']);
 
 
-						
+
 
 							echo '
 								<td>'.$row['GPA'].'</td>
 								<td>'.$row['email'].'</td>
 								<td>'.$row['classification'].'</td>
 								<td>'.$row['major'].'</td>';
-								
+
 							if ($x['approved']=="1")
 							{
 								echo "<td><input type='checkbox' name='potential_approve_array[]' value='$id' checked='checked'></td>";
@@ -478,7 +478,7 @@
 								echo "<td><input type='checkbox' name='potential_approve_array[]' value='$id'></td>";
 							}
 
-						
+
 
 
 			}
@@ -499,6 +499,6 @@
 	<?php endif; ?>
 
 
-	
+
 </body>
 </html>

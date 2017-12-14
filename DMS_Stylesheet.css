@@ -181,3 +181,8 @@ div.zoomed
 {
 	zoom:80%
 }
+
+.left {
+  text-align: left;
+  margin-left: 1em;
+}

@@ -1,19 +1,3 @@
-<?php
-
-$role_id_array=array("3","1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-	//this will display an error message if the user tries to accept a student already accepted in the database
-	if (isset($_GET['error']))
-	{
-		echo '<script language="javascript">';
-		echo 'alert("This student is already accepted. Cannot accept again.")';
-		echo '</script>';
-
-	}
-?>
-
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -59,6 +43,22 @@ $role_id_array=array("3","1");
 <link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
   <script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
+
+<?php
+
+$role_id_array=array("3","1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
+	//this will display an error message if the user tries to accept a student already accepted in the database
+	if (isset($_GET['error']))
+	{
+		echo '<script language="javascript">';
+		echo 'alert("This student is already accepted. Cannot accept again.")';
+		echo '</script>';
+
+	}
+?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
   <div id="skip-link">
