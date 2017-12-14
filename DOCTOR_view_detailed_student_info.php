@@ -513,19 +513,19 @@ else
 		$availability_array=explode(',',$row['availability']);
 	?>
 </table>
+<br></br>
 <table class='data-table2' width=600px>
 
-			<br></br><thead>
+			<tr><thead>
 			<th>Semester Availability</th>
+			
 
-			<br></br>
-
-			<td><input type='checkbox' name='availability_list[]' value='NA'<?php if (in_array('NA',$availability_array))echo 'checked="checked"'?>disabled><td>Unknown</td></td>
+			<td><input type='checkbox' name='availability_list[]' value='NA'<?php if (in_array('NA',$availability_array))echo 'checked="checked"'?>disabled<td><td>Unknown</td></td></tr>
 			<tr class="blankrow">
 				</table>
 <br></br>
 <!--<table width=100% table style>-->
-
+<br></br>
 <table class='data-table'>
 
 			<tr><thead>

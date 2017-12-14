@@ -103,19 +103,11 @@ if ($_SESSION['role']==2)
 	    		$from = 'DellMed.Notifications@gmail.com'; //This will need to change
 	    		$from_name = 'Dell Medical School';
 	   	 		$subject = 'Conditional Offer Expires in 14 days - Dell Medical School';
-				//$msg = "We are pleased to inform you that you have been selected for our current position of POSITION TITLE - PROGRAM TITLE. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 7 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you've been accepted to. Sincerely, DMS Team";
-			
-			
-				
-		
+
 				//Finds the email of the student the doctor accepted
 				$sql2 = "SELECT email, first_name FROM student_info WHERE user_id = '".$student_id."'";
 				$query = $dbc->query($sql2);
-				
-				
-				//$recipients_array = array();
-				//$mail_body="We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 7 days. We are very excited to welcom you to the Dell Medical School team! If you have any questions regarding your offer please use the contact information corresponding to the program you have been accepted into. Sincerely, DMS Team";
-				
+			
 				while ($row=$query->fetch(PDO::FETCH_ASSOC))
 				{
 					/*
@@ -136,9 +128,10 @@ if ($_SESSION['role']==2)
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
 					$link="<a href='https://dev-undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
-
-					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team!</p><p>'".$link."'</p><p>Sincerely,</p>DMS Team";
 					
+					//includes HTML
+					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team!</p><p>'".$link."'</p><p>Sincerely,</p>DMS Team";
+					//doesn't incllude HTML
 					$mail->AltBody = 'We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team! "'.$link.'" Sincerely, DMS Team';
 					
 			    	$mail->Subject = "$subject";
