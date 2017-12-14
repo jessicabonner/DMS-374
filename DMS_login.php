@@ -151,7 +151,7 @@
 		<div class="w3-container" id="application" style="margin-top:10px">
 	<body>
 	<!--this form will post to DMS_connect in order to submit data to DB-->
-	<form name="login_form" action = "DMS_login_connect.php" method= "get">
+	<form name="login_form" action = "DMS_login_connect.php" method= "post">
 
 		<table>
 

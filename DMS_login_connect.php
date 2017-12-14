@@ -3,8 +3,8 @@
 //link to file containing database connection string
 require 'DMS_db.php';
 	
-	$password_hash=hash('sha512',$_GET['password']);
-	$user_id=strtolower($_GET['username']);
+	$password_hash=hash('sha512',$_POST['password']);
+	$user_id=strtolower($_POST['username']);
 	
 	
 	
