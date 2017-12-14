@@ -1,6 +1,8 @@
 	  <?php
-	  try{
-	  session_start();
+	 
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
 	  
 		if($_SESSION["role"]=="5")
 	{
@@ -34,11 +36,7 @@
 		
 	}
 	  
-	  }
-	  catch (Exception $e)
-	  {
-		  $here="DMS_login.php";
-	  }
+	
 	  
 	  ?>
 
