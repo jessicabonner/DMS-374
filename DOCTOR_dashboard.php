@@ -16,9 +16,8 @@
 		echo 'alert("The selected list contains students that are already accepted. Please try again.")';
 		echo '</script>';
 	}
-?>
 
-<?php  if ($_SESSION['role']=='1'): ?>
+	if ($_SESSION['role']=='1'): ?>
 
 <!doctype html>
 <html lang="en" dir="ltr">
