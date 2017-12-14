@@ -124,7 +124,6 @@ require './PHPMailer.php';
 				die();
 			}*/
 				
-
 		
 			$stmt=$dbc->prepare($sql);
 			$stmt->execute();
