@@ -62,7 +62,7 @@ require './PHPMailer.php';
     		$from = 'DellMed.Notifications@gmail.com'; //This will need to change
     		$from_name = 'Dell Medical School';
    	 		$subject = 'ACTION Required: Employee Biographical Information Form';
-			$msg = "You have officially accepted your offer. Please fill out the attached Employee Biographical Information Form which will start our onboarding process. Email your completed form to Katherine Clayton at kclayon@austin.utexas.edu";
+			$msg = "You have officially accepted your offer. If you've accepted a non-paid position, please fill out the attached Employee Biographical Information Form which will start the onboarding process. Email your completed form to Katherine Clayton at kclayon@austin.utexas.edu. If you accepted a paid position, please disregard the Employee Biographical Information Form and directly contact Katherine Clayton about your recently accepted paid position.";
 		
 			
 	
