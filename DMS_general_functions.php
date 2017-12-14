@@ -4,8 +4,9 @@
 	set_error_handler("error_redirect");
 	function error_redirect($errno, $errstr)
 	{
-		//Header("Location: DMS_error.php");
-		die("An error ocurred");
+		echo $errno;
+		Header("Location: DMS_error.php");
+		die();
 		
 	}
 	
