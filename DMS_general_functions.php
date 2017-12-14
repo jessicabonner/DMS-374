@@ -5,7 +5,7 @@
 	function error_redirect($errno, $errstr)
 	{
 		//Header("Location: DMS_error.php");
-		die(Header("Location: DMS_error.php"));
+		die("An error ocurred");
 		
 	}
 	
