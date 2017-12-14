@@ -128,6 +128,7 @@ if ($_SESSION['role']==2)
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
 					$link="<a href='https://dev-undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
+					//$link="<a href='https://undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
 					
 					//includes HTML
 					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team!</p><p>'".$link."'</p><p>Sincerely,</p>DMS Team";
