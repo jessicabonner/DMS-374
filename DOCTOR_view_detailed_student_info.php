@@ -855,22 +855,27 @@ if ($_SESSION['role']=='2')
 		//$application_id = $row['application_id'];
 		if ($accepted_by_dms=='1')
 		{
-			$accept_unaccept='Unaccept';
-			$value="0";
+			echo "
+			<tr><th>Accept Candidate</th></td>
+			<td><input type='checkbox' name='new_accepted_by_DMS' id='accept_checkbox' value=1 checked='checked' disabled>
+			<input type='hidden' name='user_id' value=$student_id><br /></td>
+			<input type='hidden' name='application_id' value=$application_id>
+			</tr>";
+			
 
 		}
 		else
 		{
-			$accept_unaccept='Accept';
-			$value="1";
-		}
-
-		echo "
-			<tr><th>$accept_unaccept Candidate</th></td>
-			<td><input type='checkbox' name='new_accepted_by_DMS' id='accept_checkbox' value=$value >
+			echo "
+			<tr><th>Accept Candidate</th></td>
+			<td><input type='checkbox' name='new_accepted_by_DMS' id='accept_checkbox' value=1 >
 			<input type='hidden' name='user_id' value=$student_id><br /></td>
 			<input type='hidden' name='application_id' value=$application_id>
 			</tr>";
+		}
+		
+
+		
 
 	}
 
@@ -899,7 +904,7 @@ if ($_SESSION['role']=='2')
 </table>
 	<tr><td><br></td>
 	<?php if ($_SESSION['role']=='2'): ?>
-		<td><input type='submit' name= "accept" id="accept_button" value= '  <?php echo $accept_unaccept ?>  ' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
+		<td><input type='submit' name= "accept" id="accept_button" value= 'Accept' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
 	<?php endif ?>
 
 		<td><input type='submit' name= "update" value='  Save Changes  ' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
