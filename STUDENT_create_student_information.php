@@ -46,6 +46,7 @@
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 	require 'DOCTOR_functionality.php';
+	require "DMS_general_functions.php";
 
 	if (isset($_GET['error']))
 	{

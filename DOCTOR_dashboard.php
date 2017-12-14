@@ -1,3 +1,24 @@
+<?php
+	
+	require 'DMS_general_functions.php';
+	$role_id_array=array("2","1");
+	//require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+	
+
+	//require file containing all doctor functions
+	require 'DOCTOR_functionality.php';
+
+
+	//this will display an error message if the user tries to accept a student already accepted in the database
+	if (isset($_GET['error']))
+	{
+		echo '<script language="javascript">';
+		echo 'alert("The selected list contains students that are already accepted. Please try again.")';
+		echo '</script>';
+	}
+?>
+
 <?php  if ($_SESSION['role']=='1'): ?>
 
 <!doctype html>
@@ -45,24 +66,6 @@
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
 
-<?php
-
-	$role_id_array=array("2","1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-	//require file containing all doctor functions
-	require 'DOCTOR_functionality.php';
-	require 'DMS_general_functions.php';
-
-	//this will display an error message if the user tries to accept a student already accepted in the database
-	if (isset($_GET['error']))
-	{
-		echo '<script language="javascript">';
-		echo 'alert("The selected list contains students that are already accepted. Please try again.")';
-		echo '</script>';
-	}
-?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">

@@ -161,7 +161,8 @@ $role_id_array=array("3","1");
 <form action='DOCTOR_update_review.php' method='POST'>
 
 <?php
-require 'DMS_db.php';
+	require 'DMS_db.php';
+	require "DMS_general_functions.php";
 
 	// Get ID from the URL
 	$id = $_GET['id'];
@@ -181,7 +182,7 @@ require 'DMS_db.php';
 </tr>
 
 <?php
-require 'DMS_general_functions.php';
+
 
 	//while($row = mysqli_fetch_array($result))
 	while ($row=$query->fetch(PDO::FETCH_ASSOC))

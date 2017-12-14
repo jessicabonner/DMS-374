@@ -1,5 +1,5 @@
 <?php
-
+require 'DMS_general_functions.php';
 	if(isset($_GET['action']))
 	{
 		require "DMS_db.php";

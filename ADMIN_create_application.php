@@ -1,3 +1,4 @@
+<?php require 'DMS_general_functions.php'; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -192,9 +193,7 @@ $role_id_array=array("1");
 
 							<!--get all program names to populate dropdown-->
 							<?php
-							//link to file containing this function (line 18)
-							require 'DMS_general_functions.php';
-
+							//dms general functions(line 18)
 							$programs= get_all_programs()
 							?>
 							<!--specify program application is for & # of unique questions -->

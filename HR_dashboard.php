@@ -1,9 +1,11 @@
 <?php  
 
-
+	require 'DMS_general_functions.php';
 	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
+
+	
 
 
 if ($_SESSION['role']=='1'): ?>
@@ -507,7 +509,7 @@ if (isset($_GET['message']))
 	<?php
 
 	require"HR_functionality.php";
-	require 'DMS_general_functions.php';
+	
 
 	if(isset($_GET['search_criteria'])&&  $_GET['search_criteria']!="")
 	{

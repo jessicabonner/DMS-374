@@ -51,10 +51,11 @@
 	$role_id_array=array('4');
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
+	require 'DMS_general_functions.php';
 
 	//require file containing all doctor functions
 	require 'DOCTOR_functionality.php';
-	require 'DMS_general_functions.php';
+	
 
 	if (isset($_GET['message']))
 	{

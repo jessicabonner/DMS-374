@@ -1,6 +1,7 @@
 <?php
 	
 	require 'DMS_db.php';
+	require "DMS_general_functions.php";
 
 	$user_id=$_SESSION['user_id'];
 

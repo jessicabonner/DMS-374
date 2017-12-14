@@ -42,6 +42,9 @@
 </head>
 
 <?php
+
+require "DMS_general_functions.php";
+
 	if(isset($_GET['error']))
 	{
 		if ($_GET['error']=="1")

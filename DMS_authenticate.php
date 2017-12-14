@@ -1,5 +1,5 @@
 <?php
-
+require 'DMS_general_functions.php';
 
 
 try{

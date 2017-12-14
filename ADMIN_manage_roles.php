@@ -1,3 +1,4 @@
+<?php require 'DMS_general_functions.php'; ?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -196,9 +197,8 @@
 							</tr>
 							<!--get all role names to populate dropdown-->
 							<?php
-							//link to file containing this function (line 101)
-							require 'DMS_general_functions.php';
-
+							
+							//line 101 of dms_general_functions
 							$roles= get_all_roles()
 							?>
 

@@ -3,6 +3,7 @@
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 	require 'STUDENT_dynamic_application_functionality.php';
+	require "DMS_general_functions.php";
 
 	$user_id=$_SESSION['user_id'];
 ?>
