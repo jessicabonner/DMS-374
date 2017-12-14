@@ -740,7 +740,7 @@ else
 
 		$stmt = $dbc->query("SELECT * FROM review WHERE user_id='".$student_id."' AND application_id=$application_id;");
        	$x = $stmt->fetch();
-
+		
 if ($_SESSION['role']=='2')
 {
 	echo "<th>Review</th>";
@@ -895,7 +895,6 @@ if ($_SESSION['role']=='2')
 			echo "<input type='hidden' name='user_id' value=$student_id><br /></td>
 			<input type='hidden' name='application_id' value=$application_id>";
 	}
-
 
 	}
 ?>

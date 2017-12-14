@@ -256,7 +256,8 @@ $role_id_array=array("1");
 					echo "<td>$value</td></tr>";
 				}
 		}
-		echo "</tr>";
+		
+		
 
 
 		//break
@@ -307,21 +308,50 @@ $role_id_array=array("1");
 	else
 		{
 			echo "This application is archived";
-			echo "<form action='ADMIN_close_application_connect.php' method='POST'>
+			echo "<form action='ADMIN_close_application_connect.php' method='POST'>";
+			
+			
+			// Display whether or not the applications is open or closed
+			echo "<tr>";
+			echo "<th>Open?</th>";
+			echo "<td>" . $application_closed.  "</td>";
 
-				<tr><td></td>
-					<td></td>
-					<td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
+			echo "</tr>";
+			echo "</tr></table>";
+
+			//set variable to change whether she can close or open an application
+			//0 is false 1 is true
+			if ($application_closed=="No")
+			{
+				$close_open="Open";
+				$value="0";
+			}
+			else
+			{
+				$close_open="Close";
+				$value="1";
+			}
+			
+			
+			
+			
+			
+			
+			echo "<tr><br></tr>";
+			echo "<tr><td><input type='checkbox' name='unarchive_application' value=$value> Check to Unarchive Application<br />
 						<input type='hidden' name='application_id' value=$application_id><br /></td></tr>
 				<tr>
 					<td></td>
 					<td></td>
 					<td><input type='submit' value=' Enter '></td></tr>
 				</form>";
+			echo "</table>";
+				
 		}
 	}
 
 ?>
+
 
 <a href="ADMIN_add_doctor_to_application.php?select_application=<?php echo $application_id ?>">Edit who can view applicants</a>
 

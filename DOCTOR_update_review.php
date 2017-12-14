@@ -81,9 +81,12 @@ if ($_SESSION['role']==2)
 			//$stmt=$dbc->prepare($sql);
 			//$stmt->execute();
 			
+			
+			
 			//If the doctor accepts a student, this will send an email notification to the student
-			if(($_POST['new_accepted_by_DMS'])== '1')
+			if($new_accepted_by_DMS == '1')
 			{
+			
 				/*
 				$sql2="SELECT * FROM applications WHERE application_id='".$application_id."'";
 				$stmt=$dbc->prepare($sql2);
@@ -122,100 +125,23 @@ if ($_SESSION['role']==2)
 						'mail_body'=>$mail_body);
 					*/
 					
-					
 					$recipient = $row['email'];
 						
 				}
+				echo $recipient;
 				
-				
-				
-			    	//$mail = new PHPMailer(true);
+
 					$mail = new PHPMailer;
-					//$mail->SMTPDebug = 2;   
-			    	//$mail->IsSMTP();
-			    	//$mail->Host = 'smtp.gmail.com'; 
-					//$mail->Host = 'dev-undergraduates.dellmed.utexas.edu'; 
-			    	//$mail->SMTPAuth = true;
-			    	//$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
-			    	//$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
-				    //$mail->SMTPSecure = 'tls';      //tls                      // Enable TLS encryption, `ssl` also accepted
-				    //$mail->Port = 587; 465; 25;
-					//$mail->Port = 587; 
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
 					$link="<a href='https://dev-undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
-			    	//$mail->Body = "$msg";
+
 					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team!</p><p>'".$link."'</p><p>Sincerely,</p>DMS Team";
 					
 					$mail->AltBody = 'We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team! "'.$link.'" Sincerely, DMS Team';
 					
 			    	$mail->Subject = "$subject";
-			    	$mail->AddAddress($recipient);  // Recipient
-			
-						if(!$mail->send())
-				 		{
-				  			echo 'Email sent to:' . $recipient . '<br/ >';
-				      	  	echo "Mailer Error: " . $mail->ErrorInfo;
-				   		}
-						/*
-				    	else
-				    	{
-				       	 	echo 'Email sent to:' . $recipient . '<br/ >';
-				    	}	
-*/
-			
-				
-				
-				
-				/*
-				//$mail = new PHPMailer(true);
-				$mail = new PHPMailer;
-				//$mail->SMTPDebug = 2; 
-				$mail->setFrom('DellMed.Notifications@gmail.com', 'DMS');
-				$mail->addAddress('tanniarodriguez@utexas.edu', 'Tannia');
-				$mail->Subject  = 'First PHPMailer Message';
-				$mail->Body     = 'Hi! This is my first e-mail sent through PHPMailer.';
-				
-				if(!$mail->send()) 
-				{
-				  echo 'Message was not sent.';
-				  echo 'Mailer error: ' . $mail->ErrorInfo;
-				} else 
-				{
-				  echo 'Message has been sent.';
-				}
-				
-				*/
-				
-				
-				
-				/*
-				
-				function mailer($mailArray, $page) {
-				    $header = array();
-				    $header[] = "MIME-Version: 1.0";
-							$header[] = "From: Dell Medical School < DellMed.Notifications@gmail.com >";
-							$file =
-				            $header[] = "Content-type: text/plain; charset=iso-8859-1";
-				            $header[] = "X-Mailer: PHP/".phpversion();
-				            $header[] = $mailArray['name'];
-				            if ($page) {
-				                $subject = $mailArray['subject'];
-				                $recipient = $mailArray['recipient'];
-								
-				            }
-				            $mail_body = $mailArray['mail_body']; 
-				            mail($recipient, $subject, $mail_body, implode("\r\n", $header) ); 
-							
-
-				        }// end function mailer()
-				
-				
-						mailer($mailArray, true);
-				
-				
-				*/
-				
+			    	$mail->AddAddress($recipient);  // Recipient 
 				
 			}
 			
@@ -318,7 +244,7 @@ elseif ($_SESSION['role']==4)
 			
 }
 			
-		
+	
 			
 	//if the statement fails, display an error
 	if (!$stmt)
@@ -331,5 +257,7 @@ elseif ($_SESSION['role']==4)
 		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id']);
 		die();
 	}
+	
+
 
 ?>
