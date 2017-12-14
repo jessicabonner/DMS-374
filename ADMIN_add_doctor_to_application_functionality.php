@@ -2,35 +2,22 @@
 
 	if(isset($_GET['action']))
 	{
-		echo "1";
 		require "DMS_db.php";
-		echo "2";
 		$id=strtolower($_GET['id']);
-		echo "3";
 		$select_application=$_GET['select_application'];
-		echo "4";
 		
 		$doctor_array=get_doctor_list($select_application);
-		echo "5";
 		
 		
 		$key=array_search($id, $doctor_array);
-		echo "6";
 		unset($doctor_array[$key]);
-		echo "7";
 		
 		$doctor_list=implode(',', $doctor_array);
-		echo "8";
 		
 		$sql="UPDATE applications SET user_permissions_eid_list= '".$doctor_list."' WHERE application_id= $select_application";
-		//echo $sql;
-		echo "9";
-		echo $sql;
 		
 		$stmt=$dbc->prepare($sql);
-		echo "10";
 		$stmt->execute();
-		echo "11";
 		
 		
 		header("Location: ADMIN_add_doctor_to_application.php?select_application=$select_application");
@@ -42,10 +29,8 @@
 		require "DMS_db.php";
 		$select_application=$_POST['select_application'];
 		
-		
 		//check if the new doctor's eid exists in the database
 		$stmt = $dbc->query("SELECT * FROM user WHERE user_id= '".$_POST['new_doctor']."'" );
-		
 		$x = $stmt->fetch();
 		
 		//if the application already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
@@ -65,28 +50,20 @@
 		if (get_doctor_list($select_application)==null)
 		{
 			$doctor_list="'".$_POST['new_doctor']."'";
-			echo "1";
 			
 		}
 		else
 		{
 			
 			$doctor_list=implode(',', get_doctor_list($select_application));
-			echo "2";
 			
 			$doctor_list="'".$doctor_list.",".$_POST['new_doctor']."'";
-			echo "3";
 		}
 		
-		//$sql="UPDATE applications SET user_permissions_eid_list= $doctor_list WHERE application_id= $select_application";
-		$sql=$dbc->prepare("UPDATE applications SET user_permissions_eid_list= :doctor_list WHERE application_id= :select_application");
-		echo "4";
+		$sql="UPDATE applications SET user_permissions_eid_list= $doctor_list WHERE application_id= $select_application";
 		
-		//$stmt=$dbc->prepare($sql);
-		echo "5";
-		//$stmt->execute();
-		$stmt->execute(array('doctor_list'=>$doctor_list,'select_application'=>$select_application));
-		echo "6";
+		$stmt=$dbc->prepare($sql);
+		$stmt->execute();
 		
 			
 		
