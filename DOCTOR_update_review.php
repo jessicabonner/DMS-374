@@ -18,7 +18,7 @@ require './PHPMailer.php';
 
 	
 	
-	date_default_timezone_set('America/Chicago');
+	//date_default_timezone_set('America/Chicago');
 	
 	//THIS FOR WILL BE LINKED TO DOCTOR_view_detailed_student_info.php TO Change accepted_by_dms
 
@@ -26,7 +26,8 @@ require './PHPMailer.php';
 
 	$student_id=$_POST['user_id'];
 	$application_id=$_POST['application_id'];
-	$current_date=date('Y-m-d');
+	//$current_date=date('Y-m-d');
+	$current_date='2017-12-13'
 	
 if ($_SESSION['role']==2)
 {
@@ -60,8 +61,8 @@ if ($_SESSION['role']==2)
 			
 			
 			//If the doctor accepts a student, this will send an email notification to the student
-			if($new_accepted_by_DMS == '1')
-			{
+			//if($new_accepted_by_DMS == '1')
+			//{
 			
 				/*
 				$sql2="SELECT * FROM applications WHERE application_id='".$application_id."'";
