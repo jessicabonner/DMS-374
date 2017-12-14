@@ -189,7 +189,7 @@
 	<!--<b>Select which program you would like to apply to. </b>
 	<hr />-->
 
-	<small>**Be aware that applying to too many programs does not reflect well on a student. Choose the programs you apply to wisely.</small>
+	<small>**Students are allowed to submit up to a maximum of two different applications per semester and will be automatically disqualified by submitting more than 2 applications.</small>
 	</div>
 	<div class="w3-container" id="application" style="margin-top:10px">
 	<body>
