@@ -168,7 +168,8 @@
 			</h1>
 		<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 		<br>
-			<b>Before you apply, please enter your basic profile information.
+			<b>Before you apply, please enter your basic profile information. This information will be included in your application, 
+			but can be changed at any time through the "Edit Profile" tab. 
 			</b>
 		<br>
 		</div>

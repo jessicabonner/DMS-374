@@ -1,5 +1,8 @@
 <?php
 
+
+
+try{
 session_start();
 require("DMS_db.php");
 date_default_timezone_set('America/Chicago');
@@ -60,7 +63,13 @@ date_default_timezone_set('America/Chicago');
 		echo "<br><a href='DMS_login.php'>Login</a>";
 		die();
 	}
-	
+}
+
+catch(Exception, $e)
+{
+	header("Location: DMS_error.php");
+	die();
+}
 	
 
 
