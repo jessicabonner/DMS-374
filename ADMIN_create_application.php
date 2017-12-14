@@ -1,4 +1,9 @@
-<?php require 'DMS_general_functions.php'; ?>
+<?php 
+require 'DMS_general_functions.php';
+$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id']; 
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -45,9 +50,7 @@
 </head>
 
 <?php
-$role_id_array=array("1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
+
 
 	//this will display an error message if the user tries to create an application that already exists in the database
 	if (isset($_GET['error']))
@@ -464,7 +467,7 @@ $role_id_array=array("1");
 								<td><br></td>
 							<tr>
 							<tr>
-								<td><input type="text" name="hours_per_week" placeholder="ex. 20" size="20" maxlength="30" required/></td>
+								<td><input type="text" name="hours_per_week" placeholder="ex. 20" size="20" maxlength="30" pattern="^[0-9]+$" required/></td>
 							</tr>
 
 							<!--text box for hourly rate-->
@@ -475,7 +478,7 @@ $role_id_array=array("1");
 								<td><br></td>
 							<tr>
 							<tr>
-								<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" required/></td>
+								<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" pattern="^[0-9]+$" required/></td>
 							</tr>
 
 						<!--submit button. Will post info.-->
