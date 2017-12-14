@@ -1,19 +1,3 @@
-<?php
-	if(isset($_GET['error']))
-	{
-		if ($_GET['error']=="1")
-		{
-			echo "The passwords you entered do not match";
-		}
-		elseif ($_GET['error']=="2")
-		{
-			echo "This email already exists in our system";
-		}
-
-	}
-
-
-?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -56,6 +40,23 @@
 	<link type="text/css" rel="stylesheet" 	href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
+
+<?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "The passwords you entered do not match";
+		}
+		elseif ($_GET['error']=="2")
+		{
+			echo "This email already exists in our system";
+		}
+
+	}
+
+
+?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">

@@ -1,33 +1,3 @@
-<?php
-
-	$role_id_array=array("5");
-	require "DMS_authenticate.php";
-	require 'DOCTOR_functionality.php';
-
-	if (isset($_GET['error']))
-	{
-		echo '<script language="javascript">';
-		echo 'alert("You have already submitted your Student Information")';
-		echo '</script>';
-	}
-
-	$user_id=$_SESSION['user_id'];
-
-	$x = select_student($user_id);
-
-
-	//if the application already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
-	if (count($x['user_id'])>0)
-	{
-
-		header("Location: STUDENT_confirm_student_information.php");
-		die();
-	}
-
-
-
-
-?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -70,6 +40,37 @@
 	<link type="text/css" rel="stylesheet" 	href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
+
+<?php
+
+	$role_id_array=array("5");
+	require "DMS_authenticate.php";
+	require 'DOCTOR_functionality.php';
+
+	if (isset($_GET['error']))
+	{
+		echo '<script language="javascript">';
+		echo 'alert("You have already submitted your Student Information")';
+		echo '</script>';
+	}
+
+	$user_id=$_SESSION['user_id'];
+
+	$x = select_student($user_id);
+
+
+	//if the application already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
+	if (count($x['user_id'])>0)
+	{
+
+		header("Location: STUDENT_confirm_student_information.php");
+		die();
+	}
+
+
+
+
+?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">
@@ -155,11 +156,11 @@
   		</div> <!-- container-nav-phase2 -->
     	</div> <!-- nav-wrapper -->
 
-		
+
 		<!-- !PAGE CONTENT! -->
 		<div class="w3-main" style="margin-left:40px;margin-right:450px">
 		<link type="text/css" rel="stylesheet" href="DMS_Stylesheet.css" media="all" />
-		
+
 
   		<!-- Header -->
 		<div class="w3-container" style="margin-top:40px" id="showcase">
@@ -168,8 +169,8 @@
 			</h1>
 		<hr style="width:800px;border:5px solid #BF5700" align="left" class="w3-round">
 		<br>
-			<b>Before you apply, please enter your basic profile information. This information will be included in your application, 
-			but can be changed at any time through the "Edit Profile" tab. 
+			<b>Before you apply, please enter your basic profile information. This information will be included in your application,
+			but can be changed at any time through the "Edit Profile" tab.
 			</b>
 		<br>
 		</div>
@@ -179,7 +180,7 @@
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "STUDENT_create_student_information_connect.php" method= "post">
 
-		
+
 			<!--text box for students first name-->
 			<tr>
 				<td>First Name</td>
@@ -453,7 +454,7 @@
 			<tr>
 				<td><input type="text" name="other_programs" size="20" maxlength="100" required/></td>
 			</tr>
-			
+
 			<!--break-->
 			<tr>
 				<td><br></td>
@@ -461,32 +462,32 @@
 			<!--Checkboxes for availibility for next semester-->
 			<table class="data-table">
 					<caption class="title">What is your availability for the upcoming semester?</caption>
-					
-					
+
+
 					<thead>
 						<tr>
-			
 
-			
+
+
 
 			<!--create column names-->
-			
+
 				<th></th>
 				<th>Monday</th>
 				<th>Tuesday</th>
 				<th>Wednesday</th>
 				<th>Thursday</th>
 				<th>Friday</th>
-				
-				
+
+
 				</tr>
 					</thead>
 
 					<tbody>
-			
 
 
-			<!--input checkboxes and row names-->		
+
+			<!--input checkboxes and row names-->
 			<tr>
 				<td>8:00am-8:30am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M8am" id="M8am" required></td>
@@ -495,7 +496,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH8am" id="TH8am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F8am" id="F8am" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>8:30am-9:00am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M8:30am" id="M8:30am" required></td>
@@ -513,7 +514,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH9am" id="TH9am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F9am" id="F9am" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>9:30am-10:00am</td>
 				<td><input type="checkbox" name="availability_list[]" value="M9:30am" id="M9:30am" required></td>
@@ -531,7 +532,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH10am" id="TH10am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F10am" id="F10am" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>10:30am-11:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M10:30am" id="M10:30am" required></td>
@@ -549,7 +550,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH11am" id="TH11am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F11am" id="F11am" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>11:30pm-12:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M11:30am" id="M11:30am" required></td>
@@ -567,7 +568,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH12am" id="TH12am" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F12am" id="F12am" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>12:30pm-1:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M12:30pm" id="M12:30pm" required></td>
@@ -585,7 +586,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH1pm" id="TH1pm" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F1pm" id="F1pm" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>1:30pm-2:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M1:30pm" id="M1:30pm" required></td>
@@ -603,7 +604,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH2pm" id="TH2pm" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F2pm" id="F2pm" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>2:30pm-3:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M2:30pm" id="M2:30pm" required></td>
@@ -621,7 +622,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH3pm" id="TH3pm" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F3pm" id="F3pm" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>3:30pm-4:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M3:30pm" id="M3:30pm" required></td>
@@ -639,7 +640,7 @@
 				<td><input type="checkbox" name="availability_list[]" value="TH4pm" id="TH4pm" required></td>
 				<td><input type="checkbox" name="availability_list[]" value="F4pm" id="F4pm" required></td>
 			</tr>
-			
+
 			<tr>
 				<td>4:30pm-5:00pm</td>
 				<td><input type="checkbox" name="availability_list[]" value="M4:30pm" id="M4:30pm" required></td>
@@ -652,9 +653,9 @@
 			<tr>
 				<td><input type="checkbox" name="availability_list[]" value="NA" required> Unknown</td>
 			</tr>
-			
+
 		</tbody>
-		
+
 		</table>
 
 			<br>
