@@ -65,7 +65,7 @@ date_default_timezone_set('America/Chicago');
 	}
 }
 
-catch(Exception, $e)
+catch(Exception $e)
 {
 	header("Location: DMS_error.php");
 	die();
