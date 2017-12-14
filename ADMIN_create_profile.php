@@ -1,25 +1,3 @@
-<?php
-
-	$role_id_array=array("1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-	if(isset($_GET['error']))
-	{
-		if ($_GET['error']=="1")
-		{
-			echo "The passwords you entered do not match";
-		}
-		elseif ($_GET['error']=="2")
-		{
-			echo "This user already exists in our system";
-		}
-
-	}
-
-
-?>
-
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>

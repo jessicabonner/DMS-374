@@ -1,42 +1,3 @@
-<?php
-
-	$role_id_array=array("1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-
-	require 'DMS_general_functions.php';
-	require 'ADMIN_dashboard_functionality.php';
-	//this will display a message when a user is redirected to this page after completing an action
-	if (isset($_GET['message']))
-	{
-		if ($_GET['message']=="0"){
-			echo '<script language="javascript">';
-			echo 'alert("The new program has been created successfully")';
-			echo '</script>';
-		}
-		elseif ($_GET['message']=="1"){
-			echo '<script language="javascript">';
-			echo 'alert("The new application has been created successfully")';
-			echo '</script>';
-		}
-		elseif ($_GET['message']=="2"){
-			echo '<script language="javascript">';
-			echo 'alert("The new user profile has been created successfully")';
-			echo '</script>';
-		}
-
-		elseif ($_GET['message']=="6"){
-			echo '<script language="javascript">';
-			echo 'alert("The password was successfully changed")';
-			echo '</script>';
-		}
-
-
-
-	}
-?>
-
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -81,6 +42,45 @@
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
+
+<?php
+
+	$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
+
+	require 'DMS_general_functions.php';
+	require 'ADMIN_dashboard_functionality.php';
+	//this will display a message when a user is redirected to this page after completing an action
+	if (isset($_GET['message']))
+	{
+		if ($_GET['message']=="0"){
+			echo '<script language="javascript">';
+			echo 'alert("The new program has been created successfully")';
+			echo '</script>';
+		}
+		elseif ($_GET['message']=="1"){
+			echo '<script language="javascript">';
+			echo 'alert("The new application has been created successfully")';
+			echo '</script>';
+		}
+		elseif ($_GET['message']=="2"){
+			echo '<script language="javascript">';
+			echo 'alert("The new user profile has been created successfully")';
+			echo '</script>';
+		}
+
+		elseif ($_GET['message']=="6"){
+			echo '<script language="javascript">';
+			echo 'alert("The password was successfully changed")';
+			echo '</script>';
+		}
+
+
+
+	}
+?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">

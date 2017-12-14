@@ -1,23 +1,3 @@
-<?php
-	$role_id_array=array("1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
-
-	if (isset($_GET['message']))
-	{
-		if ($_GET['message']=="0"){
-			echo '<script language="javascript">';
-			echo 'alert("The user does not exist in the database")';
-			echo '</script>';
-		}
-		elseif ($_GET['message']=="1"){
-			echo '<script language="javascript">';
-			echo 'alert("The role was successfully changed")';
-			echo '</script>';
-		}
-	}
-?>
-
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -62,6 +42,26 @@
 	<link type="text/css" rel="stylesheet" href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
+
+<?php
+	$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+
+	if (isset($_GET['message']))
+	{
+		if ($_GET['message']=="0"){
+			echo '<script language="javascript">';
+			echo 'alert("The user does not exist in the database")';
+			echo '</script>';
+		}
+		elseif ($_GET['message']=="1"){
+			echo '<script language="javascript">';
+			echo 'alert("The role was successfully changed")';
+			echo '</script>';
+		}
+	}
+?>
 
 <body class="html front not-logged-in no-sidebars page-node"  >
 	<div id="skip-link">
@@ -157,7 +157,7 @@
 										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Filled Students</a>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Accepted Students</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>
