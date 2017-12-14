@@ -408,6 +408,9 @@
 		<tr>
 			<th>Max Hourly Rate</th>
 			<td><?php echo $application['hourly_rate'] ?></td>
+		</tr><tr>
+			<th>Program description</th>
+			<td><?php echo $program['program_description'] ?></td>
 		</tr>
 
 		</tbody>
