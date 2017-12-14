@@ -4,9 +4,6 @@
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 
-
-
-
 ?>
 
 <?php  if ($_SESSION['role']=='1'): ?>

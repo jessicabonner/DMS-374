@@ -1,4 +1,9 @@
-<?php require 'DMS_general_functions.php'; ?>
+<?php 
+require 'DMS_general_functions.php'; 
+$role_id_array=array("1");
+	require "DMS_authenticate.php";
+	$user_id = $_SESSION['user_id'];
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -45,9 +50,7 @@
 </head>
 
 <?php
-	$role_id_array=array("1");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
+	
 
 	if (isset($_GET['message']))
 	{

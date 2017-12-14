@@ -1,8 +1,10 @@
-<?php $role_id_array=array('4');
+<?php 
+require 'DMS_general_functions.php'; 
+$role_id_array=array('4');
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
-	require 'DMS_general_functions.php'; 
-	?>
+	
+?>
 
 <!--Doctor's view that displays applicants-->
 <!doctype html>

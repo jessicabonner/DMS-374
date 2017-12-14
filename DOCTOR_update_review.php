@@ -1,5 +1,8 @@
 <?php
 require "DMS_general_functions.php";
+$role_id_array=array("2","4");
+require "DMS_authenticate.php";
+$user_id = $_SESSION['user_id'];
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -39,9 +42,7 @@ require './PHPMailer.php';
 
 //require '/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
 
-	$role_id_array=array("2","4");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
+	
 	
 	date_default_timezone_set('America/Chicago');
 	

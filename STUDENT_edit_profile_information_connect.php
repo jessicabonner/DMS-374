@@ -4,7 +4,6 @@
 //THIS RECORD WILL BE LINKED TO THE USERS PROFILE 
 	
 	require "DMS_general_functions.php";
-
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
 
