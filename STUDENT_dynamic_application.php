@@ -149,6 +149,8 @@
 
 <body>
 
+
+
 	<!--this form will post to DMS_connect in order to submit data to DB-->
 	<form name="apply_form" action = "STUDENT_dynamic_application_connect.php" method= "post" onsubmit="return confirm('Are you sure you want to submit?');">
 		<input type="hidden" name="application_id" value="<?php echo $application_id?>"/>
@@ -183,9 +185,10 @@
 
 
 		</table>
+		<br><br>
 		<!--submit button. Will post info.-->
 		<td colspan="1" style="text-align: center; float: center;"><input type="submit" value="Submit" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" name="submit"/> </td>
-
+		*Once you submit this form you will not be able to change your answers
 		</form>
 		<script>
 		//function to limit the amount of characters in textarea
