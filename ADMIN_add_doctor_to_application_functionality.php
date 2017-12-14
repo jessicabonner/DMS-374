@@ -2,23 +2,35 @@
 
 	//if(isset($_GET['action']))
 	//{
+		echo "1";
 		require "DMS_db.php";
+		echo "2";
 		$id=strtolower($_GET['id']);
+		echo "3";
 		$select_application=$_GET['select_application'];
+		echo "4";
 		
 		$doctor_array=get_doctor_list($select_application);
+		echo "5";
 		
 		
 		$key=array_search($id, $doctor_array);
+		echo "6";
 		unset($doctor_array[$key]);
+		echo "7";
 		
 		$doctor_list=implode(',', $doctor_array);
+		echo "8";
 		
 		$sql="UPDATE applications SET user_permissions_eid_list= '".$doctor_list."' WHERE application_id= $select_application";
 		//echo $sql;
+		echo "9";
+		echo $sql;
 		
 		$stmt=$dbc->prepare($sql);
+		echo "10";
 		$stmt->execute();
+		echo "11";
 		
 		
 		header("Location: ADMIN_add_doctor_to_application.php?select_application=$select_application");
