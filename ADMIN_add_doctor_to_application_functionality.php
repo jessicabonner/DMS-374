@@ -15,6 +15,7 @@
 		$doctor_list=implode(',', $doctor_array);
 		
 		$sql="UPDATE applications SET user_permissions_eid_list= '".$doctor_list."' WHERE application_id= $select_application";
+		echo $sql;
 		
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
