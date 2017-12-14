@@ -5,9 +5,6 @@
 	require "DMS_authenticate.php";
 	$user_id = $_SESSION['user_id'];
 
-	
-
-
 if ($_SESSION['role']=='1'): ?>
 
 <!doctype html>
@@ -168,7 +165,7 @@ if (isset($_GET['message']))
 										<a href="DOCTOR_dashboard.php" onclick="w3_close()" class="nav-link">View All Applicants</a>
 									</li>
 									<li class="nav-item" role="menuitem">
-										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Accepted Students</a>
+										<a href="HR_dashboard.php" onclick="w3_close()" class="nav-link">View All Filled Positions</a>
 									</li>
 									<li class="nav-item" role="menuitem">
 									</li>

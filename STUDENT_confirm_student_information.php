@@ -159,9 +159,6 @@
 
 	require "DMS_db.php";
 
-
-
-
 	$statement = $dbc->prepare("SELECT * FROM student_info WHERE user_id = :user_id");
 	$statement->execute(array(':user_id' => $user_id));
 	$row = $statement->fetch();

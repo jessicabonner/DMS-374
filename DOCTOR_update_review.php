@@ -1,5 +1,8 @@
 <?php
 require "DMS_general_functions.php";
+$role_id_array=array("2","4");
+require "DMS_authenticate.php";
+$user_id = $_SESSION['user_id'];
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -39,9 +42,7 @@ require './PHPMailer.php';
 
 //require '/var/www/html/phpmailer/libs/PHPMailer-master/src/SMTP.php';
 
-	$role_id_array=array("2","4");
-	require "DMS_authenticate.php";
-	$user_id = $_SESSION['user_id'];
+	
 	
 	date_default_timezone_set('America/Chicago');
 	
@@ -128,6 +129,7 @@ if ($_SESSION['role']==2)
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
 					$link="<a href='https://dev-undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
+					//$link="<a href='https://undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
 					
 					//includes HTML
 					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team!</p><p>'".$link."'</p><p>Sincerely,</p>DMS Team";

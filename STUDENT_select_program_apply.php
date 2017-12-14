@@ -1,4 +1,8 @@
-<?php require "DMS_general_functions.php"; ?>
+<?php 
+require "DMS_general_functions.php"; 
+$role_id_array=array("5");
+require "DMS_authenticate.php";
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>
@@ -47,9 +51,6 @@
 </head>
 
 <?php
-	
-	$role_id_array=array("5");
-	require "DMS_authenticate.php";
 
 	
 
