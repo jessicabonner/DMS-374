@@ -96,7 +96,7 @@ table td {
 .data-table2 {
   border-collapse: collapse;
   font-size: 12px;
-  text-align:center;
+  text-align:left;
   align-content: left;
   width: 100%;
 }
