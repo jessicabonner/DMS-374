@@ -2,6 +2,20 @@
 require "DMS_general_functions.php"; 
 $role_id_array=array("5");
 require "DMS_authenticate.php";
+	require 'DOCTOR_functionality.php';
+$user_id=$_SESSION['user_id'];
+
+	$x = select_student($user_id);
+
+
+	//if the application already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
+	if (count($x['user_id'])>0)
+	{
+
+		header("Location: STUDENT_confirm_student_information.php");
+		die();
+	}
+
 ?>
 <!doctype html>
 <html lang="en" dir="ltr">
@@ -45,11 +59,10 @@ require "DMS_authenticate.php";
 	<link type="text/css" rel="stylesheet" 	href="https://dellmed.utexas.edu/sites/default/files/css/css_a-iX8Z0TGtqOTsvj7qkSGIxcKy1DQVow38xs9TgeR0g.css" media="all" />
 	<script type="text/javascript" src="https://dellmed.utexas.edu/sites/default/files/js/js_nGsGFAVr6D4cI4gpxlZHFJ7PJaRNEW3-0MdbO3ITML0.js"></script>
 </head>
-
 <?php
 
 	
-	require 'DOCTOR_functionality.php';
+
 
 
 	if (isset($_GET['error']))
@@ -59,19 +72,7 @@ require "DMS_authenticate.php";
 		echo '</script>';
 	}
 
-	$user_id=$_SESSION['user_id'];
-
-	$x = select_student($user_id);
-
-
-	//if the application already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
-	if (count($x['user_id'])>0)
-	{
-
-		header("Location: STUDENT_confirm_student_information.php");
-		die();
-	}
-
+	
 
 
 
