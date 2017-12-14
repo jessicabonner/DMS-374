@@ -1,7 +1,7 @@
 <?php
 
-	//if(isset($_GET['action']))
-	//{
+	if(isset($_GET['action']))
+	{
 		echo "1";
 		require "DMS_db.php";
 		echo "2";
@@ -34,7 +34,7 @@
 		
 		
 		header("Location: ADMIN_add_doctor_to_application.php?select_application=$select_application");
-	//}
+	}
 	
 	
 	if(isset($_POST['new_doctor']))
