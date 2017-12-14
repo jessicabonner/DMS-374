@@ -1,7 +1,7 @@
 <?php
 
-	if(isset($_GET['action']))
-	{
+	//if(isset($_GET['action']))
+	//{
 		require "DMS_db.php";
 		$id=strtolower($_GET['id']);
 		$select_application=$_GET['select_application'];
@@ -15,14 +15,14 @@
 		$doctor_list=implode(',', $doctor_array);
 		
 		$sql="UPDATE applications SET user_permissions_eid_list= '".$doctor_list."' WHERE application_id= $select_application";
-		echo $sql;
+		//echo $sql;
 		
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		
 		
 		header("Location: ADMIN_add_doctor_to_application.php?select_application=$select_application");
-	}
+	//}
 	
 	
 	if(isset($_POST['new_doctor']))
