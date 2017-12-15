@@ -1,4 +1,7 @@
 <?php
+//FORM FOR ADMIN TO CHANGE THE PASSWORD OF ANY USER
+//ADMIN MUST ENTER EID AND THEN ENTER THE NEW PASSWORD TWICE
+//WILL POST DATA TO DMS_change_password_connect.php
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";

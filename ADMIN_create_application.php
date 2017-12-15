@@ -1,4 +1,6 @@
 <?php
+//ADMIN USES THIS FORM TO CREATE A NEW Application WHICH IS CONNECTED TO AN ALREADY CREATED PROGRAM THROUGH A FOREIGN KEY
+//POSTS TO ADMIN_create_application_functionality
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";

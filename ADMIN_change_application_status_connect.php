@@ -1,5 +1,6 @@
 <?php
 //THIS FILE CHANGES THE STATUS OF AN APPLICATION TO EITHER CLOSED, OPEN, OR ARCHIVED, DEPENDING ON WHAT THE USER SPECIFIED.
+
 require 'DMS_general_functions.php';
 if ($_GET['action'] == 'Close') {
     $applications= $_GET['application_list'];

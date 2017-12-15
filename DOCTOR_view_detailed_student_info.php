@@ -223,6 +223,8 @@ else
 		echo "<th>Programs they applied to:</th>";
 		echo "<td>" . $row['other_programs'] .  "</td>";
 		echo "</tr>";
+		
+		echo "<form action='DOCTOR_update_review.php' method='POST'>";
 
 		echo "<tr>";
 		echo "<th>Hours Working</th>";
@@ -473,7 +475,7 @@ else
 	
 if ($_SESSION['role']=='2')
 {
-	echo "<form action='DOCTOR_update_review.php' method='POST'>";
+	
 
 	echo "<th>Review</th>";
 
@@ -578,7 +580,7 @@ if ($_SESSION['role']=='2')
 
 	if ($_SESSION['role']=='4')
 	{
-		echo "<form action='DOCTOR_update_review.php' method='POST'>";
+		
 		echo "
 			<tr>
 			<th>Approved?</th>";
