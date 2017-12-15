@@ -34,8 +34,8 @@ require 'DMS_db.php';
 if ($_SESSION['role']==2)
 {
 	//if user clicked submit button named accept to accept a student
-	if(isset($_POST['accept']))
-	{
+	//if(isset($_POST['accept']))
+	//{
 
 	
 		
@@ -125,7 +125,7 @@ if ($_SESSION['role']==2)
 		
 			//$stmt=$dbc->prepare($sql);
 			//$stmt->execute();
-	}
+	//}
 }
 	
 		
