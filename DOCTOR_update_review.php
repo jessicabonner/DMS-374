@@ -49,7 +49,7 @@ if ($_SESSION['role']==2)
 			//$stmt->execute();
 			echo $sql;
 			
-			
+	}
 			
 			/*
 			//If the doctor accepts a student, this will send an email notification to the student
@@ -131,7 +131,7 @@ if ($_SESSION['role']==2)
 		
 
 	
-	
+	/*
 	//if user clicked submit button named update to save the review field
 	if(isset($_POST['update']))
 		{
@@ -227,6 +227,6 @@ elseif ($_SESSION['role']==4)
 		//header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$application_id.'');
 		//die();
 	//}
-	
+	*/
 
 ?>
