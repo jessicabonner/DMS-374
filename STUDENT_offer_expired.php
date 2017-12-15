@@ -8,10 +8,11 @@
 	require "STUDENT_functionality.php";
 	
 
+	
 	$user_id=$_SESSION['user_id'];
 	$application_id=$_GET['application_id'];
 
-	?>
+?>
 
 
 <!doctype html>
@@ -158,8 +159,10 @@
 	<br>
 	<b><u>Your offer expired on
 		<?php
+			//get the date of acceptance from the database
 			$date= get_application_accept_date_not_formatted($user_id, $application_id);
 
+			//set the deadline of acceptance and echo to user
 			$deadline=date('Y-m-d', strtotime($date. ' + 14 days'));
 			echo date("m-d-Y", strtotime($deadline));
 		?> </u></b>
