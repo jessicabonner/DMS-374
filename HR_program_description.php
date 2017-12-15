@@ -13,7 +13,7 @@
 		require "HR_header.html";
 	}
 ?>
-<?php endif; ?>
+
 				<!-- Header -->
 				<div class="w3-container" id="showcase">
 					<h1 class="w3-jumbo">
