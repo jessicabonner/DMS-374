@@ -6,7 +6,7 @@ require "STUDENT_header.html";
 ?>
 <?php
 
-
+echo $d;
 
 	//if an error is passed on redirect, display error message
 	if (isset($_GET['error']))
