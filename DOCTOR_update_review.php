@@ -123,8 +123,8 @@ if ($_SESSION['role']==2)
 			} */
 				
 		
-			//$stmt=$dbc->prepare($sql);
-			//$stmt->execute();
+			$stmt=$dbc->prepare($sql);
+			$stmt->execute();
 	}
 	//if user clicked submit button named update to save the review field
 	elseif($_POST['submit']=="Save")
