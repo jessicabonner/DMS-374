@@ -29,28 +29,11 @@ require 'DMS_db.php';
 	$application_id=$_POST['application_id'];
 	$current_date=date('Y-m-d');
 	
+	echo $student_id;
+	echo $application_id;
+	echo $curent_date;
 	
 	
-	
-if ($_SESSION['role']==2)
-{
-	//if user clicked submit button named accept to accept a student
-	if(isset($_POST['accept']))
-	{
 
-	
-		
-		
-			
-			//update "accepted" field to true
-		
-			
-			$sql = "UPDATE review SET accepted_by_dms = 1 , application_accept_date='".$current_date."'  WHERE user_id ='".$student_id."' AND application_id='".$application_id."'";
-			//$stmt=$dbc->prepare($sql);
-			//$stmt->execute();
-			
-			
-echo $sql;
-	
 
 ?>
