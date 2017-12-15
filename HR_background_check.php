@@ -1,5 +1,8 @@
 <?php	
+//FROM HR_dashboard, THIS EXECUTED COMMAND TO UPDATE FIELDS SPECIFIED BY USER ON A LIST OF STUDENTS
 	//require file containing db string
+	$role_id_array=array("3","1");
+	require "DMS_authenticate.php";
 	require 'DMS_db.php';
 
 	

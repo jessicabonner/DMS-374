@@ -1,4 +1,7 @@
 <?php
+//LISTS ALL APPLICATIONS THAT ARE CURRENTLY OPEN
+//THIS IS THE PAGE THE ADMIN IS BROUGHT TO ON LOGIN
+//USES ADMIN_dashboard_functionality TO PULL THE INFORMATION THAT WILL BE DISPLAYED ON THIS PAGE
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";

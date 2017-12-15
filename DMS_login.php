@@ -1,4 +1,7 @@
-<?php require 'DMS_general_functions.php'; ?>
+<?php 
+//LOGIN PAGE
+require 'DMS_general_functions.php'; 
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>

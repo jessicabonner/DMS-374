@@ -1,4 +1,5 @@
 <?php
+//IF A STUDENTS OFFER HAS EXPIRED(THIS HAPPENS 14 DAYS AFTER ACCEPTANCE), THEY ARE TAKEN TO THIS PAGE WHEN THEY CLICK "ACCEPTD" LINK ON THEIR STUDENT_dashboard
 	require "DMS_general_functions.php";
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";

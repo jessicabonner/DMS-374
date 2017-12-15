@@ -1,7 +1,8 @@
 <?php
 //THIS FILE TAKES THE INFORMATION SUBMITTED IN ADMIN_create_program.php AND COMMITS IT TO THE DATABASE
 //IN ORDER TO LET THE USER CREATE NEW PROGRAMS
-
+$role_id_array=array("1");
+	require "DMS_authenticate.php";
 	//require file containing database string
 	require 'DMS_db.php';
 

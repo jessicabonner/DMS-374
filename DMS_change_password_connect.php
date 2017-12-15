@@ -1,6 +1,11 @@
 <?php
+//THIS IS THE FILE THAT WILL EXECUTE THE CHANGE PASSWORD REQUEST 
+//ONLY WORKS IF USER KNOWS PASSWORD
+//COMES FROM DMS_change_password
 require 'DMS_general_functions.php';
-session_start();
+$role_id_array=array("1","2","3","4","5");
+require "DMS_authenticate.php";
+
 //link to file containing database connection string
 require 'DMS_db.php';
 

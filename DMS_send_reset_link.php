@@ -1,4 +1,7 @@
-<?php require 'DMS_general_functions.php'; ?>
+<?php 
+//WHEN USER FORGET PASSWORD, THIS SENDS RESET LINK OT THEIR EMAIL
+require 'DMS_general_functions.php'; 
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>

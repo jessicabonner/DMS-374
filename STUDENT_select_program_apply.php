@@ -1,4 +1,6 @@
 <?php
+//ALLOWS STUDENT TO CHOOSE WHICH APPLICATION THEY WILL APPLY TO
+//ONLY CAN CHOOSE FROM OPEN AND NON-ARCHIVED APPLICATIONS TO APPLY TO
 require "DMS_general_functions.php";
 $role_id_array=array("5");
 require "DMS_authenticate.php";

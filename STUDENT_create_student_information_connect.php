@@ -1,4 +1,6 @@
 <?php
+//THIS FILE PULLS TAKES THE DATA SUBMITTED THROUGH STUDENT_create_student_information.php AND ADDS IT TO THE student_info TABLE ON THE DATABASE
+//THIS RECORD WILL BE LINKED TO THE USERS PROFILE 
 require "DMS_general_functions.php";
 $role_id_array=array("5");
 require "DMS_authenticate.php";
@@ -8,8 +10,7 @@ $user_id=$_SESSION['user_id'];
 
 
 try{
-//THIS FILE PULLS TAKES THE DATA SUBMITTED THROUGH STUDENT_create_student_information.php AND ADDS IT TO THE student_info TABLE ON THE DATABASE
-//THIS RECORD WILL BE LINKED TO THE USERS PROFILE 
+
 
 	//link to file containing database connection string
 	require 'DMS_db.php';

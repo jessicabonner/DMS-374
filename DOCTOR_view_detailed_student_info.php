@@ -1,4 +1,8 @@
 <?php
+//DISPLAYS THE DETAILED STUDENT INFORMATION FOR AN APPLICANT. THIS IS LINKED FROM DOCTOR_dashboard
+//THIS CAN BE ACCESSED BY ROLES 2,4,AND 1, BUT EACH HAS DIFFERENT ACCESS LEVELS 
+//ROLE 1 CAN ONLY VIEW BUT CAN VIEW EVERYTHING, 2 CAN VIEW AND EDIT ALL EXCEPT 'APPROVED', 4 CAN VIEW ALMOST EVERYTHING AND CAN EDIT 'APPROVED' ONLY
+//THIS IS WHERE A STUDENT IS ACCCEPTED (CAN ONLY BE ACCEPTED BY ROLE 2)
 	require "DMS_general_functions.php";
 	$role_id_array=array('2','4','1');
 	require "DMS_authenticate.php";
@@ -223,6 +227,8 @@ else
 		echo "<th>Programs they applied to:</th>";
 		echo "<td>" . $row['other_programs'] .  "</td>";
 		echo "</tr>";
+		
+		echo "<form action='DOCTOR_update_review.php' method='POST'>";
 
 		echo "<tr>";
 		echo "<th>Hours Working</th>";
@@ -473,7 +479,7 @@ else
 	
 if ($_SESSION['role']=='2')
 {
-	echo "<form action='DOCTOR_update_review.php' method='POST'>";
+	
 
 	echo "<th>Review</th>";
 
@@ -578,7 +584,7 @@ if ($_SESSION['role']=='2')
 
 	if ($_SESSION['role']=='4')
 	{
-		echo "<form action='DOCTOR_update_review.php' method='POST'>";
+		
 		echo "
 			<tr>
 			<th>Approved?</th>";

@@ -2,6 +2,8 @@
 
 //THIS FOR WILL BE LINKED TO ADMIN_view_application_information.php TO CHANGE THE STATUS OF AN APPLICATION TO CLOSED/OPEN
 require 'DMS_general_functions.php';
+$role_id_array=array("1");
+	require "DMS_authenticate.php";
 require 'DMS_db.php';
 
 //if the user has indicated that they want to close or open an application

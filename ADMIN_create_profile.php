@@ -1,4 +1,7 @@
 <?php
+//FORM TO ALLOW ADMIN TO CREATE A NEW PROFILE FOR ANY Role
+//THIS IS THE ONLY WAY THAT A PROFILE CAN BE CREATED THAT ISNT STUDENT ROLE (ROLE 5)
+//THIS DATA IS POSTED TO STUDENT_create_profile_functionality TO PUT THE DATA IN THE DATABASE
 require 'DMS_general_functions.php';
 $role_id_array=array("1");
 require "DMS_authenticate.php";

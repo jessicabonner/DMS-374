@@ -1,4 +1,6 @@
 <?php
+//ALLOWS ADMIN TO CHANGE THE ROLE OF ANY USER
+//POSTS TO ADMIN_manage_roles_connect
 require 'DMS_general_functions.php';
 $role_id_array=array("1");
 require "DMS_authenticate.php";

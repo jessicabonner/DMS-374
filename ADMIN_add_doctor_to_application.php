@@ -1,4 +1,7 @@
 <?php
+//DISPLAYS ALL USERS WHO HAVE ACCESS TO THE SPECIFIED APPLICATION. ADMIN CAN REMOVE ANY ENTRY OR ADD A NEW ONE
+//CONNECTS TO ADMIN_add_doctor_to_application_functionality TO EXECCUTE THE COMMAND
+//THIS FILE CAN ONLY BE ACCESSED BY THOSE IN ROLE 1
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";

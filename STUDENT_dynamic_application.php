@@ -1,4 +1,7 @@
 <?php
+//DISPLAYS THE UNIQUE QUESTIONS FOR THE CHOSEN APPLICATION FOR USER TO ANSWER AND Submit
+//EXECUTES THROUGH STUDENT_dynamic_application_connect
+//QUESTIONS PULLED BY STUDENT_dynamic_application_functionality
 	require "DMS_general_functions.php";
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";

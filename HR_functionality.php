@@ -1,5 +1,9 @@
 <?php
+//ALL FUNCTIONS THAT ARE USED ACROSS THE HR PAGES
+//$role_id_array=array("3","1");
+//require "DMS_authenticate.php";
 require 'DMS_db.php';
+
 
 
 function filter($filter_criteria, $and_or)

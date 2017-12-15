@@ -1,4 +1,7 @@
 <?php
+//THIS POSTS THE INFO FROM HR_view_student TO THE DATABASE TO CHANGE THE STUDENT IS WORKING_FOR_DMS FIELD ON student_info TO INDICATE YES OR NO
+//ALSO WILL UPDATE HOURS AND PAY 
+//DEPENDING ON WHAT THE USER INDICATED ON THE PREVIOUS PAGE
 	require "DMS_general_functions.php";
 	$role_id_array=array("3");
 	require "DMS_authenticate.php";

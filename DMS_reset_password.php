@@ -1,4 +1,5 @@
 <?php
+//THIS I WHERE USER WILL RESET PASSWORD WHEN THEY HAVE FORGOTTEN IT. THIS LINK IS EMAILED TO STUDENT
 require 'DMS_general_functions.php';
 
 if($_GET['key'] && $_GET['reset'])

@@ -1,4 +1,6 @@
 <?php
+//WHEN A STUDENT SUBMITS THEIR APPLICATION IN STUDENT_dynamic_application IT IS POSTED TO THIS FORM TO BE ENTERED INTO THE DATABASE
+//ON THE TABLE FOR THAT SPECIFIC PROGRAM
 	require "DMS_general_functions.php";
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";
