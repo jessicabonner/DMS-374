@@ -18,16 +18,9 @@ require './Exception.php';
 require './PHPMailer.php';
 
 
-
-
-	
-	
 	date_default_timezone_set('America/Chicago');
 	
 	//THIS FOR WILL BE LINKED TO DOCTOR_view_detailed_student_info.php TO Change accepted_by_dms
-
-	
-
 	$student_id=$_POST['user_id'];
 	$application_id=$_POST['application_id'];
 	$current_date=date('Y-m-d');
@@ -51,25 +44,9 @@ if ($_SESSION['role']==2)
 			//$stmt=$dbc->prepare($sql);
 			//$stmt->execute();
 			
-			
-	
-			
-			
-			//If the doctor accepts a student, this will send an email notification to the student
-			
-			/* while ($row=$stmt->fetch(PDO::FETCH_ASSOC))
-				{
-					$program_id= $row['program_id'];
-				} */
-				
 				$sql2="SELECT * FROM applications WHERE application_id='".$application_id."'";
 				$stmt=$dbc->prepare($sql2);
-		
-				
-				
-				
-				
-				
+
 				//The Email Sender information
 	    		$from = 'DellMed.Notifications@gmail.com'; //This will need to change
 	    		$from_name = 'Dell Medical School';
@@ -94,13 +71,12 @@ if ($_SESSION['role']==2)
 				}
 				echo $recipient;
 				
-
+					//Instantiate Mailer
 					$mail = new PHPMailer;
 			    	$mail->From = "$from";  // Sender's email address
 			    	$mail->FromName = "$from_name"; // senders name 
 					$link="<a href='https://dev-undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
-					//$link="<a href='https://undergraduates.dellmed.utexas.edu/DMS_login.php'>Click to view offer</a>";
-					
+
 					//includes HTML
 					$mail->Body = "<p>We are pleased to inform you that you have been selected for one of our current program opportunities. To view your offer, please click the link below. You will need to login to the account you applied through. This is your official offer notification and your offer will expire in 14 days. We are very excited to welcome you to the Dell Medical School team!</p><p>'".$link."'</p><p>Sincerely,</p>DMS Team";
 					//doesn't incllude HTML
@@ -116,13 +92,6 @@ if ($_SESSION['role']==2)
 			  			echo 'Email sent to:' . $recipient . '<br/ >';
 			      	  	echo "Mailer Error: " . $mail->ErrorInfo;
 			   		}
-			
-				
-			/* else
-			{
-				header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$_POST['application_id'].'&error=0');
-				die();
-			} */
 				
 		
 			$stmt=$dbc->prepare($sql);

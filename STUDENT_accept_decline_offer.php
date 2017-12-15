@@ -9,17 +9,9 @@ require "DMS_authenticate.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
-//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/Exception.php';
-//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/PHPMailer.php';
-//require '/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/libs/PHPMailer-Master/src/SMTP.php';
-
-
 require './Exception.php';
 require './PHPMailer.php';
 
-
-
-	
 
 	require "DMS_db.php";
 
@@ -43,18 +35,7 @@ require './PHPMailer.php';
 		
 		$sql1 = "SELECT student_accept_offer FROM review WHERE user_id ='".$user_id."' AND application_id='".$application_id."'";
 		$result=$dbc->prepare($sql1);
-		
-		//while ($row=$result->fetch(PDO::FETCH_ASSOC))
-		//{
-		//	$student_accept_offer= $row['student_accept_offer'];
-		//}
-		
-		//If the student accepts an offer, this will send an email notification and Biographical Data Form to the student
-		
-		//if ($student_accept_offer == '1')
-		//{
-			
-			
+				
 		//Gets the program information for the accepted application
 			$sql2="SELECT * FROM applications WHERE application_id='".$application_id."'";
 			$stmt=$dbc->prepare($sql2);
@@ -85,21 +66,10 @@ require './PHPMailer.php';
 			}
 
 		    	$mail = new PHPMailer;
-				//$mail->SMTPDebug = 2;   
-		    	//$mail->IsSMTP();
-				/*
-		    	$mail->Host = 'smtp.gmail.com'; 
-		    	$mail->SMTPAuth = true;
-		    	$mail->Username = 'DellMed.Notifications@gmail.com';  // Sender's gmail address
-		    	$mail->Password = 'KCal7Z0dp';  // Sender's gmail password
-			    $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
-			    $mail->Port = 587; 
-				*/
 		    	$mail->From = "$from";  // Sender's email address
 		    	$mail->FromName = "$from_name"; // senders name 
 		    	$mail->Body = "$msg";
 		    	$mail->Subject = "$subject";
-				//$mail->addAttachment('/Applications/XAMPP/xamppfiles/htdocs/dms-374/phpmailer/files/Biographical Data Form.pdf');
 				$mail->addAttachment('./Biographical Data Form.pdf');
 		    	$mail->AddAddress($recipient);  // Recipient
 		
@@ -108,16 +78,7 @@ require './PHPMailer.php';
 			  			echo 'Email sent to:' . $recipient . '<br/ >';
 			      	  	echo "Mailer Error: " . $mail->ErrorInfo;
 			   		}
-					/*
-			    	else
-			    	{
-			       	 	echo 'Email sent to:' . $recipient . '<br/ >';
-			    	}	
-					*/
 
-		
-				
-					//}
 		
 		
 		header("Location: STUDENT_dashboard.php?message=2");
