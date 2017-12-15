@@ -5,7 +5,7 @@ require "DMS_authenticate.php";
 $user_id = $_SESSION['user_id'];
 require 'DMS_db.php';
 
-
+/*
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
@@ -13,7 +13,7 @@ use PHPMailer\PHPMailer\Exception;
 
 require './Exception.php';
 require './PHPMailer.php';
-
+*/
 
 
 
@@ -53,17 +53,16 @@ if ($_SESSION['role']==2)
 			
 			
 			//If the doctor accepts a student, this will send an email notification to the student
-			//if($new_accepted_by_DMS == '1')
-			//{
 			
-				
-				$sql2="SELECT * FROM applications WHERE application_id='".$application_id."'";
-				$stmt=$dbc->prepare($sql2);
-		
-				/* while ($row=$stmt->fetch(PDO::FETCH_ASSOC))
+			/* while ($row=$stmt->fetch(PDO::FETCH_ASSOC))
 				{
 					$program_id= $row['program_id'];
 				} */
+				/*
+				$sql2="SELECT * FROM applications WHERE application_id='".$application_id."'";
+				$stmt=$dbc->prepare($sql2);
+		
+				
 				
 				
 				
