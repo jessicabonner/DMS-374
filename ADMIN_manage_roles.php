@@ -5,9 +5,7 @@ require "DMS_authenticate.php";
 $user_id = $_SESSION['user_id'];
 require "admin_header.html";
 ?>
-
 <?php
-
 	if (isset($_GET['message']))
 	{
 		if ($_GET['message']=="0"){
@@ -21,9 +19,7 @@ require "admin_header.html";
 			echo '</script>';
 		}
 	}
-
 ?>
-
 								<!-- Header -->
 								<div class="w3-container" style="margin-top:40px" id="showcase">
 									<h1 class="w3-jumbo">
