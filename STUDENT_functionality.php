@@ -102,7 +102,7 @@ function get_accepted_offer($user_id, $application_id)
 	}
 }
 
-//returns whether 
+//returns whether a student has already accepted an offer
 function check_student_accepted_offer()
 
 {
