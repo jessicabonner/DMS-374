@@ -1,5 +1,4 @@
 <?php
-try{
 require "DMS_general_functions.php";
 	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";
@@ -11,12 +10,7 @@ require "DMS_general_functions.php";
 	elseif($_SESSION['role']=='3')
 	{
 		require "HR_header.html";
-	}
-}
-	catch (Exception $e)
-{
-	echo $e;
-}?>
+	}?>
 
 
   <!-- Header -->
@@ -33,7 +27,6 @@ require "DMS_general_functions.php";
 </div>
 </html>
 <?php
-try{
 require 'DMS_db.php';
 
 //this will display an error message if the user tries to accept a student already accepted in the database
@@ -59,11 +52,6 @@ echo "<form action='HR_dashboard.php' method='get'>
 	 <input type='submit' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;' value='Return to list' />
 	 <input type='hidden' name=user_id value=$id>
 	</form>"
-}
-	catch (Exception $e)
-{
-	echo $e;
-}
 
 ?>
 <form action='HR_working_for_dms.php' method='post'>
@@ -76,7 +64,6 @@ echo "<form action='HR_dashboard.php' method='get'>
 <table class="data-table2">
 
 <?php
-try{
 if ($_SESSION['role']=='1')
 {
 	$disabled='disabled';
@@ -323,12 +310,7 @@ echo "</table>"; */
 <input type='hidden' name='user_id' value=$id><br /></td></tr>
 <tr><td></td>
 <td></td>"; */
-}
-}
-catch (Exception $e)
-{
-	echo $e;
-}
+
 ?>
 </table>
 
