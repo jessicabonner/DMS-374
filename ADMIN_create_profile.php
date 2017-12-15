@@ -5,19 +5,7 @@ require "DMS_authenticate.php";
 $user_id = $_SESSION['user_id'];
 require "admin_header.html";
 ?>
-<?php
-	if(isset($_GET['error']))
-	{
-		if ($_GET['error']=="1")
-		{
-			echo "The passwords you entered do not match";
-		}
-		elseif ($_GET['error']=="2")
-		{
-			echo "This user already exists in our system";
-		}
-	}
-?>
+
 				<!-- Header -->
 				<div class="w3-container" style="margin-top:40px" id="showcase">
 					<h1 class="w3-jumbo">
@@ -33,6 +21,22 @@ require "admin_header.html";
 
 
 					<body>
+					
+					
+<?php
+	if(isset($_GET['error']))
+	{
+		if ($_GET['error']=="1")
+		{
+			echo "<font color=#ff0000;>*The passwords you entered do not match</font>";
+		}
+		elseif ($_GET['error']=="2")
+		{
+			echo "<font color=#ff0000;>*This user already exists in our system</font>";
+		}
+	}
+?>
+
 						<form name="apply_form" action = "STUDENT_create_profile_functionality.php" method= "post">
 							<tr>
 								<td><p>EID</p></td>
