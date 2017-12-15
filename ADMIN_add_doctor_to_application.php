@@ -12,7 +12,8 @@
 <?php
 	require 'ADMIN_add_doctor_to_application_functionality.php';
 	require 'DOCTOR_functionality.php';
-	//this will display a message when a user is redirected to this page after completing an action
+	
+	//this will display an error message when a user is redirected to this page if an error ocurred
 	if (isset($_GET['error']))
 	{
 		if ($_GET['error']=="0"){
@@ -53,14 +54,16 @@
 						<tbody>
 				<?php
 
-
+							//call function to get the list of doctors that are assigned to the given application
 							$doctor_array= get_doctor_list($_GET['select_application']);
 							$application_id=$application['application_id'];
-
+							
+							//inform user if the list is empty
 							if (empty($doctor_array))
 							{
 								echo "No one has access yet";
 							}
+							//for each doctor display their eid and whether theyre view only (supervisor) or not (doctor/student-coordinator)
 							else
 							{
 							foreach($doctor_array as $doctor)
@@ -79,7 +82,7 @@
 									{
 										echo "<td></td>";
 									}
-
+									//link to remove the doctor 
 									echo "<td><a href='ADMIN_add_doctor_to_application_functionality.php?action=delete&id=$doctor&select_application=$application_id'>Remove</a></td>";
 								echo "</tr>";
 							}
