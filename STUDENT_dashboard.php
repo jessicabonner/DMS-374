@@ -11,7 +11,7 @@ $user_id = $_SESSION['user_id'];
 require "STUDENT_header.html";
 ?>
 <?php
-echo $jk;
+
 
 	date_default_timezone_set('America/Chicago');
 
