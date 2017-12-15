@@ -11,6 +11,10 @@
 	{
 		require "DOCTOR_header.html";
 	}
+	else
+	{
+		require "SUPERVISOR_header.html";
+	}
 ?>
   <!-- Header -->
 <div class="w3-container" style="margin-top:40px; font-familt:benton sans;" id="showcase">
