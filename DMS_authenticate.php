@@ -3,7 +3,11 @@
 
 
 try{
-session_start();
+	
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+
 require("DMS_db.php");
 date_default_timezone_set('America/Chicago');
 
