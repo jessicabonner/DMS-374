@@ -86,19 +86,19 @@ if (!$query) {
 
 
 					</tr>';
-		}
-
-echo "</tbody>
 
 
-	</table>
+		}?>
+		</tbody>
+
+
+	
 	<tr><td><br></td>
-	<td><input type='submit' value='Delete' style='background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;'></td>
+	<td><input type='submit' value='Delete' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<td><b> **Note that clicking delete will PERMANENTLY delete the selected tables along with all applications </b></td>
 	<tr>
+	</table>
 
-</form>";
-		?>
-		
+</form>
 </body>
 </html>
