@@ -310,7 +310,7 @@
 								<td><br></td>
 							<tr>
 							<tr>
-								<td><input type="text" name="hours_per_week" placeholder="ex. 20" size="20" maxlength="30" pattern="^[0-9]+$" required/></td>
+								<td><input type="text" name="hours_per_week" placeholder="ex. 20" size="20" maxlength="30" pattern="[0-9]+(\.[0-9][0-9]?)?" required/></td>
 							</tr>
 
 							<!--text box for hourly rate-->
@@ -321,7 +321,7 @@
 								<td><br></td>
 							<tr>
 							<tr>
-								<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" pattern="^[0-9]+$" required/></td>
+								<td><input type="text" name="hourly_rate" placeholder="ex. 10" size="20" maxlength="30" pattern="[0-9]+(\.[0-9][0-9]?)?" required/></td>
 							</tr>
 
 						<!--submit button. Will post info.-->
