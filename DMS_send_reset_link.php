@@ -193,8 +193,8 @@ require './PHPMailer.php';
     }
   */
     //$link="<a href='www.samplewebsite.com/reset.php?key=".$email."&reset=".$pass."'>Click To Reset password</a>";
-	//$link="<a href='https://dev-undergraduates.dellmed.utexas.edu/DMS_reset_password.php?key=".$email2."&reset=".$pass2."'>Click To Reset password</a>";
-	$link="<a href='https://undergraduates.dellmed.utexas.edu/DMS_reset_password.php?key=".$email2."&reset=".$pass2."'>Click To Reset password</a>";
+	$link="<a href='https://dev-undergraduates.dellmed.utexas.edu/DMS_reset_password.php?key=".$email2."&reset=".$pass2."'>Click To Reset password</a>";
+	//$link="<a href='https://undergraduates.dellmed.utexas.edu/DMS_reset_password.php?key=".$email2."&reset=".$pass2."'>Click To Reset password</a>";
 
     //require_once('phpmail/PHPMailerAutoload.php');
 	
