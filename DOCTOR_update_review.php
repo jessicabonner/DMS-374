@@ -133,7 +133,7 @@ if ($_SESSION['role']==2)
 	
 	
 	//if user clicked submit button named update to save the review field
-	elseif(isset($_POST['update']))
+	if(isset($_POST['update']))
 		{
 			
 			$new_review = $_POST['new_review'];
