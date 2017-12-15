@@ -1,4 +1,7 @@
 <?php
+//THIS IS THE FILE THAT WILL EXECUTE THE CHANGE PASSWORD REQUEST 
+//ONLY WORKS IF USER KNOWS PASSWORD
+//COMES FROM DMS_change_password
 require 'DMS_general_functions.php';
 session_start();
 //link to file containing database connection string

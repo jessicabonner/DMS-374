@@ -1,4 +1,6 @@
 <?php
+//WHEN USER LOGS IN, THIS PAGE WILL CHECK TO MAKE SURE THEY ARE A USER AND ENTERED CORRECT INFO
+//IF PASSES, WILL START SESSION AND DIRECT TO PROPER PAGE
 require 'DMS_general_functions.php';
 //link to file containing database connection string
 require 'DMS_db.php';

@@ -1,4 +1,5 @@
 <?php	
+//FROM HR_dashboard, THIS EXECUTED COMMAND TO UPDATE FIELDS SPECIFIED BY USER ON A LIST OF STUDENTS
 	//require file containing db string
 	require 'DMS_db.php';
 

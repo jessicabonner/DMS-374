@@ -1,4 +1,7 @@
 <?php
+//ADMIN CAN VIEW ALL APPLICATIONS THAT ARE MARKED AS ARCHIVED
+//ADMIN CAN DELETE ANY APPLICATION IN THE LIST THROUGH THIS PAGE
+//THIS WILL BE EXECUTED THROUGH ADMIN_delete_applications_functionality
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";

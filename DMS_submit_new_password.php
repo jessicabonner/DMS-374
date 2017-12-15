@@ -1,4 +1,7 @@
-<?php require 'DMS_general_functions.php'; ?>
+<?php 
+//WHEN USER HAS FORGOTTEN PASSWORD,CAN CHANGE PASSWORD HERE AFTER BEING SENT LINK
+require 'DMS_general_functions.php'; 
+?>
 <!doctype html>
 <html lang="en" dir="ltr">
 <head>

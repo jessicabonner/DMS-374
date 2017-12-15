@@ -1,4 +1,7 @@
 <?php
+//COMES FROM THE DOCTOR_view_detailed_student_info
+//UPDATES THE review TABLE FOR THE SPECIFIED USER_ID- APPLICATION_ID COMBINATION
+//WILL ALSO ACCEPT A STUDENT AND SEND THEM AN ACCEPTANCE EMAIL
 require "DMS_general_functions.php";
 $role_id_array=array("2","4");
 require "DMS_authenticate.php";

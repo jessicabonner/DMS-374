@@ -1,4 +1,7 @@
 <?php
+//STUDENT CAN EDIT THEIR INFORMATION ON student_info TABLE
+//THIS DISPLAYS CURRENT INFO AN ALLOWS STUDENT TO CHANGE IT
+//EXECUTED THROUGH STUDENT_edit_profile_information_connect
 	require "DMS_general_functions.php";
 	$role_id_array=array("5");
 	require "DMS_authenticate.php";

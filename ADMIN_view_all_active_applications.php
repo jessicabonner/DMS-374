@@ -1,4 +1,5 @@
 <?php
+//PAGE FOR ADMIN TO VIEW ALL APPLICATIONS THAT ARE EITHER CLOSED OR OPEN, BUT NOT ARCHIVED
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";

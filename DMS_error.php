@@ -1,4 +1,6 @@
 <?php 
+//ERROR PAGE
+//LINKS BACK TO USER'S DASHBOARD
 
 session_start();
 	

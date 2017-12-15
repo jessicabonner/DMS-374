@@ -1,4 +1,7 @@
 <?php
+//DISPLAYS STUDENT INFORMATON FOR THE SPECIFIED STUDENT 
+//ALSO ALLOWS USER TO CHANGE INFORMATION ON THE STUDENT (WORKING FOR DMS OR NOT/ HOURS/ PAY)
+//BY POSTING INFO TO HR_working_for_dms
 require "DMS_general_functions.php";
 	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";

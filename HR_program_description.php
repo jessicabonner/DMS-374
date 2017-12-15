@@ -1,4 +1,5 @@
 <?php
+//DISPLAYS INFORMATION ON A CURRENT APPLICATION SO THE HR CAN REVIEW AND APPROVE TO BE OPENED BY THE ADMIN
 	require 'DMS_general_functions.php';
 	$role_id_array=array("3","1");
 	require "DMS_authenticate.php";

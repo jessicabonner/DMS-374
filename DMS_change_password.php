@@ -1,4 +1,7 @@
 <?php
+	//THIS FILE CAN BE ACCESSED BY ALL USERS WHO ARE LOGGED IN
+	//ALLOWS USER TO CHANGE THEIR PASSWORD ONLY IF THEY KNOW THEIR CURRENT PASSWORD
+	//EXECUTED THROUGH DMS_change_password_connect
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1","2","3","4","5");
 	require "DMS_authenticate.php";

@@ -1,4 +1,6 @@
 <?php
+//DISPLAYS A LIST OF ALL NON-ARCHIVED APPLICATIONS FOR THE USER TO VIEW
+//CAN CLICK ON APPLICATION ID TO VIEW MORE DETAILED INFO- LINKS TO HR_program_description
 	require "DMS_general_functions.php";
 	$role_id_array=array("3");
 	require "DMS_authenticate.php";

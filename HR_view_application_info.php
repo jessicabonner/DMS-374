@@ -1,22 +1,14 @@
 <?php
+//USER CAN SEE THE APPLICATION INFORMATION WHEN THIS APPLICATION WAS SELECTED THROUGH HR_DASHBOARD
+//ONLY SEES INFORMATION THAT HR NEEDS TO SEE
+//PULLS THIS INFORMATION USING DMS_general_functions
 require "DMS_general_functions.php";
 $role_id_array=array("3","1");
 require "DMS_authenticate.php";
 $user_id = $_SESSION['user_id'];
 require "HR_header.html";
 ?>
-<?php
-
-	//this will display an error message if the user tries to accept a student already accepted in the database
-	if (isset($_GET['error']))
-	{
-		echo '<script language="javascript">';
-		echo 'alert("This student is already accepted. Cannot accept again.")';
-		echo '</script>';
-
-	}
-?>
-  <!-- Header -->
+ <!-- Header -->
 <div class="w3-container" style="margin-top:40px; font-familt:benton sans;" id="showcase">
 	<h1 class="w3-jumbo">
 		<b>Application/Program Information</b>

@@ -6,12 +6,13 @@
 	{
 		require 'DMS_db.php';
 
-		$sql = 'SELECT * FROM applications WHERE application_closed=0 and archived="FALSE" ORDER BY application_id DESC';
+		$sql = 'SELECT * FROM applications WHERE application_closed=0 AND archived="FALSE" ORDER BY application_id DESC';
 
 		$query= $dbc->query($sql);;
 		return $query;
 	}
 	
+	//returns the number of applicants that a specified application has
 	function count_applicants($name_of_table)
 	{
 		require 'DMS_db.php';

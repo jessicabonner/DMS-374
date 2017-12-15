@@ -1,4 +1,5 @@
 <?php
+//THIS COMES FROM ADMIN_manage_roles TO CHANGE THE ROLE FOR SPECIFIED USER IN THE user TABLE OF DB
 	require "DMS_general_functions.php";
 
 	require "DMS_db.php";

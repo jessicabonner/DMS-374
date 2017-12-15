@@ -1,4 +1,9 @@
 <?php
+//STUDENT DASHBOARD IS WHERE STUDENT ROLES BROUGH ON LOGIN
+//DISPLAYS TABLE WITH ALL APPLICATIONS A STUDENT HAS APPLIED TO AND SHOWS
+//THE STATUS OF THAT (ACCEPTED, OFFER ACCEPTED, DECLINED, OR BLANK)
+//IF ACCEPTED, THEN LINK TO STUDENT_accept_offer SO THAT THEY MAY ACCEPT OR DECLINE THEIR OFFER
+
 require "DMS_general_functions.php";
 $role_id_array=array("5");
 require "DMS_authenticate.php";
@@ -80,6 +85,7 @@ require "STUDENT_header.html";
 		<?php
 
 			$application_array=get_applications_student_applied_to($user_id);
+			//check if a student has already accepted another offer or not
 			$already_accepted_offer=check_student_accepted_offer();
 
 			foreach($application_array as $row)
@@ -108,6 +114,7 @@ require "STUDENT_header.html";
 								echo '<td><a href="STUDENT_accept_offer.php?&application_id='.$row['application_id'].'">'.get_accepted($user_id, $row['application_id']).'</a></td>
 								</tr>';
 							}
+							//if a student has already accepted an offer, they do not get a link to accept any offers
 							elseif($already_accepted_offer=="TRUE")
 							{
 								echo '<td>'.get_accepted($user_id, $row['application_id']).'</td>

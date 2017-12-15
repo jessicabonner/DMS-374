@@ -1,4 +1,8 @@
 <?php
+//PAGE FOR ADMIN TO VIEW SPECIFIC APPLICATION INFORMATON WHEN THEY CLICK ON THE ID LINK IN EITHER:
+//ADMIN_dashboard, ADMIN_view_archived_applications, OR ADMIN_view_all_active_applications
+//THROUGH THIS FROM, ADMIN CAN CLOSE, OPEN, ARCHIVE, OR UNARCHIVE AN APPLICATION DEPENDING ON THE APPLICATION'S CURRENT STATUS
+
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";

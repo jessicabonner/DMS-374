@@ -1,4 +1,5 @@
 <?php
+
 	require "DMS_general_functions.php";
 	//link to file containing database connection string
 	require 'DMS_db.php';

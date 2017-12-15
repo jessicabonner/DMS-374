@@ -1,4 +1,7 @@
 <?php
+//WHEN USER CREATES A NEW PROFIEL THROUGH STUDENT_create_profile THIS FORM CREATES THAT USER
+//ONLY WIL CREATE A USER OF ROLE 5
+//ALSO STARTS A NEW SESSION AND DIRECTS THEM TO STUDENT_create_student_information
 require "DMS_general_functions.php";
 //link to file containing database connection string
 require 'DMS_db.php';

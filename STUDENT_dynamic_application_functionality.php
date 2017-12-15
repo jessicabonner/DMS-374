@@ -1,4 +1,7 @@
 <?php
+//THIS FILE PULLS ALL THE UNIQUE QUESTIONS FOR THE SPECIFIED APPLICATION TO BE DISPLAYED FOR THE STUDENT TO ANSWER 
+//DISPLAYS THIS ON STUDENT_DYNAMIC_APPLICATION
+
 	require 'DMS_db.php';
 	
 
@@ -32,6 +35,8 @@
 	$stmt = $dbc->query("SELECT * FROM $name_of_table WHERE user_id='".$user_id."'" );
 	$student = $stmt->fetch();
 
+	//if student has already applied to this program, return them to the page to select a program along with error indicating
+	//that they have already applied to this program
 	if (count($student['user_id'])>0)
 	{
 		header("Location: STUDENT_select_program_apply.php?error=1");

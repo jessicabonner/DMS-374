@@ -1,4 +1,5 @@
 <?php
+//ALL FUNCTIONS THAT ARE USED ACROSS THE HR PAGES
 require 'DMS_db.php';
 
 
