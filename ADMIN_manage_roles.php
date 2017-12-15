@@ -23,6 +23,19 @@ require "admin_header.html";
 	}
 
 ?>
+
+								<!-- Header -->
+								<div class="w3-container" style="margin-top:40px" id="showcase">
+									<h1 class="w3-jumbo">
+										<b>Roles Table</b>
+									</h1>
+
+									<hr style="width:100%;border:5px solid #BF5700" align="left" class="w3-round">
+								</div>
+
+
+
+								<div class="w3-container" id="application" style="margin-top:10px"></div>
 					<body>
 						<form name="apply_form" action = "ADMIN_manage_roles_connect.php" method= "post">
 							<tr>
