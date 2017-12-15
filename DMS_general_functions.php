@@ -79,7 +79,7 @@
 	{	
 		require 'DMS_db.php';
 		
-		$sql="SELECT * FROM applications WHERE application_closed='0'";
+		$sql="SELECT * FROM applications WHERE application_closed='0' AND archived='FALSE' ";
 		$stmt=$dbc->prepare($sql);
 		$stmt->execute();
 		$applications= $stmt->fetchAll();
