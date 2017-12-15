@@ -28,9 +28,10 @@
 	{
 		require "DMS_db.php";
 		$select_application=$_POST['select_application'];
+		$new_doctor=strtolower($_POST['new_doctor']);
 		
 		//check if the new doctor's eid exists in the database
-		$stmt = $dbc->query("SELECT * FROM user WHERE user_id= '".$_POST['new_doctor']."'" );
+		$stmt = $dbc->query("SELECT * FROM user WHERE user_id= '".$new_doctor."'" );
 		$x = $stmt->fetch();
 		
 		//if the application already exists, redirect back to the ADMIN_create_application.php page along with an indication that there was an error
@@ -49,7 +50,7 @@
 		
 		if (get_doctor_list($select_application)==null)
 		{
-			$doctor_list="'".$_POST['new_doctor']."'";
+			$doctor_list="'".$new_doctor."'";
 			
 		}
 		else
@@ -57,7 +58,7 @@
 			
 			$doctor_list=implode(',', get_doctor_list($select_application));
 			
-			$doctor_list="'".$doctor_list.",".$_POST['new_doctor']."'";
+			$doctor_list="'".$doctor_list.",".$new_doctor."'";
 		}
 		
 		$sql="UPDATE applications SET user_permissions_eid_list= $doctor_list WHERE application_id= $select_application";
