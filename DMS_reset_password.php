@@ -1,23 +1,21 @@
 <?php
 //THIS I WHERE USER WILL RESET PASSWORD WHEN THEY HAVE FORGOTTEN IT. THIS LINK IS EMAILED TO STUDENT
 require 'DMS_general_functions.php';
+
 if($_GET['key'] && $_GET['reset'])
 {
 	require "DMS_db.php";
 	$email=$_GET['key'];
 	$pass=$_GET['reset'];
  
-	//$sql="SELECT student_info.email, user.password from student_info INNER JOIN user ON student_info.user_id = user.user_id WHERE md5(student_info.email)='".$email."' AND md5(user.password)='".$pass."'";
 	$sql="SELECT student_info.email, user.password from student_info INNER JOIN user ON student_info.user_id = user.user_id WHERE student_info.email ='".$email."' AND user.password ='".$pass."'";
 	$x=$dbc->prepare($sql);
 	$x->execute();
-	
-	//$x = $sql->fetch();
-	//$stmt->execute();
-	
-	  if (count($x)==1)
-	  {
-		    ?>
+
+
+ if (count($x)==1)		
+ {
+?>
 			
 			
 			
