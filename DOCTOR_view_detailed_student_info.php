@@ -245,7 +245,7 @@ else
 			<th>Semester Availability</th>
 
 
-			<td><input type='checkbox' name='availability_list[]' value='NA'<?php if (in_array('NA',$availability_array))echo 'checked="checked"'?>disabled<td><td>Unknown</td></td></tr>
+			<td><?php if (in_array('NA',$availability_array))echo 'Unknown'?></td></tr>
 			<tr class="blankrow">
 				</table>
 <br></br>
