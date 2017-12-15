@@ -1,4 +1,6 @@
 <?php
+//FORM TO ALLOW USER TO CREATE A NEW PROGRAM
+//INFO POSTED TO ADMIN_create_program_functionality TO ADD IT TO THE DATABASE
 	require 'DMS_general_functions.php';
 	$role_id_array=array("1");
 	require "DMS_authenticate.php";

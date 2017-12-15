@@ -1,10 +1,12 @@
 <?php
+//THIS IF THE FILE THAT PULLS THE INFORMATION ON ALL CURRENTLY OPEN PROGRAMS AND HOW MANY APPLICANTS EACH HAS IN ORDER TO BE DISPLAYED ON ADMIN_DASHBOARD
 
+	//function returns query to get all applications that are open
 	function get_application_info()
 	{
 		require 'DMS_db.php';
 
-		$sql = 'SELECT * FROM applications WHERE application_closed=0 ORDER BY application_id DESC';
+		$sql = 'SELECT * FROM applications WHERE application_closed=0 and archived="FALSE" ORDER BY application_id DESC';
 
 		$query= $dbc->query($sql);;
 		return $query;
