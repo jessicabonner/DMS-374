@@ -640,6 +640,20 @@ if ($_SESSION['role']=='2')
 		<?php endif ?>
 
 		</form>
+		
+		<script>
+		$("#accept_checkbox").click(function(){
+			if (this.checked) {
+				$('#accept_button').prop('disabled', false);
+			}
+			else{
+				$('#accept_button').prop('disabled', true);
+			}
+
+		});
+
+
+	</script>
 
 	</body>
 	</html>
