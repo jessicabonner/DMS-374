@@ -33,6 +33,10 @@ if (!$query) {
 
 <form action='ADMIN_delete_applications_functionality.php' method='post' onsubmit="return confirm('Are you sure you want to delete the selected tables? If you do, all applicant data will be lost and CANNOT be recovered');">
 	<!--<h1>Applications</h1>-->
+	<tr><td><br></td>
+	<td><input type='submit' value='Delete' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+	<td><b> **Note that clicking delete will PERMANENTLY delete the selected tables along with all applications </b></td>
+	<tr>
 	<table class="data-table">
 		<thead>
 			<tr>
@@ -92,12 +96,9 @@ if (!$query) {
 		</tbody>
 
 
-	
-	<tr><td><br></td>
-	<td><input type='submit' value='Delete' style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
-	<td><b> **Note that clicking delete will PERMANENTLY delete the selected tables along with all applications </b></td>
-	<tr>
 	</table>
+	
+	
 
 </form>
 </body>
