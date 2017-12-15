@@ -183,7 +183,7 @@
 				<td>UT EID</td>
 			</tr>
 			<tr>
-				<td><input type="text" name="username" size="20" maxlength="30" required/></td>
+				<td><input type="text" name="username" size="20" maxlength="30" required pattern = "^[a-zA-Z0-9]+$"></td>
 			</tr>
 
 
