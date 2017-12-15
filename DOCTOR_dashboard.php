@@ -605,11 +605,5 @@
 		<tr>
 
 	</form>
-
-	<?php endif; ?>
-
-
-	<?php if($_SESSION['role']=='1'): ?>
-	<?php endif; ?>
 </body>
 </html>
