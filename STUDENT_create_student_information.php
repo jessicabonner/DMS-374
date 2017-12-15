@@ -1,5 +1,5 @@
-<?php 
-require "DMS_general_functions.php"; 
+<?php
+require "DMS_general_functions.php";
 $role_id_array=array("5");
 require "DMS_authenticate.php";
 	require 'DOCTOR_functionality.php';
@@ -61,7 +61,7 @@ $user_id=$_SESSION['user_id'];
 </head>
 <?php
 
-	
+
 
 
 
@@ -72,7 +72,7 @@ $user_id=$_SESSION['user_id'];
 		echo '</script>';
 	}
 
-	
+
 
 
 
@@ -131,26 +131,6 @@ $user_id=$_SESSION['user_id'];
 		<div class="container container-nav container-nav-phase2">
         <div class="row">
         <div class="column small-12">
-        <nav>
-        <ul class="nav" id="main-nav" role="menu">
-        <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
-			<div class="sub-nav-wrapper">
-            </div>
-        </li>
-        <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_edit_profile_information.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
-          	</div>
-        </li>
-        <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_create_student_information.php" onclick="w3_close()" class="nav-link has-child nolink">New Application</a>                  <div class="sub-nav-wrapper">
-          	</div>
-        </li>
-		 <li class="nav-item" role="menuitem">
-        	<div class="sub-nav-wrapper">
-          	</div>
-        </li>
-
         <li class="nav-item" role="menuitem">
             </div>
             </div>

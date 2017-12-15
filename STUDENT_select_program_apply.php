@@ -1,5 +1,5 @@
-<?php 
-require "DMS_general_functions.php"; 
+<?php
+require "DMS_general_functions.php";
 $role_id_array=array("5");
 require "DMS_authenticate.php";
 ?>
@@ -52,7 +52,7 @@ require "DMS_authenticate.php";
 
 <?php
 
-	
+
 
 	//if an error is passed on redirect, display error message
 	if (isset($_GET['error']))
@@ -146,9 +146,7 @@ require "DMS_authenticate.php";
         <nav>
         <ul class="nav" id="main-nav" role="menu">
         <li class="nav-item" role="menuitem">
-        	<a href="STUDENT_dashboard.php" onclick="w3_close()" class="nav-link has-child nolink">Home</a>
-			<div class="sub-nav-wrapper">
-            </div>
+        	<a href="STUDENT_dashboard.php" onclick="w3_close()" class="nav-link">Home</a>
         </li>
         <li class="nav-item" role="menuitem">
         	<a href="STUDENT_edit_profile_information.php" onclick="w3_close()" class="nav-link has-child nolink">Edit Profile</a>                  <div class="sub-nav-wrapper">
