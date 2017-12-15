@@ -63,7 +63,7 @@ else
 
 
 ?>
-<form action='DOCTOR_update_review.php' method='POST'>
+
 	<!--<table width=100% table style>-->
 	<table class='data-table2'>
 
@@ -436,6 +436,7 @@ else
 	<tr>
 		<td><br></td>
 	</tr>
+
 <table class="data-table2">
 <!--<table class='data-table'>-->
 		<?php
@@ -465,9 +466,11 @@ else
 
 		$stmt = $dbc->query("SELECT * FROM review WHERE user_id='".$student_id."' AND application_id=$application_id;");
        	$x = $stmt->fetch();
-
+	
 if ($_SESSION['role']=='2')
 {
+	echo "<form action='DOCTOR_update_review.php' method='POST'>";
+
 	echo "<th>Review</th>";
 
 		if ($x['competitive']=="2") //if competitive = 2 (Competitive) in the db, show the correct selected value
@@ -536,41 +539,6 @@ if ($_SESSION['role']=='2')
 			}
 
 
-
-}
-
-		while ($number_unique_questions>0)
-		{
-			$number_unique_questions-=1;
-			$question=question_unique_question($application_id, $number_unique_questions);
-			$answer=answer_unique_question($number_unique_questions, $application_id, $student_id);
-
-			echo "
-				<tr><td><br></td>
-				<tr><td><br></td>
-				<tr><td><br></td>
-				<tr><td><br></td>
-				<tr><td><br></td>
-				<tr><td><br></td>
-				<tr>
-				<tr><th>Application Questions:</th></tr>";
-			echo "
-				<tr><td><br></td>
-				<tr><td><br></td>
-				<tr>
-			<th>".$question."</th>
-			<td>".$answer."</td>
-
-
-			<td><br></td></tr>
-			<td><br></td></tr>";
-
-			echo "</tr>";
-
-
-		}
-if ($_SESSION['role']=='2')
-{
 		$accepted_by_dms = $x['accepted_by_dms'];
 
 
@@ -606,6 +574,7 @@ if ($_SESSION['role']=='2')
 
 	if ($_SESSION['role']=='4')
 	{
+		echo "<form action='DOCTOR_update_review.php' method='POST'>";
 		echo "
 			<tr>
 			<th>Approved?</th>";
@@ -628,18 +597,20 @@ if ($_SESSION['role']=='2')
 </table>
 	<tr><td><br></td>
 	<?php if ($_SESSION['role']=='2'): ?>
-		<td><input type='submit' name= "accept" id="accept_button" value= 'Accept' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
+		<td><input type='submit' name= "submit" id="accept_button" value= 'Accept' onclick="return confirm('Are you sure you want to change the Acceptance Status of this student?')" style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;" disabled='disabled'></td>
 	<?php endif ?>
 
-		<td><input type='submit' name= "update" value='  Save Changes  ' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
+		<td><input type='submit' name= "submit" value='Save' onclick="return confirm('Are you sure you want to SAVE changes?')"style="background-color:#bf5700;color:white;text-shadow: #000 0px 0px 1px;"></td>
 	<tr>
+	</form>
 		<tr><td><br></td>
 		<tr><td><br></td>
 		<tr><td><br></td>
+		
 
 		<?php endif ?>
 
-		</form>
+
 		
 		<script>
 		$("#accept_checkbox").click(function(){

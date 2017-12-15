@@ -34,8 +34,8 @@ require 'DMS_db.php';
 if ($_SESSION['role']==2)
 {
 	//if user clicked submit button named accept to accept a student
-	//if(isset($_POST['accept']))
-	//{
+	if($_POST['submit']=="Accept")
+	{
 
 	
 		
@@ -47,9 +47,9 @@ if ($_SESSION['role']==2)
 			$sql = "UPDATE review SET accepted_by_dms = 1 , application_accept_date= '".$current_date."'  WHERE user_id = '".$student_id."' AND application_id= '".$application_id."'";
 			//$stmt=$dbc->prepare($sql);
 			//$stmt->execute();
-			echo $sql;
 			
-	}
+			
+	
 			
 			/*
 			//If the doctor accepts a student, this will send an email notification to the student
@@ -125,15 +125,9 @@ if ($_SESSION['role']==2)
 		
 			//$stmt=$dbc->prepare($sql);
 			//$stmt->execute();
-	//}
-
-	
-		
-
-	
-	/*
+	}
 	//if user clicked submit button named update to save the review field
-	if(isset($_POST['update']))
+	elseif($_POST['submit']=="Save")
 		{
 			
 			$new_review = $_POST['new_review'];
@@ -202,7 +196,7 @@ elseif ($_SESSION['role']==4)
 					
 					
 			}
-			elseif( ($_POST['approved'])== null)
+			elseif(($_POST['approved'])== null)
 			{
 					
 					$sql = "UPDATE review SET approved=NULL WHERE user_id= '".$student_id."' AND application_id='".$_POST['application_id']."'";
@@ -224,9 +218,9 @@ elseif ($_SESSION['role']==4)
 	//if the statement doesn't fail, redirect back to dms_viewapp and pass student_id in the url
 	//else
 	//{
-		//header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$application_id.'');
+		header('Location: DOCTOR_view_detailed_student_info.php?id='.$student_id.'&selected_application='.$application_id.'');
 		//die();
 	//}
-	*/
+	
 
 ?>
