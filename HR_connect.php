@@ -1,5 +1,8 @@
 <?php
 
+$role_id_array=array("3","1");
+require "DMS_authenticate.php";
+
 	require "DMS_general_functions.php";
 	//link to file containing database connection string
 	require 'DMS_db.php';

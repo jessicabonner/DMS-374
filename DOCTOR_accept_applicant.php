@@ -2,6 +2,8 @@
 //THIS FILE TAKES INPUT AS THE ID OF STUDENTS INDICATED TO BE ACCEPTED AND CHANGES 
 //THEIR STATUS TO ACCEPTED
 require 'DMS_general_functions.php';
+$role_id_array=array("2","4");
+	require "DMS_authenticate.php";
 require 'DMS_db.php';
 
 
